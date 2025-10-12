@@ -9,6 +9,7 @@
 *.o
 *.ko
 *.obj
+
 *.elf
 
 # Linker output
@@ -471,3 +472,4 @@ manim.cfg
 
 #Other
 .directory
+test.py
