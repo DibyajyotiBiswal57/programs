@@ -75,11 +75,11 @@ LANGUAGE
 63. Reverse a number using a while loop.
 64. Use pass in a while loop where nothing should happen when i == 2.
 65. Write a program to print all numbers from 1 to 50 that are divisible by both 3 and
-66. Write a program to find the grade based on marks using if-elif-else:
-    ● 90-100: A
-    ● 75-89: B
-    ● 50-74: C
-    ● <50: Fail
+66. Write a program to find the grade based on marks using if-elif-else:  
+    ● 90-100: A  
+    ● 75-89: B    
+    ● 50-74: C  
+    ● <50: Fail  
 67. Write a Python program to print all even numbers from 1 to 100 using a while loop.
 68. Write a program to calculate the factorial of a number using a while loop.
 69. Create a menu-driven program:
