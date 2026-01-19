@@ -4,7 +4,7 @@ h = 0
 r = 0
 a = float(input("Enter a number: "))
 b = float(input("Enter a number: "))
-boolean = boolean = input("Enter 'True' or 'False': ").strip().lower() == "true"
+boolean = input("Enter 'True' or 'False': ").strip().lower() == "true"
 if boolean == True:
     print (f"Area of rectangle is {a * b}")
     print (f"Perimeter of rectangle is {2*(a + b)}")
