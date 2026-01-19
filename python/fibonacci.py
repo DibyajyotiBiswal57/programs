@@ -1,4 +1,4 @@
-# Fibonacci series up to n terms
+#Q79
 
 def fibonacci(n):
     a, b = 0, 1
@@ -6,5 +6,4 @@ def fibonacci(n):
         print(a, end=" ")
         a, b = b, a + b
 
-# Example: print first 10 Fibonacci numbers
 fibonacci(10)
