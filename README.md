@@ -21,15 +21,16 @@
 19. Accept any number and check if it is even or odd.  
 20. Accept any number and print whether the number is a prime number or not.  
 21. Read a name and display in a triangular pattern.  
-    ```
-    For example-  
-    L  
-    LA  
-    LAN  
-    LANGU  
-    LANGUA  
-    LANGUAG  
-    LANGUAGE  ```
+```
+For example-  
+L  
+LA  
+LAN  
+LANGU  
+LANGUA  
+LANGUAG  
+LANGUAGE
+```
 22. Print "Hello World".  
 23. Find the sum, difference, product of any 2 numbers.  
 24. Swap 2 numbers without using a third variable.  
@@ -97,7 +98,6 @@
     1
 ```
 74. Write a program to accept the number of rows and print the following:
-75. 
    ```
     Eg. (No of rows: 5)  
     11111  
@@ -106,6 +106,8 @@
     11  
     1
 ```
+75. Write a program to check whether a number is a spy number. (sum of digits = product of digits).
+```Eg- 22 -> 2*2 = 2+2 ```
 76. Write a program to accept the number of rows and print the following:  
    ```
     Eg. (No of rows: 5)  
@@ -116,7 +118,7 @@
     1
 ```
 77. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  
-```Eg - 153 -> 1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup> = 153```
+```Eg - 153 -> ```1<sup>3</sup>``` + ```5<sup>3</sup>``` + ```3<sup>3</sup>``` = 153```
 78. Write a program to accept the number of rows and print the following pattern:  
    ```
     Eg. (No of rows: 3)  
@@ -130,7 +132,6 @@
 82. Write a program to calculate a program using return.
 83. Write a program to check whether a number is a magic number. (sum of digits repeatedly checked turns to 1).  
 ```Eg. 10 -> 1+0=1```
-84. 
 
 
 # Status
@@ -217,8 +218,14 @@
 |78.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
 |79.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
 |80.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
+|81.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
+|82.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
+|83.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
+|84.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
 
-`Legend- `
-`✅ - Finished `
-`❗️- Beta(released)`
-`❌ - Beta(unfinished)`
+```
+Legend- 
+✅ - Finished 
+❗️- Beta(released)
+❌ - Beta(unfinished)
+```
