@@ -224,6 +224,13 @@ LANGUAGE
 |83.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
 |84.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
 
+Programs - 
+C - https://github.com/DibyajyotiBiswal57/programs/tree/main/c
+C++ - https://github.com/DibyajyotiBiswal57/programs/tree/main/cpp
+C# - https://github.com/DibyajyotiBiswal57/programs/tree/main/csharp
+Java - https://github.com/DibyajyotiBiswal57/programs/tree/main/java
+Python - https://github.com/DibyajyotiBiswal57/programs/tree/main/python
+QBasic - https://github.com/DibyajyotiBiswal57/programs/tree/main/qbasic
 ```
 Legend- 
 ✅ - Finished 
