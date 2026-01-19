@@ -131,7 +131,7 @@ LANGUAGE
 81. Write a program to check whether a character is uppercase or lowercase.
 82. Write a program to calculate a program using return.
 83. Write a program to check whether a number is a magic number. (sum of digits repeatedly checked turns to 1).  
-```Eg. 10 -> 1+0=1```
+```Eg. 73 -> 7+3=10 -> 1+0=1```
 84. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.
 
 
