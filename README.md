@@ -65,7 +65,7 @@ LANGUAGE
 53. Input the total liabilities and shareholders’ equity of a company and print its D/E ratio.
 54. Print numbers from 1 to 10 using a while loop.
 55. Print even numbers between 1 and 20.
-56. Use a while loop to find the sum of the first 5 natural numbers.
+56. Use a while loop to find the sum of the first n(n input from user) natural numbers.
 57. Print numbers from 1 to 10, but skip 5 using continue.
 58. Take input from the user repeatedly until they type "exit".
 59. Print numbers from 1 to 10, but stop when number is 7 using break.

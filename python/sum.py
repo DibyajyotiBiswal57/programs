@@ -1,8 +1,8 @@
 #Q56
-num = 1
+num = int(input("Enter a number: "))
 sum = 0
 
-while num <= 5:
+while num <= n:
     sum += num
     num += 1
 
