@@ -38,7 +38,7 @@
     28.Write a calculator.
     29.Check if a number is divisible by 7 or 3.
     30.Check if the number has 1, 2 or more digits.
-    31.Check a three-digit number is a palindrome or not.
+    31.Check if a number is a palindrome or not.
     32.Check if an entered year is a leap year or not.
     33.Check if a number is neon number or not. (A neon number is a number that is either divisible by 9 or ends with 9.)
     34.Write a guessing game.
@@ -152,7 +152,7 @@
 |28.|N/A| ❌ | ✅ | ❌ | ❌ | ❌ |
 |29.|N/A| ✅ | ✅ | ❌ | ❌ | ❌ |
 |30.|N/A| ✅ | ✅ | ❌ | ❌ | ❌ |
-|31.|N/A| ✅ | ✅ | ❌ | ❌ | ❌ |
+|31.|N/A| ❗️ | ❗️ | ❌ | ❌ | ❌ |
 |32.|N/A| ✅ | ✅ | ❌ | ❌ | ❌ |
 |33.|N/A| ✅ | ✅ | ❌ | ❌ | ❌ |
 |34.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
