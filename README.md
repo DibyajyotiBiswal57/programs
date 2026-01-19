@@ -1,15 +1,15 @@
 # List of all the topics I make programs on-
 
-    1.Calculate the sum of three numeric values.  
-    2.Find the average of four subject marks.  
-    3.Read two numbers and swap them using a third temporary variable.
-    4.Find the area of rectangle, square, triangle, parallelogram, rhombus, trapezium and circle.
-    5.Find the volume of sphere, cylinder, cone, cube and cuboid.
-    6.Find simple interest and amount for entered principle, rate, and time.
-    7.Display whether a number is positive or negative.
-    8.Accept two unequal numbers and display the greater of the two numbers. 
-    9.Accept two numbers and if two numbers are equal then find the sum otherwise, their product.
-    10.Check whether two angles are complementary, supplementary or neither.
+1.Calculate the sum of three numeric values.  
+2.Find the average of four subject marks.
+3.Read two numbers and swap them using a third temporary variable.
+4.Find the area of rectangle, square, triangle, parallelogram, rhombus, trapezium and circle.
+5.Find the volume of sphere, cylinder, cone, cube and cuboid.
+6.Find simple interest and amount for entered principle, rate, and time.
+7.Display whether a number is positive or negative.
+8.Accept two unequal numbers and display the greater of the two numbers. 
+9.Accept two numbers and if two numbers are equal then find the sum otherwise, their product.
+10.Check whether two angles are complementary, supplementary or neither.
     11.Calculate the profit and profit percent or the loss and the loss percent on the given cost and selling prices.
     12.Print the natural numbers from 1 to (user defined number).
     13.Print even numbers from 0 to (user defined number).
@@ -47,16 +47,16 @@
     37.Read two numbers and display the smaller of the two.
     38.Read a number and a character. If the character is ‘S’ display the square of the number. If the character is ‘C’ then display the cube of the number.
     39.Read two numbers. If both numbers are even then display their sum else display their product.
-    40.Read a character and check if the character is a vowel or a consonant.
-    41.Read two numbers and a Boolean value. For Boolean true display the area and perimeter of a rectangle assuming the two numbers are the length and width. For a Boolean false calculate and display the surface area and volume of a cylinder assuming the parameters as height and radius of the cylinder.
-    42.Read two numbers and a character. If the character is ‘a’ check if the numbers are equal. If the character is ‘M’ check if the first number is divisible by 9. Otherwise find the product.
-    43.Check if a string is a palindrome or not.
-    44.Count the number of vowels in a string.
-    45.Read a line, then count words and display the total number of words in the given line.
-    46.Convert temperature from celsius to fahrenheit.
-    47.Convert dollars to rupee with current conveersion rate (take from internet).
-    48.Check if a character is uppercase or lowercase.
-    49.Add odd numbers upto a given value.
+    40. Read a character and check if the character is a vowel or a consonant.
+    41. Read two numbers and a Boolean value. For Boolean true display the area and perimeter of a rectangle assuming the two numbers are the length and width. For a Boolean false calculate and display the surface area and volume of a cylinder assuming the parameters as height and radius of the cylinder.
+    42. Read two numbers and a character. If the character is ‘a’ check if the numbers are equal. If the character is ‘M’ check if the first number is divisible by 9. Otherwise find the product.
+    43. Check if a string is a palindrome or not.
+    44. Count the number of vowels in a string.
+    45. Read a line, then count words and display the total number of words in the given line.
+    46. Convert temperature from celsius to fahrenheit.
+    47. Convert dollars to rupee with current conversion rate (take from internet).
+    48. Check if a character is uppercase or lowercase.
+    49. Add odd numbers upto a given value.
     50. Calculate the BMI(Body Mass Index) of a person.
     51. Input a value in kilometres and convert it into miles.
     52. Input 3 numbers and swap them as this : 1st number becomes 2nd number and 2nd number becomes the 3rd number and 3rd number becomes the 1st number.
@@ -107,7 +107,6 @@
     321
     21
     1
-    75. Write a program to check whether a number is an Armstrong number.
     76. Write a program to accept the number of rows and print the following pattern:
     Eg. (No of rows: 3)
     6666
@@ -117,6 +116,10 @@
     78. Write a program to add odd and even numbers until a number inputted by the user.
     79. Write a program to check whether a character is uppercase or lowercase.
     80. Write a program to calculate a program using return.
+    8. Write a program to check whether a number is a magic number. (sum of digits repeatedly checked turns to 1)
+    Eg. 10 -> 1+0=1
+    81. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number)
+Eg - 153 -> 1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup> = 153
 
 # Status
 
@@ -154,7 +157,7 @@
 |30.|N/A| ✅ | ✅ | ❌ | ❌ | ❌ |
 |31.|N/A| ❗️ | ❗️ | ❌ | ❌ | ❌ |
 |32.|N/A| ✅ | ✅ | ❌ | ❌ | ❌ |
-|33.|N/A| ✅ | ✅ | ❌ | ❌ | ❌ |
+|33.|N/A| ❗️ | ❗️ | ❌ | ❌ | ❌ |
 |34.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
 |35.|N/A| ✅ | ✅ | ❌ | ❌ | ❌ |
 |36.|N/A| ✅ | ✅ | ❌ | ❌ | ❌ |
@@ -202,3 +205,8 @@
 |78.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
 |79.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
 |80.|N/A| ❌ | ❌ | ❌ | ❌ | ❌ |
+
+`Legend- `
+`✅ - Finished `
+`❗️- Beta(released)`
+`❌ - Beta(unfinished)`
