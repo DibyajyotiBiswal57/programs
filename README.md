@@ -133,7 +133,28 @@ LANGUAGE
 83. Write a program to check whether a number is a magic number. (sum of digits repeatedly checked turns to 1).  
 ```Eg. 73 -> 7+3=10 -> 1+0=1```
 84. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.
-
+85. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.
+86. Write a script to input three numbers and find whether they form the three sides of a triangle.
+87. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.
+88. Write a program in Python to Find HCF and LCM of Two Numbers.
+89. Print the following zig-zag number pattern for n =(user inputted number):
+```
+Eg - n = 4
+1
+2 3
+4 5 6
+7 8 9 10
+```
+90. Write a Python program to:
+1. Take input n (number of terms), a (first term), and d (common difference).
+2. Print the first n terms of the arithmetic series.
+3. Calculate and print the sum of the series.
+```
+Example:
+Input: n=5, a=2, d=3
+Output: 2 5 8 11 14
+Sum: 40
+```
 
 # Status
 
