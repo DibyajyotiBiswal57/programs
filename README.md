@@ -137,8 +137,8 @@ LANGUAGE
 
 # Status
 
-| Questions | QBasic <br> (discontinued) | Java <br> (paused) | Python | C <br> (planned) | C++ <br> (planned) | C# <br> (planned) |
-|---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Questions | QBasic <br> (discontinued) | Java <br> (paused) | Python | C <br> (planned) | C++ <br> (planned) | C# <br> (planned) | Haskell <br> (planned) | Perl <br> (planned) | Go <br> (planned) | Rust <br> (planned) | 
+|---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |01. | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
 |02. | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
 |03. | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
@@ -228,8 +228,12 @@ Programs -
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/c"> C </a>  
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/cpp"> C++ </a>  
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/csharp"> C# </a>  
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/go"> Go </a>  
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/java"> Java </a>  
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/haskell"> Haskell </a>  
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/perl"> Perl </a>  
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/python"> Python </a>  
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/rust"> Rust </a>  
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/qbasic"> QBasic </a>  
 ```
 Legend- 
