@@ -1,4 +1,4 @@
-#Q65
+#Q63
 i = 0
 num = int(input("Enter a number: "))
 while i < num:
