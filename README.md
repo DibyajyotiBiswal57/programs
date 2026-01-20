@@ -143,10 +143,10 @@ Eg - n = 4
 4 5 6
 7 8 9 10
 ```
-87. Write a program to:
-1. Take input n (number of terms), a (first term), and d (common difference).
-2. Print the first n terms of the arithmetic series.
-3. Calculate and print the sum of the series.
+87. Write a program to:  
+- Take input n (number of terms), a (first term), and d (common difference).
+- Print the first n terms of the arithmetic series.
+-  Calculate and print the sum of the series.
 ```
 Example:
 Input: n=5, a=2, d=3
