@@ -18,13 +18,13 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Generate status table
+      - name: Generate status table and rename files
         run: python generate_status.py
 
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "Update status table in README"
+          git add .
+          git commit -m "Auto-update status table and rename files to 4-digit format"
           git push
