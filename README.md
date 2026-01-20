@@ -41,7 +41,8 @@ LANGUAGE
 29. Check if the number has 1, 2 or more digits.  
 30. Check if a number is a palindrome or not.  
 31. Check if an entered year is a leap year or not.  
-32. Check if a number is neon number or not. (A neon number is a number that is either divisible by 9 or ends with 9.)  
+32. Check if a number is neon number or not. (The sum of the digits of its square equals the original number itself.)
+```Eg - 9```<sup>2</sup> ```-> 81 -> 8+1=9```
 33. Write a guessing game.  
 34. Calculate a 10% discount if the amount is above 10000 else a discount of 7.5%. Display the discount received and the final billing amount to be paid.  
 35. Read three numbers and display the largest of the three numbers.  
@@ -74,10 +75,10 @@ LANGUAGE
 62. Use pass in a while loop where nothing should happen when i == 2.
 63. Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.
 64. Find the grade based on marks using if-elif-else:  
-    ● 90-100: A  
-    ● 75-89: B    
-    ● 50-74: C  
-    ● <50: Fail  
+- 90-100: A  
+- 75-89: B    
+- 50-74: C  
+- <50: Fail  
 65. Print all odd numbers from 1 to (user defined number)
 66. Calculate the factorial of a number using a while loop.
 67. Create a menu-driven program:
