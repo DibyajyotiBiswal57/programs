@@ -328,14 +328,14 @@ Sum: 40
 
 
 Programs -   
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/c"> C </a>  
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/cpp"> C++ </a>  
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/csharp"> C# </a>  
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/go"> Go </a>  
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/java"> Java </a>  
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/haskell"> Haskell </a>  
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/perl"> Perl </a>  
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/python"> Python </a>  
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/rust"> Rust </a>  
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/qbasic"> QBasic </a>  
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/c"> [C] </a>
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/cpp"> [C++] </a>
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/csharp"> [C#] </a>
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/go"> [Go] </a>
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/java"> [Java] </a>
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/haskell"> [Haskell] </a>
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/perl"> [Perl] </a>
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/python"> [Python] </a>
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/rust"> [Rust] </a>
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/qbasic"> [QBasic] </a>
 
