@@ -1,4 +1,4 @@
-#Q26
+#Q25
 print("This program checks if a person is eligible to vote.")
 age = int(input("Enter your age: "))
 if age >= 18:
