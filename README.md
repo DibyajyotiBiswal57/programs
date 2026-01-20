@@ -336,9 +336,4 @@ Programs -
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/python"> Python </a>  
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/rust"> Rust </a>  
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/qbasic"> QBasic </a>  
-```
-Legend- 
-✅ - Finished 
-❗️- Beta(released)
-❌ - Beta(unfinished)
-```
+
