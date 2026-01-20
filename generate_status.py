@@ -57,7 +57,7 @@ with open("README.md", "r") as f:
 start_marker = "<!-- STATUS_TABLE_START -->"
 end_marker = "<!-- STATUS_TABLE_END -->"
 
-new_table = f"{start_marker}\n\n# 📘 Program Status Table\n\n{table}\n\n{legend}\n{end_marker}"
+new_table = f"{start_marker}\n\n# 📘 Status \n\n{table}\n\n{legend}\n{end_marker}"
 
 if start_marker in content and end_marker in content:
     updated = content.split(start_marker)[0] + new_table + content.split(end_marker)[1]
