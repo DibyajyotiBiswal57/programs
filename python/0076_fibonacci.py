@@ -1,9 +1,6 @@
 #Q76
-
-def fibonacci(n):
-    a, b = 0, 1
-    for _ in range(n):
-        print(a, end=" ")
-        a, b = b, a + b
-
-fibonacci(10)
+num = int(input("Enter a number: "))
+a, b = 0, 1
+for i in range(num):
+    print(a, end=" ")
+    a, b = b, a + b
