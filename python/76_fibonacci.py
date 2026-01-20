@@ -1,4 +1,4 @@
-#Q79
+#Q76
 
 def fibonacci(n):
     a, b = 0, 1
