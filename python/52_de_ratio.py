@@ -1,4 +1,4 @@
-#Q53
+#Q52
 # Input total liabilities and shareholders' equity
 total_liabilities = float(input("Enter the total liabilities: "))
 shareholders_equity = float(input("Enter the total shareholders' equity: "))
