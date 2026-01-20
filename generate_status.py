@@ -1,7 +1,7 @@
 import os
 
 languages = ["qbasic", "java", "python", "c", "cpp", "csharp", "haskell", "perl", "go", "rust"]
-num_problems = 90
+num_problems = 150
 
 status = {lang: {} for lang in languages}
 
