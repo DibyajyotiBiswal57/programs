@@ -1,4 +1,4 @@
-#Q45
+#Q44
 
 str = input("Enter a string: ")
 list1 = str.split()
