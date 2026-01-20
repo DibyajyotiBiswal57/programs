@@ -1,4 +1,4 @@
-#Q48
+#Q47
 
 str = input("Enter a character: ")
 if len(str) > 1:
