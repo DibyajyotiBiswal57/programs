@@ -256,7 +256,7 @@ Sum: 40
 |90.|N/A | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 <!-- STATUS_TABLE_START -->
 
-# 📘 Program Status Table
+# 📘 Status 
 
 | #    | qbasic | java | python | c | cpp | csharp | haskell | perl | go | rust |
 |------|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
