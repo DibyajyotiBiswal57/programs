@@ -64,31 +64,30 @@ LANGUAGE
 52. Input 3 numbers and swap them as this : 1st number becomes 2nd number and 2nd number becomes the 3rd number and 3rd number becomes the 1st number.
 53. Input the total liabilities and shareholders’ equity of a company and print its D/E ratio.
 54. Print numbers from 1 to 10 using a while loop.
-55. Print even numbers between 1 and 20.
-56. Use a while loop to find the sum of the first n(n input from user) natural numbers.
-57. Print numbers from 1 to 10, but skip 5 using continue.
-58. Take input from the user repeatedly until they type "exit".
-59. Print numbers from 1 to 10, but stop when number is 7 using break.
-60. Check if a number is prime using a while loop.
-61. Create a simple menu (looped) that exits when the user selects “Quit”.
-62. Count the number of digits in a number using while.
-63. Reverse a number using a while loop.
-64. Use pass in a while loop where nothing should happen when i == 2.
-65. Write a program to print all numbers from 1 to 50 that are divisible by both 3 and 7.
-66. Write a program to find the grade based on marks using if-elif-else:  
+55. Use a while loop to find the sum of the first n(n input from user) natural numbers.
+56. Print numbers from 1 to 10, but skip 5 using continue.
+57. Take input from the user repeatedly until they type "exit".
+58. Print numbers from 1 to 10, but stop when number is 7 using break.
+59. Check if a number is prime using a while loop.
+60. Create a simple menu (looped) that exits when the user selects “Quit”.
+61. Count the number of digits in a number using while.
+62. Reverse a number using a while loop.
+63. Use pass in a while loop where nothing should happen when i == 2.
+64. Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.
+65. Find the grade based on marks using if-elif-else:  
     ● 90-100: A  
     ● 75-89: B    
     ● 50-74: C  
     ● <50: Fail  
-67. Write a Python program to print all even numbers from 1 to 100 using a while loop.
-68. Write a program to calculate the factorial of a number using a while loop.
-69. Create a menu-driven program:
+66. Print all odd numbers from 1 to (user defined number)
+67. Calculate the factorial of a number using a while loop.
+68. Create a menu-driven program:
     Find Square
     Find Cube
     Exit
-70. Write a program to start a countdown from the number inputted by the user.
-71. Write a program calculating exponentials using a for loop.
-72. Write a program to accept the number of rows and print the following:  
+69. Write a program to start a countdown from the number inputted by the user.
+70. Write a program calculating exponentials using a for loop.
+71. Write a program to accept the number of rows and print the following:  
    ```
     Eg. (No of rows: 5)
     12345
@@ -97,7 +96,7 @@ LANGUAGE
     12
     1
 ```
-74. Write a program to accept the number of rows and print the following:
+72. Write a program to accept the number of rows and print the following:
    ```
     Eg. (No of rows: 5)  
     11111  
@@ -106,9 +105,9 @@ LANGUAGE
     11  
     1
 ```
-75. Write a program to check whether a number is a spy number. (sum of digits = product of digits).
+73. Write a program to check whether a number is a spy number. (sum of digits = product of digits).
 ```Eg- 22 -> 2*2 = 2+2 ```
-76. Write a program to accept the number of rows and print the following:  
+74. Write a program to accept the number of rows and print the following:  
    ```
     Eg. (No of rows: 5)  
     54321  
@@ -117,27 +116,27 @@ LANGUAGE
     21  
     1
 ```
-77. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  
+75. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  
 ```Eg - 153 -> ```1<sup>3</sup>``` + ```5<sup>3</sup>``` + ```3<sup>3</sup>``` = 153```
-78. Write a program to accept the number of rows and print the following pattern:  
+76. Write a program to accept the number of rows and print the following pattern:  
    ```
     Eg. (No of rows: 3)  
     6666  
     6666  
     6666
 ```
-79. Write a program to print the Fibonacci sequence until the term specified by the user.
-80. Write a program to add odd and even numbers until a number inputted by the user.
-81. Write a program to check whether a character is uppercase or lowercase.
-82. Write a program to calculate a program using return.
-83. Write a program to check whether a number is a magic number. (sum of digits repeatedly checked turns to 1).  
+77. Write a program to print the Fibonacci sequence until the term specified by the user.
+78. Write a program to add odd and even numbers until a number inputted by the user.
+79. Write a program to check whether a character is uppercase or lowercase.
+80. Write a program to calculate a program using return.
+81. Write a program to check whether a number is a magic number. (sum of digits repeatedly checked turns to 1).  
 ```Eg. 73 -> 7+3=10 -> 1+0=1```
-84. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.
-85. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.
-86. Write a script to input three numbers and find whether they form the three sides of a triangle.
-87. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.
-88. Write a program in Python to Find HCF and LCM of Two Numbers.
-89. Print the following zig-zag number pattern for n =(user inputted number):
+82. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.
+83. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.
+84. Write a script to input three numbers and find whether they form the three sides of a triangle.
+85. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.
+86. Find HCF and LCM of Two Numbers.
+87. Print the following zig-zag number pattern for n =(user inputted number):
 ```
 Eg - n = 4
 1
@@ -145,7 +144,7 @@ Eg - n = 4
 4 5 6
 7 8 9 10
 ```
-90. Write a Python program to:
+88. Write a program to:
 1. Take input n (number of terms), a (first term), and d (common difference).
 2. Print the first n terms of the arithmetic series.
 3. Calculate and print the sum of the series.
@@ -222,10 +221,10 @@ Sum: 40
 |60.|N/A | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 |61.|N/A | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 |62.|N/A | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-|63.|N/A | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-|64.|N/A | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-|65.|N/A | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-|66.|N/A | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+|63.|N/A | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+|64.|N/A | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+|65.|N/A | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+|66.|N/A | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 |67.|N/A | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 |68.|N/A | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 |69.|N/A | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
