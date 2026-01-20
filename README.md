@@ -158,7 +158,7 @@ Sum: 40
 (A perfect number is equal to the sum of its proper divisors.)  
 ```Eg: 28 → 1+2+4+7+14 = 28```
 
-90. Write a program to check whether a number is an automorphic number.
+89. Write a program to check whether a number is an automorphic number.
 (An automorphic number’s square ends with the number itself.)  
 ```Eg: 25 → 25² = 625 ends with 25```
 
