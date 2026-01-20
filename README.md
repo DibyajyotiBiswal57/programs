@@ -254,6 +254,9 @@ Sum: 40
 |88.|N/A | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 |89.|N/A | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 |90.|N/A | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+<!-- STATUS_TABLE_START -->
+<!-- STATUS_TABLE_END -->
+
 
 Programs -   
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/c"> C </a>  
