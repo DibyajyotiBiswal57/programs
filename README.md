@@ -1,27 +1,28 @@
 # List of all the topics I make programs on-
 
-> Note - This section is under comstruction. The question numbers and status do not match with the code.
+> Note - This section is under construction. The question numbers and status do not match with the code.
 
-1. Calculate the sum of three numeric values.  
-2. Find the average of four subject marks.  
-3. Read two numbers and swap them using a third temporary variable.  
+1. Print "Hello World".  
+1. Calculate the sum of 3 numbers.  
+2. Find the average of 4 subject marks.  
+3. Read 2 numbers and swap them using a third temporary variable.  
 4. Find the area of rectangle, square, triangle, parallelogram, rhombus, trapezium and circle and volume of sphere, cylinder, cone, cube and cuboid.  
-5. Find simple interest and amount for entered principle, rate, and time.  
-6. Display whether a number is positive or negative.  
-7. Accept two unequal numbers and display the greater of the two numbers.  
-8. Accept two numbers and if two numbers are equal then find the sum otherwise, their product.  
-9. Check whether two angles are complementary, supplementary or neither.  
-10. Calculate the profit and profit percent or the loss and the loss percent on the given cost and selling prices.  
-11. Print the natural numbers from 1 to (user defined number).  
-12. Print even numbers from 0 to (user defined number).  
-13. Print numbers from (user defined number) to 1 in descending order.  
-14. Print multiplication table up to 12 of given number.  
-15. Accept a 3-digit number and print the sum of the first and second number and the product of first and last number.  
-16. Print a 3 digit number in the reverse order.  
-17. Accept any range of m and n and print all the odd numbers between them.  
-18. Accept any number and check if it is even or odd.  
-19. Accept any number and print whether the number is a prime number or not.  
-20. Read a name and display in a triangular pattern.  
+5. Find simple interest or compound interest and amount.
+7. Display whether a number is positive or negative.  
+8. Accept two unequal numbers and display the greater of the two numbers.  
+9. Accept two numbers and if two numbers are equal then find the sum otherwise, their product.  
+10. Check whether two angles are complementary, supplementary or neither.  
+11. Calculate the profit and profit percent or the loss and the loss percent on the given cost and selling prices.  
+12. Print the natural numbers from 1 to (user defined number).  
+13. Print even numbers from 0 to (user defined number).  
+14. Print numbers from (user defined number) to 1 in descending order.  
+15. Print multiplication table up to 12 of given number.  
+16. Accept a 3-digit number and print the sum of the first and second number and the product of first and last number.  
+17. Print a 3 digit number in the reverse order.  
+18. Accept any range of m and n and print all the odd numbers between them.  
+19. Accept any number and check if it is even or odd.  
+20. Accept any number and print whether the number is a prime number or not.  
+21. Read a name and display in a triangular pattern.  
 ```
 For example-  
 L  
@@ -32,7 +33,6 @@ LANGUA
 LANGUAG  
 LANGUAGE
 ```
-21. Print "Hello World".  
 22. Find the sum, difference, product of any 2 numbers.  
 23. Swap 2 numbers without using a third variable.  
 24. Find the perimeter of a square, rectangle, triangle, circle, parallelogram, trapezium.  
