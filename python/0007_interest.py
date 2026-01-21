@@ -13,7 +13,7 @@ if choice == 1:
   amt = si + p
   print(f"The simple interest on {p} for {t} years at {r}% is {si}.")
   print(f"The amount is {amt}.")
-if choice == 2:
+elif choice == 2:
   p=float(input("Enter the principal: "))
   r=float(input("Enter the rate of interest p.a.: "))
   t=float(input("Enter the time taken in years: "))
@@ -21,3 +21,5 @@ if choice == 2:
   ci = a - p
   print(f"The compound interset on {p} for {t} years at {r}% p.a. is {ci}.")
   print(f"The amount is {a}.")
+else:
+  print("Invalid choice.")
