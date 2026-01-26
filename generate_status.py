@@ -55,8 +55,8 @@ for i in range(1, num_problems + 1):
 full_table = "\n".join(table_lines)
 
 # --- WRITING TO README.md ---
-START = ""
-END = ""
+START = "<!-- STATUS_TABLE_START -->"
+END = "<!-- STATUS_TABLE_END -->"
 
 try:
     with open("README.md", "r", encoding="utf-8") as f:
