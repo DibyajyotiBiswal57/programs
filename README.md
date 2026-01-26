@@ -326,7 +326,10 @@ Sum: 40
 <!-- STATUS_TABLE_END -->
 
 
-Programs -   
+Programs -
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/asm"> [Assembly] </a>
+<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/batch"> [Batch] </a>
+<a href="/c/"> [C] </a>
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/c"> [C] </a>
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/cpp"> [C++] </a>
 <a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/csharp"> [C#] </a>
