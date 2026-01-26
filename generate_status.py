@@ -1,20 +1,39 @@
 import os
 
-languages = ["qbasic", "java", "python", "c", "cpp", "csharp", "haskell", "perl", "go", "rust"]
+# --- CONFIGURATION ---
+# Format: "folder_name": "Display Name"
+language_config = {
+    "qbasic": "QBasic",
+    "java": "Java",
+    "python": "Python",
+    "c": "C",
+    "cpp": "C++",
+    "csharp": "C#",
+    "haskell": "Haskell",
+    "perl": "Perl",
+    "go": "Go",
+    "rust": "Rust"
+}
+
+# Extract folder names for the logic to process
+folders = list(language_config.keys())
 num_problems = 150
 
-status = {lang: {} for lang in languages}
+# Initialize status using folder names as keys
+status = {lang: {} for lang in folders}
 
-for lang in languages:
+for lang in folders:
     path = f"./{lang}"
     if os.path.exists(path):
         for file in os.listdir(path):
             try:
-                num = int(file.split("_")[0])  # extract number
+                # Expecting format: 0001_filename.ext
+                num = int(file.split("_")[0])  
                 fname = file.lower()
 
                 # --- Auto-rename to 4-digit format ---
-                new_name = f"{num:04d}_" + "_".join(file.split("_")[1:])
+                parts = file.split("_")
+                new_name = f"{num:04d}_" + "_".join(parts[1:])
                 if file != new_name:
                     os.rename(os.path.join(path, file), os.path.join(path, new_name))
                     file = new_name
@@ -26,17 +45,20 @@ for lang in languages:
                     status[lang][num] = "❌"
                 else:
                     status[lang][num] = "✅"
-            except:
+            except Exception:
                 pass
 
-# --- Build table header and divider ---
-header = "| #    | " + " | ".join(languages) + " |"
-divider = "|------" + "".join([ "|:------:" for _ in languages ]) + "|"
+# --- Build table header using Display Names ---
+header = "| #    | " + " | ".join([language_config[lang] for lang in folders]) + " |"
+divider = "|------" + "".join([ "|:------:" for _ in folders ]) + "|"
 
 lines = [header, divider]
+
+# --- Build rows ---
 for i in range(1, num_problems + 1):
     row = f"| {i:04d} "
-    for lang in languages:
+    for lang in folders:
+        # Use folder name 'lang' to fetch the status
         row += f"| {status[lang].get(i, '❌')} "
     row += "|"
     lines.append(row)
@@ -44,25 +66,34 @@ for i in range(1, num_problems + 1):
 table = "\n".join(lines)
 
 legend = """
-**Legend**  
-- ✅ Finished  
+**Legend** - ✅ Finished  
 - ❗️ Beta (released)  
 - ❌ Unfinished  
 """
 
-# Replace section in README.md between markers
-with open("README.md", "r") as f:
-    content = f.read()
+# --- Update README.md ---
+try:
+    with open("README.md", "r", encoding="utf-8") as f:
+        content = f.read()
 
-start_marker = "<!-- STATUS_TABLE_START -->"
-end_marker = "<!-- STATUS_TABLE_END -->"
+    start_marker = ""
+    end_marker = ""
 
-new_table = f"{start_marker}\n\n# 📘 Status \n\n{table}\n\n{legend}\n{end_marker}"
+    new_table_content = f"{start_marker}\n\n# 📘 Status \n\n{table}\n\n{legend}\n{end_marker}"
 
-if start_marker in content and end_marker in content:
-    updated = content.split(start_marker)[0] + new_table + content.split(end_marker)[1]
-else:
-    updated = content + "\n\n" + new_table
+    if start_marker in content and end_marker in content:
+        # Replace existing section
+        parts = content.split(start_marker)
+        before = parts[0]
+        after = parts[1].split(end_marker)[1]
+        updated = before + new_table_content + after
+    else:
+        # Append to end if markers don't exist
+        updated = content + "\n\n" + new_table_content
 
-with open("README.md", "w") as f:
-    f.write(updated)
+    with open("README.md", "w", encoding="utf-8") as f:
+        f.write(updated)
+    print("README.md updated successfully!")
+
+except FileNotFoundError:
+    print("Error: README.md not found.")
