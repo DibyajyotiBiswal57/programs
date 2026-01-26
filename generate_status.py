@@ -79,17 +79,19 @@ try:
     start_marker = ""
     end_marker = ""
 
-    new_table_content = f"{start_marker}\n\n# 📘 Status \n\n{table}\n\n{legend}\n{end_marker}"
+    new_table_content = f"{start_marker}\n\n# 📘 Status \n\n{table}\n\n{legend}\n\n{end_marker}"
 
+    # Check if BOTH markers exist in the file
     if start_marker in content and end_marker in content:
-        # Replace existing section
-        parts = content.split(start_marker)
-        before = parts[0]
-        after = parts[1].split(end_marker)[1]
-        updated = before + new_table_content + after
+        # Split the file into three parts: before table, the table itself, and after table
+        before_part = content.split(start_marker)[0]
+        after_part = content.split(end_marker)[1]
+        
+        updated = before_part + new_table_content + after_part
     else:
-        # Append to end if markers don't exist
-        updated = content + "\n\n" + new_table_content
+        # If markers are missing, just append the table to the end
+        print("Markers not found, appending to end of file.")
+        updated = content.strip() + "\n\n" + new_table_content
 
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(updated)
@@ -97,3 +99,5 @@ try:
 
 except FileNotFoundError:
     print("Error: README.md not found.")
+except Exception as e:
+    print(f"An error occurred: {e}")
