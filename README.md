@@ -327,17 +327,21 @@ Sum: 40
 
 
 Programs -
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/asm"> [Assembly] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/batch"> [Batch] </a>
+<a href="/asm/"> [Assembly] </a>
+<a href="/batch/"> [Batch] </a>
 <a href="/c/"> [C] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/c"> [C] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/cpp"> [C++] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/csharp"> [C#] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/go"> [Go] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/java"> [Java] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/haskell"> [Haskell] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/perl"> [Perl] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/python"> [Python] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/rust"> [Rust] </a>
-<a href="https://github.com/DibyajyotiBiswal57/programs/tree/main/qbasic"> [QBasic] </a>
+<a href="/cpp/"> [C++] </a>
+<a href="/csharp/"> [C#] </a>
+<a href="/fortran/"> [Fortran] </a>
+<a href="/go/"> [Go] </a>
+<a href="/java/"> [Java] </a>
+<a href="/haskell/"> [Haskell] </a>
+<a href="/lua/"> [Lua] </a>
+<a href="/perl/"> [Perl] </a>
+<a href="/python/"> [Python] </a>
+<a href="/pwsh/"> [Powershell] </a>
+<a href="/ruby/"> [Ruby] </a>
+<a href="/rust/"> [Rust] </a>
+<a href="/qbasic/"> [QBasic] </a>
+<a href="/vb/"> [Visual Basic] </a>
 
