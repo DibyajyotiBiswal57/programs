@@ -179,7 +179,7 @@ def generate_status_table(status, num_questions):
     
     table_lines = [header, divider]
     
-    # Generate rows for each question number (now dynamic!)
+    # Generate rows for each question number (dynamic count)
     for i in range(1, num_questions + 1):
         row = f"| {i:04d} | " + " | ".join([status[l].get(i, "❌") for l in folders]) + " |"
         table_lines.append(row)
