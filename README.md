@@ -164,6 +164,7 @@ Sum: 40
 (An automorphic number’s square ends with the number itself.)  
 ```Eg: 25 → 25² = 625 ends with 25```
 
+
 <!-- STATUS_TABLE_START -->
 
 # 📘 Status
@@ -327,21 +328,20 @@ Sum: 40
 
 
 Programs -
-<a href="/asm/"> [Assembly] </a>
-<a href="/batch/"> [Batch] </a>
+<a href="/qbasic/"> [QBasic] </a>
+<a href="/java/"> [Java] </a>
+<a href="/python/"> [Python] </a>
 <a href="/c/"> [C] </a>
 <a href="/cpp/"> [C++] </a>
 <a href="/csharp/"> [C#] </a>
-<a href="/fortran/"> [Fortran] </a>
-<a href="/go/"> [Go] </a>
-<a href="/java/"> [Java] </a>
 <a href="/haskell/"> [Haskell] </a>
-<a href="/lua/"> [Lua] </a>
 <a href="/perl/"> [Perl] </a>
-<a href="/python/"> [Python] </a>
-<a href="/pwsh/"> [Powershell] </a>
-<a href="/ruby/"> [Ruby] </a>
+<a href="/go/"> [Go] </a>
 <a href="/rust/"> [Rust] </a>
-<a href="/qbasic/"> [QBasic] </a>
+<a href="/asm/"> [Assembly] </a>
+<a href="/fortran/"> [Fortran] </a>
+<a href="/lua/"> [Lua] </a>
+<a href="/ruby/"> [Ruby] </a>
 <a href="/vb/"> [Visual Basic] </a>
-
+<a href="/pwsh/"> [PowerShell] </a>
+<a href="/batch/"> [Batch] </a>
