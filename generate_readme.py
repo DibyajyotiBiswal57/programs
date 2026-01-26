@@ -54,8 +54,8 @@ LANGUAGE_CONFIG = {
     "batch": "Batch"
 }
 
-# Maximum number of questions to track in status table
-MAX_QUESTIONS = 150
+# Note: Number of questions is now dynamically determined from questions.md
+# Fallback to 150 if questions.md cannot be read
 
 # Status markers
 STATUS_START_MARKER = "<!-- STATUS_TABLE_START -->"
@@ -84,6 +84,37 @@ def read_questions(questions_file="questions.md"):
     except Exception as e:
         print(f"❌ Error reading {questions_file}: {e}")
         return ""
+
+
+def count_questions(questions_file="questions.md"):
+    """
+    Count the number of questions in questions.md.
+    
+    Args:
+        questions_file: Path to the questions markdown file
+        
+    Returns:
+        Integer representing the number of questions found
+    """
+    if not os.path.exists(questions_file):
+        print(f"⚠️  Warning: {questions_file} not found. Using default count.")
+        return 0
+    
+    try:
+        with open(questions_file, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        # Count lines that start with a number followed by a period
+        # Pattern: "1. ", "42. ", "123. ", etc.
+        question_pattern = re.compile(r'^\d+\.\s+', re.MULTILINE)
+        matches = question_pattern.findall(content)
+        count = len(matches)
+        
+        print(f"📊 Found {count} questions in {questions_file}")
+        return count
+    except Exception as e:
+        print(f"❌ Error counting questions in {questions_file}: {e}")
+        return 0
 
 
 def scan_language_folders():
@@ -129,12 +160,13 @@ def scan_language_folders():
     return status
 
 
-def generate_status_table(status):
+def generate_status_table(status, num_questions):
     """
     Generate the status table in markdown format.
     
     Args:
         status: Dictionary mapping language -> question_number -> status_emoji
+        num_questions: Number of questions to generate rows for
         
     Returns:
         String containing the formatted status table
@@ -147,8 +179,8 @@ def generate_status_table(status):
     
     table_lines = [header, divider]
     
-    # Generate rows for each question number
-    for i in range(1, MAX_QUESTIONS + 1):
+    # Generate rows for each question number (dynamic count)
+    for i in range(1, num_questions + 1):
         row = f"| {i:04d} | " + " | ".join([status[l].get(i, "❌") for l in folders]) + " |"
         table_lines.append(row)
     
@@ -218,23 +250,31 @@ def main():
     questions_content = read_questions("questions.md")
     print("")
     
-    # Step 2: Scan language folders
-    print("Step 2: Scanning language folders for programs")
+    # Step 2: Count questions
+    print("Step 2: Counting questions")
+    num_questions = count_questions("questions.md")
+    if num_questions == 0:
+        print("⚠️  Warning: No questions found. Using default of 150.")
+        num_questions = 150
+    print("")
+    
+    # Step 3: Scan language folders
+    print("Step 3: Scanning language folders for programs")
     status = scan_language_folders()
     print("")
     
-    # Step 3: Generate status table
-    print("Step 3: Generating status table")
-    status_table = generate_status_table(status)
-    print("✅ Status table generated")
+    # Step 4: Generate status table
+    print("Step 4: Generating status table")
+    status_table = generate_status_table(status, num_questions)
+    print(f"✅ Status table generated with {num_questions} rows")
     print("")
     
-    # Step 4: Generate complete README
-    print("Step 4: Generating README.md")
+    # Step 5: Generate complete README
+    print("Step 5: Generating README.md")
     readme_content = generate_readme(questions_content, status_table)
     
-    # Step 5: Write to file
-    print("Step 5: Writing to README.md")
+    # Step 6: Write to file
+    print("Step 6: Writing to README.md")
     try:
         with open("README.md", "w", encoding="utf-8") as f:
             f.write(readme_content)
@@ -248,6 +288,7 @@ def main():
     
     print("")
     print("🎉 Done! README.md has been updated.")
+    print(f"📊 Generated table with {num_questions} questions across {len(LANGUAGE_CONFIG)} languages")
     return 0
 
 
