@@ -1,4 +1,3 @@
-#Q22
 use strict;
 use warnings;
 
