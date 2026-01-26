@@ -3,11 +3,11 @@
 > Note - This section is under construction. The question numbers and status do not match with the code.
 
 1. Print "Hello World".  
-1. Calculate the sum of 3 numbers.  
-2. Find the average of 4 subject marks.  
-3. Read 2 numbers and swap them using a third temporary variable.  
-4. Find the area of rectangle, square, triangle, parallelogram, rhombus, trapezium and circle and volume of sphere, cylinder, cone, cube and cuboid.  
-5. Find simple interest or compound interest and amount.
+2. Calculate the sum of 3 numbers.  
+3. Find the average of 4 subject marks.  
+4. Read 2 numbers and swap them using a third temporary variable.  
+5. Find the area of rectangle, square, triangle, parallelogram, rhombus, trapezium and circle and volume of sphere, cylinder, cone, cube and cuboid.  
+6. Find simple interest or compound interest and amount.
 7. Display whether a number is positive or negative.  
 8. Accept two unequal numbers and display the greater of the two numbers.  
 9. Accept two numbers and if two numbers are equal then find the sum otherwise, their product.  
@@ -163,6 +163,7 @@ Sum: 40
 89. Write a program to check whether a number is an automorphic number.
 (An automorphic number’s square ends with the number itself.)  
 ```Eg: 25 → 25² = 625 ends with 25```
+90. Test
 
 
 <!-- STATUS_TABLE_START -->
