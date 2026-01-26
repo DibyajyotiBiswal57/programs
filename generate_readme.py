@@ -7,6 +7,26 @@ detects their status, and generates a comprehensive README.md file with:
 - Questions list section
 - Status table (between markers)
 - Programs links section
+
+USAGE:
+    python3 generate_readme.py
+
+HOW IT WORKS:
+    1. Reads all questions from questions.md (single source of truth)
+    2. Scans all language folders (qbasic, java, python, c, cpp, etc.)
+    3. Detects program status based on filename:
+       - Files with "beta" or "wip" → ❗️ (Beta)
+       - Files with "unfinished" or "todo" → ❌ (Unfinished)
+       - All other files → ✅ (Finished)
+    4. Generates complete README.md with questions and status table
+    
+WORKFLOW:
+    To add or modify a question:
+    1. Edit questions.md
+    2. Run: python3 generate_readme.py
+    3. Commit the updated files
+    
+    The script is idempotent - running it multiple times produces the same result.
 """
 
 import os
