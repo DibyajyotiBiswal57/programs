@@ -12,14 +12,21 @@ language_config = {
     "haskell": "Haskell",
     "perl": "Perl",
     "go": "Go",
-    "rust": "Rust"
+    "rust": "Rust",
+    "asm": "Assembly",
+    "fortran": "Fortran",
+    "lua": "Lua",
+    "ruby": "Ruby",
+    "vb": "Visual Basic",
+    "pwsh": "PowerShell",
+    "batch": "Batch"
 }
 
-# Extract folder names for the logic to process
+# The keys (folder names) used for scanning
 folders = list(language_config.keys())
 num_problems = 150
 
-# Initialize status using folder names as keys
+# Initialize status
 status = {lang: {} for lang in folders}
 
 for lang in folders:
@@ -48,8 +55,8 @@ for lang in folders:
             except Exception:
                 pass
 
-# --- Build table header using Display Names ---
-header = "| #    | " + " | ".join([language_config[lang] for lang in folders]) + " |"
+# --- Build table header using VALUES (Pretty Names) ---
+header = "| #    | " + " | ".join([language_config[l] for l in folders]) + " |"
 divider = "|------" + "".join([ "|:------:" for _ in folders ]) + "|"
 
 lines = [header, divider]
@@ -58,7 +65,7 @@ lines = [header, divider]
 for i in range(1, num_problems + 1):
     row = f"| {i:04d} "
     for lang in folders:
-        # Use folder name 'lang' to fetch the status
+        # Use 'lang' key to get status, table column aligns with header
         row += f"| {status[lang].get(i, '❌')} "
     row += "|"
     lines.append(row)
@@ -78,26 +85,19 @@ try:
 
     start_marker = ""
     end_marker = ""
-
     new_table_content = f"{start_marker}\n\n# 📘 Status \n\n{table}\n\n{legend}\n\n{end_marker}"
 
-    # Check if BOTH markers exist in the file
     if start_marker in content and end_marker in content:
-        # Split the file into three parts: before table, the table itself, and after table
-        before_part = content.split(start_marker)[0]
-        after_part = content.split(end_marker)[1]
-        
-        updated = before_part + new_table_content + after_part
+        # Splitting carefully to avoid "empty separator" errors
+        before = content.split(start_marker)[0]
+        after = content.split(end_marker)[1]
+        updated = before + new_table_content + after
     else:
-        # If markers are missing, just append the table to the end
-        print("Markers not found, appending to end of file.")
         updated = content.strip() + "\n\n" + new_table_content
 
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(updated)
-    print("README.md updated successfully!")
+    print("README.md updated successfully with new headings!")
 
-except FileNotFoundError:
-    print("Error: README.md not found.")
 except Exception as e:
-    print(f"An error occurred: {e}")
+    print(f"Error: {e}")
