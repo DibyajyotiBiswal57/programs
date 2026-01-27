@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class neons_number {
+class neon_number {
     public static void main(String[] args) {
 
         System.out.println("This program checks if a number is neon number or not.");
