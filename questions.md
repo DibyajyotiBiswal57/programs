@@ -88,7 +88,7 @@ LANGUAGE
   <br> [Filename - 0001_hello_world]
 68. Write a program to start a countdown from the number inputted by the user. <br> [Filename - 0001_hello_world]
 69. Write a program calculating exponentials using a for loop.  <br> [Filename - 0001_hello_world]
-70. Write a program to accept the number of rows and print the following:  
+70. Write a program to accept the number of rows and print the following:  <br> [Filename - 0001_hello_world]
 ```
     Eg. (No of rows: 5)
     12345
@@ -97,8 +97,8 @@ LANGUAGE
     12
     1
 ```
-<br> [Filename - 0001_hello_world]
-71. Write a program to accept the number of rows and print the following:
+
+71. Write a program to accept the number of rows and print the following:  <br> [Filename - 0001_hello_world]
    ```
     Eg. (No of rows: 5)  
     11111  
@@ -107,10 +107,10 @@ LANGUAGE
     11  
     1
 ```
-<br> [Filename - 0001_hello_world]
+
 72. Write a program to check whether a number is a spy number. (sum of digits = product of digits).
 ```Eg- 22 -> 2*2 = 2+2 ```  <br> [Filename - 0001_hello_world]
-73. Write a program to accept the number of rows and print the following:  
+73. Write a program to accept the number of rows and print the following:  <br> [Filename - 0001_hello_world]
    ```
     Eg. (No of rows: 5)  
     54321  
@@ -119,17 +119,15 @@ LANGUAGE
     21  
     1
 ```
-<br> [Filename - 0001_hello_world]
 74. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  
 ```Eg - 153 -> ```1<sup>3</sup>``` + ```5<sup>3</sup>``` + ```3<sup>3</sup>``` = 153```  <br> [Filename - 0001_hello_world]
-75. Write a program to accept the number of rows and print the following pattern:  
+75. Write a program to accept the number of rows and print the following pattern:  <br> [Filename - 0001_hello_world]
    ```
     Eg. (No of rows: 3)  
     6666  
     6666  
     6666
 ```
-<br> [Filename - 0001_hello_world]
 76. Write a program to print the Fibonacci sequence until the term specified by the user.  <br> [Filename - 0001_hello_world]
 77. Write a program to add odd and even numbers until a number inputted by the user.  <br> [Filename - 0001_hello_world]
 78. Write a program to check whether a character is uppercase or lowercase.  <br> [Filename - 0001_hello_world]
@@ -141,7 +139,7 @@ LANGUAGE
 83. Write a script to input three numbers and find whether they form the three sides of a triangle.  <br> [Filename - 0001_hello_world]
 84. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.  <br> [Filename - 0001_hello_world]
 85. Find HCF and LCM of Two Numbers.  <br> [Filename - 0001_hello_world]
-86. Print the following zig-zag number pattern for n =(user inputted number):
+86. Print the following zig-zag number pattern for n =(user inputted number): <br> [Filename - 0001_hello_world]
 ```
 Eg - n = 4
 1
@@ -149,22 +147,22 @@ Eg - n = 4
 4 5 6
 7 8 9 10
 ```
-<br> [Filename - 0001_hello_world]
+
 87. Write a program to:  
 - Take input n (number of terms), a (first term), and d (common difference).
 - Print the first n terms of the arithmetic series.
 -  Calculate and print the sum of the series.
+<br> [Filename - 0001_hello_world]
 ```
 Example:
 Input: n=5, a=2, d=3
 Output: 2 5 8 11 14
 Sum: 40
 ```
-<br> [Filename - 0001_hello_world]
-88. Write a program to check whether a number is a perfect number.  <br> [Filename - 0001_hello_world]
+88. Write a program to check whether a number is a perfect number.  
 (A perfect number is equal to the sum of its proper divisors.)  
 ```Eg: 28 → 1+2+4+7+14 = 28```  <br> [Filename - 0001_hello_world]
 
-89. Write a program to check whether a number is an automorphic number.
+89. Write a program to check whether a number is an automorphic number.  
 (An automorphic number’s square ends with the number itself.)  
 ```Eg: 25 → 25² = 625 ends with 25``` <br> [Filename - 0001_hello_world]
