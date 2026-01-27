@@ -175,9 +175,9 @@ Sum: 40
 
 # 📘 Status
 
-| #    | [QBasic](qbasic/) | [Java](java/) | [Python](python/) | [C](c/) | [C++](cpp/) | [C#](csharp/) | [Haskell](haskell/) | [Perl](perl/) | [Go](go/) | [Rust](rust/) | [Assembly](asm/) | [Fortran](fortran/) | [Lua](lua/) | [Ruby](ruby/) | [Visual Basic](vb/) | [PowerShell](pwsh/) | [Batch](batch/) |
+| #    | [QBasic](qbasic/) | [Java](java/) | [Python](python/) | [C](c/) | [C++](cpp/) | [C#](csharp/) | [Haskell](haskell/) | [Perl](perl/) | [Go](go/) | [Elixir](elixir/) | [Assembly](asm/) | [Fortran](fortran/) | [Lua](lua/) | [Ruby](ruby/) | [Visual Basic](vb/) | [PowerShell](pwsh/) | [Batch](batch/) |
 |:--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 0001 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 0001 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 0002 | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | 0003 | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | 0004 | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
