@@ -67,26 +67,26 @@ LANGUAGE
 55. Print numbers from 1 to 10, but skip 5.  <br> [Filename - 0055_1_to_10_no_5]
 56. Take input from the user repeatedly until they type "exit".  <br> [Filename - 0056_repeat_until_exit]
 57. Print numbers from 1 to 10, but stop when number is 7.  <br> [Filename - 0057_1_to_10_no_7]
-58. Create a simple menu (looped) that exits when the user selects "Quit".  <br> [Filename - 0059_menu_loop]
-59. Count the number of digits in a number using while.  <br> [Filename - 0060_count_digits]
-60. Reverse a number.  <br> [Filename - 0061_reverse_number]
-61. Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.  <br> [Filename - 0063_divisible_3_and_7]
+58. Create a simple menu (looped) that exits when the user selects "Quit".  <br> [Filename - 0058_menu_loop]
+59. Count the number of digits in a number using while.  <br> [Filename - 0059_count_digits]
+60. Reverse a number.  <br> [Filename - 0060_reverse_number]
+61. Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.  <br> [Filename - 0061_divisible_3_and_7]
 62. Find the grade based on marks using if-elif-else:  
-- 90-100: A  
-- 75-89: B    
-- 50-74: C  
-- <50: Fail
-<br> [Filename - 0064_grade_calculator]
-63. Print all odd numbers from 1 to (user defined number) <br> [Filename - 0065_odd_numbers]
-64. Calculate the factorial of a number using a while loop. <br> [Filename - 0066_factorial_while]
+    - 90-100: A  
+    - 75-89: B    
+    - 50-74: C  
+    - <50: Fail
+<br> [Filename - 0062_grade_calculator]
+63. Print all odd numbers from 1 to (user defined number) <br> [Filename - 0063_odd_numbers]
+64. Calculate the factorial of a number using a while loop. <br> [Filename - 0064_factorial_while]
 65. Create a menu-driven program:  
     - Find Square
     - Find Cube
     - Exit
-  <br> [Filename - 0067_square_cube_menu]
-66. Write a program to start a countdown from the number inputted by the user. <br> [Filename - 0068_countdown]
-67. Write a program calculating exponentials using a for loop.  <br> [Filename - 0069_exponentials]
-68. Write a program to accept the number of rows and print the following:  <br> [Filename - 0070_pattern_descending]
+<br> [Filename - 0065_square_cube_menu]
+66. Write a program to start a countdown from the number inputted by the user. <br> [Filename - 0066_countdown]
+67. Write a program calculating exponentials using a for loop.  <br> [Filename - 0067_exponentials]
+68. Write a program to accept the number of rows and print the following:  <br> [Filename - 0068_pattern_descending]
 ```
     Eg. (No of rows: 5)
     12345
@@ -96,7 +96,7 @@ LANGUAGE
     1
 ```
 
-69. Write a program to accept the number of rows and print the following:  <br> [Filename - 0071_pattern_ones]
+69. Write a program to accept the number of rows and print the following:  <br> [Filename - 0069_pattern_ones]
    ```
     Eg. (No of rows: 5)  
     11111  
@@ -107,8 +107,8 @@ LANGUAGE
 ```
 
 70. Write a program to check whether a number is a spy number. (sum of digits = product of digits).
-```Eg- 22 -> 2*2 = 2+2 ```  <br> [Filename - 0072_spy_number]
-71. Write a program to accept the number of rows and print the following:  <br> [Filename - 0073_pattern_reverse_desc]
+```Eg- 22 -> 2*2 = 2+2 ```  <br> [Filename - 0070_spy_number]
+71. Write a program to accept the number of rows and print the following:  <br> [Filename - 0071_pattern_reverse_desc]
    ```
     Eg. (No of rows: 5)  
     54321  
@@ -118,27 +118,27 @@ LANGUAGE
     1
 ```
 72. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  
-```Eg - 153 -> ```1<sup>3</sup>``` + ```5<sup>3</sup>``` + ```3<sup>3</sup>``` = 153```  <br> [Filename - 0074_armstrong_number]
-73. Write a program to accept the number of rows and print the following pattern:  <br> [Filename - 0075_pattern_sixes]
+```Eg - 153 -> ```1<sup>3</sup>``` + ```5<sup>3</sup>``` + ```3<sup>3</sup>``` = 153```  <br> [Filename - 0072_armstrong_number]
+73. Write a program to accept the number of rows and print the following pattern:  <br> [Filename - 0073_pattern_sixes]
    `````
     Eg. (No of rows: 3)  
     6666  
     6666  
     6666
 `````
-74. Write a program to print the Fibonacci sequence until the term specified by the user.  <br> [Filename - 0076_fibonacci]
-75. Write a program to add odd and even numbers until a number inputted by the user.  <br> [Filename - 0077_sum_odd_even]
-76. Write a program to check whether a character is uppercase or lowercase.  <br> [Filename - 0078_char_case]
+74. Write a program to print the Fibonacci sequence until the term specified by the user.  <br> [Filename - 0074_fibonacci]
+75. Write a program to add odd and even numbers until a number inputted by the user.  <br> [Filename - 0075_sum_odd_even]
+76. Write a program to check whether a character is uppercase or lowercase.  <br> [Filename - 0076_char_case]
 77. Check whether a number is a disarium number.  (Sum of digits powered by position = number)
-```Eg. 135 -> 1¹ + 3² + 5³ -> 1 + 9 + 125 -> 135```   <br> [Filename - 0079_disarium_number]
+```Eg. 135 -> 1¹ + 3² + 5³ -> 1 + 9 + 125 -> 135```   <br> [Filename - 0077_disarium_number]
 78. Write a program to check whether a number is a magic number.  (sum of digits repeatedly checked turns to 1).  
-```Eg. 73 -> 7+3=10 -> 1+0=1```  <br> [Filename - 0080_magic_number]
-79. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.  <br> [Filename - 0081_ml_metrics]
-80. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.  <br> [Filename - 0082_quadratic_roots]
-81. Write a script to input three numbers and find whether they form the three sides of a triangle.  <br> [Filename - 0083_triangle_check]
-82. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.  <br> [Filename - 0084_divisibility]
-83. Find HCF and LCM of Two Numbers.  <br> [Filename - 0085_hcf_lcm]
-84. Print the following zig-zag number pattern for n =(user inputted number): <br> [Filename - 0086_zigzag_pattern]
+```Eg. 73 -> 7+3=10 -> 1+0=1```  <br> [Filename - 0078_magic_number]
+79. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.  <br> [Filename - 0079_ml_metrics]
+80. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.  <br> [Filename - 0080_quadratic_roots]
+81. Write a script to input three numbers and find whether they form the three sides of a triangle.  <br> [Filename - 0081_triangle_check]
+82. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.  <br> [Filename - 0082_divisibility]
+83. Find HCF and LCM of Two Numbers.  <br> [Filename - 0083_hcf_lcm]
+84. Print the following zig-zag number pattern for n =(user inputted number): <br> [Filename - 0084_zigzag_pattern]
 ```
 Eg - n = 4
 1
@@ -151,7 +151,7 @@ Eg - n = 4
 - Take input n (number of terms), a (first term), and d (common difference).
 - Print the first n terms of the arithmetic series.
 -  Calculate and print the sum of the series.
-<br> [Filename - 0087_arithmetic_series]
+<br> [Filename - 0085_arithmetic_series]
 ```
 Example:
 Input: n=5, a=2, d=3
@@ -161,8 +161,8 @@ Sum: 40
 
 86. Write a program to check whether a number is a perfect number.  
 (A perfect number is equal to the sum of its proper divisors.)  
-```Eg: 28 → 1+2+4+7+14 = 28```  <br> [Filename - 0088_perfect_number]
+```Eg: 28 → 1+2+4+7+14 = 28```  <br> [Filename - 0086_perfect_number]
 
 87. Write a program to check whether a number is an automorphic number.  
 (An automorphic number's square ends with the number itself.)  
-```Eg: 25 → 25² = 625 ends with 25``` <br> [Filename - 0089_automorphic_number]
+```Eg: 25 → 25² = 625 ends with 25``` <br> [Filename - 0087_automorphic_number]
