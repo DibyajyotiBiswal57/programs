@@ -124,6 +124,8 @@ def rename_files_to_padded_format():
     - q42.py -> 0042.py
     - sum.py (with #Q56) -> 0056.py
     
+    Files already with 4-digit padding (0001_hello_world.py) are preserved.
+    
     Returns:
         Integer count of renamed files
     """
@@ -142,13 +144,14 @@ def rename_files_to_padded_format():
             if not os.path.isfile(filepath):
                 continue
             
+            # Skip files that already start with 4-digit padding
+            # (0001.py, 0001_hello.py, 0042_test.py, etc.)
+            if re.match(r'^\d{4}', filename):
+                continue
+            
             # Extract question number
             qnum = extract_question_number(filename, filepath)
             if qnum is None:
-                continue
-            
-            # Check if already in 4-digit padded format
-            if re.match(r'^\d{4}_', filename):
                 continue
             
             # Get file extension
