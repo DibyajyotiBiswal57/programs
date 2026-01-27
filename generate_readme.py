@@ -143,7 +143,11 @@ def scan_language_folders():
             
             if match:
                 try:
-                    num = int(match.group(1))
+                    # Use group(1) if it exists (for first regex), otherwise group(0) (for second regex)
+                    if match.lastindex is not None and match.lastindex >= 1:
+                        num = int(match.group(1))
+                    else:
+                        num = int(match.group(0))
                     fname_lower = file.lower()
                     
                     # Status detection logic
@@ -153,7 +157,7 @@ def scan_language_folders():
                         status[lang][num] = "❌"
                     else:
                         status[lang][num] = "✅"
-                except ValueError:
+                except (ValueError, IndexError):
                     pass
     
     return status
