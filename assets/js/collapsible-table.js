@@ -66,9 +66,8 @@
     const innerContent = document.createElement('div');
     innerContent.className = 'collapsible-inner';
     
-    // Move table into wrapper
-    const tableClone = table.cloneNode(true);
-    innerContent.appendChild(tableClone);
+    // Move table into wrapper instead of cloning
+    innerContent.appendChild(table);
     contentWrapper.appendChild(innerContent);
     
     // Insert wrapper before heading
@@ -76,9 +75,8 @@
     wrapper.appendChild(headerButton);
     wrapper.appendChild(contentWrapper);
     
-    // Remove original heading and table
+    // Remove original heading (table already moved)
     heading.remove();
-    table.remove();
     
     return { wrapper, headerButton, contentWrapper, headerIcon };
   }

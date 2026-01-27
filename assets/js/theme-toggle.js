@@ -8,7 +8,11 @@
   
   // Get elements
   const toggleButton = document.getElementById('theme-toggle');
-  const toggleIcon = toggleButton?.querySelector('.theme-toggle-icon');
+  if (!toggleButton) {
+    console.warn('Theme toggle button not found');
+    return;
+  }
+  const toggleIcon = toggleButton.querySelector('.theme-toggle-icon');
   
   // Get saved theme or default to dark
   function getSavedTheme() {
@@ -65,17 +69,15 @@
   }
   
   // Add event listener to toggle button
-  if (toggleButton) {
-    toggleButton.addEventListener('click', toggleTheme);
-    
-    // Keyboard accessibility
-    toggleButton.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleTheme();
-      }
-    });
-  }
+  toggleButton.addEventListener('click', toggleTheme);
+  
+  // Keyboard accessibility
+  toggleButton.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleTheme();
+    }
+  });
   
   // Initialize on DOMContentLoaded
   if (document.readyState === 'loading') {
