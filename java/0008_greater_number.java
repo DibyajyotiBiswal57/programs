@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class greater_than_or_equal
+class greater_than_or_equal
 {
     public static void main(String args[])
     {

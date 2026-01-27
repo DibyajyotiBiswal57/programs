@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class swapping
+class swapping
 {
     public static void main(String args[])
     {

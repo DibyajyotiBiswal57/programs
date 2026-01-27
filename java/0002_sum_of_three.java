@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class add_3_numbers {
+class add_3_numbers {
     public static void main(String[] args) {
 
         System.out.println("This program adds 3 numbers.");

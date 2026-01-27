@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class is_it_complementary_or_supplementary
+class is_it_complementary_or_supplementary
 {
     public static void main(String args[])
     {

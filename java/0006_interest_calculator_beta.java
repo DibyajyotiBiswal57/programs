@@ -1,9 +1,9 @@
 import java.util.Scanner;
-public class simple_interest
+class interest
 {
     public static void main(String args[])
     {
-        System.out.println("This program finds the simple interest on a given sum of money.");
+        System.out.println("This program finds the interest on a given sum of money.");
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the principle:"); 
         double p = scanner.nextDouble();

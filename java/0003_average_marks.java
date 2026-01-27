@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class average_score {
+class average_score {
     public static void main(String[] args) {
 
         System.out.println("This program finds the average of 4 marks.");
