@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class weird_operations4
+class weird_operations4
 {
     public static void main(String args[])
     {
