@@ -62,33 +62,31 @@ LANGUAGE
 50. Input a value in kilometres and convert it into miles.  <br> [Filename - 0050_km_to_miles]
 51. Input 3 numbers and swap them as this : 1st number becomes 2nd number and 2nd number becomes the 3rd number and 3rd number becomes the 1st number.  <br> [Filename - 0051_circular_swap]
 52. Input the total liabilities and shareholders' equity of a company and print its D/E ratio.  <br> [Filename - 0052_de_ratio]
-53. Print numbers from 1 to 10 using a while loop.  <br> [Filename - 0053_while_1_to_10]
+53. Print numbers from 1 to 10 using a loop.  <br> [Filename - 0053_1_to_10]
 54. Use a while loop to find the sum of the first n(n input from user) natural numbers.  <br> [Filename - 0054_sum_n_natural]
-55. Print numbers from 1 to 10, but skip 5 using continue.  <br> [Filename - 0055_continue_example]
+55. Print numbers from 1 to 10, but skip 5.  <br> [Filename - 0055_1_to_10_no_5]
 56. Take input from the user repeatedly until they type "exit".  <br> [Filename - 0056_repeat_until_exit]
-57. Print numbers from 1 to 10, but stop when number is 7 using break.  <br> [Filename - 0057_break_example]
-58. Check if a number is prime using a while loop.(python) <br> [Refer to Q20. for other languages] <br> [Filename - 0058_prime_while]
-59. Create a simple menu (looped) that exits when the user selects "Quit".  <br> [Filename - 0059_menu_loop]
-60. Count the number of digits in a number using while.  <br> [Filename - 0060_count_digits]
-61. Reverse a number using a while loop.  <br> [Filename - 0061_reverse_while]
-62. Use pass (in python) in a while loop where nothing should happen when i == 2.  <br> [Filename - 0062_pass_example]
-63. Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.  <br> [Filename - 0063_divisible_3_and_7]
-64. Find the grade based on marks using if-elif-else:  
+57. Print numbers from 1 to 10, but stop when number is 7.  <br> [Filename - 0057_1_to_10_no_7]
+58. Create a simple menu (looped) that exits when the user selects "Quit".  <br> [Filename - 0059_menu_loop]
+59. Count the number of digits in a number using while.  <br> [Filename - 0060_count_digits]
+60. Reverse a number.  <br> [Filename - 0061_reverse_number]
+61. Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.  <br> [Filename - 0063_divisible_3_and_7]
+62. Find the grade based on marks using if-elif-else:  
 - 90-100: A  
 - 75-89: B    
 - 50-74: C  
 - <50: Fail
 <br> [Filename - 0064_grade_calculator]
-65. Print all odd numbers from 1 to (user defined number) <br> [Filename - 0065_odd_numbers]
-66. Calculate the factorial of a number using a while loop. <br> [Filename - 0066_factorial_while]
-67. Create a menu-driven program:
-    Find Square
-    Find Cube
-    Exit
+63. Print all odd numbers from 1 to (user defined number) <br> [Filename - 0065_odd_numbers]
+64. Calculate the factorial of a number using a while loop. <br> [Filename - 0066_factorial_while]
+65. Create a menu-driven program:  
+    - Find Square
+    - Find Cube
+    - Exit
   <br> [Filename - 0067_square_cube_menu]
-68. Write a program to start a countdown from the number inputted by the user. <br> [Filename - 0068_countdown]
-69. Write a program calculating exponentials using a for loop.  <br> [Filename - 0069_exponentials]
-70. Write a program to accept the number of rows and print the following:  <br> [Filename - 0070_pattern_descending]
+66. Write a program to start a countdown from the number inputted by the user. <br> [Filename - 0068_countdown]
+67. Write a program calculating exponentials using a for loop.  <br> [Filename - 0069_exponentials]
+68. Write a program to accept the number of rows and print the following:  <br> [Filename - 0070_pattern_descending]
 ```
     Eg. (No of rows: 5)
     12345
@@ -98,7 +96,7 @@ LANGUAGE
     1
 ```
 
-71. Write a program to accept the number of rows and print the following:  <br> [Filename - 0071_pattern_ones]
+69. Write a program to accept the number of rows and print the following:  <br> [Filename - 0071_pattern_ones]
    ```
     Eg. (No of rows: 5)  
     11111  
@@ -108,9 +106,9 @@ LANGUAGE
     1
 ```
 
-72. Write a program to check whether a number is a spy number. (sum of digits = product of digits).
+70. Write a program to check whether a number is a spy number. (sum of digits = product of digits).
 ```Eg- 22 -> 2*2 = 2+2 ```  <br> [Filename - 0072_spy_number]
-73. Write a program to accept the number of rows and print the following:  <br> [Filename - 0073_pattern_reverse_desc]
+71. Write a program to accept the number of rows and print the following:  <br> [Filename - 0073_pattern_reverse_desc]
    ```
     Eg. (No of rows: 5)  
     54321  
@@ -119,27 +117,28 @@ LANGUAGE
     21  
     1
 ```
-74. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  
+72. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  
 ```Eg - 153 -> ```1<sup>3</sup>``` + ```5<sup>3</sup>``` + ```3<sup>3</sup>``` = 153```  <br> [Filename - 0074_armstrong_number]
-75. Write a program to accept the number of rows and print the following pattern:  <br> [Filename - 0075_pattern_sixes]
+73. Write a program to accept the number of rows and print the following pattern:  <br> [Filename - 0075_pattern_sixes]
    `````
     Eg. (No of rows: 3)  
     6666  
     6666  
     6666
 `````
-76. Write a program to print the Fibonacci sequence until the term specified by the user.  <br> [Filename - 0076_fibonacci]
-77. Write a program to add odd and even numbers until a number inputted by the user.  <br> [Filename - 0077_sum_odd_even]
-78. Write a program to check whether a character is uppercase or lowercase.  <br> [Filename - 0078_char_case]
-79. Write a program to calculate a program using return.  <br> [Filename - 0079_return_example]
-80. Write a program to check whether a number is a magic number. (sum of digits repeatedly checked turns to 1).  
+74. Write a program to print the Fibonacci sequence until the term specified by the user.  <br> [Filename - 0076_fibonacci]
+75. Write a program to add odd and even numbers until a number inputted by the user.  <br> [Filename - 0077_sum_odd_even]
+76. Write a program to check whether a character is uppercase or lowercase.  <br> [Filename - 0078_char_case]
+77. Check whether a number is a disarium number.  (Sum of digits powered by position = number)
+```Eg. 135 -> 1¹ + 3² + 5³ -> 1 + 9 + 125 -> 135```   <br> [Filename - 0079_disarium_number]
+78. Write a program to check whether a number is a magic number.  (sum of digits repeatedly checked turns to 1).  
 ```Eg. 73 -> 7+3=10 -> 1+0=1```  <br> [Filename - 0080_magic_number]
-81. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.  <br> [Filename - 0081_ml_metrics]
-82. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.  <br> [Filename - 0082_quadratic_roots]
-83. Write a script to input three numbers and find whether they form the three sides of a triangle.  <br> [Filename - 0083_triangle_check]
-84. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.  <br> [Filename - 0084_divisibility]
-85. Find HCF and LCM of Two Numbers.  <br> [Filename - 0085_hcf_lcm]
-86. Print the following zig-zag number pattern for n =(user inputted number): <br> [Filename - 0086_zigzag_pattern]
+79. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.  <br> [Filename - 0081_ml_metrics]
+80. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.  <br> [Filename - 0082_quadratic_roots]
+81. Write a script to input three numbers and find whether they form the three sides of a triangle.  <br> [Filename - 0083_triangle_check]
+82. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.  <br> [Filename - 0084_divisibility]
+83. Find HCF and LCM of Two Numbers.  <br> [Filename - 0085_hcf_lcm]
+84. Print the following zig-zag number pattern for n =(user inputted number): <br> [Filename - 0086_zigzag_pattern]
 ```
 Eg - n = 4
 1
@@ -148,7 +147,7 @@ Eg - n = 4
 7 8 9 10
 ```
 
-87. Write a program to:  
+85. Write a program to:  
 - Take input n (number of terms), a (first term), and d (common difference).
 - Print the first n terms of the arithmetic series.
 -  Calculate and print the sum of the series.
@@ -160,10 +159,10 @@ Output: 2 5 8 11 14
 Sum: 40
 ```
 
-88. Write a program to check whether a number is a perfect number.  
+86. Write a program to check whether a number is a perfect number.  
 (A perfect number is equal to the sum of its proper divisors.)  
 ```Eg: 28 → 1+2+4+7+14 = 28```  <br> [Filename - 0088_perfect_number]
 
-89. Write a program to check whether a number is an automorphic number.  
+87. Write a program to check whether a number is an automorphic number.  
 (An automorphic number's square ends with the number itself.)  
 ```Eg: 25 → 25² = 625 ends with 25``` <br> [Filename - 0089_automorphic_number]
