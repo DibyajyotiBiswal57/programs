@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class discount
+class discount
 {
     public static void main(String args[])
     {
