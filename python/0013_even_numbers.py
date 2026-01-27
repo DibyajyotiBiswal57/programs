@@ -1,6 +1,7 @@
-#Q12
+
 num = int(input("Enter a number: "))
-i = 1
+i = 0
 while i <= num:
-    print(i)
+    if i % 2 == 0
+        print(i)
     i += 1
