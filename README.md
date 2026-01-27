@@ -280,3 +280,9 @@ Sum: 40
 | ❌ | **Unfinished** | Program not yet implemented or incomplete |
 
 <!-- STATUS_TABLE_END -->
+
+# 🔗 Links - 
+
+| Assembly | Batch | C | C++ | C# | Fortran | Go | Haskell | Java | Lua | Perl | Powershell | Python | Ruby | Rust |  QBasic | Visual Basic |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+|||||||||||||||||||||||||
