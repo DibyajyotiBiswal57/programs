@@ -116,11 +116,12 @@ table td:first-child {
   text-align: left !important;
 }
 
-table tr:nth-child(even) {
+/* Table row striping - target tbody rows to avoid counting header */
+table tbody tr:nth-child(even) {
   background-color: var(--table-row-even) !important;
 }
 
-table tr:nth-child(odd) {
+table tbody tr:nth-child(odd) {
   background-color: var(--table-row-odd) !important;
 }
 
@@ -193,7 +194,7 @@ sup, sub {
   background-color: transparent !important;
 }
 
-/* Fix for any remaining white backgrounds */
-div, section, article, main {
+/* Ensure wrapper and content containers have transparent backgrounds */
+.wrapper, .page-content, .main-content {
   background-color: transparent !important;
 }
