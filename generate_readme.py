@@ -215,7 +215,7 @@ def generate_readme(questions_content, status_table):
     readme_parts = []
     
     # Header and questions section
-    readme_parts.append("# List of all the topics I make programs on-")
+    readme_parts.append("# 📚 Programming Topics & Solutions")
     readme_parts.append("")
     readme_parts.append("> Note - This section is under construction. The question numbers and status do not match with the code.")
     readme_parts.append("")
@@ -229,7 +229,14 @@ def generate_readme(questions_content, status_table):
     readme_parts.append("")
     readme_parts.append(status_table)
     readme_parts.append("")
-    readme_parts.append("**Legend** - ✅ Finished | ❗️ Beta | ❌ Unfinished")
+    # Enhanced Legend section
+    readme_parts.append("## Legend")
+    readme_parts.append("")
+    readme_parts.append("| Symbol | Status | Description |")
+    readme_parts.append("|:------:|:-------|:------------|")
+    readme_parts.append("| ✅ | **Finished** | Program is complete and working |")
+    readme_parts.append("| ❗️ | **Beta** | Program is functional but may have issues or is work-in-progress |")
+    readme_parts.append("| ❌ | **Unfinished** | Program not yet implemented or incomplete |")
     readme_parts.append("")
     readme_parts.append(STATUS_END_MARKER)
     readme_parts.append("")

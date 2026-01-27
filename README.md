@@ -1,4 +1,4 @@
-# List of all the topics I make programs on-
+# 📚 Programming Topics & Solutions
 
 > Note - This section is under construction. The question numbers and status do not match with the code.
 
@@ -268,7 +268,13 @@ Sum: 40
 | 0088 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | 0089 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
-**Legend** - ✅ Finished | ❗️ Beta | ❌ Unfinished
+## Legend
+
+| Symbol | Status | Description |
+|:------:|:-------|:------------|
+| ✅ | **Finished** | Program is complete and working |
+| ❗️ | **Beta** | Program is functional but may have issues or is work-in-progress |
+| ❌ | **Unfinished** | Program not yet implemented or incomplete |
 
 <!-- STATUS_TABLE_END -->
 
