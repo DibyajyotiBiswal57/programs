@@ -698,13 +698,12 @@ sup, sub {
 }
 
 @media (max-width: 768px) {
-  body {
-    font-size: 15px;
-    padding-top: 60px;
+  :root, [data-theme="dark"], [data-theme="light"] {
+    --header-height: 60px;
   }
   
-  .sticky-header {
-    height: 60px;
+  body {
+    font-size: 15px;
   }
   
   .sticky-header-container {
@@ -760,13 +759,12 @@ sup, sub {
 }
 
 @media (max-width: 480px) {
-  body {
-    font-size: 14px;
-    padding-top: 56px;
+  :root, [data-theme="dark"], [data-theme="light"] {
+    --header-height: 56px;
   }
   
-  .sticky-header {
-    height: 56px;
+  body {
+    font-size: 14px;
   }
   
   .sticky-header-title {

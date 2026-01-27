@@ -34,7 +34,7 @@
                 span.textContent = text;
                 // Insert span and remove original text node
                 nextNode.parentNode.insertBefore(span, nextNode);
-                nextNode.parentNode.removeChild(nextNode);
+                nextNode.remove();
               }
             }
           });
@@ -45,7 +45,11 @@
 
   // Add smooth scroll padding for anchor links
   function enhanceAnchorLinks() {
-    const offset = 80; // Sticky header height (70px) + padding (10px)
+    // Get header height from CSS custom property
+    const headerHeightStr = getComputedStyle(document.documentElement)
+      .getPropertyValue('--header-height') || '70px';
+    const headerHeight = parseInt(headerHeightStr);
+    const offset = headerHeight + 10; // Header height + padding
     
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
