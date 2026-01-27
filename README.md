@@ -278,23 +278,3 @@ Sum: 40
 | ❌ | **Unfinished** | Program not yet implemented or incomplete |
 
 <!-- STATUS_TABLE_END -->
-
-
-Programs -
-<a href="/qbasic/"> [QBasic] </a>
-<a href="/java/"> [Java] </a>
-<a href="/python/"> [Python] </a>
-<a href="/c/"> [C] </a>
-<a href="/cpp/"> [C++] </a>
-<a href="/csharp/"> [C#] </a>
-<a href="/haskell/"> [Haskell] </a>
-<a href="/perl/"> [Perl] </a>
-<a href="/go/"> [Go] </a>
-<a href="/rust/"> [Rust] </a>
-<a href="/asm/"> [Assembly] </a>
-<a href="/fortran/"> [Fortran] </a>
-<a href="/lua/"> [Lua] </a>
-<a href="/ruby/"> [Ruby] </a>
-<a href="/vb/"> [Visual Basic] </a>
-<a href="/pwsh/"> [PowerShell] </a>
-<a href="/batch/"> [Batch] </a>
