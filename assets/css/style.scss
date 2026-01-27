@@ -182,9 +182,9 @@ sup, sub {
   color: var(--header-color) !important;
 }
 
-/* Ensure all text is readable */
-* {
-  color: inherit !important;
+/* Ensure specific elements inherit color properly */
+body *, main *, article *, section * {
+  color: inherit;
 }
 
 /* Special styling for emoji and symbols */
@@ -197,7 +197,12 @@ div, section, article, main {
   background-color: transparent !important;
 }
 
-/* Specific styling for status table symbols */
-td:has(> :first-child:is(✅, ❌, ❗️)) {
-  text-align: center !important;
+/* Center align table cells (for emoji/status symbols) */
+table td {
+  text-align: center;
+}
+
+/* Left align first column (row numbers) */
+table td:first-child {
+  text-align: left;
 }
