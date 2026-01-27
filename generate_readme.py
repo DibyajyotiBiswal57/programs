@@ -43,7 +43,7 @@ LANGUAGE_CONFIG = {
     "haskell": "Haskell",
     "perl": "Perl",
     "go": "Go",
-    "rust": "Rust",
+    "elixir": "Elixir",
     "asm": "Assembly",
     "fortran": "Fortran",
     "lua": "Lua",
@@ -59,7 +59,6 @@ LANGUAGE_CONFIG = {
 # Status markers
 STATUS_START_MARKER = "<!-- STATUS_TABLE_START -->"
 STATUS_END_MARKER = "<!-- STATUS_TABLE_END -->"
-
 
 def extract_question_number(filename, filepath):
     """
@@ -88,12 +87,12 @@ def extract_question_number(filename, filepath):
     
     # Method 2: Extract from filename
     # Try 4-digit pattern first (0001, 0042, etc.)
-    match = re.match(r'^(\d{4})', filename)
+    match = re.match(r'^(\\d{4})', filename)
     if match:
         return int(match.group(1))
     
     # Try 3-digit pattern (001, 042, etc.)
-    match = re.match(r'^(\d{3})', filename)
+    match = re.match(r'^(\\d{3})', filename)
     if match:
         return int(match.group(1))
     
@@ -113,7 +112,6 @@ def extract_question_number(filename, filepath):
         return int(match.group(1))
     
     return None
-
 
 def rename_files_to_padded_format():
     """
@@ -176,7 +174,6 @@ def rename_files_to_padded_format():
     
     return renamed_count
 
-
 def read_questions(questions_file="questions.md"):
     """
     Read questions from questions.md file.
@@ -199,7 +196,6 @@ def read_questions(questions_file="questions.md"):
     except Exception as e:
         print(f"❌ Error reading {questions_file}: {e}")
         return ""
-
 
 def count_questions(questions_file="questions.md"):
     """
@@ -230,7 +226,6 @@ def count_questions(questions_file="questions.md"):
     except Exception as e:
         print(f"❌ Error counting questions in {questions_file}: {e}")
         return 0
-
 
 def scan_language_folders():
     """
@@ -272,7 +267,6 @@ def scan_language_folders():
     
     return status
 
-
 def generate_status_table(status, num_questions):
     """
     Generate the status table in markdown format.
@@ -298,7 +292,6 @@ def generate_status_table(status, num_questions):
         table_lines.append(row)
     
     return "\n".join(table_lines)
-
 
 def generate_readme(questions_content, status_table):
     """
@@ -339,7 +332,6 @@ def generate_readme(questions_content, status_table):
     readme_parts.append("")
     
     return "\n".join(readme_parts)
-
 
 def main():
     """Main function to orchestrate README generation."""
