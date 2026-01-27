@@ -1,4 +1,3 @@
-#Q60
 num = abs(int(input("Enter a number: ")))
 count = 0
 

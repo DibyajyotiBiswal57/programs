@@ -1,4 +1,3 @@
-#Q44
 str = input("Enter a string: ").lower()
 count = 0
 for i in str:

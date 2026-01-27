@@ -1,5 +1,3 @@
-#Q70
-
 num = int(input("Enter a number: "))
 print("(1) find the square of the number: ")
 print("(2) find the cube of the number: ")

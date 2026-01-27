@@ -1,5 +1,3 @@
-#Q47
-
 import urllib.request
 import json
 
