@@ -1,7 +1,6 @@
-#Q56
 num = int(input("Enter a number: "))
 sum = 0
-
+n = num
 while num <= n:
     sum += num
     num += 1
