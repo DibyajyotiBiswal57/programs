@@ -108,6 +108,12 @@ table td {
   padding: 10px 13px !important;
   border: 1px solid var(--border-color) !important;
   color: var(--text-primary) !important;
+  text-align: center;
+}
+
+/* Left align first column (row numbers) */
+table td:first-child {
+  text-align: left;
 }
 
 table tr:nth-child(even) {
@@ -195,14 +201,4 @@ body *, main *, article *, section * {
 /* Fix for any remaining white backgrounds */
 div, section, article, main {
   background-color: transparent !important;
-}
-
-/* Center align table cells (for emoji/status symbols) */
-table td {
-  text-align: center;
-}
-
-/* Left align first column (row numbers) */
-table td:first-child {
-  text-align: left;
 }
