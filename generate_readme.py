@@ -6,7 +6,6 @@ This script reads questions from questions.md, scans all language folders for pr
 detects their status, and generates a comprehensive README.md file with:
 - Questions list section
 - Status table (between markers)
-- Programs links section
 
 USAGE:
     python3 generate_readme.py
@@ -187,20 +186,6 @@ def generate_status_table(status, num_questions):
     return "\n".join(table_lines)
 
 
-def generate_programs_links():
-    """
-    Generate the programs links section.
-    
-    Returns:
-        String containing the programs links in HTML format
-    """
-    links = []
-    for folder, display_name in LANGUAGE_CONFIG.items():
-        links.append(f'<a href="/{folder}/"> [{display_name}] </a>')
-    
-    return "\nPrograms -\n" + "\n".join(links)
-
-
 def generate_readme(questions_content, status_table):
     """
     Generate the complete README.md content.
@@ -240,9 +225,6 @@ def generate_readme(questions_content, status_table):
     readme_parts.append("")
     readme_parts.append(STATUS_END_MARKER)
     readme_parts.append("")
-    
-    # Programs links section
-    readme_parts.append(generate_programs_links())
     
     return "\n".join(readme_parts)
 
