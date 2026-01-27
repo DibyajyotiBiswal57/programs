@@ -1,6 +1,5 @@
 import java.util.Scanner;
-
-public class rectangle_or_cylinder {
+class rectangle_or_cylinder {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
