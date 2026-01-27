@@ -104,7 +104,7 @@ def count_questions(questions_file="questions.md"):
             content = f.read()
         
         # Count lines that start with a number followed by a period
-        # Pattern: "1. ", "42. ", "123. ", etc.
+        # Pattern: "1. ", "42. ", "123. ", etc."
         question_pattern = re.compile(r'^\d+\.\s+', re.MULTILINE)
         matches = question_pattern.findall(content)
         count = len(matches)
@@ -139,7 +139,7 @@ def scan_language_folders():
             match = re.search(r'(\d{3,4})', file)
             if not match:
                 # Try to extract from patterns like "1_hello_world"
-                match = re.search(r'^(\d+)', file)
+                match = re.search(r'^\d+', file)
             
             if match:
                 try:
@@ -172,8 +172,8 @@ def generate_status_table(status, num_questions):
     """
     folders = list(LANGUAGE_CONFIG.keys())
     
-    # Create table header
-    header = "| #    | " + " | ".join([LANGUAGE_CONFIG[l] for l in folders]) + " |"
+    # Create table header with clickable links to language directories
+    header = "| #    | " + " | ".join([f"[{LANGUAGE_CONFIG[l]}]({l}/)" for l in folders]) + " |"
     divider = "|:--- |" + "".join([" :---: |" for _ in folders])
     
     table_lines = [header, divider]
@@ -280,4 +280,4 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    exit(main());
