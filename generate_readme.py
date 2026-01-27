@@ -83,7 +83,7 @@ def extract_question_number(filename, filepath):
             match = re.search(r'#Q(\d+)', first_lines)
             if match:
                 return int(match.group(1))
-    except:
+    except (OSError, IOError):
         pass
     
     # Method 2: Extract from filename
