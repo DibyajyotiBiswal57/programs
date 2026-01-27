@@ -3,10 +3,11 @@
 
 @import "{{ site.theme }}";
 
-/* Dark Mode Styling for GitHub Pages */
-/* Color palette inspired by GitHub's dark theme */
+/* Dual Theme Support - Dark and Light Mode */
+/* Default: Dark Mode (GitHub-inspired dark theme) */
 
-:root {
+:root,
+[data-theme="dark"] {
   --bg-primary: #0d1117;
   --bg-secondary: #161b22;
   --bg-tertiary: #21262d;
@@ -20,6 +21,54 @@
   --table-row-even: #0d1117;
   --table-row-odd: #161b22;
   --header-color: #f0f6fc;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --toggle-bg: #21262d;
+  --toggle-hover-bg: #30363d;
+}
+
+/* Light Mode Colors */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --bg-tertiary: #e1e4e8;
+  --text-primary: #24292f;
+  --text-secondary: #57606a;
+  --link-color: #0969da;
+  --link-hover: #0550ae;
+  --border-color: #d0d7de;
+  --code-bg: #f6f8fa;
+  --table-header-bg: #f6f8fa;
+  --table-row-even: #ffffff;
+  --table-row-odd: #f6f8fa;
+  --header-color: #24292f;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --toggle-bg: #f6f8fa;
+  --toggle-hover-bg: #e1e4e8;
+}
+
+/* Smooth Transitions for Theme Switching */
+.theme-transitioning,
+.theme-transitioning * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* Page Load Animation */
+body {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+body.page-loaded {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Global dark background and text color */
@@ -53,6 +102,7 @@ h2 {
 a {
   color: var(--link-color) !important;
   text-decoration: none !important;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 a:hover {
@@ -66,6 +116,7 @@ pre, code {
   color: var(--text-primary) !important;
   border: 1px solid var(--border-color) !important;
   border-radius: 6px !important;
+  transition: all 0.2s ease;
 }
 
 pre {
@@ -127,6 +178,8 @@ table tbody tr:nth-child(odd) {
 
 table tr:hover {
   background-color: var(--bg-tertiary) !important;
+  transition: background-color 0.2s ease;
+  cursor: default;
 }
 
 /* Blockquotes */
@@ -198,3 +251,226 @@ sup, sub {
 .wrapper, .page-content, .main-content {
   background-color: transparent !important;
 }
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: relative;
+  background-color: var(--toggle-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.theme-toggle:hover {
+  background-color: var(--toggle-hover-bg);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.theme-toggle-icon {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+/* Header enhancements */
+.header-content {
+  position: relative;
+}
+
+.header-title a {
+  color: var(--header-color) !important;
+  text-decoration: none !important;
+}
+
+.header-title a:hover {
+  color: var(--link-color) !important;
+}
+
+/* Collapsible Section Styling */
+.collapsible-section {
+  margin: 2em 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.collapsible-header {
+  width: 100%;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--header-color);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.collapsible-header:hover {
+  background-color: var(--bg-tertiary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.collapsible-header:active {
+  transform: translateY(0);
+}
+
+.collapsible-header:focus {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.collapsible-header.expanded {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+.collapsible-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.collapsible-icon {
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.collapsible-header.expanded .collapsible-icon {
+  transform: rotate(180deg);
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.collapsible-inner {
+  padding: 0;
+}
+
+.collapsible-content table {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.collapsible-content table th,
+.collapsible-content table td {
+  border-color: var(--border-color) !important;
+}
+
+/* Scrollable table wrapper for mobile */
+.collapsible-inner {
+  overflow-x: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+  
+  .collapsible-header {
+    font-size: 1.2em;
+    padding: 12px 16px;
+  }
+  
+  table {
+    font-size: 0.9em;
+  }
+  
+  table th,
+  table td {
+    padding: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .collapsible-header {
+    font-size: 1.1em;
+    padding: 10px 12px;
+  }
+  
+  table {
+    font-size: 0.8em;
+  }
+  
+  table th,
+  table td {
+    padding: 6px !important;
+  }
+}
+
+/* Additional Stylish Enhancements */
+/* Add subtle shadows to code blocks */
+pre {
+  box-shadow: 0 2px 6px var(--shadow-color);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--link-color);
+  color: var(--bg-primary);
+}
+
+/* Improved list styling */
+li {
+  transition: transform 0.2s ease;
+}
+
+li:hover {
+  transform: translateX(3px);
+}
+
