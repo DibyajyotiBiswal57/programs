@@ -333,6 +333,8 @@ def generate_readme(questions_content, status_table):
     readme_parts.append("")
     readme_parts.append("# 📘 Status")
     readme_parts.append("")
+    readme_parts.append("Click on the emoji to view the code.")
+    readme_parts.append("")
     readme_parts.append(status_table)
     readme_parts.append("")
     # Enhanced Legend section
