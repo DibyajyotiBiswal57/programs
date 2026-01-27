@@ -1,5 +1,4 @@
-#Q16
-print("Weird operations")
+
 num=int(input("Enter a number: "))
 
 if num < 100 or num > 999:

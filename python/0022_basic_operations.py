@@ -1,4 +1,4 @@
-#Q22
+
 print("This program will add, subtract, and multiply two numbers.")
 
 num1 = float(input("Enter the first number: "))

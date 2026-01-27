@@ -1,5 +1,3 @@
-#Q15
-
 num = int(input("Enter an integer: "))
 print(f"{num} * 1 = {num*1}")
 print(f"{num} * 2 = {num*2}")
