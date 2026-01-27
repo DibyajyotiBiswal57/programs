@@ -1,6 +1,5 @@
 import java.util.Scanner;
-
-public class perimeter
+class perimeter
 {
     public static void main(String args[])
     {
