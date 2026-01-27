@@ -1,0 +1,200 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Dark Mode Styling for GitHub Pages */
+/* Color palette inspired by GitHub's dark theme */
+
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --link-color: #58a6ff;
+  --link-hover: #79c0ff;
+  --border-color: #30363d;
+  --code-bg: #161b22;
+  --table-header-bg: #161b22;
+  --table-row-even: #0d1117;
+  --table-row-odd: #161b22;
+  --header-color: #f0f6fc;
+}
+
+/* Global dark background and text color */
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Headers styling */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--header-color) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+h1 {
+  font-size: 2em !important;
+  margin-bottom: 0.5em !important;
+  padding-bottom: 0.3em !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+h2 {
+  font-size: 1.5em !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 0.5em !important;
+  padding-bottom: 0.3em !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Links */
+a {
+  color: var(--link-color) !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: var(--link-hover) !important;
+  text-decoration: underline !important;
+}
+
+/* Code blocks */
+pre, code {
+  background-color: var(--code-bg) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 6px !important;
+}
+
+pre {
+  padding: 16px !important;
+  overflow: auto !important;
+  line-height: 1.45 !important;
+}
+
+code {
+  padding: 0.2em 0.4em !important;
+  font-size: 85% !important;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
+}
+
+pre code {
+  padding: 0 !important;
+  border: 0 !important;
+  background-color: transparent !important;
+}
+
+/* Tables */
+table {
+  background-color: var(--bg-secondary) !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  width: 100% !important;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+}
+
+table th {
+  background-color: var(--table-header-bg) !important;
+  color: var(--header-color) !important;
+  font-weight: 600 !important;
+  padding: 10px 13px !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+table td {
+  padding: 10px 13px !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  text-align: center !important;
+}
+
+/* Left align first column (row numbers) */
+table td:first-child {
+  text-align: left !important;
+}
+
+/* Table row striping - target tbody rows to avoid counting header */
+table tbody tr:nth-child(even) {
+  background-color: var(--table-row-even) !important;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: var(--table-row-odd) !important;
+}
+
+table tr:hover {
+  background-color: var(--bg-tertiary) !important;
+}
+
+/* Blockquotes */
+blockquote {
+  color: var(--text-secondary) !important;
+  border-left: 4px solid var(--border-color) !important;
+  padding-left: 1em !important;
+  margin-left: 0 !important;
+}
+
+/* Lists */
+ul, ol {
+  color: var(--text-primary) !important;
+}
+
+li {
+  margin-bottom: 0.5em !important;
+}
+
+/* Horizontal rules */
+hr {
+  background-color: var(--border-color) !important;
+  border: 0 !important;
+  height: 1px !important;
+  margin: 24px 0 !important;
+}
+
+/* Paragraphs */
+p {
+  color: var(--text-primary) !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1em !important;
+}
+
+/* Strong and emphasis */
+strong, b {
+  color: var(--header-color) !important;
+  font-weight: 600 !important;
+}
+
+em, i {
+  color: var(--text-primary) !important;
+}
+
+/* Superscript and subscript */
+sup, sub {
+  color: var(--text-primary) !important;
+}
+
+/* Main container */
+.container-lg, .container {
+  max-width: 1200px !important;
+  padding: 20px !important;
+}
+
+/* Page header if exists */
+.page-header {
+  background-color: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--header-color) !important;
+}
+
+/* Special styling for emoji and symbols */
+.emoji {
+  background-color: transparent !important;
+}
+
+/* Ensure wrapper and content containers have transparent backgrounds */
+.wrapper, .page-content, .main-content {
+  background-color: transparent !important;
+}

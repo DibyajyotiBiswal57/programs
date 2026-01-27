@@ -1,0 +1,4 @@
+# Jekyll configuration for GitHub Pages
+theme: jekyll-theme-primer
+title: Programming Topics & Solutions
+description: A collection of programming problems and solutions in multiple languages
