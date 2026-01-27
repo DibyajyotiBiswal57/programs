@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class add_subtract_multiply {
+class add_subtract_multiply {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
