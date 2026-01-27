@@ -1,4 +1,3 @@
-#Q40
 character = input("Enter a character: ")
 character = character.lower()
 if character in {'a', 'e', 'i', 'o', 'u'}:

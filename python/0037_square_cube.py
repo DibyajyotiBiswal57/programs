@@ -1,4 +1,4 @@
-#Q38
+
 num = float(input("Enter a number: "))
 print("Enter 'S' to find square of the number.")
 print("Enter 'C' to find cube of the number.")

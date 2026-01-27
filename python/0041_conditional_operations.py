@@ -1,5 +1,3 @@
-#Q42
-
 char = input("Enter a character: ")
 num1 = float(input("Enter a number: "))
 num2 = float(input("Enter a number: "))

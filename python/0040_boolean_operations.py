@@ -1,4 +1,4 @@
-#Q41
+
 import math
 h = 0
 r = 0
