@@ -61,6 +61,119 @@ STATUS_START_MARKER = "<!-- STATUS_TABLE_START -->"
 STATUS_END_MARKER = "<!-- STATUS_TABLE_END -->"
 
 
+def extract_question_number(filename, filepath):
+    """
+    Extract question number from a file.
+    
+    Tries multiple methods:
+    1. Check for #Q<number> comment in file content
+    2. Extract from filename patterns (0001, q1, 1_program, etc.)
+    
+    Args:
+        filename: Name of the file
+        filepath: Full path to the file
+        
+    Returns:
+        Integer question number or None if not found
+    """
+    # Method 1: Check file content for #Q<number> comment
+    try:
+        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+            first_lines = f.read(500)  # Read first 500 chars
+            match = re.search(r'#Q(\d+)', first_lines)
+            if match:
+                return int(match.group(1))
+    except:
+        pass
+    
+    # Method 2: Extract from filename
+    # Try 4-digit pattern first (0001, 0042, etc.)
+    match = re.match(r'^(\d{4})', filename)
+    if match:
+        return int(match.group(1))
+    
+    # Try 3-digit pattern (001, 042, etc.)
+    match = re.match(r'^(\d{3})', filename)
+    if match:
+        return int(match.group(1))
+    
+    # Try patterns like q1, q42, Q1, Q42
+    match = re.match(r'^[qQ](\d+)', filename)
+    if match:
+        return int(match.group(1))
+    
+    # Try patterns like 1_program, 42_hello
+    match = re.match(r'^(\d+)[_\-]', filename)
+    if match:
+        return int(match.group(1))
+    
+    # Try just a number at the start
+    match = re.match(r'^(\d+)', filename)
+    if match:
+        return int(match.group(1))
+    
+    return None
+
+
+def rename_files_to_padded_format():
+    """
+    Rename files in language folders to use 4-digit padded format.
+    
+    Scans all language folders and renames files like:
+    - 1.py -> 0001.py
+    - q42.py -> 0042.py
+    - sum.py (with #Q56) -> 0056.py
+    
+    Returns:
+        Integer count of renamed files
+    """
+    renamed_count = 0
+    
+    for lang in LANGUAGE_CONFIG.keys():
+        if not os.path.exists(lang):
+            continue
+        
+        files = os.listdir(lang)
+        
+        for filename in files:
+            filepath = os.path.join(lang, filename)
+            
+            # Skip directories
+            if not os.path.isfile(filepath):
+                continue
+            
+            # Extract question number
+            qnum = extract_question_number(filename, filepath)
+            if qnum is None:
+                continue
+            
+            # Check if already in 4-digit padded format
+            if re.match(r'^\d{4}_', filename):
+                continue
+            
+            # Get file extension
+            _, ext = os.path.splitext(filename)
+            
+            # Generate new filename with 4-digit padding
+            new_filename = f"{qnum:04d}{ext}"
+            new_filepath = os.path.join(lang, new_filename)
+            
+            # Check if target file already exists
+            if os.path.exists(new_filepath):
+                print(f"⚠️  Skipping: {filepath} (target {new_filepath} already exists)")
+                continue
+            
+            # Rename the file
+            try:
+                os.rename(filepath, new_filepath)
+                print(f"✅ Renamed: {filepath} → {new_filepath}")
+                renamed_count += 1
+            except Exception as e:
+                print(f"❌ Error renaming {filepath}: {e}")
+    
+    return renamed_count
+
+
 def read_questions(questions_file="questions.md"):
     """
     Read questions from questions.md file.
@@ -134,31 +247,25 @@ def scan_language_folders():
         print(f"📁 Scanning {lang}: found {len(files)} files")
         
         for file in files:
-            # Extract question number from filename using regex
-            # Looking for 3-4 digit numbers (e.g., 0001, 001, 0032, 1234)
-            match = re.search(r'(\d{3,4})', file)
-            if not match:
-                # Try to extract from patterns like "1_hello_world"
-                match = re.search(r'^\d+', file)
+            filepath = os.path.join(lang, file)
             
-            if match:
-                try:
-                    # Use group(1) if it exists (for first regex), otherwise group(0) (for second regex)
-                    if match.lastindex is not None and match.lastindex >= 1:
-                        num = int(match.group(1))
-                    else:
-                        num = int(match.group(0))
-                    fname_lower = file.lower()
-                    
-                    # Status detection logic
-                    if "beta" in fname_lower or "wip" in fname_lower:
-                        status[lang][num] = "❗️"
-                    elif "unfinished" in fname_lower or "todo" in fname_lower:
-                        status[lang][num] = "❌"
-                    else:
-                        status[lang][num] = "✅"
-                except (ValueError, IndexError):
-                    pass
+            # Skip directories
+            if not os.path.isfile(filepath):
+                continue
+            
+            # Extract question number using the new function
+            num = extract_question_number(file, filepath)
+            
+            if num is not None:
+                fname_lower = file.lower()
+                
+                # Status detection logic
+                if "beta" in fname_lower or "wip" in fname_lower:
+                    status[lang][num] = "❗️"
+                elif "unfinished" in fname_lower or "todo" in fname_lower:
+                    status[lang][num] = "❌"
+                else:
+                    status[lang][num] = "✅"
     
     return status
 
@@ -234,6 +341,12 @@ def generate_readme(questions_content, status_table):
 def main():
     """Main function to orchestrate README generation."""
     print("🚀 Starting README.md generation...")
+    print("")
+    
+    # Step 0: Rename files to 4-digit padded format
+    print("Step 0: Renaming files to 4-digit padded format (0001, 0002, etc.)")
+    renamed_count = rename_files_to_padded_format()
+    print(f"✅ Renamed {renamed_count} file(s)")
     print("")
     
     # Step 1: Read questions from questions.md
