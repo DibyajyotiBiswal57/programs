@@ -176,7 +176,7 @@ Sum: 40
 
 # 📘 Status
 
-| #    | QBasic | Java | Python | C | C++ | C# | Haskell | Perl | Go | Rust | Assembly | Fortran | Lua | Ruby | Visual Basic | PowerShell | Batch |
+| #    | [QBasic](qbasic/) | [Java](java/) | [Python](python/) | [C](c/) | [C++](cpp/) | [C#](csharp/) | [Haskell](haskell/) | [Perl](perl/) | [Go](go/) | [Rust](rust/) | [Assembly](asm/) | [Fortran](fortran/) | [Lua](lua/) | [Ruby](ruby/) | [Visual Basic](vb/) | [PowerShell](pwsh/) | [Batch](batch/) |
 |:--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 0001 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 0002 | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
