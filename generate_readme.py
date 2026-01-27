@@ -232,7 +232,7 @@ def scan_language_folders():
     Scan all language folders and detect program status.
     
     Returns:
-        Dictionary mapping language -> question_number -> status_emoji
+        Dictionary mapping language -> question_number -> {"emoji": status_emoji, "filename": filename}
     """
     status = {lang: {} for lang in LANGUAGE_CONFIG.keys()}
     
@@ -259,11 +259,11 @@ def scan_language_folders():
                 
                 # Status detection logic
                 if "beta" in fname_lower or "wip" in fname_lower:
-                    status[lang][num] = "❗️"
+                    status[lang][num] = {"emoji": "❗️", "filename": file}
                 elif "unfinished" in fname_lower or "todo" in fname_lower:
-                    status[lang][num] = "❌"
+                    status[lang][num] = {"emoji": "❌", "filename": file}
                 else:
-                    status[lang][num] = "✅"
+                    status[lang][num] = {"emoji": "✅", "filename": file}
     
     return status
 
@@ -272,7 +272,7 @@ def generate_status_table(status, num_questions):
     Generate the status table in markdown format.
     
     Args:
-        status: Dictionary mapping language -> question_number -> status_emoji
+        status: Dictionary mapping language -> question_number -> {"emoji": status_emoji, "filename": filename}
         num_questions: Number of questions to generate rows for
         
     Returns:
@@ -288,7 +288,23 @@ def generate_status_table(status, num_questions):
     
     # Generate rows for each question number (dynamic count)
     for i in range(1, num_questions + 1):
-        row = f"| {i:04d} | " + " | ".join([status[l].get(i, "❌") for l in folders]) + " |"
+        cells = []
+        for lang in folders:
+            if i in status[lang]:
+                status_info = status[lang][i]
+                emoji = status_info["emoji"]
+                filename = status_info["filename"]
+                
+                # Create clickable link for ✅ and ❗️, plain emoji for ❌
+                if emoji == "✅" or emoji == "❗️":
+                    cells.append(f"[{emoji}]({lang}/{filename})")
+                else:
+                    cells.append(emoji)
+            else:
+                # No file found - show plain ❌
+                cells.append("❌")
+        
+        row = f"| {i:04d} | " + " | ".join(cells) + " |"
         table_lines.append(row)
     
     return "\n".join(table_lines)
