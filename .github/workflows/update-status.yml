@@ -24,6 +24,7 @@ on:
       - '**/0*.vb'
       - '**/0*.ps1'
       - '**/0*.bat'
+  workflow_dispatch:
 
 permissions:
   contents: write
