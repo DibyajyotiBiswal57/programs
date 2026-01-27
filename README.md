@@ -1,7 +1,5 @@
 # 📚 Programming Topics & Solutions
 
-> Note - This section is under construction. The question numbers and status do not match with the code.
-
 1. Print "Hello World". <br> [Filename - 0001_hello_world]
 2. Calculate the sum of 3 numbers.  <br> [Filename - 0002_sum_of_three]
 3. Find the average of 4 subject marks.  <br> [Filename - 0003_average_marks]
@@ -280,9 +278,3 @@ Sum: 40
 | ❌ | **Unfinished** | Program not yet implemented or incomplete |
 
 <!-- STATUS_TABLE_END -->
-
-# 🔗 Links - 
-
-| Assembly | Batch | C | C++ | C# | Fortran | Go | Haskell | Java | Lua | Perl | Powershell | Python | Ruby | Rust |  QBasic | Visual Basic |
-|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
-|||||||||||||||||||||||||
