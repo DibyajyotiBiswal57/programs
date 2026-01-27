@@ -169,7 +169,6 @@ Sum: 40
 89. Write a program to check whether a number is an automorphic number.  
 (An automorphic number's square ends with the number itself.)  
 ```Eg: 25 → 25² = 625 ends with 25``` <br> [Filename - 0089_automorphic_number]
-90. Test
 
 
 <!-- STATUS_TABLE_START -->
@@ -269,7 +268,6 @@ Click on the emoji to view the code.
 | 0087 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | 0088 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | 0089 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| 0090 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ## Legend
 
