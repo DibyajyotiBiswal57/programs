@@ -1,4 +1,4 @@
-#Q25
+
 print("This program calculates the perimeter of a rectangle, square, triangle, circle, parallelogram.")
 print("Enter the shape for which you want to calculate the perimeter:")
 print("1. Rectangle")
