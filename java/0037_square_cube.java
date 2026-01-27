@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class cube_or_square
+class cube_or_square
 {
     public static void main(String args[])
     {
