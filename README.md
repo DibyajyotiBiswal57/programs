@@ -115,12 +115,14 @@ LANGUAGE
 72. Write a program to check whether a number is a spy number. (sum of digits = product of digits).
 ```Eg- 22 -> 2*2 = 2+2 ```  <br> [Filename - 0072_spy_number]
 73. Write a program to accept the number of rows and print the following:  <br> [Filename - 0073_pattern_reverse_desc]
-   ```${"Eg. (No of rows: 5)  
+   ```
+    Eg. (No of rows: 5)  
     54321  
     4321  
     321  
     21  
-    1"}```
+    1
+```
 74. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  
 ```Eg - 153 -> ```1<sup>3</sup>``` + ```5<sup>3</sup>``` + ```3<sup>3</sup>``` = 153```  <br> [Filename - 0074_armstrong_number]
 75. Write a program to accept the number of rows and print the following pattern:  <br> [Filename - 0075_pattern_sixes]
@@ -169,6 +171,7 @@ Sum: 40
 89. Write a program to check whether a number is an automorphic number.  
 (An automorphic number's square ends with the number itself.)  
 ```Eg: 25 → 25² = 625 ends with 25``` <br> [Filename - 0089_automorphic_number]
+
 
 <!-- STATUS_TABLE_START -->
 
