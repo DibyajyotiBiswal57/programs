@@ -1,5 +1,6 @@
 import java.util.Scanner;
-public class largest_number
+
+class largest_number
 {
     public static void main(String args[])
     {
