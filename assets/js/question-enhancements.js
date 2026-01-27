@@ -45,7 +45,7 @@
 
   // Add smooth scroll padding for anchor links
   function enhanceAnchorLinks() {
-    const offset = 90; // Height of sticky header + padding
+    const offset = 80; // Sticky header height (70px) + padding (10px)
     
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -67,11 +67,15 @@
 
   // Add scroll progress indicator
   function addScrollProgress() {
+    // Get header height from CSS custom property
+    const headerHeight = getComputedStyle(document.documentElement)
+      .getPropertyValue('--header-height') || '70px';
+    
     const progressBar = document.createElement('div');
     progressBar.className = 'scroll-progress';
     progressBar.style.cssText = `
       position: fixed;
-      top: 70px;
+      top: ${headerHeight};
       left: 0;
       width: 0%;
       height: 3px;
