@@ -176,6 +176,8 @@ Sum: 40
 
 # 📘 Status
 
+Click on the emoji to view the code.
+
 | #    | [QBasic](qbasic/) | [Java](java/) | [Python](python/) | [C](c/) | [C++](cpp/) | [C#](csharp/) | [Haskell](haskell/) | [Perl](perl/) | [Go](go/) | [Elixir](elixir/) | [Assembly](asm/) | [Fortran](fortran/) | [Lua](lua/) | [Ruby](ruby/) | [Visual Basic](vb/) | [PowerShell](pwsh/) | [Batch](batch/) |
 |:--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 0001 | [✅](qbasic/0001_hello_world.bas) | [✅](java/0001_hello_world.java) | [✅](python/0001_hello_world.py) | [✅](c/0001_hello_world.c) | [✅](cpp/0001_hello_world.cpp) | [✅](csharp/0001_hello_world.cs) | [✅](haskell/0001_hello_world.hs) | [✅](perl/0001_hello_world.pl) | [✅](go/0001_hello_world.go) | [✅](elixir/0001_hello_world.exs) | [✅](asm/0001_hello_world.asm) | [✅](fortran/0001_hello_world.f90) | [✅](lua/0001_hello_world.lua) | [✅](ruby/0001_hello_world.rb) | [✅](vb/0001_hello_world.vb) | [✅](pwsh/0001_hello_world.ps1) | [✅](batch/0001_hello_world.bat) |
