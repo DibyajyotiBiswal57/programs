@@ -67,11 +67,11 @@ LANGUAGE
 55. Print numbers from 1 to 10, but skip 5 using continue.  <br> [Filename - 0055_continue_example]
 56. Take input from the user repeatedly until they type "exit".  <br> [Filename - 0056_repeat_until_exit]
 57. Print numbers from 1 to 10, but stop when number is 7 using break.  <br> [Filename - 0057_break_example]
-58. Check if a number is prime using a while loop.  <br> [Filename - 0058_prime_while]
+58. Check if a number is prime using a while loop.(python) <br> [Refer to Q20. for other languages] <br> [Filename - 0058_prime_while]
 59. Create a simple menu (looped) that exits when the user selects "Quit".  <br> [Filename - 0059_menu_loop]
 60. Count the number of digits in a number using while.  <br> [Filename - 0060_count_digits]
 61. Reverse a number using a while loop.  <br> [Filename - 0061_reverse_while]
-62. Use pass in a while loop where nothing should happen when i == 2.  <br> [Filename - 0062_pass_example]
+62. Use pass (in python) in a while loop where nothing should happen when i == 2.  <br> [Filename - 0062_pass_example]
 63. Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.  <br> [Filename - 0063_divisible_3_and_7]
 64. Find the grade based on marks using if-elif-else:  
 - 90-100: A  
