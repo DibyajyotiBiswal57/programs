@@ -1,6 +1,14 @@
 (function() {
   'use strict';
 
+  // Utility function to get header height from CSS
+  function getHeaderHeight() {
+    const headerHeightStr = getComputedStyle(document.documentElement)
+      .getPropertyValue('--header-height') || '70px';
+    // Remove 'px' and parse as integer
+    return parseInt(headerHeightStr.replace('px', ''), 10) || 70;
+  }
+
   // Enhance question items with additional features
   function enhanceQuestions() {
     // Get all ordered list items in main content
@@ -45,10 +53,7 @@
 
   // Add smooth scroll padding for anchor links
   function enhanceAnchorLinks() {
-    // Get header height from CSS custom property
-    const headerHeightStr = getComputedStyle(document.documentElement)
-      .getPropertyValue('--header-height') || '70px';
-    const headerHeight = parseInt(headerHeightStr);
+    const headerHeight = getHeaderHeight();
     const offset = headerHeight + 10; // Header height + padding
     
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -71,22 +76,11 @@
 
   // Add scroll progress indicator
   function addScrollProgress() {
-    // Get header height from CSS custom property
-    const headerHeight = getComputedStyle(document.documentElement)
-      .getPropertyValue('--header-height') || '70px';
+    const headerHeight = getHeaderHeight();
     
     const progressBar = document.createElement('div');
     progressBar.className = 'scroll-progress';
-    progressBar.style.cssText = `
-      position: fixed;
-      top: ${headerHeight};
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-      z-index: 1001;
-      transition: width 0.1s ease;
-    `;
+    progressBar.style.top = headerHeight + 'px';
     document.body.appendChild(progressBar);
 
     window.addEventListener('scroll', () => {
