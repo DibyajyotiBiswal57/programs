@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class divisible_by_7_or_3
+class divisible_by_7_or_3
 {
     public static void main(String args[])
     {
