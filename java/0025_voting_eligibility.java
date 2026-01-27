@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class voting_eligibility {
+class voting_eligibility {
 
     public static void main(String[] args) {
         System.out.println("This program checks if a person is eligible to vote or not.");
