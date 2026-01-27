@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% seo %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -13,21 +16,26 @@
     {% include head-custom.html %}
   </head>
   <body>
+    <!-- Sticky Header Bar -->
+    <header class="sticky-header">
+      <div class="sticky-header-container">
+        <h1 class="sticky-header-title">
+          <a href="{{ "/" | absolute_url }}">Programs</a>
+        </h1>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+          <span class="theme-toggle-icon">🌙</span>
+        </button>
+      </div>
+    </header>
+
     <div class="wrapper">
-      <header>
-        <div class="header-content">
-          <h1 class="header-title"><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-        
+      <aside class="sidebar">
+        <div class="sidebar-content">
           {% if site.logo %}
             <img src="{{site.logo | relative_url}}" alt="Logo" />
           {% endif %}
 
-          <p>{{ site.description | default: site.github.project_tagline }}</p>
-
-          <!-- Theme Toggle Button -->
-          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
-            <span class="theme-toggle-icon">🌙</span>
-          </button>
+          <p class="site-description">{{ site.description | default: site.github.project_tagline }}</p>
 
           {% if site.github.is_project_page %}
           <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
@@ -45,7 +53,7 @@
           </ul>
           {% endif %}
         </div>
-      </header>
+      </aside>
       <section class="main-content">
 
       {{ content }}
@@ -62,6 +70,7 @@
     </div>
     <script src="{{ "/assets/js/theme-toggle.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/collapsible-table.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/question-enhancements.js" | relative_url }}"></script>
     {% if site.google_analytics %}
       <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
