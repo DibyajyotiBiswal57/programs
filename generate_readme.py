@@ -202,8 +202,6 @@ def generate_readme(questions_content, status_table):
     # Header and questions section
     readme_parts.append("# 📚 Programming Topics & Solutions")
     readme_parts.append("")
-    readme_parts.append("> Note - This section is under construction. The question numbers and status do not match with the code.")
-    readme_parts.append("")
     readme_parts.append(questions_content)
     readme_parts.append("")
     
