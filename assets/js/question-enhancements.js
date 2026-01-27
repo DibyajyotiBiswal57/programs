@@ -32,8 +32,9 @@
                 const span = document.createElement('span');
                 span.className = 'filename-reference';
                 span.textContent = text;
-                nextNode.textContent = '';
-                br.parentNode.insertBefore(span, br.nextSibling);
+                // Insert span and remove original text node
+                nextNode.parentNode.insertBefore(span, nextNode);
+                nextNode.parentNode.removeChild(nextNode);
               }
             }
           });
@@ -70,7 +71,7 @@
     progressBar.className = 'scroll-progress';
     progressBar.style.cssText = `
       position: fixed;
-      top: 69px;
+      top: 70px;
       left: 0;
       width: 0%;
       height: 3px;

@@ -147,6 +147,13 @@ body.page-loaded {
   transition: all 0.3s ease;
 }
 
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(12px)) {
+  .sticky-header {
+    background: var(--bg-primary);
+  }
+}
+
 .sticky-header-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -475,8 +482,7 @@ table tr:hover {
 /* Blockquotes with gradient accent */
 blockquote {
   color: var(--text-secondary) !important;
-  border-left: 4px solid transparent !important;
-  border-image: var(--gradient-1) 1 !important;
+  border-left: 4px solid var(--accent-color) !important;
   padding-left: 1.5em !important;
   margin-left: 0 !important;
   margin: 1.5rem 0 !important;
@@ -828,8 +834,10 @@ sup, sub {
 /* Animate list items on load */
 .main-content > ol > li {
   animation: slideInFromBottom 0.5s ease-out backwards;
+  will-change: transform;
 }
 
+/* Limit staggered animations to first 20 items for performance */
 .main-content > ol > li:nth-child(1) { animation-delay: 0.05s; }
 .main-content > ol > li:nth-child(2) { animation-delay: 0.1s; }
 .main-content > ol > li:nth-child(3) { animation-delay: 0.15s; }
@@ -840,11 +848,22 @@ sup, sub {
 .main-content > ol > li:nth-child(8) { animation-delay: 0.4s; }
 .main-content > ol > li:nth-child(9) { animation-delay: 0.45s; }
 .main-content > ol > li:nth-child(10) { animation-delay: 0.5s; }
+.main-content > ol > li:nth-child(11) { animation-delay: 0.55s; }
+.main-content > ol > li:nth-child(12) { animation-delay: 0.6s; }
+.main-content > ol > li:nth-child(13) { animation-delay: 0.65s; }
+.main-content > ol > li:nth-child(14) { animation-delay: 0.7s; }
+.main-content > ol > li:nth-child(15) { animation-delay: 0.75s; }
+.main-content > ol > li:nth-child(16) { animation-delay: 0.8s; }
+.main-content > ol > li:nth-child(17) { animation-delay: 0.85s; }
+.main-content > ol > li:nth-child(18) { animation-delay: 0.9s; }
+.main-content > ol > li:nth-child(19) { animation-delay: 0.95s; }
+.main-content > ol > li:nth-child(20) { animation-delay: 1.0s; }
 
 /* Disable animations on reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .main-content > ol > li {
     animation: none;
+    will-change: auto;
   }
 }
 
