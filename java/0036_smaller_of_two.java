@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class smaller_number {
+class smaller_number {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
