@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class number_teller
+class number_teller
 {
     public static void main(String args[])
     {
