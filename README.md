@@ -176,7 +176,8 @@ Sum: 40
 
 # 📘 Status
 
-Click on the emoji to view the code.
+> [!TIP]
+> Helpful advice for doing things better or more easily.
 
 | #    | [QBasic](qbasic/) | [Java](java/) | [Python](python/) | [C](c/) | [C++](cpp/) | [C#](csharp/) | [Haskell](haskell/) | [Perl](perl/) | [Go](go/) | [Elixir](elixir/) | [Assembly](asm/) | [Fortran](fortran/) | [Lua](lua/) | [Ruby](ruby/) | [Visual Basic](vb/) | [PowerShell](pwsh/) | [Batch](batch/) |
 |:--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
