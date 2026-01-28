@@ -334,7 +334,7 @@ def generate_readme(questions_content, status_table):
     readme_parts.append("# 📘 Status")
     readme_parts.append("")
     readme_parts.append("> [!TIP]")
-    readme_parts.append("> Helpful advice for doing things better or more easily.")
+    readme_parts.append("> Click on the emojis to view/download the code.")
     readme_parts.append("")
     readme_parts.append(status_table)
     readme_parts.append("")
