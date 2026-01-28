@@ -78,14 +78,14 @@ LANGUAGE
     - <50: Fail
 <br> [Filename - 0062_grade_calculator]
 63. Print all odd numbers from 1 to (user defined number) <br> [Filename - 0063_odd_numbers]
-64. Calculate the factorial of a number using a while loop. <br> [Filename - 0064_factorial_while]
+64. Calculate the factorial of a number using a loop. <br> [Filename - 0064_factorial_while]
 65. Create a menu-driven program:  
     - Find Square
     - Find Cube
     - Exit
 <br> [Filename - 0065_square_cube_menu]
 66. Write a program to start a countdown from the number inputted by the user. <br> [Filename - 0066_countdown]
-67. Write a program calculating exponentials using a for loop.  <br> [Filename - 0067_exponentials]
+67. Write a program calculating exponentials using a loop.  <br> [Filename - 0067_exponentials]
 68. Write a program to accept the number of rows and print the following:  <br> [Filename - 0068_pattern_descending]
 ```
     Eg. (No of rows: 5)
