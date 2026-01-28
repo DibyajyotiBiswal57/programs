@@ -80,7 +80,7 @@ LANGUAGE
     - <50: Fail
 <br> [Filename - 0062_grade_calculator]
 63. Print all odd numbers from 1 to (user defined number) <br> [Filename - 0063_odd_numbers]
-64. Calculate the factorial of a number using a loop. <br> [Filename - 0064_factorial_while]
+64. Calculate the factorial of a number using a loop. <br> [Filename - 0064_factorial]
 65. Create a menu-driven program:  
     - Find Square
     - Find Cube
