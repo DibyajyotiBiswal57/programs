@@ -168,6 +168,8 @@ Sum: 40
 87. Write a program to check whether a number is an automorphic number.  
 (An automorphic number's square ends with the number itself.)  
 ```Eg: 25 → 25² = 625 ends with 25``` <br> [Filename - 0087_automorphic_number]
+88. Write a program that takes a string input from the user and converts all lowercase letters to uppercase and all uppercase letters to lowercase, leaving digits and special characters unchanged. <br> [Filename - 0088_toggle_case] 
+89. Accept a string and a character and check how many words start with the character. <br> [Filename - 0089_first_character_check]
 
 
 <!-- STATUS_TABLE_START -->
@@ -265,6 +267,8 @@ Click on the emoji to view the code.
 | 0085 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | 0086 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | 0087 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 0088 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 0089 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ## Legend
 
