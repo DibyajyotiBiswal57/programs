@@ -10,24 +10,43 @@ on:
 jobs:
   lint-and-fix:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    # Skip if last commit was made by github-actions bot to prevent infinite loops
+    if: github.event.head_commit.author.name != 'github-actions[bot]'
     
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.head_ref }}  # For PRs, checkout the PR branch
+          token: ${{ secrets.GITHUB_TOKEN }}
           
       # Python Setup and Fixing
+      - name: Check for Python files
+        id: check-python
+        run: |
+          if find . -name "*.py" -type f | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Set up Python
+        if: steps.check-python.outputs.found == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
           
       - name: Install Python formatters
+        if: steps.check-python.outputs.found == 'true'
         run: |
           pip install black autopep8 isort
           
       - name: Auto-fix Python code
+        if: steps.check-python.outputs.found == 'true'
         run: |
           black .
           autopep8 --in-place --recursive --aggressive --aggressive .
@@ -35,146 +54,270 @@ jobs:
         continue-on-error: true
           
       # JavaScript/HTML/SCSS Setup and Fixing
+      - name: Check for JavaScript/HTML/CSS files
+        id: check-js
+        run: |
+          if find . -type f \( -name "*.js" -o -name "*.html" -o -name "*.css" -o -name "*.scss" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Set up Node.js
+        if: steps.check-js.outputs.found == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           
       - name: Install JavaScript/HTML formatters
+        if: steps.check-js.outputs.found == 'true'
         run: |
           npm install -g prettier eslint
           
       - name: Auto-fix JavaScript, HTML, and SCSS
+        if: steps.check-js.outputs.found == 'true'
         run: |
           prettier --write "**/*.{js,html,css,scss}"
         continue-on-error: true
           
       # Java Setup and Fixing
+      - name: Check for Java files
+        id: check-java
+        run: |
+          if find . -name "*.java" -type f | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Set up Java
+        if: steps.check-java.outputs.found == 'true'
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
           
       - name: Install Google Java Format
+        if: steps.check-java.outputs.found == 'true'
         run: |
           wget https://github.com/google/google-java-format/releases/download/v1.19.2/google-java-format-1.19.2-all-deps.jar -O google-java-format.jar
           
       - name: Auto-fix Java code
+        if: steps.check-java.outputs.found == 'true'
         run: |
           find . -name "*.java" -type f -exec java -jar google-java-format.jar --replace {} +
         continue-on-error: true
           
       # C/C++ Setup and Fixing
+      - name: Check for C/C++ files
+        id: check-cpp
+        run: |
+          if find . -type f \( -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Install clang-format
+        if: steps.check-cpp.outputs.found == 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y clang-format
           
       - name: Auto-fix C/C++ code
+        if: steps.check-cpp.outputs.found == 'true'
         run: |
           find . -type f \( -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" \) -exec clang-format -i {} +
         continue-on-error: true
           
       # C# Setup and Fixing
+      - name: Check for C# files
+        id: check-csharp
+        run: |
+          if find . -type f \( -name "*.cs" -o -name "*.csproj" -o -name "*.sln" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Set up .NET
+        if: steps.check-csharp.outputs.found == 'true'
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
           
-      - name: Install dotnet-format
-        run: |
-          dotnet tool install -g dotnet-format
-          
       - name: Auto-fix C# code
+        if: steps.check-csharp.outputs.found == 'true'
         run: |
           find . -name "*.csproj" -o -name "*.sln" | head -n 1 | xargs -I {} dotnet format {} || echo "No C# project file found, skipping"
         continue-on-error: true
           
       # Go Setup and Fixing
+      - name: Check for Go files
+        id: check-go
+        run: |
+          if find . -name "*.go" -type f | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Set up Go
+        if: steps.check-go.outputs.found == 'true'
         uses: actions/setup-go@v5
         with:
           go-version: '1.21'
           
       - name: Auto-fix Go code
+        if: steps.check-go.outputs.found == 'true'
         run: |
           find . -name "*.go" -type f -exec gofmt -w {} +
           find . -name "*.go" -type f -exec go vet {} + || true
         continue-on-error: true
           
       # Ruby Setup and Fixing
+      - name: Check for Ruby files
+        id: check-ruby
+        run: |
+          if find . -type f \( -name "*.rb" -o -name "*.rake" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Set up Ruby
+        if: steps.check-ruby.outputs.found == 'true'
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
           
       - name: Install RuboCop
+        if: steps.check-ruby.outputs.found == 'true'
         run: |
           gem install rubocop
           
       - name: Auto-fix Ruby code
+        if: steps.check-ruby.outputs.found == 'true'
         run: |
           rubocop --auto-correct-all || true
         continue-on-error: true
           
       # Haskell Setup and Fixing
+      - name: Check for Haskell files
+        id: check-haskell
+        run: |
+          if find . -name "*.hs" -type f | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Set up Haskell
+        if: steps.check-haskell.outputs.found == 'true'
         uses: haskell-actions/setup@v2
         with:
           ghc-version: '9.4'
           
       - name: Install Haskell formatters
+        if: steps.check-haskell.outputs.found == 'true'
         run: |
           cabal update
           cabal install ormolu --overwrite-policy=always || true
+          echo "$HOME/.cabal/bin" >> $GITHUB_PATH
           
       - name: Auto-fix Haskell code
+        if: steps.check-haskell.outputs.found == 'true'
         run: |
+          export PATH="$HOME/.cabal/bin:$PATH"
           find . -name "*.hs" -type f -exec ormolu --mode inplace {} + || true
         continue-on-error: true
           
       # Fortran Formatting
+      - name: Check for Fortran files
+        id: check-fortran
+        run: |
+          if find . -type f \( -name "*.f" -o -name "*.f90" -o -name "*.F90" -o -name "*.for" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Install Fortran formatter
+        if: steps.check-fortran.outputs.found == 'true'
         run: |
           pip install fprettify
           
       - name: Auto-fix Fortran code
+        if: steps.check-fortran.outputs.found == 'true'
         run: |
           find . -type f \( -name "*.f" -o -name "*.f90" -o -name "*.F90" -o -name "*.for" \) -exec fprettify --indent 2 --whitespace 2 -i 1 {} + || true
         continue-on-error: true
           
       # Perl Setup and Fixing
+      - name: Check for Perl files
+        id: check-perl
+        run: |
+          if find . -type f \( -name "*.pl" -o -name "*.pm" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Install Perl formatter
+        if: steps.check-perl.outputs.found == 'true'
         run: |
           sudo apt-get install -y perltidy
           
       - name: Auto-fix Perl code
+        if: steps.check-perl.outputs.found == 'true'
         run: |
           find . -name "*.pl" -o -name "*.pm" | while read file; do perltidy -b "$file"; done || true
         continue-on-error: true
           
       # Lua Setup and Fixing
+      - name: Check for Lua files
+        id: check-lua
+        run: |
+          if find . -name "*.lua" -type f | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Install Lua formatter
+        if: steps.check-lua.outputs.found == 'true'
         run: |
           npm install -g @johnnymorganz/stylua-bin
           
       - name: Auto-fix Lua code
+        if: steps.check-lua.outputs.found == 'true'
         run: |
           npx stylua . || true
         continue-on-error: true
           
       # PowerShell Setup and Fixing
+      - name: Check for PowerShell files
+        id: check-powershell
+        run: |
+          if find . -type f \( -name "*.ps1" -o -name "*.psm1" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Install PowerShell
+        if: steps.check-powershell.outputs.found == 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y powershell
           
       - name: Install PSScriptAnalyzer
+        if: steps.check-powershell.outputs.found == 'true'
         run: |
           pwsh -Command "Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser"
           
       - name: Auto-fix PowerShell code
+        if: steps.check-powershell.outputs.found == 'true'
         run: |
           find . -name "*.ps1" -o -name "*.psm1" | while read file; do
             pwsh -Command "Invoke-Formatter -ScriptDefinition (Get-Content '$file' -Raw) | Set-Content '$file'" || true
@@ -182,19 +325,40 @@ jobs:
         continue-on-error: true
           
       # Elixir Setup and Fixing
+      - name: Check for Elixir files
+        id: check-elixir
+        run: |
+          if find . -type f \( -name "*.ex" -o -name "*.exs" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Set up Elixir
+        if: steps.check-elixir.outputs.found == 'true'
         uses: erlef/setup-beam@v1
         with:
           elixir-version: '1.15'
           otp-version: '26'
           
       - name: Auto-fix Elixir code
+        if: steps.check-elixir.outputs.found == 'true'
         run: |
           mix format || true
         continue-on-error: true
           
       # Visual Basic .NET Formatting
+      - name: Check for Visual Basic files
+        id: check-vb
+        run: |
+          if find . -name "*.vb" -type f | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Auto-fix Visual Basic .NET code
+        if: steps.check-vb.outputs.found == 'true'
         run: |
           find . -name "*.vb" | while read file; do
             dotnet format "$file" || true
@@ -202,7 +366,17 @@ jobs:
         continue-on-error: true
           
       # Assembly - Basic formatting (indentation cleanup)
+      - name: Check for Assembly files
+        id: check-asm
+        run: |
+          if find . -type f \( -name "*.asm" -o -name "*.s" -o -name "*.S" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Auto-fix Assembly code (basic cleanup)
+        if: steps.check-asm.outputs.found == 'true'
         run: |
           find . -type f \( -name "*.asm" -o -name "*.s" -o -name "*.S" \) | while read file; do
             # Remove trailing whitespace and ensure consistent line endings
@@ -211,7 +385,17 @@ jobs:
         continue-on-error: true
           
       # Batch Files - Basic formatting
+      - name: Check for Batch files
+        id: check-batch
+        run: |
+          if find . -type f \( -name "*.bat" -o -name "*.cmd" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Auto-fix Batch files (basic cleanup)
+        if: steps.check-batch.outputs.found == 'true'
         run: |
           find . -type f \( -name "*.bat" -o -name "*.cmd" \) | while read file; do
             # Remove trailing whitespace and ensure CRLF line endings
@@ -220,7 +404,17 @@ jobs:
         continue-on-error: true
           
       # QuickBASIC - Basic formatting
+      - name: Check for QuickBASIC files
+        id: check-qbasic
+        run: |
+          if find . -type f \( -name "*.bas" -o -name "*.BAS" \) | grep -q .; then
+            echo "found=true" >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Auto-fix QuickBASIC files (basic cleanup)
+        if: steps.check-qbasic.outputs.found == 'true'
         run: |
           find . -type f \( -name "*.bas" -o -name "*.BAS" \) | while read file; do
             # Remove trailing whitespace
@@ -228,35 +422,35 @@ jobs:
           done
         continue-on-error: true
           
-      # Run Super Linter for comprehensive checking
-      - name: Run Super Linter
-        uses: super-linter/super-linter@v6
-        env:
-          VALIDATE_ALL_CODEBASE: true
-          VALIDATE_PYTHON_BLACK: true
-          VALIDATE_PYTHON_FLAKE8: true
-          VALIDATE_JAVASCRIPT_ES: true
-          VALIDATE_HTML: true
-          VALIDATE_CSS: true
-          VALIDATE_JAVA: true
-          VALIDATE_GO: true
-          VALIDATE_RUBY: true
-          VALIDATE_CPP: true
-          VALIDATE_CLANG_FORMAT: true
-          VALIDATE_CSHARP: true
-          VALIDATE_POWERSHELL: true
-          VALIDATE_LUA: true
-          VALIDATE_PERL: true
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: true
-          
       # Commit and push all fixes
-      - name: Commit and push changes
+      - name: Check for changes
+        id: check-changes
+        run: |
+          git diff --quiet || echo "has_changes=true" >> $GITHUB_OUTPUT
+          
+      - name: Commit changes
+        if: steps.check-changes.outputs.has_changes == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
-          git diff --staged --quiet || git commit -m "Auto-fix: Apply linter fixes across all languages"
+          git commit -m "Auto-fix: Apply linter fixes across all languages"
+          
+      - name: Push changes (non-fork PRs and direct pushes)
+        if: steps.check-changes.outputs.has_changes == 'true' && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository)
+        run: |
           git push
         continue-on-error: true
+          
+      - name: Comment on PR (fork PRs)
+        if: steps.check-changes.outputs.has_changes == 'true' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '⚠️ **Linting Issues Detected**\n\nThis PR has code that needs formatting fixes, but since it\'s from a fork, the bot cannot push changes directly. Please run the linters locally or accept the suggestions when the maintainer merges this PR.'
+            })
+
