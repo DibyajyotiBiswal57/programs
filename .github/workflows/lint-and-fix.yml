@@ -14,7 +14,8 @@ jobs:
       contents: write
     
     # Skip if last commit was made by github-actions bot to prevent infinite loops
-    if: github.event.head_commit.author.name != 'github-actions[bot]'
+    # For pull requests, we can't check head_commit, so we allow them through
+    if: github.event_name == 'pull_request' || github.event.head_commit.author.name != 'github-actions[bot]'
     
     steps:
       - name: Checkout Code
