@@ -223,11 +223,13 @@ jobs:
         run: |
           cabal update
           cabal install ormolu --overwrite-policy=always || true
+          # Add to PATH for future steps (takes effect in subsequent steps)
           echo "$HOME/.cabal/bin" >> $GITHUB_PATH
           
       - name: Auto-fix Haskell code
         if: steps.check-haskell.outputs.found == 'true'
         run: |
+          # Export PATH for this step (GITHUB_PATH changes take effect in next steps)
           export PATH="$HOME/.cabal/bin:$PATH"
           find . -name "*.hs" -type f -exec ormolu --mode inplace {} + || true
         continue-on-error: true
@@ -437,7 +439,7 @@ jobs:
           git commit -m "Auto-fix: Apply linter fixes across all languages"
           
       - name: Push changes (non-fork PRs and direct pushes)
-        if: steps.check-changes.outputs.has_changes == 'true' && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository)
+        if: steps.check-changes.outputs.has_changes == 'true' && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository))
         run: |
           git push
         continue-on-error: true
@@ -451,6 +453,6 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '⚠️ **Linting Issues Detected**\n\nThis PR has code that needs formatting fixes, but since it\'s from a fork, the bot cannot push changes directly. Please run the linters locally or accept the suggestions when the maintainer merges this PR.'
+              body: '⚠️ **Linting Issues Detected**\n\nThis PR has code that could benefit from automated formatting fixes, but since it\'s from a fork, the bot cannot push changes directly.\n\n**Suggested actions:**\n- Run the formatters locally on your code\n- Or the maintainer can apply the fixes when merging\n\nThe workflow detected files that may need formatting in one or more languages.'
             })
 
