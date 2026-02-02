@@ -1,4 +1,3 @@
-
 num = float(input("Enter a number: "))
 print("Enter 'S' to find square of the number.")
 print("Enter 'C' to find cube of the number.")
@@ -9,4 +8,3 @@ elif char == "C":
     print(f"{num**3} is the cube of {num}.")
 else:
     print("Invalid selection.")
-    

@@ -1,4 +1,3 @@
-
 print("This program takes a 3 digit number and reverses its digits.")
 num = int(input("Enter a number: "))
 

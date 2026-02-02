@@ -6,4 +6,4 @@ If a mod 2= 0 Then
     Else
         Print "The number is odd."
     End If
-End 
+End

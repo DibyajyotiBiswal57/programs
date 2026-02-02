@@ -1,5 +1,6 @@
-
-print("This program calculates the perimeter of a rectangle, square, triangle, circle, parallelogram.")
+print(
+    "This program calculates the perimeter of a rectangle, square, triangle, circle, parallelogram."
+)
 print("Enter the shape for which you want to calculate the perimeter:")
 print("1. Rectangle")
 print("2. Square")
@@ -17,9 +18,9 @@ elif shape == 2:
     perimeter = 4 * side
     print("The perimeter of the square is", perimeter)
 elif shape == 3:
-    side1= float(input("Enter the first side of the triangle: "))
-    side2= float(input("Enter the second side of the triangle: "))
-    side3= float(input("Enter the third side of the triangle: "))
+    side1 = float(input("Enter the first side of the triangle: "))
+    side2 = float(input("Enter the second side of the triangle: "))
+    side3 = float(input("Enter the third side of the triangle: "))
     perimeter = side1 + side2 + side3
     print("The perimeter of the triangle is", perimeter)
 elif shape == 4:

@@ -1,4 +1,6 @@
 from manim import *
+
+
 class DefaultTemplate(Scene):
     def construct(self):
         circle = Circle()  # create a circle
@@ -9,5 +11,6 @@ class DefaultTemplate(Scene):
         square.rotate(-3 * TAU / 8)  # rotate a certain amount
 
         self.play(Create(square))  # animate the creation of the square
-        self.play(Transform(square, circle))  # interpolate the square into the circle
+        # interpolate the square into the circle
+        self.play(Transform(square, circle))
         self.play(FadeOut(square))  # fade out animation

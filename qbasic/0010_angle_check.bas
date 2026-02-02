@@ -9,5 +9,5 @@ Else If a + b = 180 Then
     Else
         Print "The angles are neither complementary nor supplementary."
     End If
-End 
+End
 

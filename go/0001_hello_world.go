@@ -1,4 +1,4 @@
-//Q22
+// Q22
 package main
 
 import "fmt"

@@ -1,5 +1,5 @@
 num = int(input("Enter a number: "))
-square = num ** 2
+square = num**2
 sum_digits = 0
 
 while square > 0:

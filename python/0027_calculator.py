@@ -1,4 +1,3 @@
-
 print("This is a calculator")
 print()
 print("ENter + for addition")
@@ -21,6 +20,6 @@ elif operator == "/":
 elif operator == "%":
     print("The modulus is: ", num1 % num2)
 elif operator == "^":
-    print("The power is: ", num1 ** num2)
+    print("The power is: ", num1**num2)
 else:
     print("Invalid operator")

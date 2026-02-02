@@ -1,7 +1,7 @@
 char = input("Enter a character: ")
 num1 = float(input("Enter a number: "))
 num2 = float(input("Enter a number: "))
-if char =='a':
+if char == "a":
     if num1 == num2:
         print("The numbers are equal.")
     else:
@@ -12,4 +12,4 @@ elif char == "M":
     else:
         print(f"{num1} is not divisible by 9")
 else:
-    print(f"Product of {num1} and {num2} is {num1*num2}")
+    print(f"Product of {num1} and {num2} is {num1 * num2}")
