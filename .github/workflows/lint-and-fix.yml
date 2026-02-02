@@ -1,0 +1,262 @@
+name: Lint and Auto-fix Code
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  lint-and-fix:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      # Python Setup and Fixing
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          
+      - name: Install Python formatters
+        run: |
+          pip install black autopep8 isort
+          
+      - name: Auto-fix Python code
+        run: |
+          black .
+          autopep8 --in-place --recursive --aggressive --aggressive .
+          isort .
+        continue-on-error: true
+          
+      # JavaScript/HTML/SCSS Setup and Fixing
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install JavaScript/HTML formatters
+        run: |
+          npm install -g prettier eslint
+          
+      - name: Auto-fix JavaScript, HTML, and SCSS
+        run: |
+          prettier --write "**/*.{js,html,css,scss}"
+        continue-on-error: true
+          
+      # Java Setup and Fixing
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          
+      - name: Install Google Java Format
+        run: |
+          wget https://github.com/google/google-java-format/releases/download/v1.19.2/google-java-format-1.19.2-all-deps.jar -O google-java-format.jar
+          
+      - name: Auto-fix Java code
+        run: |
+          find . -name "*.java" -type f -exec java -jar google-java-format.jar --replace {} +
+        continue-on-error: true
+          
+      # C/C++ Setup and Fixing
+      - name: Install clang-format
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format
+          
+      - name: Auto-fix C/C++ code
+        run: |
+          find . -type f \( -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" \) -exec clang-format -i {} +
+        continue-on-error: true
+          
+      # C# Setup and Fixing
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+          
+      - name: Install dotnet-format
+        run: |
+          dotnet tool install -g dotnet-format
+          
+      - name: Auto-fix C# code
+        run: |
+          find . -name "*.csproj" -o -name "*.sln" | head -n 1 | xargs -I {} dotnet format {} || echo "No C# project file found, skipping"
+        continue-on-error: true
+          
+      # Go Setup and Fixing
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+          
+      - name: Auto-fix Go code
+        run: |
+          find . -name "*.go" -type f -exec gofmt -w {} +
+          find . -name "*.go" -type f -exec go vet {} + || true
+        continue-on-error: true
+          
+      # Ruby Setup and Fixing
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          
+      - name: Install RuboCop
+        run: |
+          gem install rubocop
+          
+      - name: Auto-fix Ruby code
+        run: |
+          rubocop --auto-correct-all || true
+        continue-on-error: true
+          
+      # Haskell Setup and Fixing
+      - name: Set up Haskell
+        uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.4'
+          
+      - name: Install Haskell formatters
+        run: |
+          cabal update
+          cabal install ormolu --overwrite-policy=always || true
+          
+      - name: Auto-fix Haskell code
+        run: |
+          find . -name "*.hs" -type f -exec ormolu --mode inplace {} + || true
+        continue-on-error: true
+          
+      # Fortran Formatting
+      - name: Install Fortran formatter
+        run: |
+          pip install fprettify
+          
+      - name: Auto-fix Fortran code
+        run: |
+          find . -type f \( -name "*.f" -o -name "*.f90" -o -name "*.F90" -o -name "*.for" \) -exec fprettify --indent 2 --whitespace 2 -i 1 {} + || true
+        continue-on-error: true
+          
+      # Perl Setup and Fixing
+      - name: Install Perl formatter
+        run: |
+          sudo apt-get install -y perltidy
+          
+      - name: Auto-fix Perl code
+        run: |
+          find . -name "*.pl" -o -name "*.pm" | while read file; do perltidy -b "$file"; done || true
+        continue-on-error: true
+          
+      # Lua Setup and Fixing
+      - name: Install Lua formatter
+        run: |
+          npm install -g @johnnymorganz/stylua-bin
+          
+      - name: Auto-fix Lua code
+        run: |
+          npx stylua . || true
+        continue-on-error: true
+          
+      # PowerShell Setup and Fixing
+      - name: Install PowerShell
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y powershell
+          
+      - name: Install PSScriptAnalyzer
+        run: |
+          pwsh -Command "Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser"
+          
+      - name: Auto-fix PowerShell code
+        run: |
+          find . -name "*.ps1" -o -name "*.psm1" | while read file; do
+            pwsh -Command "Invoke-Formatter -ScriptDefinition (Get-Content '$file' -Raw) | Set-Content '$file'" || true
+          done
+        continue-on-error: true
+          
+      # Elixir Setup and Fixing
+      - name: Set up Elixir
+        uses: erlef/setup-beam@v1
+        with:
+          elixir-version: '1.15'
+          otp-version: '26'
+          
+      - name: Auto-fix Elixir code
+        run: |
+          mix format || true
+        continue-on-error: true
+          
+      # Visual Basic .NET Formatting
+      - name: Auto-fix Visual Basic .NET code
+        run: |
+          find . -name "*.vb" | while read file; do
+            dotnet format "$file" || true
+          done
+        continue-on-error: true
+          
+      # Assembly - Basic formatting (indentation cleanup)
+      - name: Auto-fix Assembly code (basic cleanup)
+        run: |
+          find . -type f \( -name "*.asm" -o -name "*.s" -o -name "*.S" \) | while read file; do
+            # Remove trailing whitespace and ensure consistent line endings
+            sed -i 's/[[:space:]]*$//' "$file" || true
+          done
+        continue-on-error: true
+          
+      # Batch Files - Basic formatting
+      - name: Auto-fix Batch files (basic cleanup)
+        run: |
+          find . -type f \( -name "*.bat" -o -name "*.cmd" \) | while read file; do
+            # Remove trailing whitespace and ensure CRLF line endings
+            sed -i 's/[[:space:]]*$//' "$file" || true
+          done
+        continue-on-error: true
+          
+      # QuickBASIC - Basic formatting
+      - name: Auto-fix QuickBASIC files (basic cleanup)
+        run: |
+          find . -type f \( -name "*.bas" -o -name "*.BAS" \) | while read file; do
+            # Remove trailing whitespace
+            sed -i 's/[[:space:]]*$//' "$file" || true
+          done
+        continue-on-error: true
+          
+      # Run Super Linter for comprehensive checking
+      - name: Run Super Linter
+        uses: super-linter/super-linter@v6
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_PYTHON_BLACK: true
+          VALIDATE_PYTHON_FLAKE8: true
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_HTML: true
+          VALIDATE_CSS: true
+          VALIDATE_JAVA: true
+          VALIDATE_GO: true
+          VALIDATE_RUBY: true
+          VALIDATE_CPP: true
+          VALIDATE_CLANG_FORMAT: true
+          VALIDATE_CSHARP: true
+          VALIDATE_POWERSHELL: true
+          VALIDATE_LUA: true
+          VALIDATE_PERL: true
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+          
+      # Commit and push all fixes
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git diff --staged --quiet || git commit -m "Auto-fix: Apply linter fixes across all languages"
+          git push
+        continue-on-error: true
