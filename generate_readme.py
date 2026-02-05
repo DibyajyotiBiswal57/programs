@@ -196,9 +196,8 @@ def read_questions(questions_file="questions.md"):
     try:
         with open(questions_file, "r", encoding="utf-8") as f:
             content = f.read()
-        print(
-            f"✅ Successfully read {
-                len(content)} characters from {questions_file}")
+        print(f"✅ Successfully read {
+            len(content)} characters from {questions_file}")
         return content
     except Exception as e:
         print(f"❌ Error reading {questions_file}: {e}")
@@ -427,9 +426,8 @@ def main():
 
     print("")
     print("🎉 Done! README.md has been updated.")
-    print(
-        f"📊 Generated table with {num_questions} questions across {
-            len(LANGUAGE_CONFIG)} languages")
+    print(f"📊 Generated table with {num_questions} questions across {
+        len(LANGUAGE_CONFIG)} languages")
     return 0
 
 
