@@ -11,6 +11,15 @@ class rectangle_or_cylinder {
     System.out.print("Enter the second number: ");
     double num2 = scanner.nextDouble();
 
+    // Basic validation: dimensions should be finite and non-negative
+    if (Double.isNaN(num1) || Double.isInfinite(num1)
+        || Double.isNaN(num2) || Double.isInfinite(num2)
+        || num1 < 0.0 || num2 < 0.0) {
+      System.out.println("Invalid input: dimensions must be finite, non-negative numbers.");
+      scanner.close();
+      return;
+    }
+
     System.out.print("Enter a boolean value (true/false): ");
     boolean isRectangle = scanner.nextBoolean();
 
@@ -25,6 +34,18 @@ class rectangle_or_cylinder {
 
       double height = num1;
       double radius = num2;
+
+      // Guard against overflow/underflow in surface area and volume calculations
+      // Use a conservative upper bound for dimensions to keep results within double range.
+      double maxDimensionForVolume = Math.cbrt(Double.MAX_VALUE / Math.PI);
+      double maxDimensionForSurfaceArea = Math.sqrt(Double.MAX_VALUE / (4.0 * Math.PI));
+      double maxDimension = Math.min(maxDimensionForVolume, maxDimensionForSurfaceArea);
+
+      if (radius > maxDimension || height > maxDimension) {
+        System.out.println("Input too large: radius and height must be less than or equal to " + maxDimension);
+        scanner.close();
+        return;
+      }
 
       double surfaceArea = 2 * Math.PI * radius * (radius + height);
       double volume = Math.PI * Math.pow(radius, 2) * height;
