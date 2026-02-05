@@ -12,9 +12,12 @@ class rectangle_or_cylinder {
     double num2 = scanner.nextDouble();
 
     // Basic validation: dimensions should be finite and non-negative
-    if (Double.isNaN(num1) || Double.isInfinite(num1)
-        || Double.isNaN(num2) || Double.isInfinite(num2)
-        || num1 < 0.0 || num2 < 0.0) {
+    if (Double.isNaN(num1)
+        || Double.isInfinite(num1)
+        || Double.isNaN(num2)
+        || Double.isInfinite(num2)
+        || num1 < 0.0
+        || num2 < 0.0) {
       System.out.println("Invalid input: dimensions must be finite, non-negative numbers.");
       scanner.close();
       return;
@@ -30,7 +33,9 @@ class rectangle_or_cylinder {
     double maxDimensionForRectangle = Math.min(maxDimensionForArea, maxDimensionForPerimeter);
 
     if (num1 > maxDimensionForRectangle || num2 > maxDimensionForRectangle) {
-      System.out.println("Input too large: both numbers must be less than or equal to " + maxDimensionForRectangle);
+      System.out.println(
+          "Input too large: both numbers must be less than or equal to "
+              + maxDimensionForRectangle);
       scanner.close();
       return;
     }
@@ -54,7 +59,8 @@ class rectangle_or_cylinder {
       double maxDimension = Math.min(maxDimensionForVolume, maxDimensionForSurfaceArea);
 
       if (radius > maxDimension || height > maxDimension) {
-        System.out.println("Input too large: radius and height must be less than or equal to " + maxDimension);
+        System.out.println(
+            "Input too large: radius and height must be less than or equal to " + maxDimension);
         scanner.close();
         return;
       }

@@ -22,10 +22,10 @@ class average_score {
 
     // Validate inputs to avoid overflow when computing the sum.
     double maxComponent = Double.MAX_VALUE / 8.0;
-    if (Math.abs(a) <= maxComponent &&
-        Math.abs(b) <= maxComponent &&
-        Math.abs(c) <= maxComponent &&
-        Math.abs(d) <= maxComponent) {
+    if (Math.abs(a) <= maxComponent
+        && Math.abs(b) <= maxComponent
+        && Math.abs(c) <= maxComponent
+        && Math.abs(d) <= maxComponent) {
       double aver = (a + b + c + d) / 4;
       System.out.println("The average is: " + aver);
     } else {
