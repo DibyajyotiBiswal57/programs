@@ -20,8 +20,16 @@ class average_score {
     System.out.println("4: ");
     double d = scanner.nextDouble();
 
-    double aver = (a + b + c + d) / 4;
-
-    System.out.println("The average is: " + aver);
+    // Validate inputs to avoid overflow when computing the sum.
+    double maxComponent = Double.MAX_VALUE / 8.0;
+    if (Math.abs(a) <= maxComponent &&
+        Math.abs(b) <= maxComponent &&
+        Math.abs(c) <= maxComponent &&
+        Math.abs(d) <= maxComponent) {
+      double aver = (a + b + c + d) / 4;
+      System.out.println("The average is: " + aver);
+    } else {
+      System.out.println("One or more marks are out of the acceptable range.");
+    }
   }
 }
