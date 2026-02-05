@@ -23,6 +23,18 @@ class rectangle_or_cylinder {
     System.out.print("Enter a boolean value (true/false): ");
     boolean isRectangle = scanner.nextBoolean();
 
+    // Guard against overflow in rectangle area and perimeter calculations
+    // Ensure that num1 * num2 and 2 * (num1 + num2) stay within the double range.
+    double maxDimensionForArea = Math.sqrt(Double.MAX_VALUE);
+    double maxDimensionForPerimeter = Double.MAX_VALUE / 4.0;
+    double maxDimensionForRectangle = Math.min(maxDimensionForArea, maxDimensionForPerimeter);
+
+    if (num1 > maxDimensionForRectangle || num2 > maxDimensionForRectangle) {
+      System.out.println("Input too large: both numbers must be less than or equal to " + maxDimensionForRectangle);
+      scanner.close();
+      return;
+    }
+
     if (isRectangle) {
 
       double area = num1 * num2;
