@@ -29,4 +29,10 @@ To keep our collection organized and sorted logically, please follow the filenam
 3. Submit a PR with a clear title like `Add: [Language] [Program Name]`.
 4. Explain what your program does in brief.
 
+> [!Tip]
+> Use `class` instead of `public class` so the class name and the filename do not have to match.
+
+> [!Important]
+> Always sync your fork before open a pull request.
+
 **Happy coding!**
