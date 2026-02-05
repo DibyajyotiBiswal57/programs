@@ -30,9 +30,9 @@ To keep our collection organized and sorted logically, please follow the filenam
 4. Explain what your program does in brief.
 
 > [!Tip]
-> Use `class` instead of `public class` so the class name and the filename do not have to match.
+> Use `class` instead of `public class` while writing Java programs so that the class name and the filename do not have to match.
 
 > [!Important]
-> Always sync your fork before open a pull request.
+> Always sync your fork before opening a pull request.
 
 **Happy coding!**
