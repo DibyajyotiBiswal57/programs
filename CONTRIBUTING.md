@@ -14,7 +14,15 @@ If you want to add a program which is not related to any of the questions mentio
 
 ## 🏷️ File Naming Convention: `0000_filename`
 
-To keep our collection organized and sorted logically, please follow the filenames given in the `questions.md` file.
+To keep our collection organized and sorted logically, please follow the filenames given in the `questions.md` file.  
+
+### Legend -  
+
+| Symbol | Status | Description |
+|:------:|:-------|:------------|
+| ✅ | **Finished** | Program is complete and working |
+| ❗️ | **Beta** | Program is functional but may have issues or is work-in-progress |
+| ❌ | **Unfinished** | Program not yet implemented or incomplete |
 
 ---
 
@@ -30,9 +38,12 @@ To keep our collection organized and sorted logically, please follow the filenam
 4. Explain what your program does in brief.
 
 > [!Tip]
-> Use `class` instead of `public class` while writing Java programs so that the class name and the filename do not have to match.
+> Use `class` instead of `public class` while writing Java programs, so that the class name and the filename do not have to match.
 
 > [!Important]
 > Always sync your fork before opening a pull request.
+
+>[!CAUTION]
+> Do not change any critical files in the repository, or else your pull request will be cancelled.
 
 **Happy coding!**
