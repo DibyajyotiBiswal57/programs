@@ -83,12 +83,12 @@ def extract_question_number(filename, filepath):
 
     # Method 2: Extract from filename
     # Try 4-digit pattern first (0001, 0042, etc.)
-    match = re.match(r"^(\\d{4})", filename)
+    match = re.match(r"^(\d{4})", filename)
     if match:
         return int(match.group(1))
 
     # Try 3-digit pattern (001, 042, etc.)
-    match = re.match(r"^(\\d{3})", filename)
+    match = re.match(r"^(\d{3})", filename)
     if match:
         return int(match.group(1))
 
@@ -351,8 +351,8 @@ def main():
 
     print("")
     print("🎉 Done! status.md has been updated.")
-    print(f"📊 Generated table with {num_questions} questions across {
-        len(LANGUAGE_CONFIG)} languages")
+    num_languages = len(LANGUAGE_CONFIG)
+    print(f"📊 Generated table with {num_questions} questions across {num_languages} languages")
     return 0
 
 
