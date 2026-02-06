@@ -614,10 +614,6 @@ def generate_html(questions, status_badges):
             }
         }
         
-        .boot-line.success {
-            color: #00ff00;
-        }
-        
         .boot-line.info {
             color: #00d4ff;
         }
@@ -629,11 +625,6 @@ def generate_html(questions, status_badges):
         .boot-line.highlight {
             color: #ffffff;
             font-weight: bold;
-        }
-        
-        .boot-ok {
-            color: #00ff00;
-            margin-left: 10px;
         }
         
         .boot-cursor {
