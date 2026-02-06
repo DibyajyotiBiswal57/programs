@@ -2,50 +2,50 @@
 # These owners will be automatically requested for review when someone opens a pull request
 
 # Default owners for everything in the repo
-* @DibyajyotiBiswal57
+* @DibyajyotiBiswal57 @Quantum404AK
 
 # Documentation
-*.md @DibyajyotiBiswal57
-/docs/ @DibyajyotiBiswal57
+*.md @DibyajyotiBiswal57 @Quantum404AK
+/docs/ @DibyajyotiBiswal57 @Quantum404AK
 
 # GitHub configurations
-/.github/ @DibyajyotiBiswal57
+/.github/ @DibyajyotiBiswal57 @Quantum404AK
 
 # Python programs
-/python/ @DibyajyotiBiswal57
+/python/ @DibyajyotiBiswal57 @Quantum404AK
 
 # Java programs
-/java/ @DibyajyotiBiswal57
+/java/ @DibyajyotiBiswal57 @Quantum404AK
 
 # C programs
-/c/ @DibyajyotiBiswal57
+/c/ @DibyajyotiBiswal57 @Quantum404AK
 
 # C++ programs
-/cpp/ @DibyajyotiBiswal57
+/cpp/ @DibyajyotiBiswal57 @Quantum404AK
 
 # C# programs
-/csharp/ @DibyajyotiBiswal57
+/csharp/ @DibyajyotiBiswal57 @Quantum404AK
 
 # QBasic programs
-/qbasic/ @DibyajyotiBiswal57
+/qbasic/ @DibyajyotiBiswal57 @Quantum404AK
 
 # Other language directories
-/go/ @DibyajyotiBiswal57
-/haskell/ @DibyajyotiBiswal57
-/perl/ @DibyajyotiBiswal57
-/elixir/ @DibyajyotiBiswal57
-/asm/ @DibyajyotiBiswal57
-/fortran/ @DibyajyotiBiswal57
-/lua/ @DibyajyotiBiswal57
-/ruby/ @DibyajyotiBiswal57
-/vb/ @DibyajyotiBiswal57
-/pwsh/ @DibyajyotiBiswal57
-/batch/ @DibyajyotiBiswal57
+/go/ @DibyajyotiBiswal57 @Quantum404AK
+/haskell/ @DibyajyotiBiswal57 @Quantum404AK
+/perl/ @DibyajyotiBiswal57 @Quantum404AK
+/elixir/ @DibyajyotiBiswal57 @Quantum404AK
+/asm/ @DibyajyotiBiswal57 @Quantum404AK
+/fortran/ @DibyajyotiBiswal57 @Quantum404AK
+/lua/ @DibyajyotiBiswal57 @Quantum404AK
+/ruby/ @DibyajyotiBiswal57 @Quantum404AK
+/vb/ @DibyajyotiBiswal57 @Quantum404AK
+/pwsh/ @DibyajyotiBiswal57 @Quantum404AK
+/batch/ @DibyajyotiBiswal57 @Quantum404AK
 
 # Build and automation scripts
-*.py @DibyajyotiBiswal57
-generate_html.py @DibyajyotiBiswal57
-update_status.py @DibyajyotiBiswal57
+*.py @DibyajyotiBiswal57 @Quantum404AK
+generate_html.py @DibyajyotiBiswal57 @Quantum404AK
+update_status.py @DibyajyotiBiswal57 @Quantum404AK
 
 # GitHub Actions workflows
-/.github/workflows/ @DibyajyotiBiswal57
+/.github/workflows/ @DibyajyotiBiswal57 @Quantum404AK
