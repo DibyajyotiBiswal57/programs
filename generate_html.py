@@ -632,21 +632,6 @@ def generate_html(questions, status_badges):
             font-weight: 300;
             letter-spacing: 1px;
         }
-        
-        
-        @media (max-width: 768px) {
-            .splash-icon {
-                font-size: 4rem;
-            }
-            
-            .splash-title {
-                font-size: 1.8rem;
-            }
-            
-            .splash-subtitle {
-                font-size: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
