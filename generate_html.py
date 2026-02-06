@@ -471,9 +471,132 @@ def generate_html(questions, status_badges):
         delay = i * 0.03
         html_parts.append(f'        .question-card:nth-child({i+1}) {{ animation-delay: {delay}s; }}\n')
     
-    html_parts.append('''    </style>
+    html_parts.append('''        
+        /* Splash Screen Styles */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: splashFadeIn 0.5s ease-out;
+        }
+        
+        #splash-screen.hidden {
+            animation: splashFadeOut 0.5s ease-out forwards;
+        }
+        
+        @keyframes splashFadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes splashFadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        
+        .splash-content {
+            text-align: center;
+            color: white;
+            animation: splashContentZoom 0.6s ease-out;
+        }
+        
+        @keyframes splashContentZoom {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .splash-icon {
+            font-size: 6rem;
+            margin-bottom: 20px;
+            animation: iconBounce 1s ease-in-out infinite alternate;
+        }
+        
+        @keyframes iconBounce {
+            from {
+                transform: translateY(0px);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .splash-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .splash-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .splash-loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .splash-icon {
+                font-size: 4rem;
+            }
+            
+            .splash-title {
+                font-size: 1.8rem;
+            }
+            
+            .splash-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <div class="splash-icon">📘</div>
+            <h1 class="splash-title">Programming Questions</h1>
+            <p class="splash-subtitle">Loading your progress tracker...</p>
+            <div class="splash-loader"></div>
+        </div>
+    </div>
+    
     <div class="container">
         <header>
             <h1>
@@ -579,6 +702,20 @@ def generate_html(questions, status_badges):
                     event.target.click();
                 }}
             }}
+        }});
+        
+        // Splash screen initialization
+        window.addEventListener('load', function() {{
+            // Wait for a minimum time to show the splash screen (1.5 seconds)
+            setTimeout(function() {{
+                const splashScreen = document.getElementById('splash-screen');
+                splashScreen.classList.add('hidden');
+                
+                // Remove the splash screen from DOM after animation completes
+                setTimeout(function() {{
+                    splashScreen.remove();
+                }}, 500); // Match the fade-out animation duration
+            }}, 1500);
         }});
     </script>
 </body>
