@@ -12,7 +12,7 @@
 
 ```ascii
 ╔═══════════════════════════════════════════════════════════════╗
-║  🎯 From "Hello World" to Advanced Algorithms                ║
+║  🎯 From "Hello World" to Advanced Algorithms                 ║
 ║  🌐 17+ Programming Languages | 📚 89+ Unique Problems       ║
 ║  ⚡ Interactive Status Page | 🎨 Multiple Solutions          ║
 ╚═══════════════════════════════════════════════════════════════╝
