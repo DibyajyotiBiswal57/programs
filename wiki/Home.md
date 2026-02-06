@@ -26,7 +26,7 @@ This wiki provides comprehensive documentation for the repository containing 89+
 - [Adding a New Problem](Adding-New-Problem) - Proposing new challenges
 
 ### Reference
-- [Problem Index](Problem-Index) - Complete list of all problems
+- [Problem Index](https://raw.githubusercontent.com/DibyajyotiBiswal57/programs/refs/heads/main/questions.md) - Complete list of all problems
 - [FAQ](FAQ) - Frequently asked questions
 - [Troubleshooting](Troubleshooting) - Common issues and solutions
 - [Project Structure](Project-Structure) - Repository organization
