@@ -226,11 +226,11 @@ def generate_status_table(status, num_questions):
 
                 # Create clickable link for done and beta, plain badge for missing
                 if file_status in ["done", "beta"]:
-                    file_path = f"{lang}/{filename}"
-                    cells.append(f"[![{file_status}]({badge_url})]({file_path})")
+                    file_path = f"{{lang}}/{{filename}}"
+                    cells.append(f"[![{{file_status}}]({badge_url})]({file_path})")
                 else:
                     # Missing/unfinished - plain badge without link
-                    cells.append(f"![{file_status}]({badge_url})")
+                    cells.append(f"![{{file_status}}]({badge_url})")
             else:
                 # No file found - show plain missing badge
                 badge_url = create_shields_badge("missing")
@@ -257,6 +257,7 @@ def generate_status_md(status_table):
     status_parts.append("# 📘 Status")
     status_parts.append("")
     status_parts.append("> [!TIP]")
+    status_parts.append("")
     status_parts.append("> Click on the badges to view/download the code.")
     status_parts.append("")
     status_parts.append(status_table)
