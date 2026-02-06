@@ -5,7 +5,7 @@ Generate status.md with Shields.io badges from questions.md and language folder 
 This script reads questions from questions.md, scans all language folders for programs,
 detects their status, and generates a status.md file with Shields.io badges:
 - Finished files: Green "done" badge with link to file
-- Beta files (beta/wip): Yellow "beta" badge with link to file  
+- Beta files (beta/wip): Yellow "beta" badge with link to file
 - Missing/unfinished files: Grey "missing" badge without link
 
 USAGE:
@@ -54,6 +54,7 @@ LANGUAGE_CONFIG = {
     "batch": "Batch",
 }
 
+
 def extract_question_number(filename):
     """
     Extract question number from a filename.
@@ -93,6 +94,7 @@ def extract_question_number(filename):
 
     return None
 
+
 def count_questions(questions_file="questions.md"):
     """
     Count the number of questions in questions.md.
@@ -122,6 +124,7 @@ def count_questions(questions_file="questions.md"):
     except Exception as e:
         print(f"❌ Error counting questions in {questions_file}: {e}")
         return 0
+
 
 def scan_language_folders():
     """
@@ -164,6 +167,7 @@ def scan_language_folders():
 
     return status
 
+
 def create_shields_badge(status, label=None):
     """
     Create a Shields.io badge URL.
@@ -188,6 +192,7 @@ def create_shields_badge(status, label=None):
     badge_color = config["color"]
 
     return f"https://img.shields.io/badge/{badge_label}-{badge_status}-{badge_color}"
+
 
 def generate_status_table(status, num_questions):
     """
@@ -224,10 +229,12 @@ def generate_status_table(status, num_questions):
                 # Create Shields.io badge
                 badge_url = create_shields_badge(file_status)
 
-                # Create clickable link for done and beta, plain badge for missing
+                # Create clickable link for done and beta, plain badge for
+                # missing
                 if file_status in ["done", "beta"]:
                     file_path = f"{lang}/{filename}"
-                    cells.append(f"[![{file_status}]({badge_url})]({file_path})")
+                    cells.append(
+                        f"[![{file_status}]({badge_url})]({file_path})")
                 else:
                     # Missing/unfinished - plain badge without link
                     cells.append(f"![{file_status}]({badge_url})")
@@ -240,6 +247,7 @@ def generate_status_table(status, num_questions):
         table_lines.append(row)
 
     return "\n".join(table_lines)
+
 
 def generate_status_md(status_table):
     """
@@ -277,12 +285,14 @@ def generate_status_md(status_table):
     status_parts.append(
         f"| ![done]({done_badge}) | **Finished** | Program is complete and working |")
     status_parts.append(
-        f"| ![beta]({beta_badge}) | **Beta** | Program is functional but may have issues or is work-in-progress |")
+        f"| ![beta]({beta_badge}) | **Beta** | Program is functional but may have issues or is work-in-progress |"
+    )
     status_parts.append(
         f"| ![missing]({missing_badge}) | **Missing** | Program not yet implemented or incomplete |")
     status_parts.append("")
 
     return "\n".join(status_parts)
+
 
 def main():
     """Main function to orchestrate status.md generation."""
@@ -328,7 +338,9 @@ def main():
     print("")
     print("🎉 Done! status.md has been updated.")
     num_languages = len(LANGUAGE_CONFIG)
-    print(f"📊 Generated table with {num_questions} questions across {num_languages} languages")
+    print(
+        f"📊 Generated table with {num_questions} questions across {num_languages} languages"
+    )
     return 0
 
 

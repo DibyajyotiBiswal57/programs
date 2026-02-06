@@ -46,156 +46,160 @@ LANGUAGE_CONFIG = {
     "batch": "Batch",
 }
 
+
 def parse_questions(questions_file="questions.md"):
     """
     Parse questions from questions.md.
-    
+
     Args:
         questions_file: Path to the questions markdown file
-        
+
     Returns:
         List of dictionaries with 'number' and 'text' keys
     """
     questions = []
-    
+
     if not os.path.exists(questions_file):
         print(f"⚠️  Warning: {questions_file} not found.")
         return questions
-    
+
     try:
         with open(questions_file, "r", encoding="utf-8") as f:
             lines = f.readlines()
-        
+
         for line in lines:
             # Pattern to match numbered questions
             # Example: "1. Print "Hello World". <br> [Filename - 0001_hello_world]"
             # Format: question_num. question_text <br> [Filename - ...]
-            match = re.match(r'^(\d+)\.\s+(.+?)(?:\s*<br>.*)?$', line)
-            
+            match = re.match(r"^(\d+)\.\s+(.+?)(?:\s*<br>.*)?$", line)
+
             if match:
                 question_num = int(match.group(1))
                 question_text = match.group(2).strip()
-                
+
                 # Remove HTML tags from question text
-                question_text = re.sub(r'<[^>]+>', '', question_text)
-                
-                questions.append({
-                    'number': question_num,
-                    'text': question_text
-                })
-        
+                question_text = re.sub(r"<[^>]+>", "", question_text)
+
+                questions.append(
+                    {"number": question_num, "text": question_text})
+
         print(f"📊 Parsed {len(questions)} questions from {questions_file}")
         return questions
-        
+
     except Exception as e:
         print(f"❌ Error parsing {questions_file}: {e}")
         return questions
 
+
 def parse_status_badges(status_file="status.md"):
     """
     Parse status badges from status.md.
-    
+
     Args:
         status_file: Path to the status markdown file
-        
+
     Returns:
         Dictionary mapping question_number -> list of badge HTML/markdown
     """
     status_badges = {}
-    
+
     if not os.path.exists(status_file):
         print(f"⚠️  Warning: {status_file} not found.")
         return status_badges
-    
+
     try:
         with open(status_file, "r", encoding="utf-8") as f:
             lines = f.readlines()
-        
+
         # Find the table section (starts after the header row)
         in_table = False
         languages = list(LANGUAGE_CONFIG.keys())
-        
+
         for line in lines:
             # Skip header and divider rows
-            if line.startswith('| #'):
+            if line.startswith("| #"):
                 in_table = True
                 continue
-            if line.startswith('|:---'):
+            if line.startswith("|:---"):
                 continue
-            if line.startswith('## Legend'):
+            if line.startswith("## Legend"):
                 break
-                
-            if in_table and line.startswith('|'):
+
+            if in_table and line.startswith("|"):
                 # Parse table row
-                cells = [cell.strip() for cell in line.split('|')]
+                cells = [cell.strip() for cell in line.split("|")]
                 # Remove empty cells from start/end
                 cells = [c for c in cells if c]
-                
+
                 if len(cells) >= 2:
                     # First cell is the question number
-                    num_match = re.match(r'(\d+)', cells[0])
+                    num_match = re.match(r"(\d+)", cells[0])
                     if num_match:
                         question_num = int(num_match.group(1))
                         # Remaining cells are the badges
                         badges = cells[1:]
                         status_badges[question_num] = badges
-        
-        print(f"📊 Parsed status badges for {len(status_badges)} questions from {status_file}")
+
+        print(
+            f"📊 Parsed status badges for {
+                len(status_badges)} questions from {status_file}")
         return status_badges
-        
+
     except Exception as e:
         print(f"❌ Error parsing {status_file}: {e}")
         return status_badges
 
+
 def convert_badge_to_html(badge_md):
     """
     Convert markdown badge to HTML.
-    
+
     Args:
         badge_md: Markdown badge string (e.g., "[![done](...)](link)" or "![missing](...)")
-        
+
     Returns:
         HTML string for the badge
     """
     # Pattern for clickable badge: [![alt](img_url)](link_url)
-    clickable_pattern = r'\[\!\[([^\]]*)\]\(([^\)]+)\)\]\(([^\)]+)\)'
+    clickable_pattern = r"\[\!\[([^\]]*)\]\(([^\)]+)\)\]\(([^\)]+)\)"
     match = re.match(clickable_pattern, badge_md)
-    
+
     if match:
         alt_text = match.group(1)
         img_url = match.group(2)
         link_url = match.group(3)
         return f'<a href="{link_url}" target="_blank"><img src="{img_url}" alt="{alt_text}" class="badge"></a>'
-    
+
     # Pattern for non-clickable badge: ![alt](img_url)
-    non_clickable_pattern = r'\!\[([^\]]*)\]\(([^\)]+)\)'
+    non_clickable_pattern = r"\!\[([^\]]*)\]\(([^\)]+)\)"
     match = re.match(non_clickable_pattern, badge_md)
-    
+
     if match:
         alt_text = match.group(1)
         img_url = match.group(2)
         return f'<img src="{img_url}" alt="{alt_text}" class="badge">'
-    
+
     return badge_md
+
 
 def generate_html(questions, status_badges):
     """
     Generate the complete HTML page.
-    
+
     Args:
         questions: List of question dictionaries
         status_badges: Dictionary mapping question numbers to badge lists
-        
+
     Returns:
         String containing the complete HTML
     """
     languages = list(LANGUAGE_CONFIG.values())
     current_year = datetime.now().year
-    
+
     html_parts = []
-    
+
     # HTML header and styles
-    html_parts.append('''<!DOCTYPE html>
+    html_parts.append("""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -207,7 +211,7 @@ def generate_html(questions, status_badges):
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
@@ -222,7 +226,7 @@ def generate_html(questions, status_badges):
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* Dark mode variables */
         [data-theme="dark"] {
             --primary-color: #60a5fa;
@@ -238,7 +242,7 @@ def generate_html(questions, status_badges):
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: var(--background);
@@ -248,7 +252,7 @@ def generate_html(questions, status_badges):
             animation: fadeIn 0.5s ease-in;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-        
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -257,19 +261,19 @@ def generate_html(questions, status_badges):
                 opacity: 1;
             }
         }
-        
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         header {
             text-align: center;
             padding: 40px 20px;
             margin-bottom: 40px;
             animation: slideDown 0.6s ease-out;
         }
-        
+
         @keyframes slideDown {
             from {
                 transform: translateY(-30px);
@@ -280,7 +284,7 @@ def generate_html(questions, status_badges):
                 opacity: 1;
             }
         }
-        
+
         h1 {
             font-size: 3rem;
             font-weight: 700;
@@ -291,20 +295,20 @@ def generate_html(questions, status_badges):
             justify-content: center;
             gap: 15px;
         }
-        
+
         .subtitle {
             font-size: 1.25rem;
             color: var(--text-secondary);
             margin-top: 10px;
         }
-        
+
         .questions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }
-        
+
         .question-card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -315,7 +319,7 @@ def generate_html(questions, status_badges):
             animation-fill-mode: both;
             border: 1px solid var(--border-color);
         }
-        
+
         @keyframes fadeInUp {
             from {
                 transform: translateY(20px);
@@ -326,13 +330,13 @@ def generate_html(questions, status_badges):
                 opacity: 1;
             }
         }
-        
+
         .question-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-xl);
             border-color: var(--accent-color);
         }
-        
+
         .question-number {
             display: inline-block;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -343,14 +347,14 @@ def generate_html(questions, status_badges):
             font-size: 0.875rem;
             margin-bottom: 12px;
         }
-        
+
         .question-text {
             font-size: 1.05rem;
             color: var(--text-primary);
             margin-bottom: 16px;
             line-height: 1.6;
         }
-        
+
         .status-toggle {
             background: none;
             border: none;
@@ -368,52 +372,52 @@ def generate_html(questions, status_badges):
             justify-content: space-between;
             transition: all 0.2s ease;
         }
-        
+
         .status-toggle:hover {
             background: #e0e7ff;
         }
-        
+
         .status-toggle:focus {
             outline: 2px solid var(--accent-color);
             outline-offset: 2px;
         }
-        
+
         .arrow {
             transition: transform 0.3s ease;
             font-size: 1.2rem;
         }
-        
+
         .arrow.open {
             transform: rotate(180deg);
         }
-        
+
         .status-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease;
         }
-        
+
         .status-content.open {
             max-height: 1000px;
         }
-        
+
         .status-table-wrapper {
             padding: 16px 0;
             animation: fadeIn 0.3s ease;
         }
-        
+
         .status-table {
             width: 100%;
             overflow-x: auto;
             margin-top: 12px;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.875rem;
         }
-        
+
         th {
             background: var(--background);
             padding: 8px 4px;
@@ -423,19 +427,19 @@ def generate_html(questions, status_badges):
             border-bottom: 2px solid var(--border-color);
             font-size: 0.8rem;
         }
-        
+
         td {
             padding: 8px 4px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .badge {
             height: 20px;
             display: inline-block;
             vertical-align: middle;
         }
-        
+
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -444,16 +448,16 @@ def generate_html(questions, status_badges):
             border-top: 1px solid var(--border-color);
             margin-top: 60px;
         }
-        
+
         footer a {
             color: var(--primary-color);
             text-decoration: none;
         }
-        
+
         footer a:hover {
             text-decoration: underline;
         }
-        
+
         /* Theme Toggle Button */
         .theme-toggle {
             position: fixed;
@@ -473,16 +477,16 @@ def generate_html(questions, status_badges):
             transition: all 0.3s ease;
             z-index: 1000;
         }
-        
+
         .theme-toggle:hover {
             transform: scale(1.1);
             box-shadow: var(--shadow-lg);
         }
-        
+
         .theme-toggle:active {
             transform: scale(0.95);
         }
-        
+
         /* Badge Tip Section */
         .badge-tip {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
@@ -496,72 +500,74 @@ def generate_html(questions, status_badges):
             box-shadow: var(--shadow-sm);
             animation: slideDown 0.6s ease-out;
         }
-        
+
         [data-theme="dark"] .badge-tip {
             background: linear-gradient(135deg, #422006 0%, #713f12 100%);
             border-left-color: #f59e0b;
         }
-        
+
         .badge-tip-icon {
             font-size: 1.5rem;
             flex-shrink: 0;
         }
-        
+
         .badge-tip-text {
             color: #78350f;
             font-weight: 500;
             font-size: 1rem;
         }
-        
+
         [data-theme="dark"] .badge-tip-text {
             color: #fde68a;
         }
-        
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
                 flex-direction: column;
                 gap: 10px;
             }
-            
+
             .questions-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
+
             .question-card {
                 padding: 20px;
             }
-            
+
             th, td {
                 padding: 6px 2px;
                 font-size: 0.75rem;
             }
-            
+
             .splash-title {
                 font-size: 2rem;
             }
-            
+
             .splash-subtitle {
                 font-size: 0.9rem;
             }
-            
+
             .theme-toggle {
                 width: 45px;
                 height: 45px;
                 font-size: 1.3rem;
             }
         }
-        
+
         /* Stagger animation for cards */
-        ''')
-    
+        """)
+
     # Add staggered animation delays for cards
     for i in range(min(len(questions), 100)):
         delay = i * 0.03
-        html_parts.append(f'        .question-card:nth-child({i+1}) {{ animation-delay: {delay}s; }}\n')
-    
-    html_parts.append('''        
+        html_parts.append(
+            f"        .question-card:nth-child({i + 1}) {{ animation-delay: {delay}s; }}\n"
+        )
+
+    html_parts.append("""
         /* Splash Screen Styles - Linux Boot Style */
         #splash-screen {
             position: fixed;
@@ -579,11 +585,11 @@ def generate_html(questions, status_badges):
             overflow: hidden;
             font-family: 'Courier New', Consolas, Monaco, monospace;
         }
-        
+
         #splash-screen.hidden {
             animation: splashFadeOut 0.6s ease-out forwards;
         }
-        
+
         @keyframes splashFadeOut {
             from {
                 opacity: 1;
@@ -593,7 +599,7 @@ def generate_html(questions, status_badges):
                 visibility: hidden;
             }
         }
-        
+
         .boot-line {
             color: #00ff00;
             font-size: 0.9rem;
@@ -602,7 +608,7 @@ def generate_html(questions, status_badges):
             opacity: 0;
             animation: bootLineAppear 0.1s ease-out forwards;
         }
-        
+
         @keyframes bootLineAppear {
             from {
                 opacity: 0;
@@ -613,20 +619,20 @@ def generate_html(questions, status_badges):
                 transform: translateX(0);
             }
         }
-        
+
         .boot-line.info {
             color: #00d4ff;
         }
-        
+
         .boot-line.warning {
             color: #ffaa00;
         }
-        
+
         .boot-line.highlight {
             color: #ffffff;
             font-weight: bold;
         }
-        
+
         .boot-cursor {
             display: inline-block;
             width: 10px;
@@ -635,7 +641,7 @@ def generate_html(questions, status_badges):
             margin-left: 5px;
             animation: cursorBlink 1s infinite;
         }
-        
+
         @keyframes cursorBlink {
             0%, 49% {
                 opacity: 1;
@@ -664,12 +670,12 @@ def generate_html(questions, status_badges):
         <div class="boot-line highlight" style="animation-delay: 1.80s;"><br>Programming Questions v1.0 - Ready</div>
         <div class="boot-line info" style="animation-delay: 1.95s;">System boot complete. Starting interface...<span class="boot-cursor"></span></div>
     </div>
-    
+
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
         <span id="theme-icon">🌙</span>
     </button>
-    
+
     <div class="container">
         <header>
             <h1>
@@ -677,27 +683,27 @@ def generate_html(questions, status_badges):
                 <span>Programming Questions & Status</span>
             </h1>
         </header>
-        
+
         <!-- Badge Tip -->
         <div class="badge-tip">
             <div class="badge-tip-icon">💡</div>
             <div class="badge-tip-text">Tip: Click on the badges to view the code</div>
         </div>
-        
+
         <div class="questions-grid">
-''')
-    
+""")
+
     # Generate question cards
     for question in questions:
-        qnum = question['number']
-        qtext = question['text']
+        qnum = question["number"]
+        qtext = question["text"]
         badges = status_badges.get(qnum, [])
-        
-        html_parts.append(f'''            <div class="question-card">
+
+        html_parts.append(f"""            <div class="question-card">
                 <div class="question-number">#{qnum:04d}</div>
                 <div class="question-text">{qtext}</div>
-                <button class="status-toggle" 
-                        aria-expanded="false" 
+                <button class="status-toggle"
+                        aria-expanded="false"
                         aria-controls="status-{qnum}"
                         onclick="toggleStatus({qnum})">
                     <span>Status</span>
@@ -709,39 +715,45 @@ def generate_html(questions, status_badges):
                             <table>
                                 <thead>
                                     <tr>
-''')
-        
+""")
+
         # Add language headers
         for lang in languages:
-            html_parts.append(f'                                        <th>{lang}</th>\n')
-        
-        html_parts.append('''                                    </tr>
+            html_parts.append(
+                f"                                        <th>{lang}</th>\n"
+            )
+
+        html_parts.append("""                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-''')
-        
+""")
+
         # Add badges for each language
-        for badge_md in badges[:len(languages)]:  # Ensure we don't exceed language count
+        for badge_md in badges[
+            : len(languages)
+        ]:  # Ensure we don't exceed language count
             badge_html = convert_badge_to_html(badge_md)
-            html_parts.append(f'                                        <td>{badge_html}</td>\n')
-        
+            html_parts.append(
+                f"                                        <td>{badge_html}</td>\n")
+
         # Fill remaining cells if needed
         for _ in range(len(languages) - len(badges)):
-            html_parts.append('                                        <td>-</td>\n')
-        
-        html_parts.append('''                                    </tr>
+            html_parts.append(
+                "                                        <td>-</td>\n")
+
+        html_parts.append("""                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-''')
-    
+""")
+
     # Add footer and JavaScript
-    html_parts.append(f'''        </div>
-        
+    html_parts.append(f"""        </div>
+
         <footer>
             <p>Generated on {datetime.now().strftime("%B %d, %Y at %H:%M UTC")}</p>
             <p>
@@ -750,40 +762,40 @@ def generate_html(questions, status_badges):
             <p>&copy; {current_year} Programming Questions Project</p>
         </footer>
     </div>
-    
+
     <script>
         // Theme Toggle Functionality
         function toggleTheme() {{
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
+
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            
+
             // Update icon
             const themeIcon = document.getElementById('theme-icon');
             themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         }}
-        
+
         // Load saved theme on page load
         (function() {{
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            
+
             // Set initial icon
             const themeIcon = document.getElementById('theme-icon');
             if (themeIcon) {{
                 themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
             }}
         }})();
-        
+
         function toggleStatus(questionNumber) {{
             const content = document.getElementById('status-' + questionNumber);
             const arrow = document.getElementById('arrow-' + questionNumber);
             const button = content.previousElementSibling;
-            
+
             const isOpen = content.classList.contains('open');
-            
+
             if (isOpen) {{
                 content.classList.remove('open');
                 arrow.classList.remove('open');
@@ -796,7 +808,7 @@ def generate_html(questions, status_badges):
                 content.setAttribute('aria-hidden', 'false');
             }}
         }}
-        
+
         // Keyboard navigation support
         document.addEventListener('keydown', function(event) {{
             if (event.target.classList.contains('status-toggle')) {{
@@ -806,14 +818,14 @@ def generate_html(questions, status_badges):
                 }}
             }}
         }});
-        
+
         // Splash screen initialization
         window.addEventListener('load', function() {{
             // Wait for boot sequence to complete (3 seconds)
             setTimeout(function() {{
                 const splashScreen = document.getElementById('splash-screen');
                 splashScreen.classList.add('hidden');
-                
+
                 // Remove the splash screen from DOM after animation completes
                 setTimeout(function() {{
                     splashScreen.remove();
@@ -823,15 +835,16 @@ def generate_html(questions, status_badges):
     </script>
 </body>
 </html>
-''')
-    
-    return ''.join(html_parts)
+""")
+
+    return "".join(html_parts)
+
 
 def main():
     """Main function to orchestrate HTML generation."""
     print("🚀 Starting index.html generation...")
     print("")
-    
+
     # Step 1: Parse questions
     print("Step 1: Parsing questions from questions.md")
     questions = parse_questions("questions.md")
@@ -839,18 +852,18 @@ def main():
         print("⚠️  Warning: No questions found. Cannot generate HTML.")
         return 1
     print("")
-    
+
     # Step 2: Parse status badges
     print("Step 2: Parsing status badges from status.md")
     status_badges = parse_status_badges("status.md")
     print("")
-    
+
     # Step 3: Generate HTML
     print("Step 3: Generating index.html")
     html_content = generate_html(questions, status_badges)
     print(f"✅ Generated HTML with {len(questions)} question cards")
     print("")
-    
+
     # Step 4: Write to file
     print("Step 4: Writing to index.html")
     try:
@@ -860,7 +873,7 @@ def main():
     except Exception as e:
         print(f"❌ Error writing index.html: {e}")
         return 1
-    
+
     print("")
     print("🎉 Done! index.html has been created.")
     print(f"📊 Generated page with {len(questions)} questions")
