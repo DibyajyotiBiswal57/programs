@@ -86,9 +86,9 @@ Looking for the complete list of 89+ programming challenges?
 ### 📖 [View All Problems in questions.md](questions.md)
 
 The problems are organized by difficulty level:
-- **🏁 Beginner (1-20)**: Basic I/O, arithmetic, simple conditionals
-- **🔧 Intermediate (21-50)**: Loops, strings, patterns, calculations
-- **🎓 Advanced (51-89)**: Algorithms, special numbers, complex logic
+- **🏁 Beginner ()**: Basic I/O, arithmetic, simple conditionals
+- **🔧 Intermediate ()**: Loops, strings, patterns, calculations
+- **🎓 Advanced ()**: Algorithms, special numbers, complex logic
 
 Each problem includes detailed descriptions, examples, and filename conventions.
 
