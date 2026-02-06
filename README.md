@@ -18,7 +18,7 @@
 
 ## 🎯 What's This About?
 
-Welcome to the **ultimate programming practice repository**! This project contains solutions to 89 carefully selected programming problems across **18 different programming languages**.
+Welcome to the **ultimate programming practice repository**! This project contains solutions to many carefully selected programming problems across **18 different programming languages**.
 
 Whether you're:
 - 🎓 **Learning to code** - Find examples in your favorite language
@@ -140,14 +140,14 @@ gcc c/0001_hello_world.c -o hello
 
 <br>
 
-For the complete status table with all 89 problems, visit our **[Interactive Status Page](https://dibyajyotibiswal57.github.io/programs/)** 🚀
+For the complete status table with all problems, visit our **[Interactive Status Page](https://dibyajyotibiswal57.github.io/programs/)** 🚀
 
 </details>
 
 ## 🎓 Complete Problem List
 
 <details>
-<summary>📖 <b>View All 89 Programming Challenges</b></summary>
+<summary>📖 <b>View All Programming Challenges</b></summary>
 
 <br>
 
@@ -162,7 +162,7 @@ For the complete status table with all 89 problems, visit our **[Interactive Sta
 9. Sum or product based on equality - `0009_sum_or_product`
 10. Check angle relationships - `0010_angle_check`
 
-... *and 79 more challenges!*
+... *and more!*
 
 👉 **[See complete list in the full documentation](questions.md)**
 
