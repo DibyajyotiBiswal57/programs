@@ -10,7 +10,7 @@
 
 **A comprehensive collection of many programming challenges solved in multiple languages**
 
-[📊 View Interactive Status](dibyajyoti.is-a.dev/programs) • [🚀 Getting Started](##getting-started) • [🤝 Contributing](CONTRIBUTING.md) • [📖 Documentation](#topics)
+[📊 View Interactive Status](https://dibyajyoti.is-a.dev/programs) • [🚀 Getting Started](##getting-started) • [🤝 Contributing](CONTRIBUTING.md) • [📖 Documentation](#topics)
 
 </div>
 
