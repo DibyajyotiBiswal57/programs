@@ -26,6 +26,22 @@
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
         
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --primary-color: #60a5fa;
+            --secondary-color: #3b82f6;
+            --accent-color: #93c5fd;
+            --background: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-primary: #e5e7eb;
+            --text-secondary: #9ca3af;
+            --border-color: #404040;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: var(--background);
@@ -33,6 +49,7 @@
             line-height: 1.6;
             padding: 20px;
             animation: fadeIn 0.5s ease-in;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         @keyframes fadeIn {
@@ -240,15 +257,74 @@
             text-decoration: underline;
         }
         
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+        
+        /* Badge Tip Section */
+        .badge-tip {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-sm);
+            animation: slideDown 0.6s ease-out;
+        }
+        
+        [data-theme="dark"] .badge-tip {
+            background: linear-gradient(135deg, #422006 0%, #713f12 100%);
+            border-left-color: #f59e0b;
+        }
+        
+        .badge-tip-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .badge-tip-text {
+            color: #78350f;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        [data-theme="dark"] .badge-tip-text {
+            color: #fde68a;
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
                 flex-direction: column;
                 gap: 10px;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
             }
             
             .questions-grid {
@@ -264,10 +340,24 @@
                 padding: 6px 2px;
                 font-size: 0.75rem;
             }
+            
+            .splash-title {
+                font-size: 2rem;
+            }
+            
+            .splash-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .theme-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
         }
         
         /* Stagger animation for cards */
-        .question-card:nth-child(1) { animation-delay: 0.0s; }
+                .question-card:nth-child(1) { animation-delay: 0.0s; }
         .question-card:nth-child(2) { animation-delay: 0.03s; }
         .question-card:nth-child(3) { animation-delay: 0.06s; }
         .question-card:nth-child(4) { animation-delay: 0.09s; }
@@ -365,17 +455,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            animation: splashFadeIn 0.5s ease-out;
+            animation: splashFadeIn 0.6s ease-out;
         }
         
         #splash-screen.hidden {
-            animation: splashFadeOut 0.5s ease-out forwards;
+            animation: splashFadeOut 0.6s ease-out forwards;
         }
         
         @keyframes splashFadeIn {
@@ -400,62 +490,35 @@
         .splash-content {
             text-align: center;
             color: white;
-            animation: splashContentZoom 0.6s ease-out;
+            animation: splashContentFade 0.8s ease-out;
         }
         
-        @keyframes splashContentZoom {
+        @keyframes splashContentFade {
             from {
-                transform: scale(0.8);
                 opacity: 0;
+                transform: translateY(20px);
             }
             to {
-                transform: scale(1);
                 opacity: 1;
-            }
-        }
-        
-        .splash-icon {
-            font-size: 6rem;
-            margin-bottom: 20px;
-            animation: iconBounce 1s ease-in-out infinite alternate;
-        }
-        
-        @keyframes iconBounce {
-            from {
-                transform: translateY(0px);
-            }
-            to {
-                transform: translateY(-10px);
+                transform: translateY(0);
             }
         }
         
         .splash-title {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            font-weight: 300;
             margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
         
         .splash-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.85;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
         
-        .splash-loader {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
         
         @media (max-width: 768px) {
             .splash-icon {
@@ -476,12 +539,15 @@
     <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="splash-content">
-            <div class="splash-icon">📘</div>
             <h1 class="splash-title">Programming Questions</h1>
-            <p class="splash-subtitle">Loading your progress tracker...</p>
-            <div class="splash-loader"></div>
+            <p class="splash-subtitle">Building your progress tracker</p>
         </div>
     </div>
+    
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <span id="theme-icon">🌙</span>
+    </button>
     
     <div class="container">
         <header>
@@ -489,8 +555,13 @@
                 <span>📘</span>
                 <span>Programming Questions & Status</span>
             </h1>
-            <p class="subtitle">Track your progress across multiple programming languages</p>
         </header>
+        
+        <!-- Badge Tip -->
+        <div class="badge-tip">
+            <div class="badge-tip-icon">💡</div>
+            <div class="badge-tip-text">Tip: Click on the badges to view the code</div>
+        </div>
         
         <div class="questions-grid">
             <div class="question-card">
@@ -5986,7 +6057,7 @@
         </div>
         
         <footer>
-            <p>Generated on February 06, 2026 at 14:06 UTC</p>
+            <p>Generated on February 06, 2026 at 14:19 UTC</p>
             <p>
                 <a href="https://github.com/DibyajyotiBiswal57/programs" target="_blank">View on GitHub</a>
             </p>
@@ -5995,6 +6066,31 @@
     </div>
     
     <script>
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+        
+        // Load saved theme on page load
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            // Set initial icon
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            }
+        })();
+        
         function toggleStatus(questionNumber) {
             const content = document.getElementById('status-' + questionNumber);
             const arrow = document.getElementById('arrow-' + questionNumber);
@@ -6027,7 +6123,7 @@
         
         // Splash screen initialization
         window.addEventListener('load', function() {
-            // Wait for a minimum time to show the splash screen (1.5 seconds)
+            // Wait for a minimum time to show the splash screen (2.5 seconds)
             setTimeout(function() {
                 const splashScreen = document.getElementById('splash-screen');
                 splashScreen.classList.add('hidden');
@@ -6035,8 +6131,8 @@
                 // Remove the splash screen from DOM after animation completes
                 setTimeout(function() {
                     splashScreen.remove();
-                }, 500); // Match the fade-out animation duration
-            }, 1500);
+                }, 600); // Match the fade-out animation duration
+            }, 2500);
         });
     </script>
 </body>
