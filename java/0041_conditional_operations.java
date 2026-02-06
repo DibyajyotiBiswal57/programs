@@ -18,7 +18,16 @@ class weird_operations4 {
       if (no1 % 9 == 0) System.out.println("The number is divisible by 9");
       else System.out.println("The number is not divisible by 9");
     } else {
-      System.out.println("The product is: " + no1 * no2);
+      if (Double.isFinite(no1) && Double.isFinite(no2)) {
+        double product = no1 * no2;
+        if (Double.isFinite(product)) {
+          System.out.println("The product is: " + product);
+        } else {
+          System.out.println("The product is too large in magnitude to be represented safely.");
+        }
+      } else {
+        System.out.println("One or both input numbers are not finite; cannot compute a reliable product.");
+      }
     }
     scanner.close();
   }
