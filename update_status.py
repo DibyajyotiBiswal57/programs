@@ -236,7 +236,7 @@ def generate_status_table(status, num_questions):
                 badge_url = create_shields_badge("missing")
                 cells.append(f"![missing]({badge_url})")
 
-        row = f"| {{i:04d}} | " + " | ".join(cells) + " |"
+        row = f"| {i:04d} | " + " | ".join(cells) + " |"
         table_lines.append(row)
 
     return "\n".join(table_lines)
