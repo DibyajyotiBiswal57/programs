@@ -1,5 +1,11 @@
 # 📚 Programming Topics & Solutions
 
+> **View the interactive status page**: [index.html](index.html) | [View on GitHub Pages](https://dibyajyotibiswal57.github.io/programs/)
+
+This repository contains programming solutions in multiple languages. Track completion status across all languages using our [interactive status page](index.html)!
+
+---
+
 1. Print "Hello World". <br> [Filename - 0001_hello_world]
 2. Calculate the sum of 3 numbers.  <br> [Filename - 0002_sum_of_three]
 3. Find the average of 4 subject marks.  <br> [Filename - 0003_average_marks]
