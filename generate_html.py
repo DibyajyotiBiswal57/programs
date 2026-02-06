@@ -562,33 +562,26 @@ def generate_html(questions, status_badges):
         html_parts.append(f'        .question-card:nth-child({i+1}) {{ animation-delay: {delay}s; }}\n')
     
     html_parts.append('''        
-        /* Splash Screen Styles */
+        /* Splash Screen Styles - Linux Boot Style */
         #splash-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 40px;
             z-index: 9999;
-            animation: splashFadeIn 0.6s ease-out;
+            overflow: hidden;
+            font-family: 'Courier New', Consolas, Monaco, monospace;
         }
         
         #splash-screen.hidden {
             animation: splashFadeOut 0.6s ease-out forwards;
-        }
-        
-        @keyframes splashFadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
         }
         
         @keyframes splashFadeOut {
@@ -601,46 +594,84 @@ def generate_html(questions, status_badges):
             }
         }
         
-        .splash-content {
-            text-align: center;
-            color: white;
-            animation: splashContentFade 0.8s ease-out;
+        .boot-line {
+            color: #00ff00;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 2px 0;
+            opacity: 0;
+            animation: bootLineAppear 0.1s ease-out forwards;
         }
         
-        @keyframes splashContentFade {
+        @keyframes bootLineAppear {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateX(-5px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
             }
         }
         
-        .splash-title {
-            font-size: 3.5rem;
-            font-weight: 300;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        .boot-line.success {
+            color: #00ff00;
         }
         
-        .splash-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.85;
-            font-weight: 300;
-            letter-spacing: 1px;
+        .boot-line.info {
+            color: #00d4ff;
+        }
+        
+        .boot-line.warning {
+            color: #ffaa00;
+        }
+        
+        .boot-line.highlight {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        
+        .boot-ok {
+            color: #00ff00;
+            margin-left: 10px;
+        }
+        
+        .boot-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 16px;
+            background: #00ff00;
+            margin-left: 5px;
+            animation: cursorBlink 1s infinite;
+        }
+        
+        @keyframes cursorBlink {
+            0%, 49% {
+                opacity: 1;
+            }
+            50%, 100% {
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Splash Screen -->
+    <!-- Splash Screen - Linux Boot Style -->
     <div id="splash-screen">
-        <div class="splash-content">
-            <h1 class="splash-title">Programming Questions</h1>
-            <p class="splash-subtitle">Building your progress tracker</p>
-        </div>
+        <div class="boot-line" style="animation-delay: 0.05s;">[  OK  ] Starting Programming Questions Bootloader...</div>
+        <div class="boot-line info" style="animation-delay: 0.15s;">Initializing system modules...</div>
+        <div class="boot-line" style="animation-delay: 0.30s;">[  OK  ] Mounted /dev/sda1 on /questions</div>
+        <div class="boot-line" style="animation-delay: 0.45s;">[  OK  ] Started Language Runtime Services</div>
+        <div class="boot-line info" style="animation-delay: 0.60s;">Loading Python modules... Done.</div>
+        <div class="boot-line info" style="animation-delay: 0.75s;">Loading Java modules... Done.</div>
+        <div class="boot-line info" style="animation-delay: 0.90s;">Loading C/C++ modules... Done.</div>
+        <div class="boot-line" style="animation-delay: 1.05s;">[  OK  ] Started Progress Tracking Service</div>
+        <div class="boot-line" style="animation-delay: 1.20s;">[  OK  ] Reached target Multi-Language Support</div>
+        <div class="boot-line warning" style="animation-delay: 1.35s;">Checking status badges... 90 questions found.</div>
+        <div class="boot-line" style="animation-delay: 1.50s;">[  OK  ] Started Dark Mode Theme Service</div>
+        <div class="boot-line" style="animation-delay: 1.65s;">[  OK  ] Started Web Interface</div>
+        <div class="boot-line highlight" style="animation-delay: 1.80s;"><br>Programming Questions v1.0 - Ready</div>
+        <div class="boot-line info" style="animation-delay: 1.95s;">System boot complete. Starting interface...<span class="boot-cursor"></span></div>
     </div>
     
     <!-- Theme Toggle Button -->
@@ -787,7 +818,7 @@ def generate_html(questions, status_badges):
         
         // Splash screen initialization
         window.addEventListener('load', function() {{
-            // Wait for a minimum time to show the splash screen (2.5 seconds)
+            // Wait for boot sequence to complete (3 seconds)
             setTimeout(function() {{
                 const splashScreen = document.getElementById('splash-screen');
                 splashScreen.classList.add('hidden');
@@ -796,7 +827,7 @@ def generate_html(questions, status_badges):
                 setTimeout(function() {{
                     splashScreen.remove();
                 }}, 600); // Match the fade-out animation duration
-            }}, 2500);
+            }}, 3000);
         }});
     </script>
 </body>
