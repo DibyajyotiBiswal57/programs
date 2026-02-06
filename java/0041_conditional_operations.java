@@ -26,7 +26,8 @@ class weird_operations4 {
           System.out.println("The product is too large in magnitude to be represented safely.");
         }
       } else {
-        System.out.println("One or both input numbers are not finite; cannot compute a reliable product.");
+        System.out.println(
+            "One or both input numbers are not finite; cannot compute a reliable product.");
       }
     }
     scanner.close();
