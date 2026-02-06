@@ -1,0 +1,311 @@
+# Frequently Asked Questions (FAQ)
+
+## General Questions
+
+### What is this repository about?
+
+This repository contains 89+ programming problems solved in 17+ different programming languages. It's designed for learning, practice, and comparison of solutions across languages.
+
+### Who can use this repository?
+
+Everyone! Whether you're:
+- A beginner learning programming
+- A student practicing for exams
+- A developer learning a new language
+- An educator looking for examples
+- Someone comparing language syntax
+
+### Is this repository actively maintained?
+
+Yes! The repository is actively maintained with:
+- Regular updates to solutions
+- New problem additions
+- Community contributions
+- Automated status tracking
+
+## Using the Repository
+
+### How do I find a specific problem?
+
+Three ways:
+1. Check `questions.md` for the full list
+2. Use the interactive `index.html` status page
+3. Navigate directly to `language/0000_filename.ext`
+
+### What do the filename numbers mean?
+
+The numbers correspond to problem numbers in `questions.md`:
+- `0001` = Problem #1
+- `0042` = Problem #42
+- `0089` = Problem #89
+
+### What do the status symbols mean?
+
+- ✅ **Done**: Fully implemented and tested
+- ❗️ **Beta/WIP**: Functional but may have issues
+- ❌ **Missing**: Not yet implemented
+
+### Can I run these programs?
+
+Yes! Each program is a standalone solution. See the [Getting Started Guide](Getting-Started) for language-specific instructions.
+
+### Why are some problems missing in certain languages?
+
+We're continuously adding solutions. Missing implementations are opportunities for contribution!
+
+## Contributing
+
+### How can I contribute?
+
+Several ways:
+1. Add missing solutions
+2. Implement problems in new languages
+3. Fix bugs or improve existing code
+4. Add new problem suggestions
+5. Improve documentation
+
+See the [Contributing Guide](Contributing) for details.
+
+### Do I need permission to contribute?
+
+No! Just:
+1. Fork the repository
+2. Make your changes
+3. Submit a pull request
+4. Follow the contribution guidelines
+
+### What languages can I contribute in?
+
+Any programming language! We currently support 17+, but we welcome new languages. See [Adding a New Language](Adding-New-Language).
+
+### What should I do before submitting a PR?
+
+1. Read [CONTRIBUTING.md](https://github.com/DibyajyotiBiswal57/programs/blob/main/CONTRIBUTING.md)
+2. Follow the naming convention: `0000_filename.ext`
+3. Test your code thoroughly
+4. Place files in the correct language folder
+5. Fill out the PR template completely
+
+### My PR was rejected. Why?
+
+Common reasons:
+- Doesn't follow naming convention
+- Code has syntax errors
+- Missing test validation
+- Placed in wrong folder
+- Duplicate solution already exists
+- Security vulnerabilities
+
+Check reviewer comments for specific feedback.
+
+## Technical Questions
+
+### What's the naming convention?
+
+Format: `0000_filename.ext`
+- 4-digit problem number
+- Descriptive filename (matches questions.md)
+- Appropriate file extension
+
+Examples:
+- `0001_hello_world.py`
+- `0042_palindrome_string.java`
+- `0089_first_character_check.c`
+
+### Can I use external libraries?
+
+Prefer standard library solutions when possible. If external libraries are necessary:
+- Document them clearly
+- Provide installation instructions
+- Justify why they're needed
+
+### Should I include input/output examples?
+
+Yes! Include as comments:
+- Problem description
+- Input format
+- Expected output
+- Edge cases (if applicable)
+
+### How do I handle user input?
+
+Follow language conventions:
+- **Python**: `input()`
+- **Java**: `Scanner` class
+- **C**: `scanf()`
+- **C++**: `cin`
+
+See language-specific guides for details.
+
+### What about error handling?
+
+Good practice but not required for simple problems. For complex problems:
+- Validate input
+- Handle edge cases
+- Provide meaningful error messages
+
+## Problem-Specific Questions
+
+### Where can I find problem statements?
+
+In `questions.md` - organized by difficulty level:
+- Beginner (1-20)
+- Intermediate (21-50)
+- Advanced (51-89)
+
+### Can I suggest new problems?
+
+Yes! Use the [New Problem template](https://github.com/DibyajyotiBiswal57/programs/issues/new?template=new_problem.md).
+
+Include:
+- Clear problem statement
+- Input/output examples
+- Test cases
+- Difficulty level
+- Category
+
+### Are there test cases for problems?
+
+Some problems include test cases in comments. For comprehensive testing:
+- Create your own test cases
+- Test edge cases
+- Verify against the problem description
+
+### Can I solve problems differently than the existing solutions?
+
+Absolutely! Multiple approaches are encouraged:
+- Different algorithms
+- Optimized versions
+- Alternative implementations
+
+Document why your approach is different/better.
+
+## Status Page & Automation
+
+### How does the status page work?
+
+The `index.html` is automatically generated by `generate_html.py`:
+- Reads from `questions.md` and `status.md`
+- Creates interactive table
+- Updates status badges
+- Adds dark mode support
+
+### How are statuses determined?
+
+By `update_status.py`:
+- Files with 'beta' or 'wip' → Beta status (❗️)
+- Files with 'unfinished' or 'todo' → Missing (❌)
+- All others → Done (✅)
+
+### Can I run the automation scripts locally?
+
+Yes!
+```bash
+# Update status
+python3 update_status.py
+
+# Generate HTML
+python3 generate_html.py
+```
+
+See [Automation Guide](Automation) for details.
+
+### Why is my new solution not showing on the status page?
+
+The status page updates automatically via GitHub Actions. If not showing:
+1. Check filename follows convention
+2. Ensure file is in correct folder
+3. Wait for automated workflow to run
+4. Check if workflows are passing
+
+## Language-Specific Questions
+
+### Which language should I learn first?
+
+Recommended for beginners:
+1. **Python** - Easy syntax, versatile
+2. **Java** - Strong typing, widely used
+3. **C** - Understanding fundamentals
+
+See individual [Language Guides](Language-Guides) for more info.
+
+### Can I compare solutions across languages?
+
+Yes! That's a key feature. Look at the same problem number across different language folders.
+
+### Which language has the most solutions?
+
+Check the status page or run:
+```bash
+ls python/ | wc -l
+ls java/ | wc -l
+# etc.
+```
+
+### Are some languages better for certain problems?
+
+Yes! For example:
+- **String manipulation**: Python, Perl, Ruby
+- **Mathematical**: Python, Julia, Mathematica
+- **Performance**: C, C++, Rust
+- **System scripting**: Bash, PowerShell, Batch
+
+## Troubleshooting
+
+### I found a bug in a solution. What should I do?
+
+1. Verify it's actually a bug
+2. Check if it's already reported
+3. [Open a bug report](https://github.com/DibyajyotiBiswal57/programs/issues/new?template=bug_report.md)
+4. Or submit a fix via PR!
+
+### The code doesn't run on my system. Why?
+
+Common reasons:
+- Wrong compiler/interpreter version
+- Missing dependencies
+- Path issues
+- OS-specific code
+
+See [Troubleshooting Guide](Troubleshooting) for solutions.
+
+### Where can I get more help?
+
+- [Troubleshooting Guide](Troubleshooting)
+- [GitHub Issues](https://github.com/DibyajyotiBiswal57/programs/issues)
+- [Discussions](https://github.com/DibyajyotiBiswal57/programs/discussions)
+- Email: coder99957@dibyajyoti.is-a.dev
+
+## Repository Stats & Information
+
+### How many problems are there?
+
+Currently 89+ problems across three difficulty levels.
+
+### How many languages are supported?
+
+17+ languages including:
+- QBasic, Java, Python, C, C++, C#
+- Haskell, Perl, Go, Elixir
+- Assembly, Fortran, Lua, Ruby
+- Visual Basic, PowerShell, Batch
+
+### When was this repository created?
+
+Check the commit history or `CHANGELOG.md` for version history.
+
+### Is there a license?
+
+Yes! MIT License. See [LICENSE](https://github.com/DibyajyotiBiswal57/programs/blob/main/LICENSE).
+
+## Still Have Questions?
+
+Can't find your answer?
+1. Search this wiki
+2. Check existing [issues](https://github.com/DibyajyotiBiswal57/programs/issues)
+3. [Ask a question](https://github.com/DibyajyotiBiswal57/programs/issues/new?template=question.md)
+4. Start a [discussion](https://github.com/DibyajyotiBiswal57/programs/discussions)
+
+---
+
+[← Back to Home](Home) | [Troubleshooting →](Troubleshooting)

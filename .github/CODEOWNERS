@@ -1,0 +1,51 @@
+# Code Owners for DibyajyotiBiswal57/programs
+# These owners will be automatically requested for review when someone opens a pull request
+
+# Default owners for everything in the repo
+* @DibyajyotiBiswal57
+
+# Documentation
+*.md @DibyajyotiBiswal57
+/docs/ @DibyajyotiBiswal57
+
+# GitHub configurations
+/.github/ @DibyajyotiBiswal57
+
+# Python programs
+/python/ @DibyajyotiBiswal57
+
+# Java programs
+/java/ @DibyajyotiBiswal57
+
+# C programs
+/c/ @DibyajyotiBiswal57
+
+# C++ programs
+/cpp/ @DibyajyotiBiswal57
+
+# C# programs
+/csharp/ @DibyajyotiBiswal57
+
+# QBasic programs
+/qbasic/ @DibyajyotiBiswal57
+
+# Other language directories
+/go/ @DibyajyotiBiswal57
+/haskell/ @DibyajyotiBiswal57
+/perl/ @DibyajyotiBiswal57
+/elixir/ @DibyajyotiBiswal57
+/asm/ @DibyajyotiBiswal57
+/fortran/ @DibyajyotiBiswal57
+/lua/ @DibyajyotiBiswal57
+/ruby/ @DibyajyotiBiswal57
+/vb/ @DibyajyotiBiswal57
+/pwsh/ @DibyajyotiBiswal57
+/batch/ @DibyajyotiBiswal57
+
+# Build and automation scripts
+*.py @DibyajyotiBiswal57
+generate_html.py @DibyajyotiBiswal57
+update_status.py @DibyajyotiBiswal57
+
+# GitHub Actions workflows
+/.github/workflows/ @DibyajyotiBiswal57
