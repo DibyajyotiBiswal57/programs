@@ -1,0 +1,19 @@
+{
+	"name": "Programming Solutions Universe",
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"vscjava.vscode-java-pack",
+				"ms-vscode.cpptools",
+				"golang.go",
+				"rebornix.Ruby"
+			]
+		}
+	},
+	"postCreateCommand": "echo 'Welcome to the Programming Solutions Universe! All runtimes are ready.'"
+}
