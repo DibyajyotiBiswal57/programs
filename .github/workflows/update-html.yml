@@ -1,0 +1,52 @@
+name: Update HTML Status Page
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'questions.md'
+      - 'status.md'
+      - 'generate_html.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-html:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Generate index.html
+        run: python3 generate_html.py
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet index.html; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Auto-update index.html from questions.md and status.md"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

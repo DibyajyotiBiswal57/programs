@@ -187,7 +187,7 @@ def create_shields_badge(status, label=None):
     badge_status = quote(config["label"])
     badge_color = config["color"]
 
-    return f"https://img.shields.io/badge/{{badge_label}}-{{badge_status}}-{{badge_color}}"
+    return f"https://img.shields.io/badge/{badge_label}-{badge_status}-{badge_color}"
 
 def generate_status_table(status, num_questions):
     """
@@ -226,17 +226,17 @@ def generate_status_table(status, num_questions):
 
                 # Create clickable link for done and beta, plain badge for missing
                 if file_status in ["done", "beta"]:
-                    file_path = f"{{lang}}/{{filename}}"
-                    cells.append(f"[![{{file_status}}]({badge_url})]({file_path})")
+                    file_path = f"{lang}/{filename}"
+                    cells.append(f"[![{file_status}]({badge_url})]({file_path})")
                 else:
                     # Missing/unfinished - plain badge without link
-                    cells.append(f"![{{file_status}}]({badge_url})")
+                    cells.append(f"![{file_status}]({badge_url})")
             else:
                 # No file found - show plain missing badge
                 badge_url = create_shields_badge("missing")
                 cells.append(f"![missing]({badge_url})")
 
-        row = f"| {{i:04d}} | " + " | ".join(cells) + " |"
+        row = f"| {i:04d} | " + " | ".join(cells) + " |"
         table_lines.append(row)
 
     return "\n".join(table_lines)
