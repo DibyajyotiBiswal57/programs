@@ -31,7 +31,6 @@ WORKFLOW:
 
 import os
 import re
-from pathlib import Path
 from urllib.parse import quote
 
 # --- CONFIGURATION ---
@@ -55,33 +54,18 @@ LANGUAGE_CONFIG = {
     "batch": "Batch",
 }
 
-
-def extract_question_number(filename, filepath):
+def extract_question_number(filename):
     """
-    Extract question number from a file.
+    Extract question number from a filename.
 
-    Tries multiple methods:
-    1. Check for #Q<number> comment in file content
-    2. Extract from filename patterns (0001, q1, 1_program, etc.)
+    Tries multiple filename patterns (0001, q1, 1_program, etc.)
 
     Args:
         filename: Name of the file
-        filepath: Full path to the file
 
     Returns:
         Integer question number or None if not found
     """
-    # Method 1: Check file content for #Q<number> comment
-    try:
-        with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-            first_lines = f.read(500)  # Read first 500 chars
-            match = re.search(r"#Q(\d+)", first_lines)
-            if match:
-                return int(match.group(1))
-    except (OSError, IOError):
-        pass
-
-    # Method 2: Extract from filename
     # Try 4-digit pattern first (0001, 0042, etc.)
     match = re.match(r"^(\d{4})", filename)
     if match:
@@ -108,7 +92,6 @@ def extract_question_number(filename, filepath):
         return int(match.group(1))
 
     return None
-
 
 def count_questions(questions_file="questions.md"):
     """
@@ -140,7 +123,6 @@ def count_questions(questions_file="questions.md"):
         print(f"❌ Error counting questions in {questions_file}: {e}")
         return 0
 
-
 def scan_language_folders():
     """
     Scan all language folders and detect program status.
@@ -167,7 +149,7 @@ def scan_language_folders():
                 continue
 
             # Extract question number using the new function
-            num = extract_question_number(file, filepath)
+            num = extract_question_number(file)
 
             if num is not None:
                 fname_lower = file.lower()
@@ -181,7 +163,6 @@ def scan_language_folders():
                     status[lang][num] = {"status": "done", "filename": file}
 
     return status
-
 
 def create_shields_badge(status, label=None):
     """
@@ -206,8 +187,7 @@ def create_shields_badge(status, label=None):
     badge_status = quote(config["label"])
     badge_color = config["color"]
 
-    return f"https://img.shields.io/badge/{badge_label}-{badge_status}-{badge_color}"
-
+    return f"https://img.shields.io/badge/{{badge_label}}-{{badge_status}}-{{badge_color}}"
 
 def generate_status_table(status, num_questions):
     """
@@ -256,11 +236,10 @@ def generate_status_table(status, num_questions):
                 badge_url = create_shields_badge("missing")
                 cells.append(f"![missing]({badge_url})")
 
-        row = f"| {i:04d} | " + " | ".join(cells) + " |"
+        row = f"| {{i:04d}} | " + " | ".join(cells) + " |"
         table_lines.append(row)
 
     return "\n".join(table_lines)
-
 
 def generate_status_md(status_table):
     """
@@ -288,25 +267,21 @@ def generate_status_md(status_table):
     status_parts.append("")
     status_parts.append("| Badge | Status | Description |")
     status_parts.append("|:------|:-------|:------------|")
-    
+
     # Create example badges for the legend
     done_badge = create_shields_badge("done")
     beta_badge = create_shields_badge("beta")
     missing_badge = create_shields_badge("missing")
-    
+
     status_parts.append(
-        f"| ![done]({done_badge}) | **Finished** | Program is complete and working |"
-    )
+        f"| ![done]({done_badge}) | **Finished** | Program is complete and working |")
     status_parts.append(
-        f"| ![beta]({beta_badge}) | **Beta** | Program is functional but may have issues or is work-in-progress |"
-    )
+        f"| ![beta]({beta_badge}) | **Beta** | Program is functional but may have issues or is work-in-progress |")
     status_parts.append(
-        f"| ![missing]({missing_badge}) | **Missing** | Program not yet implemented or incomplete |"
-    )
+        f"| ![missing]({missing_badge}) | **Missing** | Program not yet implemented or incomplete |")
     status_parts.append("")
 
     return "\n".join(status_parts)
-
 
 def main():
     """Main function to orchestrate status.md generation."""
