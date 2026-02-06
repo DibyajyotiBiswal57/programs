@@ -223,6 +223,22 @@ def generate_html(questions, status_badges):
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
         
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --primary-color: #60a5fa;
+            --secondary-color: #3b82f6;
+            --accent-color: #93c5fd;
+            --background: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-primary: #e5e7eb;
+            --text-secondary: #9ca3af;
+            --border-color: #404040;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: var(--background);
@@ -230,6 +246,7 @@ def generate_html(questions, status_badges):
             line-height: 1.6;
             padding: 20px;
             animation: fadeIn 0.5s ease-in;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         @keyframes fadeIn {
@@ -437,15 +454,74 @@ def generate_html(questions, status_badges):
             text-decoration: underline;
         }
         
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+        
+        /* Badge Tip Section */
+        .badge-tip {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-sm);
+            animation: slideDown 0.6s ease-out;
+        }
+        
+        [data-theme="dark"] .badge-tip {
+            background: linear-gradient(135deg, #422006 0%, #713f12 100%);
+            border-left-color: #f59e0b;
+        }
+        
+        .badge-tip-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .badge-tip-text {
+            color: #78350f;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        [data-theme="dark"] .badge-tip-text {
+            color: #fde68a;
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
                 flex-direction: column;
                 gap: 10px;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
             }
             
             .questions-grid {
@@ -461,10 +537,24 @@ def generate_html(questions, status_badges):
                 padding: 6px 2px;
                 font-size: 0.75rem;
             }
+            
+            .splash-title {
+                font-size: 2rem;
+            }
+            
+            .splash-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .theme-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
         }
         
         /* Stagger animation for cards */
-''')
+        ''')
     
     # Add staggered animation delays for cards
     for i in range(min(len(questions), 100)):
@@ -472,33 +562,26 @@ def generate_html(questions, status_badges):
         html_parts.append(f'        .question-card:nth-child({i+1}) {{ animation-delay: {delay}s; }}\n')
     
     html_parts.append('''        
-        /* Splash Screen Styles */
+        /* Splash Screen Styles - Linux Boot Style */
         #splash-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 40px;
             z-index: 9999;
-            animation: splashFadeIn 0.5s ease-out;
+            overflow: hidden;
+            font-family: 'Courier New', Consolas, Monaco, monospace;
         }
         
         #splash-screen.hidden {
-            animation: splashFadeOut 0.5s ease-out forwards;
-        }
-        
-        @keyframes splashFadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            animation: splashFadeOut 0.6s ease-out forwards;
         }
         
         @keyframes splashFadeOut {
@@ -511,91 +594,81 @@ def generate_html(questions, status_badges):
             }
         }
         
-        .splash-content {
-            text-align: center;
-            color: white;
-            animation: splashContentZoom 0.6s ease-out;
+        .boot-line {
+            color: #00ff00;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 2px 0;
+            opacity: 0;
+            animation: bootLineAppear 0.1s ease-out forwards;
         }
         
-        @keyframes splashContentZoom {
+        @keyframes bootLineAppear {
             from {
-                transform: scale(0.8);
                 opacity: 0;
+                transform: translateX(-5px);
             }
             to {
-                transform: scale(1);
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .boot-line.info {
+            color: #00d4ff;
+        }
+        
+        .boot-line.warning {
+            color: #ffaa00;
+        }
+        
+        .boot-line.highlight {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        
+        .boot-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 16px;
+            background: #00ff00;
+            margin-left: 5px;
+            animation: cursorBlink 1s infinite;
+        }
+        
+        @keyframes cursorBlink {
+            0%, 49% {
                 opacity: 1;
             }
-        }
-        
-        .splash-icon {
-            font-size: 6rem;
-            margin-bottom: 20px;
-            animation: iconBounce 1s ease-in-out infinite alternate;
-        }
-        
-        @keyframes iconBounce {
-            from {
-                transform: translateY(0px);
-            }
-            to {
-                transform: translateY(-10px);
-            }
-        }
-        
-        .splash-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .splash-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-        
-        .splash-loader {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .splash-icon {
-                font-size: 4rem;
-            }
-            
-            .splash-title {
-                font-size: 1.8rem;
-            }
-            
-            .splash-subtitle {
-                font-size: 1rem;
+            50%, 100% {
+                opacity: 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Splash Screen -->
+    <!-- Splash Screen - Linux Boot Style -->
     <div id="splash-screen">
-        <div class="splash-content">
-            <div class="splash-icon">📘</div>
-            <h1 class="splash-title">Programming Questions</h1>
-            <p class="splash-subtitle">Loading your progress tracker...</p>
-            <div class="splash-loader"></div>
-        </div>
+        <div class="boot-line" style="animation-delay: 0.05s;">[  OK  ] Starting Programming Questions Bootloader...</div>
+        <div class="boot-line info" style="animation-delay: 0.15s;">Initializing system modules...</div>
+        <div class="boot-line" style="animation-delay: 0.30s;">[  OK  ] Mounted /dev/sda1 on /questions</div>
+        <div class="boot-line" style="animation-delay: 0.45s;">[  OK  ] Started Language Runtime Services</div>
+        <div class="boot-line info" style="animation-delay: 0.60s;">Loading Python modules... Done.</div>
+        <div class="boot-line info" style="animation-delay: 0.75s;">Loading Java modules... Done.</div>
+        <div class="boot-line info" style="animation-delay: 0.90s;">Loading C/C++ modules... Done.</div>
+        <div class="boot-line" style="animation-delay: 1.05s;">[  OK  ] Started Progress Tracking Service</div>
+        <div class="boot-line" style="animation-delay: 1.20s;">[  OK  ] Reached target Multi-Language Support</div>
+        <div class="boot-line warning" style="animation-delay: 1.35s;">Checking status badges... 90 questions found.</div>
+        <div class="boot-line" style="animation-delay: 1.50s;">[  OK  ] Started Dark Mode Theme Service</div>
+        <div class="boot-line" style="animation-delay: 1.65s;">[  OK  ] Started Web Interface</div>
+        <div class="boot-line highlight" style="animation-delay: 1.80s;"><br>Programming Questions v1.0 - Ready</div>
+        <div class="boot-line info" style="animation-delay: 1.95s;">System boot complete. Starting interface...<span class="boot-cursor"></span></div>
     </div>
+    
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <span id="theme-icon">🌙</span>
+    </button>
     
     <div class="container">
         <header>
@@ -603,8 +676,13 @@ def generate_html(questions, status_badges):
                 <span>📘</span>
                 <span>Programming Questions & Status</span>
             </h1>
-            <p class="subtitle">Track your progress across multiple programming languages</p>
         </header>
+        
+        <!-- Badge Tip -->
+        <div class="badge-tip">
+            <div class="badge-tip-icon">💡</div>
+            <div class="badge-tip-text">Tip: Click on the badges to view the code</div>
+        </div>
         
         <div class="questions-grid">
 ''')
@@ -674,6 +752,31 @@ def generate_html(questions, status_badges):
     </div>
     
     <script>
+        // Theme Toggle Functionality
+        function toggleTheme() {{
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }}
+        
+        // Load saved theme on page load
+        (function() {{
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            // Set initial icon
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {{
+                themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            }}
+        }})();
+        
         function toggleStatus(questionNumber) {{
             const content = document.getElementById('status-' + questionNumber);
             const arrow = document.getElementById('arrow-' + questionNumber);
@@ -706,7 +809,7 @@ def generate_html(questions, status_badges):
         
         // Splash screen initialization
         window.addEventListener('load', function() {{
-            // Wait for a minimum time to show the splash screen (1.5 seconds)
+            // Wait for boot sequence to complete (3 seconds)
             setTimeout(function() {{
                 const splashScreen = document.getElementById('splash-screen');
                 splashScreen.classList.add('hidden');
@@ -714,8 +817,8 @@ def generate_html(questions, status_badges):
                 // Remove the splash screen from DOM after animation completes
                 setTimeout(function() {{
                     splashScreen.remove();
-                }}, 500); // Match the fade-out animation duration
-            }}, 1500);
+                }}, 600); // Match the fade-out animation duration
+            }}, 3000);
         }});
     </script>
 </body>
