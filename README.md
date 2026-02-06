@@ -104,7 +104,7 @@ Or check out our **[🎨 Interactive Dashboard](https://dibyajyotibiswal57.githu
 - Dark/Light mode toggle
 - Real-time progress tracking
 - Clickable links to implementations
-- Visual status indicators (✅ Done, ❗ Beta, ❌ Not yet)
+- Visual status indicators
 
 ---
 
