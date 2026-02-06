@@ -18,6 +18,7 @@
 ╚═══════════════════════════════════════════════════════════════╝
 ```
 
+**[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/DibyajyotiBiswal57/programs)**  
 **[🌟 Live Demo](https://dibyajyotibiswal57.github.io/programs/)** • **[📖 Documentation](#-getting-started)** • **[🤝 Contributing](CONTRIBUTING.md)** • **[📋 Full Problem List](#-problems-list)**
 
 ---
