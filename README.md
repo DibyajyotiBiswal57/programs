@@ -1,221 +1,263 @@
 <div align="center">
 
-# 🌟 Multi-Language Programming Solutions 🌟
+# 🚀 Programming Solutions Universe
 
-### *Master Programming Across 18+ Languages*
+### _A polyglot collection of 89+ programming challenges solved in 17+ languages_
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue?style=for-the-badge&logo=github)](https://dibyajyotibiswal57.github.io/programs/)
-[![License](https://img.shields.io/badge/License-GPL--3.0-green?style=for-the-badge)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](CONTRIBUTING.md)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success?style=for-the-badge&logo=github)](https://dibyajyotibiswal57.github.io/programs/)
+[![Languages](https://img.shields.io/badge/Languages-17+-blue?style=for-the-badge&logo=polywork)](#-languages-supported)
+[![Problems](https://img.shields.io/badge/Problems-89+-orange?style=for-the-badge&logo=leetcode)](#-problems-list)
+[![License](https://img.shields.io/github/license/DibyajyotiBiswal57/programs?style=for-the-badge)](LICENSE)
+[![Contributors](https://img.shields.io/github/contributors/DibyajyotiBiswal57/programs?style=for-the-badge)](https://github.com/DibyajyotiBiswal57/programs/graphs/contributors)
 
-**A comprehensive collection of many programming challenges solved in multiple languages**
+```ascii
+╔═══════════════════════════════════════════════════════════════╗
+║  🎯 From "Hello World" to Advanced Algorithms                ║
+║  🌐 17+ Programming Languages | 📚 89+ Unique Problems       ║
+║  ⚡ Interactive Status Page | 🎨 Multiple Solutions          ║
+╚═══════════════════════════════════════════════════════════════╝
+```
 
-[📊 View Interactive Status](https://dibyajyoti.is-a.dev/programs) • [🚀 Getting Started](##getting-started) • [🤝 Contributing](CONTRIBUTING.md) • [📖 Documentation](#topics)
+**[🌟 Live Demo](https://dibyajyotibiswal57.github.io/programs/)** • **[📖 Documentation](#-getting-started)** • **[🤝 Contributing](CONTRIBUTING.md)** • **[📋 Full Problem List](#-problems-list)**
+
+---
+
+</div>
+
+## ✨ Highlights
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎨 Interactive Status Page
+- **Dark/Light Mode** toggle
+- **Real-time Progress** tracking  
+- **Animated Splash Screen**
+- **Responsive Design**
+
+</td>
+<td width="50%">
+
+### 📊 Comprehensive Coverage
+- **89+ Programming Problems**
+- **17+ Programming Languages**
+- **Multiple Difficulty Levels**
+- **Well-documented Solutions**
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🎯 Quick Navigation
+
+- [🌟 Languages Supported](#-languages-supported)
+- [📚 Problems List](#-problems-list)
+- [🚀 Getting Started](#-getting-started)
+- [📊 Progress Dashboard](#-progress-dashboard)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+
+---
+
+## 🌟 Languages Supported
+
+<div align="center">
+
+| Classic | Modern | Scripting | Systems |
+|---------|--------|-----------|---------|
+| ![QBasic](https://img.shields.io/badge/QBasic-00599C?style=flat-square&logo=basic&logoColor=white) | ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) | ![C](https://img.shields.io/badge/C-00599C?style=flat-square&logo=c&logoColor=white) |
+| ![Visual Basic](https://img.shields.io/badge/VB-5C2D91?style=flat-square&logo=.net&logoColor=white) | ![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=c-sharp&logoColor=white) | ![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=flat-square&logo=ruby&logoColor=white) | ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white) |
+| ![Fortran](https://img.shields.io/badge/Fortran-734F96?style=flat-square&logo=fortran&logoColor=white) | ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white) | ![Perl](https://img.shields.io/badge/Perl-39457E?style=flat-square&logo=perl&logoColor=white) | ![Assembly](https://img.shields.io/badge/Assembly-654FF0?style=flat-square&logo=assemblyscript&logoColor=white) |
+| ![Batch](https://img.shields.io/badge/Batch-4D4D4D?style=flat-square&logo=windows&logoColor=white) | ![Haskell](https://img.shields.io/badge/Haskell-5D4F85?style=flat-square&logo=haskell&logoColor=white) | ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=flat-square&logo=powershell&logoColor=white) | |
+| ![Lua](https://img.shields.io/badge/Lua-2C2D72?style=flat-square&logo=lua&logoColor=white) | ![Elixir](https://img.shields.io/badge/Elixir-4B275F?style=flat-square&logo=elixir&logoColor=white) | | |
 
 </div>
 
 ---
 
-## 🎯 What's This About?
 
-Welcome to the **ultimate programming practice repository**! This project contains solutions to many carefully selected programming problems across **18 different programming languages**.
+## 📚 Problems List
 
-Whether you're:
-- 🎓 **Learning to code** - Find examples in your favorite language
-- 💼 **Preparing for interviews** - Practice common algorithmic problems
-- 🔄 **Learning a new language** - Compare implementations across languages
-- 📚 **Teaching programming** - Use these as educational resources
+Looking for the complete list of 89+ programming challenges? 
 
-## 🗂️ Repository Structure
+### 📖 [View All Problems in questions.md](questions.md)
 
-```
-programs/
-├── 📁 qbasic/      - QBasic implementations
-├── 📁 java/        - Java solutions
-├── 📁 python/      - Python scripts
-├── 📁 c/           - C programs
-├── 📁 cpp/         - C++ code
-├── 📁 csharp/      - C# implementations
-├── 📁 haskell/     - Haskell solutions
-├── 📁 perl/        - Perl scripts
-├── 📁 go/          - Go programs
-├── 📁 elixir/      - Elixir code
-├── 📁 asm/         - Assembly language
-├── 📁 fortran/     - Fortran programs
-├── 📁 lua/         - Lua scripts
-├── 📁 ruby/        - Ruby implementations
-├── 📁 vb/          - Visual Basic code
-├── 📁 pwsh/        - PowerShell scripts
-└── 📁 batch/       - Batch files
-```
+The problems are organized by difficulty level:
+- **🏁 Beginner (1-20)**: Basic I/O, arithmetic, simple conditionals
+- **🔧 Intermediate (21-50)**: Loops, strings, patterns, calculations
+- **🎓 Advanced (51-89)**: Algorithms, special numbers, complex logic
+
+Each problem includes detailed descriptions, examples, and filename conventions.
+
+---
+
+## 📊 Progress Dashboard
+
+Want to see which problems are solved in which languages?
+
+### 📈 [View Complete Status Table in status.md](status.md)
+
+Or check out our **[🎨 Interactive Dashboard](https://dibyajyotibiswal57.github.io/programs/)** with:
+- Dark/Light mode toggle
+- Real-time progress tracking
+- Clickable links to implementations
+- Visual status indicators (✅ Done, ❗ Beta, ❌ Not yet)
+
+---
 
 ## 🚀 Getting Started
 
-### View Solutions Online
-👉 **[Interactive Status Page](https://dibyajyotibiswal57.github.io/programs/)** - Browse all solutions with visual indicators
+### Prerequisites
 
-### Clone the Repository
-```bash
-git clone https://github.com/DibyajyotiBiswal57/programs.git
-cd programs
-```
-
-### Run a Program
-Pick your language and run any solution! For example:
-
-**Python:**
-```bash
-python python/0001_hello_world.py
-```
-
-**Java:**
-```bash
-javac java/0001_hello_world.java
-java HelloWorld
-```
-
-**C:**
-```bash
-gcc c/0001_hello_world.c -o hello
-./hello
-```
-
-## 📚 Topics Covered
-
-### 🟢 Basics ()
-- Hello World, arithmetic operations, swaps, area/volume calculations, interest calculations
-- Number classifications (positive/negative, greater/smaller)
-- Loops and patterns
-
-### 🟡 Conditionals & Logic ()
-- Digit manipulations, prime checks, palindromes, leap years
-- Calculators, grading systems, eligibility checks
-- Complex conditional logic
-
-### 🔵 Strings & Text ()
-- String palindromes, vowel counting, word counting
-- Case conversions, temperature conversions
-
-### 🟠 Advanced Loops & Patterns ()
-- Pattern printing, factorials, Fibonacci sequences
-- Menu-driven programs, countdown timers
-- Number patterns and sequences
-
-### 🔴 Special Numbers & Algorithms ()
-- Armstrong, Spy, Neon, Disarium, Magic, Perfect, Automorphic numbers
-- ML metrics (Accuracy, Precision, Recall, F1-score)
-- Quadratic equations, triangle validation, HCF/LCM
-- Arithmetic series calculations
-
-## 📊 Progress Tracker
-
-> [!TIP]
-> Click on the ✅ emoji in the table below to view/download the code!
-
-| Status | Meaning |
-|:------:|:--------|
-| ✅ | **Complete & Working** - Fully implemented and tested |
-| ❗️ | **Beta Version** - Functional but may need improvements |
-| ❌ | **Not Yet Implemented** - Coming soon! |
-
-### Quick Stats by Language
-
-| Language | Solutions | Progress |
-|:---------|:---------:|:--------:|
-| 🐍 Python | 60+ | ████████░░ 67% |
-| ☕ Java | 40+ | ██████░░░░ 45% |
-| 📘 QBasic | 25+ | ████░░░░░░ 28% |
-| 🔧 Others | Varies | ░░░░░░░░░░ Growing! |
-
-### Detailed Status Table
-
-| #    | [QBasic](qbasic/) | [Java](java/) | [Python](python/) | [C](c/) | [C++](cpp/) | [C#](csharp/) | [Haskell](haskell/) | [Perl](perl/) | [Go](go/) | [Elixir](elixir/) | [Assembly](asm/) | [Fortran](fortran/) | [Lua](lua/) | [Ruby](ruby/) | [VB](vb/) | [PowerShell](pwsh/) | [Batch](batch/) |
-|:-----|:-----------------:|:-------------:|:-----------------:|:-------:|:-----------:|:-------------:|:-------------------:|:-------------:|:---------:|:-----------------:|:----------------:|:-------------------:|:-----------:|:-------------:|:---------:|:-------------------:|:---------------:|
-| 0001 | [✅](qbasic/0001_hello_world.bas) | [✅](java/0001_hello_world.java) | [✅](python/0001_hello_world.py) | [✅](c/0001_hello_world.c) | [✅](cpp/0001_hello_world.cpp) | [✅](csharp/0001_hello_world.cs) | [✅](haskell/0001_hello_world.hs) | [✅](perl/0001_hello_world.pl) | [✅](go/0001_hello_world.go) | [✅](elixir/0001_hello_world.exs) | [✅](asm/0001_hello_world.asm) | [✅](fortran/0001_hello_world.f90) | [✅](lua/0001_hello_world.lua) | [✅](ruby/0001_hello_world.rb) | [✅](vb/0001_hello_world.vb) | [✅](pwsh/0001_hello_world.ps1) | [✅](batch/0001_hello_world.bat) |
-| 0002 | [✅](qbasic/0002_sum_of_three.bas) | [✅](java/0002_sum_of_three.java) | [✅](python/0002_sum_of_three.py) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| 0003 | [✅](qbasic/0003_average_marks.bas) | [✅](java/0003_average_marks.java) | [✅](python/0003_average_marks.py) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+Choose your preferred language and ensure you have the appropriate compiler/interpreter installed:
 
 <details>
-<summary>📋 <b>Click to expand full progress table</b></summary>
+<summary><b>📦 Installation Guides</b></summary>
 
-<br>
+#### Python
+```bash
+# Python 3.x required
+python --version
+python filename.py
+```
 
-For the complete status table with all problems, visit our **[Interactive Status Page](https://dibyajyotibiswal57.github.io/programs/)** 🚀
+#### Java
+```bash
+# JDK 8 or higher
+javac filename.java
+java ClassName
+```
+
+#### C/C++
+```bash
+# GCC compiler
+gcc filename.c -o output
+./output
+
+g++ filename.cpp -o output
+./output
+```
+
+#### Go
+```bash
+# Go 1.16+
+go run filename.go
+```
+
+For other languages, refer to their official documentation.
 
 </details>
 
-## 🎓 Complete Problem List
+### 🏃‍♂️ Running a Program
 
-<details>
-<summary>📖 <b>View All Programming Challenges</b></summary>
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/DibyajyotiBiswal57/programs.git
+   cd programs
+   ```
 
-<br>
+2. **Choose a language folder:**
+   ```bash
+   cd python  # or java, c, cpp, etc.
+   ```
 
-1. Print "Hello World" - `0001_hello_world`
-2. Calculate the sum of 3 numbers - `0002_sum_of_three`
-3. Find the average of 4 subject marks - `0003_average_marks`
-4. Swap 2 numbers using a temporary variable - `0004_swap_with_temp`
-5. Calculate areas and volumes (rectangle, square, triangle, circle, sphere, etc.) - `0005_area_volume`
-6. Calculate simple/compound interest - `0006_interest_calculator`
-7. Check if a number is positive or negative - `0007_positive_negative`
-8. Find the greater of two numbers - `0008_greater_number`
-9. Sum or product based on equality - `0009_sum_or_product`
-10. Check angle relationships - `0010_angle_check`
+3. **Run any program:**
+   ```bash
+   python 0001_hello_world.py
+   ```
 
-... *and more!*
+### 🎨 Viewing the Interactive Status Page
 
-👉 **[See complete list in the full documentation](questions.md)**
+```bash
+# Option 1: Open locally
+open index.html  # macOS
+start index.html # Windows
+xdg-open index.html # Linux
 
-</details>
+# Option 2: View online
+# Visit: https://dibyajyotibiswal57.github.io/programs/
+```
+
+---
 
 ## 🤝 Contributing
 
-We **love** contributions! Whether it's:
-- ✨ Adding a new language implementation
-- 🐛 Fixing bugs
-- 📝 Improving documentation
-- 💡 Suggesting new problems
+We ❤️ contributions! This project thrives on community involvement.
 
-**How to contribute:**
-1. Fork this repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### How to Contribute
 
-Read our [Contributing Guidelines](CONTRIBUTING.md) for more details!
+1. **🍴 Fork** the repository
+2. **🌿 Create** a feature branch (`git checkout -b feature/amazing-solution`)
+3. **✍️ Add** your solution following the [naming convention](CONTRIBUTING.md#-file-naming-convention-0000_filename)
+4. **✅ Test** your code thoroughly
+5. **📝 Commit** your changes (`git commit -m 'Add: Python solution for problem 0042'`)
+6. **🚀 Push** to your branch (`git push origin feature/amazing-solution`)
+7. **🎉 Open** a Pull Request
+
+### 📋 Contribution Guidelines
+
+- Follow the existing file structure
+- Use the naming convention: `0000_filename.ext`
+- Ensure your code is well-commented
+- Test your solution before submitting
+- One solution per pull request
+
+**📖 Read our full [Contributing Guide](CONTRIBUTING.md) for detailed information.**
+
+---
+
+## 🌟 Project Statistics
+
+<div align="center">
+
+![GitHub stars](https://img.shields.io/github/stars/DibyajyotiBiswal57/programs?style=social)
+![GitHub forks](https://img.shields.io/github/forks/DibyajyotiBiswal57/programs?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/DibyajyotiBiswal57/programs?style=social)
+
+</div>
+
+---
 
 ## 📜 License
 
-This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-## 🌟 Show Your Support
+---
 
-If you find this repository helpful:
-- ⭐ Star this repository
-- 🍴 Fork it and create your own solutions
-- 📢 Share it with fellow programmers
-- 🤝 Contribute your implementations
+## 🙏 Acknowledgments
 
-## 📬 Contact & Community
+- Thanks to all [contributors](https://github.com/DibyajyotiBiswal57/programs/graphs/contributors) who have helped build this collection
+- Inspired by programming challenges from various sources
+- Built with ❤️ for the programming community
 
-- 💼 **GitHub:** [@DibyajyotiBiswal57](https://github.com/DibyajyotiBiswal57)
-- 📊 **Project Page:** [programs](https://github.com/DibyajyotiBiswal57/programs)
-- 🌐 **Interactive View:** [GitHub Pages](https://dibyajyotibiswal57.github.io/programs/)
+---
 
-## 📈 Stats & Achievements
+## 📞 Contact & Support
 
-![Repository Views](https://img.shields.io/badge/dynamic/json?color=blue&label=Views&query=value&url=https://api.github.com/repos/DibyajyotiBiswal57/programs/traffic/views&style=flat-square)
-![Stars](https://img.shields.io/github/stars/DibyajyotiBiswal57/programs?style=flat-square)
-![Forks](https://img.shields.io/github/forks/DibyajyotiBiswal57/programs?style=flat-square)
-![Code Size](https://img.shields.io/github/languages/code-size/DibyajyotiBiswal57/programs?style=flat-square)
+- **🐛 Found a bug?** [Open an issue](https://github.com/DibyajyotiBiswal57/programs/issues/new)
+- **💡 Have a suggestion?** [Start a discussion](https://github.com/DibyajyotiBiswal57/programs/discussions)
+- **📧 Email:** coder99957@dibyajyoti.is-a.dev
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by programmers, for programmers**
+## ⭐ Show Your Support
 
-*Happy Coding! 🚀*
+If you find this project helpful, please consider:
+
+### 🌟 [Star this Repository](https://github.com/DibyajyotiBiswal57/programs)
+**Help others discover this collection of programming solutions!**
+
+### 👤 [Follow @DibyajyotiBiswal57](https://github.com/DibyajyotiBiswal57)
+**Stay updated with new problems, languages, and projects!**
+
+[![GitHub stars](https://img.shields.io/github/stars/DibyajyotiBiswal57/programs?style=social)](https://github.com/DibyajyotiBiswal57/programs)
+[![GitHub followers](https://img.shields.io/github/followers/DibyajyotiBiswal57?style=social)](https://github.com/DibyajyotiBiswal57)
+
+**Made with 💻 and ☕ by [DibyajyotiBiswal57](https://github.com/DibyajyotiBiswal57)**
 
 </div>
