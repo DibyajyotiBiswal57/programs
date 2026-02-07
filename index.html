@@ -14,6 +14,7 @@
         html {
             overflow-x: hidden;
             width: 100%;
+            scroll-behavior: smooth; /* Smooth scrolling */
         }
 
         :root {
@@ -379,19 +380,66 @@
             }
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 8px;
-            width: 100%;
-            overflow-x: hidden;
+        body {
+            padding-top: 80px; /* Space for sticky header */
         }
 
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 40px;
+        /* Sticky Navigation Bar */
+        .sticky-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 250, 252, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
             animation: slideDown 0.6s ease-out;
+        }
+
+        [data-theme="dark"] .sticky-navbar {
+            background: rgba(26, 26, 26, 0.85);
+        }
+
+        .navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .navbar-brand:hover {
+            opacity: 0.8;
+        }
+
+        .navbar-search {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
         }
 
         @keyframes slideDown {
@@ -405,8 +453,22 @@
             }
         }
 
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 8px;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 20px;
+            margin-bottom: 30px;
+        }
+
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 10px;
@@ -578,40 +640,104 @@
             text-decoration: underline;
         }
 
-        /* Theme Toggle Button */
+        /* Theme Toggle Button - Now in navbar */
         .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-md);
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
-            z-index: 1000;
         }
 
         .theme-toggle:hover {
             transform: scale(1.1);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
+            background: var(--background);
         }
 
         .theme-toggle:active {
             transform: scale(0.95);
         }
 
-        /* Search Box */
+        /* Search Box - Navbar version */
+        .navbar-search .search-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .navbar-search .search-input {
+            width: 100%;
+            padding: 10px 40px 10px 40px;
+            font-size: 0.95rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-search .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        [data-theme="dark"] .navbar-search .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+        }
+
+        .navbar-search .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .navbar-search .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            pointer-events: none;
+        }
+
+        .navbar-search .clear-search {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 4px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-search .clear-search.visible {
+            opacity: 1;
+        }
+
+        .navbar-search .clear-search:hover {
+            color: var(--text-primary);
+        }
+
+        /* Legacy search container (kept for compatibility) */
         .search-container {
             max-width: 600px;
             margin: 0 auto 40px auto;
-            animation: slideDown 0.6s ease-out;
+            display: none; /* Hidden as search is now in navbar */
         }
 
         .search-box {
@@ -738,10 +864,123 @@
             color: #fde68a;
         }
 
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            z-index: 1001;
+            transition: width 0.2s ease;
+            width: 0%;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced card animations and hover effects */
+        .question-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .question-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .question-card:hover::before {
+            left: 100%;
+        }
+
+        /* Search results info */
+        .search-results-info {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 12px;
+                padding-top: 70px; /* Adjust for smaller navbar on mobile */
                 line-height: 1.5;
+            }
+
+            .navbar-content {
+                padding: 10px 12px;
+                flex-wrap: wrap;
+            }
+
+            .navbar-brand {
+                font-size: 1.1rem;
+            }
+
+            .navbar-search {
+                order: 3;
+                flex: 1 1 100%;
+                margin-top: 10px;
+                max-width: 100%;
+            }
+
+            .navbar-actions {
+                order: 2;
+            }
+
+            .theme-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 1.3rem;
             }
 
             h1 {
@@ -1212,9 +1451,46 @@
         <button id="skip-splash-btn" onclick="skipSplash()">Skip [ESC]</button>
     </div>
 
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-        <span id="theme-icon">🌙</span>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky-navbar">
+        <div class="navbar-content">
+            <a href="#" class="navbar-brand" onclick="scrollToTop(); return false;">
+                <span>📘</span>
+                <span>Programming Questions</span>
+            </a>
+            <div class="navbar-search">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Search questions..."
+                        aria-label="Search questions"
+                        autocomplete="off"
+                    >
+                    <button 
+                        id="clearSearch" 
+                        class="clear-search" 
+                        aria-label="Clear search"
+                        onclick="clearSearch()"
+                    >✕</button>
+                </div>
+            </div>
+            <div class="navbar-actions">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
+        ↑
     </button>
 
     <div class="container">
@@ -6752,7 +7028,7 @@
         </div>
 
         <footer>
-            <p>Generated on February 07, 2026 at 12:50 UTC</p>
+            <p>Generated on February 07, 2026 at 12:55 UTC</p>
             <p>
                 <a href="https://github.com/DibyajyotiBiswal57/programs" target="_blank">View on GitHub</a>
             </p>
@@ -6786,6 +7062,53 @@
             }
         })();
 
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Back to top button visibility
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            // Ctrl/Cmd + K to focus search
+            if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+                event.preventDefault();
+                searchInput.focus();
+            }
+            // ESC to clear search
+            if (event.key === 'Escape' && document.activeElement === searchInput) {
+                clearSearch();
+                searchInput.blur();
+            }
+            
+            if (event.target.classList.contains('status-toggle')) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    event.target.click();
+                }
+            }
+        });
+
         function toggleStatus(questionNumber) {
             const content = document.getElementById('status-' + questionNumber);
             const arrow = document.getElementById('arrow-' + questionNumber);
@@ -6805,16 +7128,6 @@
                 content.setAttribute('aria-hidden', 'false');
             }
         }
-
-        // Keyboard navigation support
-        document.addEventListener('keydown', function(event) {
-            if (event.target.classList.contains('status-toggle')) {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    event.target.click();
-                }
-            }
-        });
 
         // Search functionality
         let searchTimeout;
