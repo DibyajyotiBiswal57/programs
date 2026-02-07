@@ -90,16 +90,6 @@ def parse_questions(questions_file="questions.md"):
                     # Get text before <br>
                     parts = full_line.split('<br>')
                     question_text = parts[0].strip()
-                    
-                    # Check if there's inline example content after <br> but before [Filename]
-                    if len(parts) > 1:
-                        after_br = parts[1].strip()
-                        # Remove filename part
-                        after_br = re.sub(r'\[Filename[^\]]+\]', '', after_br).strip()
-                        # If there's still content (like inline examples), keep question_text including it
-                        if after_br and not after_br.startswith('['):
-                            # This is an inline example, keep in question text
-                            question_text = parts[0].strip()
                 else:
                     # Remove filename from question text if no <br>
                     question_text = re.sub(r'\s*\[Filename[^\]]+\]\s*$', '', question_text).strip()
@@ -136,20 +126,22 @@ def parse_questions(questions_file="questions.md"):
                         example_lines.append(next_line)
                         i += 1
                     # If line has content and looks like it's part of the question description
-                    elif next_line.strip() and not next_line.strip().startswith('#'):
-                        # Check if this is a list item or continuation of question
-                        if next_line.strip().startswith('-') or next_line.startswith('    '):
-                            example_lines.append(next_line)
+                    else:
+                        stripped_line = next_line.strip()
+                        if stripped_line and not stripped_line.startswith('#'):
+                            # Check if this is a list item or continuation of question
+                            if stripped_line.startswith('-') or next_line.startswith('    '):
+                                example_lines.append(next_line)
+                                i += 1
+                            else:
+                                break
+                        elif stripped_line == '':
+                            # Empty line - continue if we're building an example
+                            if example_lines:
+                                example_lines.append(next_line)
                             i += 1
                         else:
                             break
-                    elif next_line.strip() == '':
-                        # Empty line - continue if we're building an example
-                        if example_lines:
-                            example_lines.append(next_line)
-                        i += 1
-                    else:
-                        break
                 
                 if example_lines:
                     example = ''.join(example_lines).strip()
