@@ -62,10 +62,42 @@
             width: 100%;
         }
 
+        /* Glitch effect layers - only affect background */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #a8e6cf, #7ec8e3, #56c9d8, #89e5d0);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::before {
+            animation: gradientShift 15s ease infinite, glitch1 3s infinite;
+            opacity: 0.8;
+        }
+
+        body::after {
+            animation: gradientShift 15s ease infinite, glitch2 4s infinite;
+            opacity: 0.6;
+        }
+
         [data-theme="dark"] body {
             background: linear-gradient(-45deg, #0a1f1f, #0d2b3e, #0f3a4a, #1a4d5c);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite, fadeIn 0.5s ease-in;
+        }
+
+        [data-theme="dark"] body::before,
+        [data-theme="dark"] body::after {
+            background: linear-gradient(-45deg, #0a1f1f, #0d2b3e, #0f3a4a, #1a4d5c);
+            background-size: 400% 400%;
         }
 
         @keyframes gradientShift {
@@ -77,6 +109,94 @@
             }
             100% {
                 background-position: 0% 50%;
+            }
+        }
+
+        /* Glitch animation for background layer 1 */
+        @keyframes glitch1 {
+            0%, 100% {
+                transform: translate(0);
+                clip-path: inset(0);
+            }
+            10% {
+                transform: translate(-5px, 2px);
+                clip-path: inset(10% 0 70% 0);
+            }
+            20% {
+                transform: translate(3px, -1px);
+                clip-path: inset(60% 0 20% 0);
+            }
+            30% {
+                transform: translate(0);
+                clip-path: inset(0);
+            }
+            40% {
+                transform: translate(2px, -3px);
+                clip-path: inset(30% 0 50% 0);
+            }
+            50% {
+                transform: translate(-3px, 1px);
+                clip-path: inset(80% 0 10% 0);
+            }
+            60% {
+                transform: translate(0);
+                clip-path: inset(0);
+            }
+            70% {
+                transform: translate(4px, 2px);
+                clip-path: inset(15% 0 75% 0);
+            }
+            80% {
+                transform: translate(-2px, -2px);
+                clip-path: inset(40% 0 40% 0);
+            }
+            90% {
+                transform: translate(0);
+                clip-path: inset(0);
+            }
+        }
+
+        /* Glitch animation for background layer 2 */
+        @keyframes glitch2 {
+            0%, 100% {
+                transform: translate(0);
+                clip-path: inset(0);
+            }
+            15% {
+                transform: translate(4px, -2px);
+                clip-path: inset(20% 0 60% 0);
+            }
+            25% {
+                transform: translate(-2px, 3px);
+                clip-path: inset(70% 0 15% 0);
+            }
+            35% {
+                transform: translate(0);
+                clip-path: inset(0);
+            }
+            45% {
+                transform: translate(-3px, -1px);
+                clip-path: inset(45% 0 35% 0);
+            }
+            55% {
+                transform: translate(2px, 2px);
+                clip-path: inset(5% 0 85% 0);
+            }
+            65% {
+                transform: translate(0);
+                clip-path: inset(0);
+            }
+            75% {
+                transform: translate(3px, -3px);
+                clip-path: inset(25% 0 65% 0);
+            }
+            85% {
+                transform: translate(-4px, 1px);
+                clip-path: inset(55% 0 25% 0);
+            }
+            95% {
+                transform: translate(0);
+                clip-path: inset(0);
             }
         }
 
@@ -6441,7 +6561,7 @@
         </div>
 
         <footer>
-            <p>Generated on February 07, 2026 at 12:34 UTC</p>
+            <p>Generated on February 07, 2026 at 12:37 UTC</p>
             <p>
                 <a href="https://github.com/DibyajyotiBiswal57/programs" target="_blank">View on GitHub</a>
             </p>
