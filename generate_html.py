@@ -409,6 +409,14 @@ def generate_html(questions, status_badges):
             }
         }
 
+        /* Accessibility: Disable glitch effect for users who prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            body::before,
+            body::after {
+                animation: gradientShift 15s ease infinite !important;
+            }
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
