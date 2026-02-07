@@ -286,6 +286,103 @@
             transform: scale(0.95);
         }
 
+        /* Search Box */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 50px 16px 50px;
+            font-size: 1.05rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--card-bg);
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        [data-theme="dark"] .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            pointer-events: none;
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 4px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .clear-search.visible {
+            opacity: 1;
+        }
+
+        .clear-search:hover {
+            color: var(--text-primary);
+        }
+
+        .search-results-info {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .no-results-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .question-card.hidden {
+            display: none;
+        }
+
         /* Badge Tip Section */
         .badge-tip {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
@@ -564,13 +661,40 @@
             </h1>
         </header>
 
+        <!-- Search Box -->
+        <div class="search-container">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Search questions by number or description..."
+                    aria-label="Search questions"
+                    autocomplete="off"
+                >
+                <button 
+                    id="clearSearch" 
+                    class="clear-search" 
+                    aria-label="Clear search"
+                    onclick="clearSearch()"
+                >✕</button>
+            </div>
+            <div id="searchResultsInfo" class="search-results-info"></div>
+        </div>
+
         <!-- Badge Tip -->
         <div class="badge-tip">
             <div class="badge-tip-icon">💡</div>
             <div class="badge-tip-text">Tip: Click on the badges to view the code</div>
         </div>
 
-        <div class="questions-grid">
+        <div id="noResults" class="no-results" style="display: none;">
+            <div class="no-results-icon">🔍</div>
+            <div>No questions found matching your search.</div>
+        </div>
+
+        <div class="questions-grid" id="questionsGrid">
             <div class="question-card">
                 <div class="question-number">#0001</div>
                 <div class="question-text">Print "Hello World".</div>
@@ -6064,7 +6188,7 @@
         </div>
 
         <footer>
-            <p>Generated on February 07, 2026 at 07:07 UTC</p>
+            <p>Generated on February 07, 2026 at 07:15 UTC</p>
             <p>
                 <a href="https://github.com/DibyajyotiBiswal57/programs" target="_blank">View on GitHub</a>
             </p>
@@ -6125,6 +6249,74 @@
                     event.preventDefault();
                     event.target.click();
                 }
+            }
+        });
+
+        // Search functionality
+        let searchTimeout;
+        const searchInput = document.getElementById('searchInput');
+        const clearButton = document.getElementById('clearSearch');
+        const searchResultsInfo = document.getElementById('searchResultsInfo');
+        const questionsGrid = document.getElementById('questionsGrid');
+        const noResultsDiv = document.getElementById('noResults');
+
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const questionCards = questionsGrid.querySelectorAll('.question-card');
+            let visibleCount = 0;
+            let totalCount = questionCards.length;
+
+            questionCards.forEach(card => {
+                const questionNumber = card.querySelector('.question-number').textContent.toLowerCase();
+                const questionText = card.querySelector('.question-text').textContent.toLowerCase();
+                
+                const matches = questionNumber.includes(searchTerm) || questionText.includes(searchTerm);
+                
+                if (matches) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Update UI based on results
+            if (searchTerm === '') {
+                searchResultsInfo.textContent = '';
+                clearButton.classList.remove('visible');
+                noResultsDiv.style.display = 'none';
+                questionsGrid.style.display = 'grid';
+            } else {
+                clearButton.classList.add('visible');
+                if (visibleCount === 0) {
+                    searchResultsInfo.textContent = '';
+                    noResultsDiv.style.display = 'block';
+                    questionsGrid.style.display = 'none';
+                } else {
+                    searchResultsInfo.textContent = `Showing ${visibleCount} of ${totalCount} questions`;
+                    noResultsDiv.style.display = 'none';
+                    questionsGrid.style.display = 'grid';
+                }
+            }
+        }
+
+        function clearSearch() {
+            searchInput.value = '';
+            performSearch();
+            searchInput.focus();
+        }
+
+        // Debounced search as user types
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(performSearch, 300);
+        });
+
+        // Also search on Enter key
+        searchInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                clearTimeout(searchTimeout);
+                performSearch();
             }
         });
 
