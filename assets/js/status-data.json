@@ -164,10 +164,6 @@
       "status": "done",
       "filename": "0025_voting_eligibility.bas"
     },
-    "java": {
-      "status": "done",
-      "filename": "0025_voting_eligibility.java"
-    },
     "python": {
       "status": "done",
       "filename": "0025_voting_eligibility.py"
@@ -441,6 +437,16 @@
       "filename": "0039_vowel_consonant.py"
     }
   },
+  "28": {
+    "java": {
+      "status": "beta",
+      "filename": "0028_divisibility_check_beta.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0028_divisibility_check.py"
+    }
+  },
   "38": {
     "java": {
       "status": "done",
@@ -489,16 +495,6 @@
     "python": {
       "status": "done",
       "filename": "0032_neon_number.py"
-    }
-  },
-  "28": {
-    "java": {
-      "status": "done",
-      "filename": "0028_divisibility_check.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0028_divisibility_check.py"
     }
   },
   "49": {
