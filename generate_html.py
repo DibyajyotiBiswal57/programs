@@ -214,6 +214,7 @@ def generate_html(questions, status_badges):
         html {
             overflow-x: hidden;
             width: 100%;
+            scroll-behavior: smooth; /* Smooth scrolling */
         }
 
         :root {
@@ -409,27 +410,236 @@ def generate_html(questions, status_badges):
             }
         }
 
-        /* Accessibility: Disable glitch effect for users who prefer reduced motion */
+        /* Cool Animated Background Elements */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(94, 201, 216, 0.4), transparent);
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+            animation-delay: 0s;
+        }
+
+        .bg-shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(126, 200, 227, 0.3), transparent);
+            top: 60%;
+            left: 70%;
+            animation-duration: 30s;
+            animation-delay: 2s;
+        }
+
+        .bg-shape:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(168, 230, 207, 0.35), transparent);
+            top: 80%;
+            left: 20%;
+            animation-duration: 35s;
+            animation-delay: 4s;
+        }
+
+        .bg-shape:nth-child(4) {
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(137, 229, 208, 0.3), transparent);
+            top: 30%;
+            left: 80%;
+            animation-duration: 28s;
+            animation-delay: 1s;
+        }
+
+        .bg-shape:nth-child(5) {
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(86, 201, 216, 0.35), transparent);
+            top: 50%;
+            left: 40%;
+            animation-duration: 32s;
+            animation-delay: 3s;
+        }
+
+        [data-theme="dark"] .bg-shape:nth-child(1) {
+            background: radial-gradient(circle, rgba(15, 58, 74, 0.5), transparent);
+        }
+
+        [data-theme="dark"] .bg-shape:nth-child(2) {
+            background: radial-gradient(circle, rgba(13, 43, 62, 0.4), transparent);
+        }
+
+        [data-theme="dark"] .bg-shape:nth-child(3) {
+            background: radial-gradient(circle, rgba(26, 77, 92, 0.45), transparent);
+        }
+
+        [data-theme="dark"] .bg-shape:nth-child(4) {
+            background: radial-gradient(circle, rgba(10, 31, 31, 0.4), transparent);
+        }
+
+        [data-theme="dark"] .bg-shape:nth-child(5) {
+            background: radial-gradient(circle, rgba(15, 58, 74, 0.45), transparent);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(30px, -50px) rotate(90deg) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, -30px) rotate(180deg) scale(0.9);
+            }
+            75% {
+                transform: translate(-50px, 20px) rotate(270deg) scale(1.05);
+            }
+        }
+
+        /* Animated Particles */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-duration: 18s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-duration: 22s; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 30%; animation-duration: 16s; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 40%; animation-duration: 20s; animation-delay: 1s; }
+        .particle:nth-child(5) { left: 50%; animation-duration: 19s; animation-delay: 3s; }
+        .particle:nth-child(6) { left: 60%; animation-duration: 17s; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 70%; animation-duration: 21s; animation-delay: 2.5s; }
+        .particle:nth-child(8) { left: 80%; animation-duration: 18s; animation-delay: 4.5s; }
+        .particle:nth-child(9) { left: 90%; animation-duration: 23s; animation-delay: 1.5s; }
+        .particle:nth-child(10) { left: 15%; animation-duration: 20s; animation-delay: 3.5s; }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        [data-theme="dark"] .particle {
+            background: rgba(126, 200, 227, 0.4);
+        }
+
+        /* Accessibility: Disable all background animations for users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
             body::before,
             body::after {
                 animation: gradientShift 15s ease infinite !important;
             }
+            .bg-shape,
+            .particle {
+                animation: none !important;
+                opacity: 0.05 !important;
+            }
         }
 
-        .container {
+        body {
+            padding-top: 80px; /* Space for sticky header */
+        }
+
+        /* Sticky Navigation Bar */
+        .sticky-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 250, 252, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        [data-theme="dark"] .sticky-navbar {
+            background: rgba(26, 26, 26, 0.85);
+        }
+
+        .navbar-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 8px;
-            width: 100%;
-            overflow-x: hidden;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 40px;
-            animation: slideDown 0.6s ease-out;
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .navbar-brand:hover {
+            opacity: 0.8;
+        }
+
+        .navbar-search {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
         }
 
         @keyframes slideDown {
@@ -443,8 +653,22 @@ def generate_html(questions, status_badges):
             }
         }
 
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 8px;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 20px;
+            margin-bottom: 30px;
+        }
+
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 10px;
@@ -616,40 +840,104 @@ def generate_html(questions, status_badges):
             text-decoration: underline;
         }
 
-        /* Theme Toggle Button */
+        /* Theme Toggle Button - Now in navbar */
         .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-md);
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
-            z-index: 1000;
         }
 
         .theme-toggle:hover {
             transform: scale(1.1);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
+            background: var(--background);
         }
 
         .theme-toggle:active {
             transform: scale(0.95);
         }
 
-        /* Search Box */
+        /* Search Box - Navbar version */
+        .navbar-search .search-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .navbar-search .search-input {
+            width: 100%;
+            padding: 10px 40px 10px 40px;
+            font-size: 0.95rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-search .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        [data-theme="dark"] .navbar-search .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+        }
+
+        .navbar-search .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .navbar-search .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            pointer-events: none;
+        }
+
+        .navbar-search .clear-search {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 4px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-search .clear-search.visible {
+            opacity: 1;
+        }
+
+        .navbar-search .clear-search:hover {
+            color: var(--text-primary);
+        }
+
+        /* Legacy search container (kept for compatibility) */
         .search-container {
             max-width: 600px;
             margin: 0 auto 40px auto;
-            animation: slideDown 0.6s ease-out;
+            display: none; /* Hidden as search is now in navbar */
         }
 
         .search-box {
@@ -776,10 +1064,123 @@ def generate_html(questions, status_badges):
             color: #fde68a;
         }
 
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            z-index: 1001;
+            transition: width 0.2s ease;
+            width: 0%;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced card animations and hover effects */
+        .question-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .question-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .question-card:hover::before {
+            left: 100%;
+        }
+
+        /* Search results info */
+        .search-results-info {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 12px;
+                padding-top: 70px; /* Adjust for smaller navbar on mobile */
                 line-height: 1.5;
+            }
+
+            .navbar-content {
+                padding: 10px 12px;
+                flex-wrap: wrap;
+            }
+
+            .navbar-brand {
+                font-size: 1.1rem;
+            }
+
+            .navbar-search {
+                order: 3;
+                flex: 1 1 100%;
+                margin-top: 10px;
+                max-width: 100%;
+            }
+
+            .navbar-actions {
+                order: 2;
+            }
+
+            .theme-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 1.3rem;
             }
 
             h1 {
@@ -1142,15 +1543,73 @@ def generate_html(questions, status_badges):
     </style>
 </head>
 <body>
+    <!-- Cool Animated Background Elements -->
+    <div class="bg-shapes">
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+    </div>
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <!-- Splash Screen - Linux Boot Style -->
     <div id="splash-screen">
         <div id="boot-messages"></div>
         <button id="skip-splash-btn" onclick="skipSplash()">Skip [ESC]</button>
     </div>
 
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-        <span id="theme-icon">🌙</span>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky-navbar">
+        <div class="navbar-content">
+            <a href="#" class="navbar-brand" onclick="scrollToTop(); return false;">
+                <span>📘</span>
+                <span>Programming Questions</span>
+            </a>
+            <div class="navbar-search">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Search questions..."
+                        aria-label="Search questions"
+                        autocomplete="off"
+                    >
+                    <button 
+                        id="clearSearch" 
+                        class="clear-search" 
+                        aria-label="Clear search"
+                        onclick="clearSearch()"
+                    >✕</button>
+                </div>
+            </div>
+            <div class="navbar-actions">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
+        ↑
     </button>
 
     <div class="container">
@@ -1293,6 +1752,54 @@ def generate_html(questions, status_badges):
             }}
         }})();
 
+        // Scroll to top function
+        function scrollToTop() {{
+            window.scrollTo({{
+                top: 0,
+                behavior: 'smooth'
+            }});
+        }}
+
+        // Combined scroll handler for performance
+        const backToTopBtn = document.getElementById('backToTop');
+        const scrollProgress = document.getElementById('scrollProgress');
+        
+        window.addEventListener('scroll', function() {{
+            // Back to top button visibility
+            if (window.pageYOffset > 300) {{
+                backToTopBtn.classList.add('visible');
+            }} else {{
+                backToTopBtn.classList.remove('visible');
+            }}
+            
+            // Scroll progress indicator
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        }});
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {{
+            // Ctrl/Cmd + K to focus search
+            if ((event.ctrlKey || event.metaKey) && event.key === 'k') {{
+                event.preventDefault();
+                searchInput.focus();
+            }}
+            // ESC to clear search
+            if (event.key === 'Escape' && document.activeElement === searchInput) {{
+                clearSearch();
+                searchInput.blur();
+            }}
+            
+            if (event.target.classList.contains('status-toggle')) {{
+                if (event.key === 'Enter' || event.key === ' ') {{
+                    event.preventDefault();
+                    event.target.click();
+                }}
+            }}
+        }});
+
         function toggleStatus(questionNumber) {{
             const content = document.getElementById('status-' + questionNumber);
             const arrow = document.getElementById('arrow-' + questionNumber);
@@ -1312,16 +1819,6 @@ def generate_html(questions, status_badges):
                 content.setAttribute('aria-hidden', 'false');
             }}
         }}
-
-        // Keyboard navigation support
-        document.addEventListener('keydown', function(event) {{
-            if (event.target.classList.contains('status-toggle')) {{
-                if (event.key === 'Enter' || event.key === ' ') {{
-                    event.preventDefault();
-                    event.target.click();
-                }}
-            }}
-        }});
 
         // Search functionality
         let searchTimeout;
