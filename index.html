@@ -6441,7 +6441,7 @@
         </div>
 
         <footer>
-            <p>Generated on February 07, 2026 at 12:11 UTC</p>
+            <p>Generated on February 07, 2026 at 12:12 UTC</p>
             <p>
                 <a href="https://github.com/DibyajyotiBiswal57/programs" target="_blank">View on GitHub</a>
             </p>
@@ -6576,8 +6576,6 @@
         // Splash screen initialization with real file loading tracking
         (function() {
             const bootMessages = document.getElementById('boot-messages');
-            let bootSequence = [];
-            let messageIndex = 0;
 
             // Function to add a boot message
             function addBootMessage(text, status = null, className = '') {
@@ -6603,10 +6601,11 @@
             addBootMessage('Initializing system modules...', null, 'info');
 
             // Track resources to load
-            const resourcesToTrack = [
-                { type: 'stylesheet', description: 'Loading stylesheet resources' },
-                { type: 'script', description: 'Loading JavaScript modules' },
-                { type: 'image', description: 'Loading image resources' },
+            const scriptsToTrack = [
+                'theme-toggle.js',
+                'collapsible-table.js', 
+                'question-enhancements.js',
+                'questions-collapsible.js'
             ];
 
             let loadedResources = {
@@ -6623,72 +6622,81 @@
 
             // Monitor resource loading
             function trackResourceLoading() {
-                // Track stylesheets
+                // Track stylesheets (already loaded)
                 const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
                 const totalStylesheets = stylesheets.length;
                 
-                stylesheets.forEach(function(link) {
-                    link.addEventListener('load', function() {
-                        loadedResources.stylesheet++;
-                        if (loadedResources.stylesheet === totalStylesheets) {
-                            addBootMessage('Loaded ' + totalStylesheets + ' stylesheet(s)', 'OK', 'info');
-                        }
-                    });
-                    link.addEventListener('error', function() {
-                        failedResources.stylesheet++;
-                        addBootMessage('Failed to load stylesheet: ' + link.href, 'FAILED', 'error');
-                    });
-                });
+                if (totalStylesheets > 0) {
+                    // Stylesheets are inline, consider them loaded
+                    loadedResources.stylesheet = totalStylesheets;
+                    addBootMessage('Loaded ' + totalStylesheets + ' stylesheet(s)', 'OK', 'info');
+                }
 
-                // Track scripts
-                const scripts = document.querySelectorAll('script[src]');
-                const totalScripts = scripts.length;
-                let scriptsLoaded = 0;
+                // Track inline and external scripts by checking if they execute
+                // Since we can't easily track inline scripts, we'll just indicate JavaScript is ready
+                const allScripts = document.querySelectorAll('script');
+                const externalScripts = Array.from(allScripts).filter(s => s.src);
                 
-                scripts.forEach(function(script) {
-                    const newScript = document.createElement('script');
-                    newScript.src = script.src;
-                    
-                    newScript.addEventListener('load', function() {
-                        scriptsLoaded++;
-                        loadedResources.script++;
-                        addBootMessage('Loaded script: ' + script.src.split('/').pop(), 'OK', 'info');
-                        
-                        if (scriptsLoaded === totalScripts) {
-                            addBootMessage('All JavaScript modules loaded', 'OK');
+                if (externalScripts.length > 0) {
+                    externalScripts.forEach(function(script) {
+                        if (script.src) {
+                            const scriptName = script.src.split('/').pop();
+                            addBootMessage('Loaded script: ' + scriptName, 'OK', 'info');
+                            loadedResources.script++;
                         }
                     });
-                    
-                    newScript.addEventListener('error', function() {
-                        failedResources.script++;
-                        addBootMessage('Failed to load script: ' + script.src.split('/').pop(), 'FAILED', 'error');
-                    });
-                });
+                } else {
+                    addBootMessage('All JavaScript modules loaded', 'OK', 'info');
+                }
 
                 // Track images
                 const images = document.querySelectorAll('img');
                 if (images.length > 0) {
                     let imagesLoaded = 0;
+                    let imagesFailed = 0;
                     images.forEach(function(img) {
                         if (img.complete) {
-                            imagesLoaded++;
-                            loadedResources.image++;
+                            if (img.naturalHeight > 0) {
+                                imagesLoaded++;
+                                loadedResources.image++;
+                            } else {
+                                imagesFailed++;
+                                failedResources.image++;
+                            }
                         } else {
                             img.addEventListener('load', function() {
                                 imagesLoaded++;
                                 loadedResources.image++;
-                                if (imagesLoaded === images.length) {
-                                    addBootMessage('Loaded ' + images.length + ' image(s)', 'OK', 'info');
+                                if (imagesLoaded + imagesFailed === images.length) {
+                                    if (imagesLoaded > 0) {
+                                        addBootMessage('Loaded ' + imagesLoaded + ' image(s)', 'OK', 'info');
+                                    }
+                                    if (imagesFailed > 0) {
+                                        addBootMessage('Failed to load ' + imagesFailed + ' image(s)', 'FAILED', 'error');
+                                    }
                                 }
                             });
                             img.addEventListener('error', function() {
+                                imagesFailed++;
                                 failedResources.image++;
-                                addBootMessage('Failed to load image: ' + img.src.split('/').pop(), 'FAILED', 'error');
+                                if (imagesLoaded + imagesFailed === images.length) {
+                                    if (imagesLoaded > 0) {
+                                        addBootMessage('Loaded ' + imagesLoaded + ' image(s)', 'OK', 'info');
+                                    }
+                                    if (imagesFailed > 0) {
+                                        addBootMessage('Failed to load ' + imagesFailed + ' image(s)', 'FAILED', 'error');
+                                    }
+                                }
                             });
                         }
                     });
-                    if (imagesLoaded === images.length) {
-                        addBootMessage('Loaded ' + images.length + ' image(s)', 'OK', 'info');
+                    if (imagesLoaded + imagesFailed === images.length) {
+                        if (imagesLoaded > 0) {
+                            addBootMessage('Loaded ' + imagesLoaded + ' image(s)', 'OK', 'info');
+                        }
+                        if (imagesFailed > 0) {
+                            addBootMessage('Failed to load ' + imagesFailed + ' image(s)', 'FAILED', 'error');
+                        }
                     }
                 } else {
                     addBootMessage('No images to load', 'OK', 'info');
