@@ -290,6 +290,12 @@ def generate_html(questions, status_badges):
             scroll-behavior: smooth; /* Smooth scrolling */
         }
 
+        /* Page load fade-in */
+        html.page-loaded body {
+            opacity: 1;
+            transition: opacity 0.3s ease-in;
+        }
+
         /* Theme transition animations */
         html.theme-transitioning,
         html.theme-transitioning *,
@@ -1791,9 +1797,11 @@ def generate_html(questions, status_badges):
 
         // Create particle effect during theme transition
         function createThemeParticles(theme) {{
+            // Use theme-appropriate colors from CSS variables
+            const sharedColor = '#3b82f6';
             const colors = theme === 'dark' 
-                ? ['#60a5fa', '#3b82f6', '#93c5fd']
-                : ['#2563eb', '#3b82f6', '#1e40af'];
+                ? ['#60a5fa', sharedColor, '#93c5fd']
+                : ['#2563eb', sharedColor, '#1e40af'];
             
             const button = document.querySelector('.theme-toggle');
             const rect = button.getBoundingClientRect();
@@ -1844,9 +1852,9 @@ def generate_html(questions, status_badges):
                 themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
             }}
 
-            // Add fade-in animation for initial load
+            // Add loaded class for fade-in instead of inline style
             setTimeout(() => {{
-                document.body.style.opacity = '1';
+                html.classList.add('page-loaded');
             }}, 50);
         }})();
 
