@@ -979,7 +979,7 @@ def generate_html(questions, status_badges):
             }} else {{
                 clearButton.classList.add('visible');
                 if (visibleCount === 0) {{
-                    searchResultsInfo.textContent = 'No results found';
+                    searchResultsInfo.textContent = '';
                     noResultsDiv.style.display = 'block';
                     questionsGrid.style.display = 'none';
                 }} else {{
