@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions Collapsible Test</title>
+    <link rel="stylesheet" href="assets/css/style.scss">
+    <link rel="stylesheet" href="assets/css/questions-collapsible.css">
+    <style>
+        /* Inline minimal styles for testing */
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111824;
+            --bg-tertiary: #1a2332;
+            --text-primary: #e3f0ff;
+            --text-secondary: #8b9bc4;
+            --link-color: #5ab0ff;
+            --link-hover: #7dc5ff;
+            --border-color: #2d3b54;
+            --card-bg: #111824;
+            --card-border: #2d3b54;
+            --accent-color: #5ab0ff;
+            --shadow-light: rgba(0, 15, 40, 0.3);
+            --shadow-color: rgba(0, 10, 30, 0.5);
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .main-content {
+            padding: 20px;
+        }
+        
+        h1 {
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <h1>Questions Test Page</h1>
+        <p>Testing collapsible questions functionality:</p>
+        
+        <ol>
+            <li>1. Print "Hello World". <br> [Filename - 0001_hello_world]</li>
+            <li>2. Calculate the sum of 3 numbers. <br> [Filename - 0002_sum_of_three]</li>
+            <li>3. Find the average of 4 subject marks. <br> [Filename - 0003_average_marks]</li>
+            <li>4. Read 2 numbers and swap them using a third temporary variable. <br> [Filename - 0004_swap_with_temp]</li>
+            <li>5. Find the area of rectangle, square, triangle, parallelogram, rhombus, trapezium and circle and volume of sphere, cylinder, cone, cube and cuboid. <br> [Filename - 0005_area_volume]</li>
+        </ol>
+    </div>
+    
+    <script>
+        // Override the pathname check for testing
+        Object.defineProperty(document, 'location', {
+            value: { pathname: '/questions.html' },
+            writable: true
+        });
+    </script>
+    <script src="assets/js/questions-collapsible.js"></script>
+</body>
+</html>

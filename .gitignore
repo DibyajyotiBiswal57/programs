@@ -473,3 +473,7 @@ manim.cfg
 #Other
 .directory
 test.py
+
+# Test files
+test-questions.html
+test-gradient.html

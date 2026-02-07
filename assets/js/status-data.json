@@ -1,0 +1,666 @@
+{
+  "26": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0026_child_adult.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0026_child_adult.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0026_child_or_adult.py"
+    }
+  },
+  "10": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0010_angle_check.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0010_angle_check.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0010_angle_check.py"
+    }
+  },
+  "7": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0007_positive_negative.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0007_positive_negative.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0007_positive_negative.py"
+    }
+  },
+  "22": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0022_basic_operations.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0022_basic_operations.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0022_basic_operations.py"
+    }
+  },
+  "20": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0020_prime_check.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0020_prime_check.py"
+    }
+  },
+  "6": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0006_interest_calculator.bas"
+    },
+    "java": {
+      "status": "beta",
+      "filename": "0006_interest_calculator_beta.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0006_interest_calculator.py"
+    }
+  },
+  "13": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0013_even_numbers.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0013_even_numbers.py"
+    }
+  },
+  "5": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0005_area_volume.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0005_area_volume.py"
+    }
+  },
+  "11": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0011_profit_loss.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0011_profit_loss.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0011_profit_loss.py"
+    }
+  },
+  "24": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0024_perimeter.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0024_perimeter.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0024_perimeter.py"
+    }
+  },
+  "2": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0002_sum_of_three.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0002_sum_of_three.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0002_sum_of_three.py"
+    },
+    "c": {
+      "status": "done",
+      "filename": "0002_sum_of_three.c"
+    }
+  },
+  "3": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0003_average_marks.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0003_average_marks.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0003_average_marks.py"
+    }
+  },
+  "25": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0025_voting_eligibility.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0025_voting_eligibility.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0025_voting_eligibility.py"
+    }
+  },
+  "19": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0019_even_odd_check.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0019_even_odd_check.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0019_even_odd_check.py"
+    }
+  },
+  "4": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0004_swap_with_temp.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0004_swap_with_temp.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0004_swap_with_temp.py"
+    }
+  },
+  "14": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0014_descending_order.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0014_descending_order.py"
+    }
+  },
+  "9": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0009_sum_or_product.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0009_sum_or_product.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0009_sum_or_product.py"
+    }
+  },
+  "1": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0001_hello_world.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0001_hello_world.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0001_hello_world.py"
+    },
+    "c": {
+      "status": "done",
+      "filename": "0001_hello_world.c"
+    },
+    "cpp": {
+      "status": "done",
+      "filename": "0001_hello_world.cpp"
+    },
+    "csharp": {
+      "status": "done",
+      "filename": "0001_hello_world.cs"
+    },
+    "haskell": {
+      "status": "done",
+      "filename": "0001_hello_world.hs"
+    },
+    "perl": {
+      "status": "done",
+      "filename": "0001_hello_world.pl"
+    },
+    "go": {
+      "status": "done",
+      "filename": "0001_hello_world.go"
+    },
+    "elixir": {
+      "status": "done",
+      "filename": "0001_hello_world.exs"
+    },
+    "asm": {
+      "status": "done",
+      "filename": "0001_hello_world.asm"
+    },
+    "fortran": {
+      "status": "done",
+      "filename": "0001_hello_world.f90"
+    },
+    "lua": {
+      "status": "done",
+      "filename": "0001_hello_world.lua"
+    },
+    "ruby": {
+      "status": "done",
+      "filename": "0001_hello_world.rb"
+    },
+    "vb": {
+      "status": "done",
+      "filename": "0001_hello_world.vb"
+    },
+    "pwsh": {
+      "status": "done",
+      "filename": "0001_hello_world.ps1"
+    },
+    "batch": {
+      "status": "done",
+      "filename": "0001_hello_world.bat"
+    }
+  },
+  "16": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0016_digit_operations.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0016_digit_operations.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0016_digit_operations.py"
+    }
+  },
+  "12": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0012_natural_numbers.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0012_natural_numbers.py"
+    }
+  },
+  "15": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0015_multiplication_table.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0015_multiplication_table.py"
+    }
+  },
+  "23": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0023_swap_without_temp.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0023_swap_without_temp.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0023_swap_without_temp.py"
+    }
+  },
+  "18": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0018_odd_in_range.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0018_odd_in_range.py"
+    }
+  },
+  "17": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0017_reverse_number.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0017_reverse_number.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0017_reverse_number.py"
+    }
+  },
+  "8": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0008_greater_number.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0008_greater_number.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0008_greater_number.py"
+    }
+  },
+  "40": {
+    "java": {
+      "status": "done",
+      "filename": "0040_boolean_operations.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0040_boolean_operations.py"
+    }
+  },
+  "35": {
+    "java": {
+      "status": "done",
+      "filename": "0035_largest_of_three.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0035_largest_of_three.py"
+    }
+  },
+  "29": {
+    "java": {
+      "status": "done",
+      "filename": "0029_digit_count_check.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0029_digit_count_check.py"
+    }
+  },
+  "31": {
+    "java": {
+      "status": "beta",
+      "filename": "0031_leap_year_beta.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0031_leap_year.py"
+    }
+  },
+  "36": {
+    "java": {
+      "status": "done",
+      "filename": "0036_smaller_of_two.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0036_smaller_of_two.py"
+    }
+  },
+  "39": {
+    "java": {
+      "status": "done",
+      "filename": "0039_vowel_consonant.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0039_vowel_consonant.py"
+    }
+  },
+  "38": {
+    "java": {
+      "status": "done",
+      "filename": "0038_even_sum_diff.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0038_even_sum_diff.py"
+    }
+  },
+  "34": {
+    "java": {
+      "status": "done",
+      "filename": "0034_discount_calculator.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0034_discount_calculator.py"
+    }
+  },
+  "37": {
+    "java": {
+      "status": "done",
+      "filename": "0037_square_cube.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0037_square_cube.py"
+    }
+  },
+  "41": {
+    "java": {
+      "status": "done",
+      "filename": "0041_conditional_operations.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0041_conditional_operations.py"
+    }
+  },
+  "32": {
+    "java": {
+      "status": "beta",
+      "filename": "0032_neon_number_beta.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0032_neon_number.py"
+    }
+  },
+  "28": {
+    "java": {
+      "status": "done",
+      "filename": "0028_divisibility_check.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0028_divisibility_check.py"
+    }
+  },
+  "49": {
+    "python": {
+      "status": "done",
+      "filename": "0049_bmi_calculator.py"
+    }
+  },
+  "48": {
+    "python": {
+      "status": "done",
+      "filename": "0048_sum_odd_numbers.py"
+    }
+  },
+  "60": {
+    "python": {
+      "status": "done",
+      "filename": "0060_reverse_number.py"
+    }
+  },
+  "46": {
+    "python": {
+      "status": "done",
+      "filename": "0046_dollar_rupee.py"
+    }
+  },
+  "61": {
+    "python": {
+      "status": "done",
+      "filename": "0061_divisible_3_and_7.py"
+    }
+  },
+  "57": {
+    "python": {
+      "status": "done",
+      "filename": "0057_1_to_10_no_7.py"
+    }
+  },
+  "44": {
+    "python": {
+      "status": "done",
+      "filename": "0044_word_count.py"
+    }
+  },
+  "21": {
+    "python": {
+      "status": "done",
+      "filename": "0021_name_triangle.py"
+    }
+  },
+  "47": {
+    "python": {
+      "status": "done",
+      "filename": "0047_case_check.py"
+    }
+  },
+  "90": {
+    "python": {
+      "status": "done",
+      "filename": "0090_test.py"
+    }
+  },
+  "64": {
+    "python": {
+      "status": "done",
+      "filename": "0064_factorial.py"
+    }
+  },
+  "63": {
+    "python": {
+      "status": "done",
+      "filename": "0063_odd_numbers.py"
+    }
+  },
+  "42": {
+    "python": {
+      "status": "done",
+      "filename": "0042_palindrome_string.py"
+    }
+  },
+  "50": {
+    "python": {
+      "status": "done",
+      "filename": "0050_km_to_miles.py"
+    }
+  },
+  "74": {
+    "python": {
+      "status": "done",
+      "filename": "0074_fibonacci.py"
+    }
+  },
+  "54": {
+    "python": {
+      "status": "done",
+      "filename": "0054_sum_n_natural.py"
+    }
+  },
+  "55": {
+    "python": {
+      "status": "done",
+      "filename": "0055_1_to_10_no_5.py"
+    }
+  },
+  "30": {
+    "python": {
+      "status": "done",
+      "filename": "0030_palindrome_number.py"
+    }
+  },
+  "52": {
+    "python": {
+      "status": "done",
+      "filename": "0052_de_ratio.py"
+    }
+  },
+  "43": {
+    "python": {
+      "status": "done",
+      "filename": "0043_count_vowels.py"
+    }
+  },
+  "51": {
+    "python": {
+      "status": "done",
+      "filename": "0051_circular_swap.py"
+    }
+  },
+  "65": {
+    "python": {
+      "status": "done",
+      "filename": "0065_square_cube_menu.py"
+    }
+  },
+  "27": {
+    "python": {
+      "status": "done",
+      "filename": "0027_calculator.py"
+    }
+  },
+  "59": {
+    "python": {
+      "status": "done",
+      "filename": "0059_count_digits.py"
+    }
+  },
+  "45": {
+    "python": {
+      "status": "done",
+      "filename": "0045_celsius_fahrenheit.py"
+    }
+  },
+  "58": {
+    "python": {
+      "status": "done",
+      "filename": "0058_menu_loop.py"
+    }
+  },
+  "53": {
+    "python": {
+      "status": "done",
+      "filename": "0053_1_to_10.py"
+    }
+  }
+}

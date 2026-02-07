@@ -50,6 +50,9 @@ jobs:
       - name: Generate status.md with Shields.io badges
         run: python update_status.py
 
+      - name: Generate status-data.json for questions page
+        run: python generate_status_json.py
+
       - name: Check for changes
         id: check_changes
         run: |
@@ -64,8 +67,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add status.md
-          git commit -m "Auto-update status.md with Shields.io badges"
+          git add status.md assets/js/status-data.json
+          git commit -m "Auto-update status.md and status-data.json with Shields.io badges"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
