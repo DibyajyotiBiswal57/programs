@@ -120,16 +120,14 @@ def parse_questions(questions_file="questions.md"):
                     # Check for code block markers
                     if next_line.strip().startswith('```'):
                         if in_code_block:
-                            # End of code block
-                            example_lines.append(next_line)
+                            # End of code block - don't include the closing ```
                             in_code_block = False
                             i += 1
                             # Continue reading to catch any additional content
                             continue
                         else:
-                            # Start of code block
+                            # Start of code block - don't include the opening ```
                             in_code_block = True
-                            example_lines.append(next_line)
                             i += 1
                             continue
                     
