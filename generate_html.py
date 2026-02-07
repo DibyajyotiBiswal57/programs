@@ -55,7 +55,7 @@ def parse_questions(questions_file="questions.md"):
         questions_file: Path to the questions markdown file
 
     Returns:
-        List of dictionaries with 'number' and 'text' keys
+        List of dictionaries with 'number', 'text', 'filename', and 'example' keys
     """
     questions = []
 
@@ -67,21 +67,104 @@ def parse_questions(questions_file="questions.md"):
         with open(questions_file, "r", encoding="utf-8") as f:
             lines = f.readlines()
 
-        for line in lines:
+        i = 0
+        while i < len(lines):
+            line = lines[i]
             # Pattern to match numbered questions
             # Example: "1. Print "Hello World". <br> [Filename - 0001_hello_world]"
-            # Format: question_num. question_text <br> [Filename - ...]
-            match = re.match(r"^(\d+)\.\s+(.+?)(?:\s*<br>.*)?$", line)
+            match = re.match(r"^(\d+)\.\s+(.+)$", line)
 
             if match:
                 question_num = int(match.group(1))
-                question_text = match.group(2).strip()
-
-                # Remove HTML tags from question text
-                question_text = re.sub(r"<[^>]+>", "", question_text)
-
-                questions.append(
-                    {"number": question_num, "text": question_text})
+                full_line = match.group(2).strip()
+                
+                # Extract filename if present
+                filename = ""
+                filename_match = re.search(r'\[Filename\s*-\s*([^\]]+)\]', full_line)
+                if filename_match:
+                    filename = filename_match.group(1).strip()
+                
+                # Extract question text (everything before <br>)
+                question_text = full_line
+                if '<br>' in full_line:
+                    # Get text before <br>
+                    parts = full_line.split('<br>')
+                    question_text = parts[0].strip()
+                    
+                    # Check if there's inline example content after <br> but before [Filename]
+                    if len(parts) > 1:
+                        after_br = parts[1].strip()
+                        # Remove filename part
+                        after_br = re.sub(r'\[Filename[^\]]+\]', '', after_br).strip()
+                        # If there's still content (like inline examples), keep question_text including it
+                        if after_br and not after_br.startswith('['):
+                            # This is an inline example, keep in question text
+                            question_text = parts[0].strip()
+                else:
+                    # Remove filename from question text if no <br>
+                    question_text = re.sub(r'\s*\[Filename[^\]]+\]\s*$', '', question_text).strip()
+                
+                # Look for example code blocks in following lines (multi-line examples only)
+                example = ""
+                i += 1
+                # Check if next lines contain code blocks (```)
+                in_code_block = False
+                example_lines = []
+                
+                while i < len(lines):
+                    next_line = lines[i]
+                    # Stop if we hit another numbered question
+                    if re.match(r"^\d+\.\s+", next_line):
+                        break
+                    
+                    # Check for code block markers
+                    if next_line.strip().startswith('```'):
+                        if in_code_block:
+                            # End of code block
+                            example_lines.append(next_line)
+                            in_code_block = False
+                            i += 1
+                            # Continue reading to catch any additional content
+                            continue
+                        else:
+                            # Start of code block
+                            in_code_block = True
+                            example_lines.append(next_line)
+                            i += 1
+                            continue
+                    
+                    # If we're in a code block, include the line
+                    if in_code_block:
+                        example_lines.append(next_line)
+                        i += 1
+                    # If line has content and looks like it's part of the question description
+                    elif next_line.strip() and not next_line.strip().startswith('#'):
+                        # Check if this is a list item or continuation of question
+                        if next_line.strip().startswith('-') or next_line.startswith('    '):
+                            example_lines.append(next_line)
+                            i += 1
+                        else:
+                            break
+                    elif next_line.strip() == '':
+                        # Empty line - continue if we're building an example
+                        if example_lines:
+                            example_lines.append(next_line)
+                        i += 1
+                    else:
+                        break
+                
+                if example_lines:
+                    example = ''.join(example_lines).strip()
+                
+                questions.append({
+                    "number": question_num,
+                    "text": question_text,
+                    "filename": filename,
+                    "example": example
+                })
+                continue
+            
+            i += 1
 
         print(f"📊 Parsed {len(questions)} questions from {questions_file}")
         return questions
@@ -582,6 +665,41 @@ def generate_html(questions, status_badges):
             color: var(--text-primary);
             margin-bottom: 16px;
             line-height: 1.6;
+        }
+
+        .question-filename {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: var(--background);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .question-example {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            background: var(--background);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            line-height: 1.4;
+        }
+
+        .question-example code {
+            font-family: inherit;
+        }
+
+        [data-theme="dark"] .question-filename,
+        [data-theme="dark"] .question-example {
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .status-toggle {
@@ -1499,11 +1617,27 @@ def generate_html(questions, status_badges):
     for question in questions:
         qnum = question["number"]
         qtext = question["text"]
+        qfilename = question.get("filename", "")
+        qexample = question.get("example", "")
         badges = status_badges.get(qnum, [])
 
         html_parts.append(f"""            <div class="question-card">
                 <div class="question-number">#{qnum:04d}</div>
-                <div class="question-text">{qtext}</div>
+                <div class="question-text">{qtext}</div>""")
+        
+        # Add filename if present
+        if qfilename:
+            html_parts.append(f"""
+                <div class="question-filename">📁 {qfilename}</div>""")
+        
+        # Add example if present
+        if qexample:
+            # Escape HTML in example to prevent injection
+            qexample_escaped = qexample.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+            html_parts.append(f"""
+                <div class="question-example">{qexample_escaped}</div>""")
+        
+        html_parts.append(f"""
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-{qnum}"
