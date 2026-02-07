@@ -1321,14 +1321,22 @@ def generate_html(questions, status_badges):
                 
                 if (externalScripts.length > 0) {{
                     externalScripts.forEach(function(script) {{
-                        if (script.src) {{
-                            const scriptName = script.src.split('/').pop();
-                            addBootMessage('Loaded script: ' + scriptName, 'OK', 'info');
-                            loadedResources.script++;
-                        }}
+                        const scriptName = script.src.split('/').pop();
+                        addBootMessage('Loaded script: ' + scriptName, 'OK', 'info');
+                        loadedResources.script++;
                     }});
                 }} else {{
                     addBootMessage('All JavaScript modules loaded', 'OK', 'info');
+                }}
+
+                // Helper function to report image loading results
+                function reportImageResults(loaded, failed) {{
+                    if (loaded > 0) {{
+                        addBootMessage('Loaded ' + loaded + ' image(s)', 'OK', 'info');
+                    }}
+                    if (failed > 0) {{
+                        addBootMessage('Failed to load ' + failed + ' image(s)', 'FAILED', 'error');
+                    }}
                 }}
 
                 // Track images
@@ -1336,6 +1344,13 @@ def generate_html(questions, status_badges):
                 if (images.length > 0) {{
                     let imagesLoaded = 0;
                     let imagesFailed = 0;
+                    
+                    function checkAllImagesProcessed() {{
+                        if (imagesLoaded + imagesFailed === images.length) {{
+                            reportImageResults(imagesLoaded, imagesFailed);
+                        }}
+                    }}
+                    
                     images.forEach(function(img) {{
                         if (img.complete) {{
                             if (img.naturalHeight > 0) {{
@@ -1349,37 +1364,17 @@ def generate_html(questions, status_badges):
                             img.addEventListener('load', function() {{
                                 imagesLoaded++;
                                 loadedResources.image++;
-                                if (imagesLoaded + imagesFailed === images.length) {{
-                                    if (imagesLoaded > 0) {{
-                                        addBootMessage('Loaded ' + imagesLoaded + ' image(s)', 'OK', 'info');
-                                    }}
-                                    if (imagesFailed > 0) {{
-                                        addBootMessage('Failed to load ' + imagesFailed + ' image(s)', 'FAILED', 'error');
-                                    }}
-                                }}
+                                checkAllImagesProcessed();
                             }});
                             img.addEventListener('error', function() {{
                                 imagesFailed++;
                                 failedResources.image++;
-                                if (imagesLoaded + imagesFailed === images.length) {{
-                                    if (imagesLoaded > 0) {{
-                                        addBootMessage('Loaded ' + imagesLoaded + ' image(s)', 'OK', 'info');
-                                    }}
-                                    if (imagesFailed > 0) {{
-                                        addBootMessage('Failed to load ' + imagesFailed + ' image(s)', 'FAILED', 'error');
-                                    }}
-                                }}
+                                checkAllImagesProcessed();
                             }});
                         }}
                     }});
-                    if (imagesLoaded + imagesFailed === images.length) {{
-                        if (imagesLoaded > 0) {{
-                            addBootMessage('Loaded ' + imagesLoaded + ' image(s)', 'OK', 'info');
-                        }}
-                        if (imagesFailed > 0) {{
-                            addBootMessage('Failed to load ' + imagesFailed + ' image(s)', 'FAILED', 'error');
-                        }}
-                    }}
+                    
+                    checkAllImagesProcessed();
                 }} else {{
                     addBootMessage('No images to load', 'OK', 'info');
                 }}
