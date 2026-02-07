@@ -1,5 +1,20 @@
 <div align="center">
 
+## ⭐ Show Your Support
+
+If you find this project helpful, please consider:
+
+### 🌟 [Star this Repository](https://github.com/DibyajyotiBiswal57/programs)
+**Help others discover this collection of programming solutions!**
+
+### 👤 [Follow @DibyajyotiBiswal57](https://github.com/DibyajyotiBiswal57)
+**Stay updated with new problems, languages, and projects!**
+
+[![GitHub stars](https://img.shields.io/github/stars/DibyajyotiBiswal57/programs?style=social)](https://github.com/DibyajyotiBiswal57/programs)
+[![GitHub followers](https://img.shields.io/github/followers/DibyajyotiBiswal57?style=social)](https://github.com/DibyajyotiBiswal57)
+
+---
+
 # 🚀 Programming Solutions Universe
 
 ### _A polyglot collection of 89+ programming challenges solved in 17+ languages_
@@ -245,19 +260,6 @@ This project is licensed under the **GPL 2.0 License** - see the [LICENSE](LICEN
 ---
 
 <div align="center">
-
-## ⭐ Show Your Support
-
-If you find this project helpful, please consider:
-
-### 🌟 [Star this Repository](https://github.com/DibyajyotiBiswal57/programs)
-**Help others discover this collection of programming solutions!**
-
-### 👤 [Follow @DibyajyotiBiswal57](https://github.com/DibyajyotiBiswal57)
-**Stay updated with new problems, languages, and projects!**
-
-[![GitHub stars](https://img.shields.io/github/stars/DibyajyotiBiswal57/programs?style=social)](https://github.com/DibyajyotiBiswal57/programs)
-[![GitHub followers](https://img.shields.io/github/followers/DibyajyotiBiswal57?style=social)](https://github.com/DibyajyotiBiswal57)
 
 **Made with 💻 and ☕ by [DibyajyotiBiswal57](https://github.com/DibyajyotiBiswal57)**
 
