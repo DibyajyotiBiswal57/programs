@@ -687,6 +687,10 @@ def generate_html(questions, status_badges):
             font-family: inherit;
         }
 
+        [data-theme="dark"] .question-card {
+            background: #2d2d2d !important;
+        }
+
         [data-theme="dark"] .question-filename,
         [data-theme="dark"] .question-example {
             background: rgba(255, 255, 255, 0.05);
