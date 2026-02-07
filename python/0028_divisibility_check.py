@@ -1,6 +1,8 @@
-print("This program check if a number is divisible by 7 or 3")
-num = float(input("Enter a number: "))
-if num % 3 == 0 and num % 7 == 0:
-    print(f"{num} is divisible by 7 and 3.")
+print("This program check if a number is divisible by another number.")
+num = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+if num % num2 == 0:
+    print(f"{num} is divisible by {num2}.")
 else:
-    print(f"{num} is not divisible by 7 and 3.")
+    print(f"{num} is not divisible by {num2}.")
+
