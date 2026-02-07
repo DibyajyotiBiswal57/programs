@@ -113,13 +113,13 @@
    */
   function generateBadge(status, folder, filename) {
     const badgeConfig = {
-      done: { label: "done", color: "brightgreen" },
-      beta: { label: "beta", color: "yellow" },
-      missing: { label: "missing", color: "lightgrey" },
+      done: { label: "status", message: "done", color: "brightgreen" },
+      beta: { label: "status", message: "beta", color: "yellow" },
+      missing: { label: "status", message: "missing", color: "lightgrey" },
     };
 
     const config = badgeConfig[status] || badgeConfig.missing;
-    const badgeUrl = `https://img.shields.io/badge/${config.label}-${config.label}-${config.color}`;
+    const badgeUrl = `https://img.shields.io/badge/${config.label}-${config.message}-${config.color}`;
 
     if (status === "missing" || !filename) {
       return `<img src="${badgeUrl}" alt="${status}" style="display: inline-block; margin: 2px;">`;
@@ -318,7 +318,8 @@
         const height = iframeDoc.body.scrollHeight;
         iframe.style.height = height + "px";
       } catch (e) {
-        // Fallback height if we can't access iframe content
+        // Fallback height if we can't access iframe content (e.g., CORS restrictions)
+        console.debug("Failed to set iframe height:", e);
         iframe.style.height = "80px";
       }
     });
