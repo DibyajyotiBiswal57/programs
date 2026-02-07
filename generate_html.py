@@ -244,7 +244,7 @@ def generate_html(questions, status_badges):
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background: linear-gradient(-45deg, #a8e6cf, #7ec8e3, #56c9d8, #89e5d0);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite, fadeIn 0.5s ease-in;
             color: var(--text-primary);
@@ -256,7 +256,7 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="dark"] body {
-            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+            background: linear-gradient(-45deg, #0a1f1f, #0d2b3e, #0f3a4a, #1a4d5c);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite, fadeIn 0.5s ease-in;
         }

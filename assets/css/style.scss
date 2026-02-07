@@ -55,6 +55,12 @@ pre,
   --gradient-2: linear-gradient(135deg, #5ab0ff 0%, #4a9ff5 100%);
   --accent-color: #5ab0ff;
   --header-height: 70px;
+  
+  /* Animated gradient background colors - Dark mode: Deep bluish-green tones */
+  --gradient-bg-1: #0a1f1f;
+  --gradient-bg-2: #0d2b3e;
+  --gradient-bg-3: #0f3a4a;
+  --gradient-bg-4: #1a4d5c;
 }
 
 /* Light Mode Colors */
@@ -84,6 +90,12 @@ pre,
   --gradient-2: linear-gradient(135deg, #5ab0ff 0%, #8dc6ff 100%);
   --accent-color: #0969da;
   --header-height: 70px;
+  
+  /* Animated gradient background colors - Light mode: Vibrant bluish-green tones */
+  --gradient-bg-1: #a8e6cf;
+  --gradient-bg-2: #7ec8e3;
+  --gradient-bg-3: #56c9d8;
+  --gradient-bg-4: #89e5d0;
 }
 
 /* Smooth Transitions for Theme Switching */
@@ -244,12 +256,21 @@ body.page-loaded {
 
 /* Global dark background and text color */
 body {
-  background-color: var(--bg-primary) !important;
+  background: linear-gradient(
+    -45deg,
+    var(--gradient-bg-1),
+    var(--gradient-bg-2),
+    var(--gradient-bg-3),
+    var(--gradient-bg-4)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   color: var(--text-primary) !important;
   line-height: 1.6;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.01em;
+  transition: background 0.5s ease;
 }
 
 .wrapper {
@@ -853,6 +874,18 @@ sub {
 /* ========================================
    ANIMATIONS & MICRO-INTERACTIONS
    ======================================== */
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 @keyframes slideInFromBottom {
   from {
