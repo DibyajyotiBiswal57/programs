@@ -11,7 +11,7 @@ Only the latest versions of the programs in the `main` branch are actively maint
 ## Reporting a Vulnerability
 If you notice a program that contains malicious logic, a security flaw (like a buffer overflow in a C program), or accidentally exposed sensitive data:
 
-1. **Do not** open a public issue.
+1. **Open** a public issue.
 2. Email me at: **coder99957@dibyajyoti.is-a.dev** (as listed on my profile).
 3. I will review the code and remove or patch the vulnerability within 48-72 hours.
 
