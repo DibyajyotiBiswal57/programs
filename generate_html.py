@@ -566,7 +566,7 @@ def generate_html(questions, status_badges):
             background: rgba(126, 200, 227, 0.4);
         }
 
-        /* Accessibility: Disable animations for users who prefer reduced motion */
+        /* Accessibility: Disable all background animations for users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
             body::before,
             body::after {
