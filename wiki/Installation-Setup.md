@@ -1,36 +1,23 @@
 # Installation & Setup Guide
 
-This guide will help you set up your development environment to run and contribute to the Programming Solutions Universe repository.
+Welcome to the Installation & Setup guide for the Programming Solutions Universe! This guide will help you set up your development environment for working with the solutions in this repository.
 
-## 📋 Table of Contents
+## 📋 Prerequisites
 
-- [Prerequisites](#prerequisites)
-- [General Setup](#general-setup)
-- [Language-Specific Setup](#language-specific-setup)
-- [Development Tools](#development-tools)
-- [Verification](#verification)
-- [Troubleshooting](#troubleshooting)
-
-## Prerequisites
-
-### Required
+Before you begin, ensure you have the following installed:
 - **Git** (version 2.0 or higher)
-- **Text Editor or IDE** (VS Code, IntelliJ IDEA, etc.)
-- **Internet Connection** (for initial setup and package downloads)
+- **Text Editor or IDE** (VS Code, IntelliJ IDEA, PyCharm, etc.)
+- **Internet connection** for downloading dependencies
 
-### Optional
-- **GitHub Account** (for contributing)
-- **Docker** (for containerized development)
-
-## General Setup
+## 🚀 Basic Setup
 
 ### 1. Clone the Repository
 
 ```bash
-# Using HTTPS
+# Clone using HTTPS
 git clone https://github.com/DibyajyotiBiswal57/programs.git
 
-# Using SSH (recommended for contributors)
+# OR clone using SSH
 git clone git@github.com:DibyajyotiBiswal57/programs.git
 
 # Navigate to the repository
@@ -40,522 +27,398 @@ cd programs
 ### 2. Explore the Structure
 
 ```bash
-# View the directory structure
-tree -L 2  # On Linux/Mac
-# or
-dir /s    # On Windows
+# View the repository structure
+ls -la
 
-# View available problems
-cat questions.md
+# Key directories:
+# - c/              C programming solutions
+# - cpp/            C++ solutions
+# - python/         Python solutions
+# - java/           Java solutions
+# - wiki/           Wiki documentation
+# - questions.md    Problem index
 ```
 
-### 3. Choose Your Languages
+## 🛠️ Language-Specific Setup
 
-Review the [Language Guides](Language-Guides) to determine which programming languages you want to work with, then proceed with the relevant language-specific setup below.
+Choose the languages you want to work with and follow the corresponding setup instructions:
 
-## Language-Specific Setup
+### Python Setup
 
-### Python (3.7+)
+**Requirements**: Python 3.7 or higher
 
-#### Installation
 ```bash
-# Check if Python is installed
+# Check Python version
 python --version
 # or
 python3 --version
 
-# Install Python from https://www.python.org/downloads/
-# Or using package managers:
-
-# macOS (Homebrew)
-brew install python
-
-# Ubuntu/Debian
-sudo apt update
-sudo apt install python3 python3-pip
-
-# Windows (Chocolatey)
-choco install python
+# Install Python from https://www.python.org/downloads/ if not installed
 ```
 
-#### Verification
+**Optional: Create Virtual Environment**
 ```bash
-python3 --version
-pip3 --version
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies (if any)
+pip install -r requirements.txt  # if requirements.txt exists
 ```
 
-#### Running Python Programs
-```bash
-cd python
-python3 problem_001.py
-```
+### Java Setup
 
-### Java (JDK 11+)
+**Requirements**: JDK 8 or higher
 
-#### Installation
 ```bash
-# Check if Java is installed
+# Check Java version
 java -version
 javac -version
 
-# Install OpenJDK:
-
-# macOS (Homebrew)
-brew install openjdk@11
-
-# Ubuntu/Debian
-sudo apt install openjdk-11-jdk
-
-# Windows (Chocolatey)
-choco install openjdk11
+# Install JDK from:
+# - Oracle JDK: https://www.oracle.com/java/technologies/downloads/
+# - OpenJDK: https://openjdk.org/
 ```
 
-#### Verification
+**Set JAVA_HOME (if not already set)**
 ```bash
-java -version
-javac -version
+# On Windows (PowerShell):
+$env:JAVA_HOME = "C:\Program Files\Java\jdk-17"
+
+# On macOS/Linux:
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 ```
 
-#### Running Java Programs
-```bash
-cd java
-javac Problem001.java
-java Problem001
-```
+### C/C++ Setup
 
-### C (GCC 7.0+)
+**Requirements**: GCC/G++ compiler or alternative
 
-#### Installation
+#### Windows
 ```bash
-# Check if GCC is installed
+# Option 1: Install MinGW
+# Download from: https://www.mingw-w64.org/
+
+# Option 2: Install Visual Studio with C++ tools
+# Download from: https://visualstudio.microsoft.com/
+
+# Verify installation
 gcc --version
+g++ --version
+```
 
-# Install GCC:
-
-# macOS (Xcode Command Line Tools)
+#### macOS
+```bash
+# Install Xcode Command Line Tools
 xcode-select --install
 
-# Ubuntu/Debian
-sudo apt install build-essential
-
-# Windows (MinGW)
-# Download from https://www.mingw-w64.org/
-```
-
-#### Verification
-```bash
+# Verify installation
 gcc --version
 ```
 
-#### Running C Programs
+#### Linux
 ```bash
-cd c
-gcc problem_001.c -o problem_001
-./problem_001  # Linux/Mac
-problem_001.exe  # Windows
-```
-
-### C++ (G++ 7.0+)
-
-#### Installation
-```bash
-# Usually installed with GCC
-g++ --version
-
-# If not, follow C installation steps above
-```
-
-#### Running C++ Programs
-```bash
-cd cpp
-g++ problem_001.cpp -o problem_001
-./problem_001
-```
-
-### JavaScript (Node.js 14+)
-
-#### Installation
-```bash
-# Download from https://nodejs.org/
-
-# Or using package managers:
-
-# macOS (Homebrew)
-brew install node
-
 # Ubuntu/Debian
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt install -y nodejs
-
-# Windows (Chocolatey)
-choco install nodejs
-```
-
-#### Verification
-```bash
-node --version
-npm --version
-```
-
-#### Running JavaScript Programs
-```bash
-cd javascript
-node problem_001.js
-```
-
-### Ruby (2.7+)
-
-#### Installation
-```bash
-# macOS (Homebrew)
-brew install ruby
-
-# Ubuntu/Debian
-sudo apt install ruby-full
-
-# Windows (RubyInstaller)
-# Download from https://rubyinstaller.org/
-```
-
-#### Verification
-```bash
-ruby --version
-```
-
-#### Running Ruby Programs
-```bash
-cd ruby
-ruby problem_001.rb
-```
-
-### Go (1.16+)
-
-#### Installation
-```bash
-# Download from https://golang.org/dl/
-
-# macOS (Homebrew)
-brew install go
-
-# Ubuntu/Debian
-sudo apt install golang-go
-
-# Windows (Chocolatey)
-choco install golang
-```
-
-#### Verification
-```bash
-go version
-```
-
-#### Running Go Programs
-```bash
-cd go
-go run problem_001.go
-```
-
-### Rust (1.50+)
-
-#### Installation
-```bash
-# Install using rustup (recommended)
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# Windows: Download from https://rustup.rs/
-```
-
-#### Verification
-```bash
-rustc --version
-cargo --version
-```
-
-#### Running Rust Programs
-```bash
-cd rust
-rustc problem_001.rs
-./problem_001
-```
-
-### C# (.NET 6.0+)
-
-#### Installation
-```bash
-# Download from https://dotnet.microsoft.com/download
-
-# macOS (Homebrew)
-brew install --cask dotnet-sdk
-
-# Ubuntu/Debian
-wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
 sudo apt update
-sudo apt install dotnet-sdk-6.0
+sudo apt install build-essential
+
+# Fedora
+sudo dnf install gcc gcc-c++
+
+# Verify installation
+gcc --version
+g++ --version
 ```
 
-#### Verification
+### C# Setup
+
+**Requirements**: .NET SDK
+
 ```bash
+# Download from: https://dotnet.microsoft.com/download
+
+# Verify installation
 dotnet --version
 ```
 
-#### Running C# Programs
+### Ruby Setup
+
+**Requirements**: Ruby 2.7 or higher
+
 ```bash
-cd csharp
-dotnet run Problem001.cs
+# Check Ruby version
+ruby --version
+
+# Install from: https://www.ruby-lang.org/en/downloads/
+
+# Install bundler (if needed)
+gem install bundler
 ```
 
-### Perl (5.30+)
+### Go Setup
 
-#### Installation
+**Requirements**: Go 1.16 or higher
+
 ```bash
-# Usually pre-installed on Unix-like systems
+# Download from: https://golang.org/dl/
+
+# Verify installation
+go version
+
+# Set up workspace (if needed)
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+```
+
+### Perl Setup
+
+**Requirements**: Perl 5.30 or higher
+
+```bash
+# Check Perl version
 perl --version
 
-# macOS (Homebrew)
-brew install perl
-
-# Ubuntu/Debian
-sudo apt install perl
-
-# Windows (Strawberry Perl)
-# Download from https://strawberryperl.com/
+# Most Unix-like systems have Perl pre-installed
+# Windows: Install Strawberry Perl from https://strawberryperl.com/
 ```
 
-#### Running Perl Programs
+### PowerShell Setup
+
+**Requirements**: PowerShell 7.0 or higher (for cross-platform)
+
 ```bash
-cd perl
-perl problem_001.pl
-```
-
-### PowerShell (7.0+)
-
-#### Installation
-```bash
-# Download from https://github.com/PowerShell/PowerShell
-
-# macOS (Homebrew)
-brew install --cask powershell
-
-# Ubuntu/Debian
-sudo apt update
-sudo apt install -y powershell
-
-# Windows: Usually pre-installed
-```
-
-#### Verification
-```bash
+# Check PowerShell version
 pwsh --version
+
+# Download from: https://github.com/PowerShell/PowerShell
 ```
 
-#### Running PowerShell Scripts
-```bash
-cd powershell
-pwsh problem_001.ps1
-```
+### Haskell Setup
 
-### Haskell (GHC 8.10+)
+**Requirements**: GHC and Cabal/Stack
 
-#### Installation
 ```bash
-# Using GHCup (recommended)
+# Install GHCup (recommended)
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
-# macOS (Homebrew)
-brew install ghc cabal-install
-
-# Ubuntu/Debian
-sudo apt install haskell-platform
-```
-
-#### Verification
-```bash
+# Verify installation
 ghc --version
+cabal --version
 ```
 
-#### Running Haskell Programs
-```bash
-cd haskell
-ghc problem_001.hs
-./problem_001
-```
+### Lua Setup
 
-### Lua (5.3+)
+**Requirements**: Lua 5.4 or higher
 
-#### Installation
 ```bash
-# macOS (Homebrew)
-brew install lua
+# Check Lua version
+lua -v
+
+# Install from: https://www.lua.org/download.html
 
 # Ubuntu/Debian
-sudo apt install lua5.3
+sudo apt install lua5.4
 
-# Windows (Chocolatey)
-choco install lua
+# macOS
+brew install lua
 ```
 
-#### Verification
+### Elixir Setup
+
+**Requirements**: Elixir 1.12 or higher, Erlang
+
 ```bash
-lua -v
+# Install from: https://elixir-lang.org/install.html
+
+# Verify installation
+elixir --version
 ```
 
-#### Running Lua Programs
+### QBasic/Visual Basic Setup
+
+**QBasic**:
+- Use DOSBox: https://www.dosbox.com/
+- Download QBasic: Available in MS-DOS package
+
+**Visual Basic**:
+- Use Visual Studio Community Edition
+- Download from: https://visualstudio.microsoft.com/
+
+### Fortran Setup
+
+**Requirements**: GFortran compiler
+
 ```bash
-cd lua
-lua problem_001.lua
+# Ubuntu/Debian
+sudo apt install gfortran
+
+# macOS
+brew install gcc
+
+# Verify installation
+gfortran --version
 ```
 
-## Development Tools
+### Assembly Setup
 
-### Recommended IDEs and Editors
+**Requirements**: NASM or MASM
+
+```bash
+# Install NASM
+# Ubuntu/Debian
+sudo apt install nasm
+
+# macOS
+brew install nasm
+
+# Verify installation
+nasm -version
+```
+
+### Batch Scripts
+
+**Requirements**: Windows Command Prompt
+
+- No installation needed on Windows
+- Pre-installed with Windows OS
+
+## 🔧 Development Tools Setup
+
+### Recommended IDEs/Editors
 
 #### Visual Studio Code (Recommended)
 ```bash
-# Download from https://code.visualstudio.com/
+# Download from: https://code.visualstudio.com/
 
-# Recommended extensions:
-# - Python
-# - Java Extension Pack
-# - C/C++
-# - Go
-# - Rust
-# - Code Runner (run code directly)
+# Recommended Extensions:
+# - Python (ms-python.python)
+# - Java Extension Pack (vscjava.vscode-java-pack)
+# - C/C++ (ms-vscode.cpptools)
+# - Code Runner (formulahendry.code-runner)
+# - GitLens (eamodio.gitlens)
 ```
 
 #### JetBrains IDEs
-- **PyCharm** - Python
-- **IntelliJ IDEA** - Java
-- **CLion** - C/C++
-- **GoLand** - Go
-- **Rider** - C#
+- **PyCharm**: Python development
+- **IntelliJ IDEA**: Java development
+- **CLion**: C/C++ development
+- **Rider**: C# development
+
+Download from: https://www.jetbrains.com/
 
 #### Other Options
-- **Vim/Neovim** - For terminal enthusiasts
-- **Sublime Text** - Lightweight and fast
-- **Atom** - Hackable editor
-- **Eclipse** - Java development
+- **Sublime Text**: https://www.sublimetext.com/
+- **Atom**: https://atom.io/
+- **Vim/Neovim**: For terminal-based editing
 
-### Version Control
+### Git Configuration
 
 ```bash
-# Configure Git (if not already done)
+# Set your identity
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
 
-# Create a branch for your work
-git checkout -b feature/your-feature-name
+# Set default editor
+git config --global core.editor "code --wait"  # VS Code
+# or
+git config --global core.editor "vim"
+
+# Enable color output
+git config --global color.ui auto
 ```
 
-## Verification
+## 🧪 Testing Your Setup
 
-### Test Your Setup
+### 1. Run a Simple Program
 
-Run the verification script to test all installed languages:
-
+**Python Example:**
 ```bash
-# Make the script executable (Linux/Mac)
-chmod +x scripts/verify_setup.sh
-
-# Run verification
-./scripts/verify_setup.sh
-```
-
-### Manual Verification
-
-Test a simple program in your chosen language:
-
-```bash
-# Example: Test Python
 cd python
-python3 problem_001.py
+python hello_world.py
+```
 
-# Example: Test Java
+**Java Example:**
+```bash
 cd java
-javac Problem001.java && java Problem001
+javac HelloWorld.java
+java HelloWorld
+```
 
-# Example: Test C
+**C Example:**
+```bash
 cd c
-gcc problem_001.c -o test && ./test
+gcc hello_world.c -o hello_world
+./hello_world  # Linux/macOS
+hello_world.exe  # Windows
 ```
 
-## Docker Setup (Optional)
-
-For a containerized development environment:
+### 2. Verify Automation Scripts
 
 ```bash
-# Install Docker
-# Visit https://docs.docker.com/get-docker/
-
-# Build the Docker image
-docker build -t programs-universe .
-
-# Run a container
-docker run -it programs-universe
-
-# Mount your local directory
-docker run -it -v $(pwd):/workspace programs-universe
+# Check Python scripts
+python generate_html.py
+python update_status.py
 ```
 
-## Troubleshooting
+## 🐛 Troubleshooting
 
-### Command Not Found
+### Common Issues
 
-If you get "command not found" errors:
+#### "Command not found" errors
+- **Solution**: Ensure the programming language is installed and added to your system PATH
 
-1. **Check installation**: Verify the language is installed
-2. **Update PATH**: Add the installation directory to your system PATH
-3. **Restart terminal**: Close and reopen your terminal/command prompt
-4. **Check aliases**: Some systems use `python3` instead of `python`
-
-### Permission Denied
-
-On Linux/Mac:
+#### Permission denied errors (Linux/macOS)
 ```bash
-# Make scripts executable
+# Make script executable
 chmod +x script_name.sh
-
-# Or run with explicit interpreter
-bash script_name.sh
 ```
 
-### Package/Module Not Found
-
+#### Port already in use
 ```bash
-# Python
-pip3 install package_name
+# Find and kill process using port (example: 8080)
+# Linux/macOS:
+lsof -ti:8080 | xargs kill -9
 
-# Node.js
-npm install package_name
-
-# Ruby
-gem install package_name
+# Windows:
+netstat -ano | findstr :8080
+taskkill /PID <PID> /F
 ```
 
-### Windows-Specific Issues
+#### Git clone fails
+- **Solution**: Check your internet connection
+- **Solution**: Try HTTPS instead of SSH (or vice versa)
+- **Solution**: Verify repository access permissions
 
-- Run Command Prompt or PowerShell as Administrator
-- Check Windows Defender/Antivirus isn't blocking executables
-- Use forward slashes `/` or escaped backslashes `\\` in paths
+### Need More Help?
 
-### Still Having Issues?
-
-- Check the [Troubleshooting](Troubleshooting) page
+- Check the [Troubleshooting Guide](Troubleshooting)
+- Review [FAQ](FAQ)
 - Open an [issue](https://github.com/DibyajyotiBiswal57/programs/issues)
-- Ask in [Discussions](https://github.com/DibyajyotiBiswal57/programs/discussions)
 
-## Next Steps
+## ✅ Next Steps
 
-✅ Setup complete! Now you can:
+Now that you have everything set up:
 
-1. 📖 Follow the [Quick Start Tutorial](Quick-Start)
-2. 🔍 Browse the [Problem Index](Problem-Index)
-3. 💻 Check language-specific guides in [Language Guides](Language-Guides)
-4. 🤝 Start [Contributing](Contributing)
+1. 📖 Follow the [Quick Start Tutorial](Quick-Start) to run your first program
+2. 🔍 Browse the [Problem Index](https://raw.githubusercontent.com/DibyajyotiBiswal57/programs/refs/heads/main/questions.md)
+3. 💻 Pick a problem and start coding!
+4. 🤝 Read the [Contributing Guide](Contributing) to contribute back
+
+## 📚 Additional Resources
+
+- [GitHub Documentation](https://docs.github.com/)
+- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+- [VS Code Documentation](https://code.visualstudio.com/docs)
+- [Language-Specific Guides](Language-Guides)
 
 ---
 
-**Need Help?** Contact: coder99957@dibyajyoti.is-a.dev
+**Last Updated**: 2026-02-07  
+**Maintainer**: DibyajyotiBiswal57
 
-**Last Updated**: 2026-02-07
+💡 **Tip**: Bookmark this page for quick reference during setup!
 ```
