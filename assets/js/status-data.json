@@ -163,10 +163,6 @@
     "qbasic": {
       "status": "done",
       "filename": "0025_voting_eligibility.bas"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0025_voting_eligibility.py"
     }
   },
   "19": {
