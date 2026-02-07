@@ -211,6 +211,11 @@ def generate_html(questions, status_badges):
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
@@ -253,6 +258,8 @@ def generate_html(questions, status_badges):
             transition: color 0.3s ease;
             position: relative;
             min-height: 100vh;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         [data-theme="dark"] body {
@@ -286,6 +293,8 @@ def generate_html(questions, status_badges):
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 8px;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         header {
