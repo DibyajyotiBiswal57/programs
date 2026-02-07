@@ -1760,22 +1760,23 @@ def generate_html(questions, status_badges):
             }});
         }}
 
-        // Back to top button visibility
+        // Combined scroll handler for performance
         const backToTopBtn = document.getElementById('backToTop');
+        const scrollProgress = document.getElementById('scrollProgress');
+        
         window.addEventListener('scroll', function() {{
+            // Back to top button visibility
             if (window.pageYOffset > 300) {{
                 backToTopBtn.classList.add('visible');
             }} else {{
                 backToTopBtn.classList.remove('visible');
             }}
-        }});
-
-        // Scroll progress indicator
-        window.addEventListener('scroll', function() {{
+            
+            // Scroll progress indicator
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            document.getElementById('scrollProgress').style.width = scrolled + '%';
+            scrollProgress.style.width = scrolled + '%';
         }});
 
         // Keyboard shortcuts

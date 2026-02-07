@@ -7028,7 +7028,7 @@
         </div>
 
         <footer>
-            <p>Generated on February 07, 2026 at 12:55 UTC</p>
+            <p>Generated on February 07, 2026 at 12:58 UTC</p>
             <p>
                 <a href="https://github.com/DibyajyotiBiswal57/programs" target="_blank">View on GitHub</a>
             </p>
@@ -7070,22 +7070,23 @@
             });
         }
 
-        // Back to top button visibility
+        // Combined scroll handler for performance
         const backToTopBtn = document.getElementById('backToTop');
+        const scrollProgress = document.getElementById('scrollProgress');
+        
         window.addEventListener('scroll', function() {
+            // Back to top button visibility
             if (window.pageYOffset > 300) {
                 backToTopBtn.classList.add('visible');
             } else {
                 backToTopBtn.classList.remove('visible');
             }
-        });
-
-        // Scroll progress indicator
-        window.addEventListener('scroll', function() {
+            
+            // Scroll progress indicator
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            document.getElementById('scrollProgress').style.width = scrolled + '%';
+            scrollProgress.style.width = scrolled + '%';
         });
 
         // Keyboard shortcuts
