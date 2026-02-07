@@ -17,6 +17,25 @@
             scroll-behavior: smooth; /* Smooth scrolling */
         }
 
+        /* Page load fade-in */
+        html.page-loaded body {
+            opacity: 1;
+            transition: opacity 0.3s ease-in;
+        }
+
+        /* Theme transition animations */
+        html.theme-transitioning,
+        html.theme-transitioning *,
+        html.theme-transitioning *::before,
+        html.theme-transitioning *::after {
+            transition: background-color 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        color 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        border-color 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        box-shadow 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        fill 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        stroke 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+        }
+
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
@@ -32,73 +51,41 @@
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Dark mode variables */
+        /* Dark mode variables with enhanced colors */
         [data-theme="dark"] {
             --primary-color: #60a5fa;
             --secondary-color: #3b82f6;
             --accent-color: #93c5fd;
-            --background: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --text-primary: #e5e7eb;
-            --text-secondary: #9ca3af;
-            --border-color: #404040;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+            --background: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.8);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(-45deg, #a8e6cf, #7ec8e3, #56c9d8, #89e5d0);
+            background: linear-gradient(-45deg, #e8f4f8, #f0f7fa, #eaf3f7, #f5f9fb);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite, fadeIn 0.5s ease-in;
+            animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
             color: var(--text-primary);
             line-height: 1.6;
             padding: 20px;
-            transition: color 0.3s ease;
             position: relative;
             min-height: 100vh;
             overflow-x: hidden;
             width: 100%;
         }
 
-        /* Glitch effect layers - only affect background */
-        body::before,
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(-45deg, #a8e6cf, #7ec8e3, #56c9d8, #89e5d0);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        body::before {
-            animation: gradientShift 15s ease infinite, glitch1 3s infinite;
-            opacity: 0.8;
-        }
-
-        body::after {
-            animation: gradientShift 15s ease infinite, glitch2 4s infinite;
-            opacity: 0.6;
-        }
-
+        /* Enhanced dark mode body with smooth gradient transition */
         [data-theme="dark"] body {
-            background: linear-gradient(-45deg, #0a1f1f, #0d2b3e, #0f3a4a, #1a4d5c);
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite, fadeIn 0.5s ease-in;
-        }
-
-        [data-theme="dark"] body::before,
-        [data-theme="dark"] body::after {
-            background: linear-gradient(-45deg, #0a1f1f, #0d2b3e, #0f3a4a, #1a4d5c);
-            background-size: 400% 400%;
+            animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
         }
 
         @keyframes gradientShift {
@@ -110,94 +97,6 @@
             }
             100% {
                 background-position: 0% 50%;
-            }
-        }
-
-        /* Glitch animation for background layer 1 */
-        @keyframes glitch1 {
-            0%, 100% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            10% {
-                transform: translate(-5px, 2px);
-                clip-path: inset(10% 0 70% 0);
-            }
-            20% {
-                transform: translate(3px, -1px);
-                clip-path: inset(60% 0 20% 0);
-            }
-            30% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            40% {
-                transform: translate(2px, -3px);
-                clip-path: inset(30% 0 50% 0);
-            }
-            50% {
-                transform: translate(-3px, 1px);
-                clip-path: inset(80% 0 10% 0);
-            }
-            60% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            70% {
-                transform: translate(4px, 2px);
-                clip-path: inset(15% 0 75% 0);
-            }
-            80% {
-                transform: translate(-2px, -2px);
-                clip-path: inset(40% 0 40% 0);
-            }
-            90% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-        }
-
-        /* Glitch animation for background layer 2 */
-        @keyframes glitch2 {
-            0%, 100% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            15% {
-                transform: translate(4px, -2px);
-                clip-path: inset(20% 0 60% 0);
-            }
-            25% {
-                transform: translate(-2px, 3px);
-                clip-path: inset(70% 0 15% 0);
-            }
-            35% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            45% {
-                transform: translate(-3px, -1px);
-                clip-path: inset(45% 0 35% 0);
-            }
-            55% {
-                transform: translate(2px, 2px);
-                clip-path: inset(5% 0 85% 0);
-            }
-            65% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            75% {
-                transform: translate(3px, -3px);
-                clip-path: inset(25% 0 65% 0);
-            }
-            85% {
-                transform: translate(-4px, 1px);
-                clip-path: inset(55% 0 25% 0);
-            }
-            95% {
-                transform: translate(0);
-                clip-path: inset(0);
             }
         }
 
@@ -225,92 +124,64 @@
         .bg-shape {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.15;
-            animation: float 20s infinite ease-in-out;
+            opacity: 0.08;
+            animation: float 40s infinite ease-in-out;
         }
 
         .bg-shape:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(94, 201, 216, 0.4), transparent);
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(94, 201, 216, 0.25), transparent);
             top: 10%;
             left: 10%;
-            animation-duration: 25s;
+            animation-duration: 50s;
             animation-delay: 0s;
         }
 
         .bg-shape:nth-child(2) {
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(126, 200, 227, 0.3), transparent);
+            background: radial-gradient(circle, rgba(126, 200, 227, 0.2), transparent);
             top: 60%;
             left: 70%;
-            animation-duration: 30s;
-            animation-delay: 2s;
+            animation-duration: 60s;
+            animation-delay: 5s;
         }
 
         .bg-shape:nth-child(3) {
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(168, 230, 207, 0.35), transparent);
-            top: 80%;
-            left: 20%;
-            animation-duration: 35s;
-            animation-delay: 4s;
-        }
-
-        .bg-shape:nth-child(4) {
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(137, 229, 208, 0.3), transparent);
-            top: 30%;
-            left: 80%;
-            animation-duration: 28s;
-            animation-delay: 1s;
-        }
-
-        .bg-shape:nth-child(5) {
             width: 220px;
             height: 220px;
-            background: radial-gradient(circle, rgba(86, 201, 216, 0.35), transparent);
-            top: 50%;
-            left: 40%;
-            animation-duration: 32s;
-            animation-delay: 3s;
+            background: radial-gradient(circle, rgba(168, 230, 207, 0.22), transparent);
+            top: 80%;
+            left: 20%;
+            animation-duration: 55s;
+            animation-delay: 10s;
         }
 
         [data-theme="dark"] .bg-shape:nth-child(1) {
-            background: radial-gradient(circle, rgba(15, 58, 74, 0.5), transparent);
+            background: radial-gradient(circle, rgba(15, 58, 74, 0.4), transparent);
         }
 
         [data-theme="dark"] .bg-shape:nth-child(2) {
-            background: radial-gradient(circle, rgba(13, 43, 62, 0.4), transparent);
+            background: radial-gradient(circle, rgba(13, 43, 62, 0.35), transparent);
         }
 
         [data-theme="dark"] .bg-shape:nth-child(3) {
-            background: radial-gradient(circle, rgba(26, 77, 92, 0.45), transparent);
-        }
-
-        [data-theme="dark"] .bg-shape:nth-child(4) {
-            background: radial-gradient(circle, rgba(10, 31, 31, 0.4), transparent);
-        }
-
-        [data-theme="dark"] .bg-shape:nth-child(5) {
-            background: radial-gradient(circle, rgba(15, 58, 74, 0.45), transparent);
+            background: radial-gradient(circle, rgba(26, 77, 92, 0.38), transparent);
         }
 
         @keyframes float {
             0%, 100% {
-                transform: translate(0, 0) rotate(0deg) scale(1);
+                transform: translate(0, 0) scale(1);
             }
             25% {
-                transform: translate(30px, -50px) rotate(90deg) scale(1.1);
+                transform: translate(15px, -20px) scale(1.05);
             }
             50% {
-                transform: translate(-20px, -30px) rotate(180deg) scale(0.9);
+                transform: translate(-10px, -15px) scale(0.95);
             }
             75% {
-                transform: translate(-50px, 20px) rotate(270deg) scale(1.05);
+                transform: translate(-20px, 10px) scale(1.02);
             }
         }
 
@@ -328,23 +199,17 @@
 
         .particle {
             position: absolute;
-            width: 6px;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.3);
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 50%;
-            animation: particleFloat 15s infinite ease-in-out;
+            animation: particleFloat 25s infinite ease-in-out;
         }
 
-        .particle:nth-child(1) { left: 10%; animation-duration: 18s; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-duration: 22s; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 30%; animation-duration: 16s; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 40%; animation-duration: 20s; animation-delay: 1s; }
-        .particle:nth-child(5) { left: 50%; animation-duration: 19s; animation-delay: 3s; }
-        .particle:nth-child(6) { left: 60%; animation-duration: 17s; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 70%; animation-duration: 21s; animation-delay: 2.5s; }
-        .particle:nth-child(8) { left: 80%; animation-duration: 18s; animation-delay: 4.5s; }
-        .particle:nth-child(9) { left: 90%; animation-duration: 23s; animation-delay: 1.5s; }
-        .particle:nth-child(10) { left: 15%; animation-duration: 20s; animation-delay: 3.5s; }
+        .particle:nth-child(1) { left: 15%; animation-duration: 30s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 40%; animation-duration: 35s; animation-delay: 5s; }
+        .particle:nth-child(3) { left: 65%; animation-duration: 32s; animation-delay: 10s; }
+        .particle:nth-child(4) { left: 85%; animation-duration: 38s; animation-delay: 3s; }
 
         @keyframes particleFloat {
             0% {
@@ -352,10 +217,10 @@
                 opacity: 0;
             }
             10% {
-                opacity: 0.4;
+                opacity: 0.2;
             }
             90% {
-                opacity: 0.4;
+                opacity: 0.2;
             }
             100% {
                 transform: translateY(-100px) scale(1);
@@ -364,19 +229,34 @@
         }
 
         [data-theme="dark"] .particle {
-            background: rgba(126, 200, 227, 0.4);
+            background: rgba(126, 200, 227, 0.2);
         }
 
-        /* Accessibility: Disable all background animations for users who prefer reduced motion */
+        /* Accessibility: Disable animations for users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
-            body::before,
-            body::after {
-                animation: gradientShift 15s ease infinite !important;
+            html.theme-transitioning,
+            html.theme-transitioning *,
+            html.theme-transitioning *::before,
+            html.theme-transitioning *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+            
+            body {
+                animation: none !important;
             }
             .bg-shape,
             .particle {
                 animation: none !important;
-                opacity: 0.05 !important;
+                opacity: 0.03 !important;
+            }
+
+            .theme-toggle:hover {
+                transform: scale(1.05);
+            }
+
+            .theme-toggle #theme-icon {
+                transition: none !important;
             }
         }
 
@@ -537,6 +417,45 @@
             line-height: 1.6;
         }
 
+        .question-filename {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: var(--background);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .question-example {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            background: var(--background);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            line-height: 1.4;
+        }
+
+        .question-example code {
+            font-family: inherit;
+        }
+
+        [data-theme="dark"] .question-card {
+            background: #2d2d2d !important;
+        }
+
+        [data-theme="dark"] .question-filename,
+        [data-theme="dark"] .question-example {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
         .status-toggle {
             background: none;
             border: none;
@@ -640,7 +559,7 @@
             text-decoration: underline;
         }
 
-        /* Theme Toggle Button - Now in navbar */
+        /* Theme Toggle Button - Enhanced with animations */
         .theme-toggle {
             background: var(--card-bg);
             border: 2px solid var(--border-color);
@@ -653,17 +572,46 @@
             cursor: pointer;
             font-size: 1.3rem;
             box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .theme-toggle.ripple::before {
+            width: 200%;
+            height: 200%;
         }
 
         .theme-toggle:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(15deg);
             box-shadow: var(--shadow-md);
             background: var(--background);
         }
 
         .theme-toggle:active {
-            transform: scale(0.95);
+            transform: scale(0.95) rotate(-15deg);
+        }
+
+        .theme-toggle #theme-icon {
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: inline-block;
+        }
+
+        .theme-toggle.switching #theme-icon {
+            transform: rotate(360deg) scale(0);
         }
 
         /* Search Box - Navbar version */
@@ -1429,16 +1377,8 @@
         <div class="bg-shape"></div>
         <div class="bg-shape"></div>
         <div class="bg-shape"></div>
-        <div class="bg-shape"></div>
-        <div class="bg-shape"></div>
     </div>
     <div class="bg-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
@@ -1538,6 +1478,7 @@
             <div class="question-card">
                 <div class="question-number">#0001</div>
                 <div class="question-text">Print "Hello World".</div>
+                <div class="question-filename">📁 0001_hello_world</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-1"
@@ -1599,6 +1540,7 @@
             <div class="question-card">
                 <div class="question-number">#0002</div>
                 <div class="question-text">Calculate the sum of 3 numbers.</div>
+                <div class="question-filename">📁 0002_sum_of_three</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-2"
@@ -1660,6 +1602,7 @@
             <div class="question-card">
                 <div class="question-number">#0003</div>
                 <div class="question-text">Find the average of 4 subject marks.</div>
+                <div class="question-filename">📁 0003_average_marks</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-3"
@@ -1721,6 +1664,7 @@
             <div class="question-card">
                 <div class="question-number">#0004</div>
                 <div class="question-text">Read 2 numbers and swap them using a third temporary variable.</div>
+                <div class="question-filename">📁 0004_swap_with_temp</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-4"
@@ -1782,6 +1726,7 @@
             <div class="question-card">
                 <div class="question-number">#0005</div>
                 <div class="question-text">Find the area of rectangle, square, triangle, parallelogram, rhombus, trapezium and circle and volume of sphere, cylinder, cone, cube and cuboid.</div>
+                <div class="question-filename">📁 0005_area_volume</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-5"
@@ -1843,6 +1788,7 @@
             <div class="question-card">
                 <div class="question-number">#0006</div>
                 <div class="question-text">Find simple interest or compound interest and amount.</div>
+                <div class="question-filename">📁 0006_interest_calculator</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-6"
@@ -1904,6 +1850,7 @@
             <div class="question-card">
                 <div class="question-number">#0007</div>
                 <div class="question-text">Display whether a number is positive or negative.</div>
+                <div class="question-filename">📁 0007_positive_negative</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-7"
@@ -1965,6 +1912,7 @@
             <div class="question-card">
                 <div class="question-number">#0008</div>
                 <div class="question-text">Accept two unequal numbers and display the greater of the two numbers.</div>
+                <div class="question-filename">📁 0008_greater_number</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-8"
@@ -2026,6 +1974,7 @@
             <div class="question-card">
                 <div class="question-number">#0009</div>
                 <div class="question-text">Accept two numbers and if two numbers are equal then find the sum otherwise, their product.</div>
+                <div class="question-filename">📁 0009_sum_or_product</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-9"
@@ -2087,6 +2036,7 @@
             <div class="question-card">
                 <div class="question-number">#0010</div>
                 <div class="question-text">Check whether two angles are complementary, supplementary or neither.</div>
+                <div class="question-filename">📁 0010_angle_check</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-10"
@@ -2148,6 +2098,7 @@
             <div class="question-card">
                 <div class="question-number">#0011</div>
                 <div class="question-text">Calculate the profit and profit percent or the loss and the loss percent on the given cost and selling prices.</div>
+                <div class="question-filename">📁 0011_profit_loss</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-11"
@@ -2209,6 +2160,7 @@
             <div class="question-card">
                 <div class="question-number">#0012</div>
                 <div class="question-text">Print the natural numbers from 1 to (user defined number).</div>
+                <div class="question-filename">📁 0012_natural_numbers</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-12"
@@ -2270,6 +2222,7 @@
             <div class="question-card">
                 <div class="question-number">#0013</div>
                 <div class="question-text">Print even numbers from 0 to (user defined number).</div>
+                <div class="question-filename">📁 0013_even_numbers</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-13"
@@ -2331,6 +2284,7 @@
             <div class="question-card">
                 <div class="question-number">#0014</div>
                 <div class="question-text">Print numbers from (user defined number) to 1 in descending order.</div>
+                <div class="question-filename">📁 0014_descending_order</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-14"
@@ -2392,6 +2346,7 @@
             <div class="question-card">
                 <div class="question-number">#0015</div>
                 <div class="question-text">Print multiplication table up to 12 of given number.</div>
+                <div class="question-filename">📁 0015_multiplication_table</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-15"
@@ -2453,6 +2408,7 @@
             <div class="question-card">
                 <div class="question-number">#0016</div>
                 <div class="question-text">Accept a 3-digit number and print the sum of the first and second number and the product of first and last number.</div>
+                <div class="question-filename">📁 0016_digit_operations</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-16"
@@ -2514,6 +2470,7 @@
             <div class="question-card">
                 <div class="question-number">#0017</div>
                 <div class="question-text">Print a 3 digit number in the reverse order.</div>
+                <div class="question-filename">📁 0017_reverse_number</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-17"
@@ -2575,6 +2532,7 @@
             <div class="question-card">
                 <div class="question-number">#0018</div>
                 <div class="question-text">Accept any range of m and n and print all the odd numbers between them.</div>
+                <div class="question-filename">📁 0018_odd_in_range</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-18"
@@ -2636,6 +2594,7 @@
             <div class="question-card">
                 <div class="question-number">#0019</div>
                 <div class="question-text">Accept any number and check if it is even or odd.</div>
+                <div class="question-filename">📁 0019_even_odd_check</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-19"
@@ -2697,6 +2656,7 @@
             <div class="question-card">
                 <div class="question-number">#0020</div>
                 <div class="question-text">Accept any number and print whether the number is a prime number or not.</div>
+                <div class="question-filename">📁 0020_prime_check</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-20"
@@ -2758,6 +2718,15 @@
             <div class="question-card">
                 <div class="question-number">#0021</div>
                 <div class="question-text">Read a name and display in a triangular pattern.</div>
+                <div class="question-filename">📁 0021_name_triangle</div>
+                <div class="question-example">For example-  
+L  
+LA  
+LAN  
+LANGU  
+LANGUA  
+LANGUAG  
+LANGUAGE</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-21"
@@ -2819,6 +2788,7 @@
             <div class="question-card">
                 <div class="question-number">#0022</div>
                 <div class="question-text">Find the sum, difference, product of any 2 numbers.</div>
+                <div class="question-filename">📁 0022_basic_operations</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-22"
@@ -2880,6 +2850,7 @@
             <div class="question-card">
                 <div class="question-number">#0023</div>
                 <div class="question-text">Swap 2 numbers without using a third variable.</div>
+                <div class="question-filename">📁 0023_swap_without_temp</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-23"
@@ -2941,6 +2912,7 @@
             <div class="question-card">
                 <div class="question-number">#0024</div>
                 <div class="question-text">Find the perimeter of a square, rectangle, triangle, circle, parallelogram, trapezium.</div>
+                <div class="question-filename">📁 0024_perimeter</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-24"
@@ -3002,6 +2974,7 @@
             <div class="question-card">
                 <div class="question-number">#0025</div>
                 <div class="question-text">Print series upto n (input from user).</div>
+                <div class="question-filename">📁 0025_factorial_series</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-25"
@@ -3063,6 +3036,7 @@
             <div class="question-card">
                 <div class="question-number">#0026</div>
                 <div class="question-text">Check if a person is a child or an adult.</div>
+                <div class="question-filename">📁 0026_child_adult</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-26"
@@ -3124,6 +3098,7 @@
             <div class="question-card">
                 <div class="question-number">#0027</div>
                 <div class="question-text">Write a calculator.</div>
+                <div class="question-filename">📁 0027_calculator</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-27"
@@ -3185,6 +3160,7 @@
             <div class="question-card">
                 <div class="question-number">#0028</div>
                 <div class="question-text">Check if a number is divisible by a particular number.</div>
+                <div class="question-filename">📁 0028_divisibility_check</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-28"
@@ -3246,6 +3222,7 @@
             <div class="question-card">
                 <div class="question-number">#0029</div>
                 <div class="question-text">Check if the number has 1, 2 or more digits.</div>
+                <div class="question-filename">📁 0029_digit_count_check</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-29"
@@ -3307,6 +3284,7 @@
             <div class="question-card">
                 <div class="question-number">#0030</div>
                 <div class="question-text">Check if a number is a palindrome or not.</div>
+                <div class="question-filename">📁 0030_palindrome_number</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-30"
@@ -3368,6 +3346,7 @@
             <div class="question-card">
                 <div class="question-number">#0031</div>
                 <div class="question-text">Check if an entered year is a leap year or not.</div>
+                <div class="question-filename">📁 0031_leap_year</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-31"
@@ -3490,6 +3469,7 @@
             <div class="question-card">
                 <div class="question-number">#0033</div>
                 <div class="question-text">Write a guessing game.</div>
+                <div class="question-filename">📁 0033_guessing_game</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-33"
@@ -3551,6 +3531,7 @@
             <div class="question-card">
                 <div class="question-number">#0034</div>
                 <div class="question-text">Calculate a 10% discount if the amount is above 10000 else a discount of 7.5%. Display the discount received and the final billing amount to be paid.</div>
+                <div class="question-filename">📁 0034_discount_calculator</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-34"
@@ -3612,6 +3593,7 @@
             <div class="question-card">
                 <div class="question-number">#0035</div>
                 <div class="question-text">Read three numbers and display the largest of the three numbers.</div>
+                <div class="question-filename">📁 0035_largest_of_three</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-35"
@@ -3673,6 +3655,7 @@
             <div class="question-card">
                 <div class="question-number">#0036</div>
                 <div class="question-text">Read two numbers and display the smaller of the two.</div>
+                <div class="question-filename">📁 0036_smaller_of_two</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-36"
@@ -3734,6 +3717,7 @@
             <div class="question-card">
                 <div class="question-number">#0037</div>
                 <div class="question-text">Read a number and a character. If the character is 'S' display the square of the number. If the character is 'C' then display the cube of the number.</div>
+                <div class="question-filename">📁 0037_square_cube</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-37"
@@ -3795,6 +3779,7 @@
             <div class="question-card">
                 <div class="question-number">#0038</div>
                 <div class="question-text">Read two numbers. If both numbers are even then display their sum else display their difference.</div>
+                <div class="question-filename">📁 0038_even_sum_diff</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-38"
@@ -3856,6 +3841,7 @@
             <div class="question-card">
                 <div class="question-number">#0039</div>
                 <div class="question-text">Read a character and check if the character is a vowel or a consonant.</div>
+                <div class="question-filename">📁 0039_vowel_consonant</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-39"
@@ -3917,6 +3903,7 @@
             <div class="question-card">
                 <div class="question-number">#0040</div>
                 <div class="question-text">Read two numbers and a Boolean value. For Boolean true display the area and perimeter of a rectangle assuming the two numbers are the length and width. For a Boolean false calculate and display the sum and product of the two numbers.</div>
+                <div class="question-filename">📁 0040_boolean_operations</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-40"
@@ -3978,6 +3965,7 @@
             <div class="question-card">
                 <div class="question-number">#0041</div>
                 <div class="question-text">Read two numbers and a character. If the character is 'a' check if the numbers are equal. If the character is 'M' check if the first number is divisible by 9. Otherwise find the product.</div>
+                <div class="question-filename">📁 0041_conditional_operations</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-41"
@@ -4039,6 +4027,7 @@
             <div class="question-card">
                 <div class="question-number">#0042</div>
                 <div class="question-text">Check if a string is a palindrome or not.</div>
+                <div class="question-filename">📁 0042_palindrome_string</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-42"
@@ -4100,6 +4089,7 @@
             <div class="question-card">
                 <div class="question-number">#0043</div>
                 <div class="question-text">Count the number of vowels in a string.</div>
+                <div class="question-filename">📁 0043_count_vowels</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-43"
@@ -4161,6 +4151,7 @@
             <div class="question-card">
                 <div class="question-number">#0044</div>
                 <div class="question-text">Read a line, then count words and display the total number of words in the given line.</div>
+                <div class="question-filename">📁 0044_word_count</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-44"
@@ -4222,6 +4213,7 @@
             <div class="question-card">
                 <div class="question-number">#0045</div>
                 <div class="question-text">Convert temperature from celsius to fahrenheit.</div>
+                <div class="question-filename">📁 0045_celsius_fahrenheit</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-45"
@@ -4283,6 +4275,7 @@
             <div class="question-card">
                 <div class="question-number">#0046</div>
                 <div class="question-text">Convert dollars to rupee with current conversion rate (take from internet).</div>
+                <div class="question-filename">📁 0046_dollar_rupee</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-46"
@@ -4344,6 +4337,7 @@
             <div class="question-card">
                 <div class="question-number">#0047</div>
                 <div class="question-text">Check if a character is uppercase or lowercase.</div>
+                <div class="question-filename">📁 0047_case_check</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-47"
@@ -4405,6 +4399,7 @@
             <div class="question-card">
                 <div class="question-number">#0048</div>
                 <div class="question-text">Add odd numbers upto a given value.</div>
+                <div class="question-filename">📁 0048_sum_odd_numbers</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-48"
@@ -4466,6 +4461,7 @@
             <div class="question-card">
                 <div class="question-number">#0049</div>
                 <div class="question-text">Calculate the BMI(Body Mass Index) of a person.</div>
+                <div class="question-filename">📁 0049_bmi_calculator</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-49"
@@ -4527,6 +4523,7 @@
             <div class="question-card">
                 <div class="question-number">#0050</div>
                 <div class="question-text">Input a value in kilometres and convert it into miles.</div>
+                <div class="question-filename">📁 0050_km_to_miles</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-50"
@@ -4588,6 +4585,7 @@
             <div class="question-card">
                 <div class="question-number">#0051</div>
                 <div class="question-text">Input 3 numbers and swap them as this : 1st number becomes 2nd number and 2nd number becomes the 3rd number and 3rd number becomes the 1st number.</div>
+                <div class="question-filename">📁 0051_circular_swap</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-51"
@@ -4649,6 +4647,7 @@
             <div class="question-card">
                 <div class="question-number">#0052</div>
                 <div class="question-text">Input the total liabilities and shareholders' equity of a company and print its D/E ratio.</div>
+                <div class="question-filename">📁 0052_de_ratio</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-52"
@@ -4710,6 +4709,7 @@
             <div class="question-card">
                 <div class="question-number">#0053</div>
                 <div class="question-text">Print numbers from 1 to 10 using a loop.</div>
+                <div class="question-filename">📁 0053_1_to_10</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-53"
@@ -4771,6 +4771,7 @@
             <div class="question-card">
                 <div class="question-number">#0054</div>
                 <div class="question-text">Use a while loop to find the sum of the first n(n input from user) natural numbers.</div>
+                <div class="question-filename">📁 0054_sum_n_natural</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-54"
@@ -4832,6 +4833,7 @@
             <div class="question-card">
                 <div class="question-number">#0055</div>
                 <div class="question-text">Print numbers from 1 to 10, but skip 5.</div>
+                <div class="question-filename">📁 0055_1_to_10_no_5</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-55"
@@ -4893,6 +4895,7 @@
             <div class="question-card">
                 <div class="question-number">#0056</div>
                 <div class="question-text">Take input from the user repeatedly until they type "exit".</div>
+                <div class="question-filename">📁 0056_repeat_until_exit</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-56"
@@ -4954,6 +4957,7 @@
             <div class="question-card">
                 <div class="question-number">#0057</div>
                 <div class="question-text">Print numbers from 1 to 10, but stop when number is 7.</div>
+                <div class="question-filename">📁 0057_1_to_10_no_7</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-57"
@@ -5015,6 +5019,7 @@
             <div class="question-card">
                 <div class="question-number">#0058</div>
                 <div class="question-text">Create a simple menu (looped) that exits when the user selects "Quit".</div>
+                <div class="question-filename">📁 0058_menu_loop</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-58"
@@ -5076,6 +5081,7 @@
             <div class="question-card">
                 <div class="question-number">#0059</div>
                 <div class="question-text">Count the number of digits in a number using while.</div>
+                <div class="question-filename">📁 0059_count_digits</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-59"
@@ -5137,6 +5143,7 @@
             <div class="question-card">
                 <div class="question-number">#0060</div>
                 <div class="question-text">Reverse a number.</div>
+                <div class="question-filename">📁 0060_reverse_number</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-60"
@@ -5198,6 +5205,7 @@
             <div class="question-card">
                 <div class="question-number">#0061</div>
                 <div class="question-text">Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.</div>
+                <div class="question-filename">📁 0061_divisible_3_and_7</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-61"
@@ -5259,6 +5267,10 @@
             <div class="question-card">
                 <div class="question-number">#0062</div>
                 <div class="question-text">Find the grade based on marks using if-elif-else:</div>
+                <div class="question-example">- 90-100: A  
+    - 75-89: B    
+    - 50-74: C  
+    - &lt;50: Fail</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-62"
@@ -5320,6 +5332,7 @@
             <div class="question-card">
                 <div class="question-number">#0063</div>
                 <div class="question-text">Print all odd numbers from 1 to (user defined number)</div>
+                <div class="question-filename">📁 0063_odd_numbers</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-63"
@@ -5381,6 +5394,7 @@
             <div class="question-card">
                 <div class="question-number">#0064</div>
                 <div class="question-text">Calculate the factorial of a number using a loop.</div>
+                <div class="question-filename">📁 0064_factorial</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-64"
@@ -5442,6 +5456,9 @@
             <div class="question-card">
                 <div class="question-number">#0065</div>
                 <div class="question-text">Create a menu-driven program:</div>
+                <div class="question-example">- Find Square
+    - Find Cube
+    - Exit</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-65"
@@ -5503,6 +5520,7 @@
             <div class="question-card">
                 <div class="question-number">#0066</div>
                 <div class="question-text">Write a program to start a countdown from the number inputted by the user.</div>
+                <div class="question-filename">📁 0066_countdown</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-66"
@@ -5564,6 +5582,7 @@
             <div class="question-card">
                 <div class="question-number">#0067</div>
                 <div class="question-text">Write a program calculating exponentials using a loop.</div>
+                <div class="question-filename">📁 0067_exponentials</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-67"
@@ -5625,6 +5644,13 @@
             <div class="question-card">
                 <div class="question-number">#0068</div>
                 <div class="question-text">Write a program to accept the number of rows and print the following:</div>
+                <div class="question-filename">📁 0068_pattern_descending</div>
+                <div class="question-example">Eg. (No of rows: 5)
+    12345
+    1234
+    123
+    12
+    1</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-68"
@@ -5686,6 +5712,13 @@
             <div class="question-card">
                 <div class="question-number">#0069</div>
                 <div class="question-text">Write a program to accept the number of rows and print the following:</div>
+                <div class="question-filename">📁 0069_pattern_ones</div>
+                <div class="question-example">Eg. (No of rows: 5)  
+    11111  
+    1111  
+    111  
+    11  
+    1</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-69"
@@ -5808,6 +5841,13 @@
             <div class="question-card">
                 <div class="question-number">#0071</div>
                 <div class="question-text">Write a program to accept the number of rows and print the following:</div>
+                <div class="question-filename">📁 0071_pattern_reverse_desc</div>
+                <div class="question-example">Eg. (No of rows: 5)  
+    54321  
+    4321  
+    321  
+    21  
+    1</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-71"
@@ -5930,6 +5970,11 @@
             <div class="question-card">
                 <div class="question-number">#0073</div>
                 <div class="question-text">Write a program to accept the number of rows and print the following pattern:</div>
+                <div class="question-filename">📁 0073_pattern_sixes</div>
+                <div class="question-example">Eg. (No of rows: 3)  
+    6666  
+    6666  
+    6666</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-73"
@@ -5991,6 +6036,7 @@
             <div class="question-card">
                 <div class="question-number">#0074</div>
                 <div class="question-text">Write a program to print the Fibonacci sequence until the term specified by the user.</div>
+                <div class="question-filename">📁 0074_fibonacci</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-74"
@@ -6052,6 +6098,7 @@
             <div class="question-card">
                 <div class="question-number">#0075</div>
                 <div class="question-text">Write a program to add odd and even numbers until a number inputted by the user.</div>
+                <div class="question-filename">📁 0075_sum_odd_even</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-75"
@@ -6113,6 +6160,7 @@
             <div class="question-card">
                 <div class="question-number">#0076</div>
                 <div class="question-text">Write a program to check whether a character is uppercase or lowercase.</div>
+                <div class="question-filename">📁 0076_char_case</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-76"
@@ -6296,6 +6344,7 @@
             <div class="question-card">
                 <div class="question-number">#0079</div>
                 <div class="question-text">Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.</div>
+                <div class="question-filename">📁 0079_ml_metrics</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-79"
@@ -6357,6 +6406,7 @@
             <div class="question-card">
                 <div class="question-number">#0080</div>
                 <div class="question-text">Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.</div>
+                <div class="question-filename">📁 0080_quadratic_roots</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-80"
@@ -6418,6 +6468,7 @@
             <div class="question-card">
                 <div class="question-number">#0081</div>
                 <div class="question-text">Write a script to input three numbers and find whether they form the three sides of a triangle.</div>
+                <div class="question-filename">📁 0081_triangle_check</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-81"
@@ -6479,6 +6530,7 @@
             <div class="question-card">
                 <div class="question-number">#0082</div>
                 <div class="question-text">Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.</div>
+                <div class="question-filename">📁 0082_divisibility</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-82"
@@ -6540,6 +6592,7 @@
             <div class="question-card">
                 <div class="question-number">#0083</div>
                 <div class="question-text">Find HCF and LCM of Two Numbers.</div>
+                <div class="question-filename">📁 0083_hcf_lcm</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-83"
@@ -6601,6 +6654,12 @@
             <div class="question-card">
                 <div class="question-number">#0084</div>
                 <div class="question-text">Print the following zig-zag number pattern for n =(user inputted number):</div>
+                <div class="question-filename">📁 0084_zigzag_pattern</div>
+                <div class="question-example">Eg - n = 4
+1
+2 3
+4 5 6
+7 8 9 10</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-84"
@@ -6662,6 +6721,9 @@
             <div class="question-card">
                 <div class="question-number">#0085</div>
                 <div class="question-text">Write a program to:</div>
+                <div class="question-example">- Take input n (number of terms), a (first term), and d (common difference).
+- Print the first n terms of the arithmetic series.
+-  Calculate and print the sum of the series.</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-85"
@@ -6845,6 +6907,7 @@
             <div class="question-card">
                 <div class="question-number">#0088</div>
                 <div class="question-text">Write a program that takes a string input from the user and converts all lowercase letters to uppercase and all uppercase letters to lowercase, leaving digits and special characters unchanged.</div>
+                <div class="question-filename">📁 0088_toggle_case</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-88"
@@ -6906,6 +6969,7 @@
             <div class="question-card">
                 <div class="question-number">#0089</div>
                 <div class="question-text">Accept a string and a character and check how many words start with the character.</div>
+                <div class="question-filename">📁 0089_first_character_check</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-89"
@@ -6967,6 +7031,7 @@
             <div class="question-card">
                 <div class="question-number">#0090</div>
                 <div class="question-text">Test</div>
+                <div class="question-filename">📁 0090_test</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-90"
@@ -7028,7 +7093,7 @@
         </div>
 
         <footer>
-            <p>Generated on February 07, 2026 at 13:01 UTC</p>
+            <p>Generated on February 07, 2026 at 14:19 UTC</p>
             <p>
                 <a href="https://github.com/DibyajyotiBiswal57/programs" target="_blank">View on GitHub</a>
             </p>
@@ -7037,29 +7102,106 @@
     </div>
 
     <script>
-        // Theme Toggle Functionality
+        // Enhanced Theme Toggle with Smooth Animations
         function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-
-            // Update icon
+            const themeButton = document.querySelector('.theme-toggle');
             const themeIcon = document.getElementById('theme-icon');
-            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+            // Add ripple effect
+            themeButton.classList.add('ripple');
+            setTimeout(() => themeButton.classList.remove('ripple'), 600);
+
+            // Add switching animation to icon
+            themeButton.classList.add('switching');
+
+            // Add transitioning class for smooth color changes
+            html.classList.add('theme-transitioning');
+
+            // Change theme after brief delay for smoother transition
+            setTimeout(() => {
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                // Update icon with rotation animation
+                setTimeout(() => {
+                    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                    themeButton.classList.remove('switching');
+                }, 300);
+
+                // Create particles effect during transition
+                createThemeParticles(newTheme);
+
+                // Remove transitioning class after animation completes
+                setTimeout(() => {
+                    html.classList.remove('theme-transitioning');
+                }, 600);
+            }, 50);
         }
 
-        // Load saved theme on page load
+        // Create particle effect during theme transition
+        function createThemeParticles(theme) {
+            // Use theme-appropriate colors from CSS variables
+            const sharedColor = '#3b82f6';
+            const colors = theme === 'dark' 
+                ? ['#60a5fa', sharedColor, '#93c5fd']
+                : ['#2563eb', sharedColor, '#1e40af'];
+            
+            const button = document.querySelector('.theme-toggle');
+            const rect = button.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 6px;
+                    height: 6px;
+                    background: ${colors[i % colors.length]};
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    left: ${centerX}px;
+                    top: ${centerY}px;
+                `;
+                document.body.appendChild(particle);
+
+                const angle = (i / 12) * Math.PI * 2;
+                const velocity = 100 + Math.random() * 50;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+
+                particle.animate([
+                    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                    { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
+                ], {
+                    duration: 800,
+                    easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+                }).onfinish = () => particle.remove();
+            }
+        }
+
+        // Load saved theme with smooth initialization
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            // Set theme immediately to prevent flash
+            html.setAttribute('data-theme', savedTheme);
 
             // Set initial icon
-            const themeIcon = document.getElementById('theme-icon');
             if (themeIcon) {
                 themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
             }
+
+            // Add loaded class for fade-in instead of inline style
+            setTimeout(() => {
+                html.classList.add('page-loaded');
+            }, 50);
         })();
 
         // Scroll to top function

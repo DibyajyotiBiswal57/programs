@@ -55,7 +55,7 @@ def parse_questions(questions_file="questions.md"):
         questions_file: Path to the questions markdown file
 
     Returns:
-        List of dictionaries with 'number' and 'text' keys
+        List of dictionaries with 'number', 'text', 'filename', and 'example' keys
     """
     questions = []
 
@@ -67,21 +67,94 @@ def parse_questions(questions_file="questions.md"):
         with open(questions_file, "r", encoding="utf-8") as f:
             lines = f.readlines()
 
-        for line in lines:
+        i = 0
+        while i < len(lines):
+            line = lines[i]
             # Pattern to match numbered questions
             # Example: "1. Print "Hello World". <br> [Filename - 0001_hello_world]"
-            # Format: question_num. question_text <br> [Filename - ...]
-            match = re.match(r"^(\d+)\.\s+(.+?)(?:\s*<br>.*)?$", line)
+            match = re.match(r"^(\d+)\.\s+(.+)$", line)
 
             if match:
                 question_num = int(match.group(1))
-                question_text = match.group(2).strip()
-
-                # Remove HTML tags from question text
-                question_text = re.sub(r"<[^>]+>", "", question_text)
-
-                questions.append(
-                    {"number": question_num, "text": question_text})
+                full_line = match.group(2).strip()
+                
+                # Extract filename if present
+                filename = ""
+                filename_match = re.search(r'\[Filename\s*-\s*([^\]]+)\]', full_line)
+                if filename_match:
+                    filename = filename_match.group(1).strip()
+                
+                # Extract question text (everything before <br>)
+                question_text = full_line
+                if '<br>' in full_line:
+                    # Get text before <br>
+                    parts = full_line.split('<br>')
+                    question_text = parts[0].strip()
+                else:
+                    # Remove filename from question text if no <br>
+                    question_text = re.sub(r'\s*\[Filename[^\]]+\]\s*$', '', question_text).strip()
+                
+                # Look for example code blocks in following lines (multi-line examples only)
+                example = ""
+                i += 1
+                # Check if next lines contain code blocks (```)
+                in_code_block = False
+                example_lines = []
+                
+                while i < len(lines):
+                    next_line = lines[i]
+                    # Stop if we hit another numbered question
+                    if re.match(r"^\d+\.\s+", next_line):
+                        break
+                    
+                    # Check for code block markers
+                    if next_line.strip().startswith('```'):
+                        if in_code_block:
+                            # End of code block - don't include the closing ```
+                            in_code_block = False
+                            i += 1
+                            # Continue reading to catch any additional content
+                            continue
+                        else:
+                            # Start of code block - don't include the opening ```
+                            in_code_block = True
+                            i += 1
+                            continue
+                    
+                    # If we're in a code block, include the line
+                    if in_code_block:
+                        example_lines.append(next_line)
+                        i += 1
+                    # If line has content and looks like it's part of the question description
+                    else:
+                        stripped_line = next_line.strip()
+                        if stripped_line and not stripped_line.startswith('#'):
+                            # Check if this is a list item or continuation of question
+                            if stripped_line.startswith('-') or next_line.startswith('    '):
+                                example_lines.append(next_line)
+                                i += 1
+                            else:
+                                break
+                        elif stripped_line == '':
+                            # Empty line - continue if we're building an example
+                            if example_lines:
+                                example_lines.append(next_line)
+                            i += 1
+                        else:
+                            break
+                
+                if example_lines:
+                    example = ''.join(example_lines).strip()
+                
+                questions.append({
+                    "number": question_num,
+                    "text": question_text,
+                    "filename": filename,
+                    "example": example
+                })
+                continue
+            
+            i += 1
 
         print(f"📊 Parsed {len(questions)} questions from {questions_file}")
         return questions
@@ -217,6 +290,25 @@ def generate_html(questions, status_badges):
             scroll-behavior: smooth; /* Smooth scrolling */
         }
 
+        /* Page load fade-in */
+        html.page-loaded body {
+            opacity: 1;
+            transition: opacity 0.3s ease-in;
+        }
+
+        /* Theme transition animations */
+        html.theme-transitioning,
+        html.theme-transitioning *,
+        html.theme-transitioning *::before,
+        html.theme-transitioning *::after {
+            transition: background-color 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        color 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        border-color 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        box-shadow 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        fill 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        stroke 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+        }
+
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
@@ -232,73 +324,41 @@ def generate_html(questions, status_badges):
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Dark mode variables */
+        /* Dark mode variables with enhanced colors */
         [data-theme="dark"] {
             --primary-color: #60a5fa;
             --secondary-color: #3b82f6;
             --accent-color: #93c5fd;
-            --background: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --text-primary: #e5e7eb;
-            --text-secondary: #9ca3af;
-            --border-color: #404040;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+            --background: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.8);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(-45deg, #a8e6cf, #7ec8e3, #56c9d8, #89e5d0);
+            background: linear-gradient(-45deg, #e8f4f8, #f0f7fa, #eaf3f7, #f5f9fb);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite, fadeIn 0.5s ease-in;
+            animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
             color: var(--text-primary);
             line-height: 1.6;
             padding: 20px;
-            transition: color 0.3s ease;
             position: relative;
             min-height: 100vh;
             overflow-x: hidden;
             width: 100%;
         }
 
-        /* Glitch effect layers - only affect background */
-        body::before,
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(-45deg, #a8e6cf, #7ec8e3, #56c9d8, #89e5d0);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        body::before {
-            animation: gradientShift 15s ease infinite, glitch1 3s infinite;
-            opacity: 0.8;
-        }
-
-        body::after {
-            animation: gradientShift 15s ease infinite, glitch2 4s infinite;
-            opacity: 0.6;
-        }
-
+        /* Enhanced dark mode body with smooth gradient transition */
         [data-theme="dark"] body {
-            background: linear-gradient(-45deg, #0a1f1f, #0d2b3e, #0f3a4a, #1a4d5c);
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite, fadeIn 0.5s ease-in;
-        }
-
-        [data-theme="dark"] body::before,
-        [data-theme="dark"] body::after {
-            background: linear-gradient(-45deg, #0a1f1f, #0d2b3e, #0f3a4a, #1a4d5c);
-            background-size: 400% 400%;
+            animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
         }
 
         @keyframes gradientShift {
@@ -310,94 +370,6 @@ def generate_html(questions, status_badges):
             }
             100% {
                 background-position: 0% 50%;
-            }
-        }
-
-        /* Glitch animation for background layer 1 */
-        @keyframes glitch1 {
-            0%, 100% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            10% {
-                transform: translate(-5px, 2px);
-                clip-path: inset(10% 0 70% 0);
-            }
-            20% {
-                transform: translate(3px, -1px);
-                clip-path: inset(60% 0 20% 0);
-            }
-            30% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            40% {
-                transform: translate(2px, -3px);
-                clip-path: inset(30% 0 50% 0);
-            }
-            50% {
-                transform: translate(-3px, 1px);
-                clip-path: inset(80% 0 10% 0);
-            }
-            60% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            70% {
-                transform: translate(4px, 2px);
-                clip-path: inset(15% 0 75% 0);
-            }
-            80% {
-                transform: translate(-2px, -2px);
-                clip-path: inset(40% 0 40% 0);
-            }
-            90% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-        }
-
-        /* Glitch animation for background layer 2 */
-        @keyframes glitch2 {
-            0%, 100% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            15% {
-                transform: translate(4px, -2px);
-                clip-path: inset(20% 0 60% 0);
-            }
-            25% {
-                transform: translate(-2px, 3px);
-                clip-path: inset(70% 0 15% 0);
-            }
-            35% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            45% {
-                transform: translate(-3px, -1px);
-                clip-path: inset(45% 0 35% 0);
-            }
-            55% {
-                transform: translate(2px, 2px);
-                clip-path: inset(5% 0 85% 0);
-            }
-            65% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            75% {
-                transform: translate(3px, -3px);
-                clip-path: inset(25% 0 65% 0);
-            }
-            85% {
-                transform: translate(-4px, 1px);
-                clip-path: inset(55% 0 25% 0);
-            }
-            95% {
-                transform: translate(0);
-                clip-path: inset(0);
             }
         }
 
@@ -425,92 +397,64 @@ def generate_html(questions, status_badges):
         .bg-shape {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.15;
-            animation: float 20s infinite ease-in-out;
+            opacity: 0.08;
+            animation: float 40s infinite ease-in-out;
         }
 
         .bg-shape:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(94, 201, 216, 0.4), transparent);
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(94, 201, 216, 0.25), transparent);
             top: 10%;
             left: 10%;
-            animation-duration: 25s;
+            animation-duration: 50s;
             animation-delay: 0s;
         }
 
         .bg-shape:nth-child(2) {
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(126, 200, 227, 0.3), transparent);
+            background: radial-gradient(circle, rgba(126, 200, 227, 0.2), transparent);
             top: 60%;
             left: 70%;
-            animation-duration: 30s;
-            animation-delay: 2s;
+            animation-duration: 60s;
+            animation-delay: 5s;
         }
 
         .bg-shape:nth-child(3) {
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(168, 230, 207, 0.35), transparent);
-            top: 80%;
-            left: 20%;
-            animation-duration: 35s;
-            animation-delay: 4s;
-        }
-
-        .bg-shape:nth-child(4) {
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(137, 229, 208, 0.3), transparent);
-            top: 30%;
-            left: 80%;
-            animation-duration: 28s;
-            animation-delay: 1s;
-        }
-
-        .bg-shape:nth-child(5) {
             width: 220px;
             height: 220px;
-            background: radial-gradient(circle, rgba(86, 201, 216, 0.35), transparent);
-            top: 50%;
-            left: 40%;
-            animation-duration: 32s;
-            animation-delay: 3s;
+            background: radial-gradient(circle, rgba(168, 230, 207, 0.22), transparent);
+            top: 80%;
+            left: 20%;
+            animation-duration: 55s;
+            animation-delay: 10s;
         }
 
         [data-theme="dark"] .bg-shape:nth-child(1) {
-            background: radial-gradient(circle, rgba(15, 58, 74, 0.5), transparent);
+            background: radial-gradient(circle, rgba(15, 58, 74, 0.4), transparent);
         }
 
         [data-theme="dark"] .bg-shape:nth-child(2) {
-            background: radial-gradient(circle, rgba(13, 43, 62, 0.4), transparent);
+            background: radial-gradient(circle, rgba(13, 43, 62, 0.35), transparent);
         }
 
         [data-theme="dark"] .bg-shape:nth-child(3) {
-            background: radial-gradient(circle, rgba(26, 77, 92, 0.45), transparent);
-        }
-
-        [data-theme="dark"] .bg-shape:nth-child(4) {
-            background: radial-gradient(circle, rgba(10, 31, 31, 0.4), transparent);
-        }
-
-        [data-theme="dark"] .bg-shape:nth-child(5) {
-            background: radial-gradient(circle, rgba(15, 58, 74, 0.45), transparent);
+            background: radial-gradient(circle, rgba(26, 77, 92, 0.38), transparent);
         }
 
         @keyframes float {
             0%, 100% {
-                transform: translate(0, 0) rotate(0deg) scale(1);
+                transform: translate(0, 0) scale(1);
             }
             25% {
-                transform: translate(30px, -50px) rotate(90deg) scale(1.1);
+                transform: translate(15px, -20px) scale(1.05);
             }
             50% {
-                transform: translate(-20px, -30px) rotate(180deg) scale(0.9);
+                transform: translate(-10px, -15px) scale(0.95);
             }
             75% {
-                transform: translate(-50px, 20px) rotate(270deg) scale(1.05);
+                transform: translate(-20px, 10px) scale(1.02);
             }
         }
 
@@ -528,23 +472,17 @@ def generate_html(questions, status_badges):
 
         .particle {
             position: absolute;
-            width: 6px;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.3);
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 50%;
-            animation: particleFloat 15s infinite ease-in-out;
+            animation: particleFloat 25s infinite ease-in-out;
         }
 
-        .particle:nth-child(1) { left: 10%; animation-duration: 18s; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-duration: 22s; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 30%; animation-duration: 16s; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 40%; animation-duration: 20s; animation-delay: 1s; }
-        .particle:nth-child(5) { left: 50%; animation-duration: 19s; animation-delay: 3s; }
-        .particle:nth-child(6) { left: 60%; animation-duration: 17s; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 70%; animation-duration: 21s; animation-delay: 2.5s; }
-        .particle:nth-child(8) { left: 80%; animation-duration: 18s; animation-delay: 4.5s; }
-        .particle:nth-child(9) { left: 90%; animation-duration: 23s; animation-delay: 1.5s; }
-        .particle:nth-child(10) { left: 15%; animation-duration: 20s; animation-delay: 3.5s; }
+        .particle:nth-child(1) { left: 15%; animation-duration: 30s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 40%; animation-duration: 35s; animation-delay: 5s; }
+        .particle:nth-child(3) { left: 65%; animation-duration: 32s; animation-delay: 10s; }
+        .particle:nth-child(4) { left: 85%; animation-duration: 38s; animation-delay: 3s; }
 
         @keyframes particleFloat {
             0% {
@@ -552,10 +490,10 @@ def generate_html(questions, status_badges):
                 opacity: 0;
             }
             10% {
-                opacity: 0.4;
+                opacity: 0.2;
             }
             90% {
-                opacity: 0.4;
+                opacity: 0.2;
             }
             100% {
                 transform: translateY(-100px) scale(1);
@@ -564,19 +502,34 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="dark"] .particle {
-            background: rgba(126, 200, 227, 0.4);
+            background: rgba(126, 200, 227, 0.2);
         }
 
-        /* Accessibility: Disable all background animations for users who prefer reduced motion */
+        /* Accessibility: Disable animations for users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
-            body::before,
-            body::after {
-                animation: gradientShift 15s ease infinite !important;
+            html.theme-transitioning,
+            html.theme-transitioning *,
+            html.theme-transitioning *::before,
+            html.theme-transitioning *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+            
+            body {
+                animation: none !important;
             }
             .bg-shape,
             .particle {
                 animation: none !important;
-                opacity: 0.05 !important;
+                opacity: 0.03 !important;
+            }
+
+            .theme-toggle:hover {
+                transform: scale(1.05);
+            }
+
+            .theme-toggle #theme-icon {
+                transition: none !important;
             }
         }
 
@@ -737,6 +690,45 @@ def generate_html(questions, status_badges):
             line-height: 1.6;
         }
 
+        .question-filename {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: var(--background);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .question-example {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            background: var(--background);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            line-height: 1.4;
+        }
+
+        .question-example code {
+            font-family: inherit;
+        }
+
+        [data-theme="dark"] .question-card {
+            background: #2d2d2d !important;
+        }
+
+        [data-theme="dark"] .question-filename,
+        [data-theme="dark"] .question-example {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
         .status-toggle {
             background: none;
             border: none;
@@ -840,7 +832,7 @@ def generate_html(questions, status_badges):
             text-decoration: underline;
         }
 
-        /* Theme Toggle Button - Now in navbar */
+        /* Theme Toggle Button - Enhanced with animations */
         .theme-toggle {
             background: var(--card-bg);
             border: 2px solid var(--border-color);
@@ -853,17 +845,46 @@ def generate_html(questions, status_badges):
             cursor: pointer;
             font-size: 1.3rem;
             box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .theme-toggle.ripple::before {
+            width: 200%;
+            height: 200%;
         }
 
         .theme-toggle:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(15deg);
             box-shadow: var(--shadow-md);
             background: var(--background);
         }
 
         .theme-toggle:active {
-            transform: scale(0.95);
+            transform: scale(0.95) rotate(-15deg);
+        }
+
+        .theme-toggle #theme-icon {
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: inline-block;
+        }
+
+        .theme-toggle.switching #theme-icon {
+            transform: rotate(360deg) scale(0);
         }
 
         /* Search Box - Navbar version */
@@ -1548,16 +1569,8 @@ def generate_html(questions, status_badges):
         <div class="bg-shape"></div>
         <div class="bg-shape"></div>
         <div class="bg-shape"></div>
-        <div class="bg-shape"></div>
-        <div class="bg-shape"></div>
     </div>
     <div class="bg-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
@@ -1660,11 +1673,27 @@ def generate_html(questions, status_badges):
     for question in questions:
         qnum = question["number"]
         qtext = question["text"]
+        qfilename = question.get("filename", "")
+        qexample = question.get("example", "")
         badges = status_badges.get(qnum, [])
 
         html_parts.append(f"""            <div class="question-card">
                 <div class="question-number">#{qnum:04d}</div>
-                <div class="question-text">{qtext}</div>
+                <div class="question-text">{qtext}</div>""")
+        
+        # Add filename if present
+        if qfilename:
+            html_parts.append(f"""
+                <div class="question-filename">📁 {qfilename}</div>""")
+        
+        # Add example if present
+        if qexample:
+            # Escape HTML in example to prevent injection
+            qexample_escaped = qexample.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+            html_parts.append(f"""
+                <div class="question-example">{qexample_escaped}</div>""")
+        
+        html_parts.append(f"""
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-{qnum}"
@@ -1727,29 +1756,106 @@ def generate_html(questions, status_badges):
     </div>
 
     <script>
-        // Theme Toggle Functionality
+        // Enhanced Theme Toggle with Smooth Animations
         function toggleTheme() {{
-            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-
-            // Update icon
+            const themeButton = document.querySelector('.theme-toggle');
             const themeIcon = document.getElementById('theme-icon');
-            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+            // Add ripple effect
+            themeButton.classList.add('ripple');
+            setTimeout(() => themeButton.classList.remove('ripple'), 600);
+
+            // Add switching animation to icon
+            themeButton.classList.add('switching');
+
+            // Add transitioning class for smooth color changes
+            html.classList.add('theme-transitioning');
+
+            // Change theme after brief delay for smoother transition
+            setTimeout(() => {{
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                // Update icon with rotation animation
+                setTimeout(() => {{
+                    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                    themeButton.classList.remove('switching');
+                }}, 300);
+
+                // Create particles effect during transition
+                createThemeParticles(newTheme);
+
+                // Remove transitioning class after animation completes
+                setTimeout(() => {{
+                    html.classList.remove('theme-transitioning');
+                }}, 600);
+            }}, 50);
         }}
 
-        // Load saved theme on page load
+        // Create particle effect during theme transition
+        function createThemeParticles(theme) {{
+            // Use theme-appropriate colors from CSS variables
+            const sharedColor = '#3b82f6';
+            const colors = theme === 'dark' 
+                ? ['#60a5fa', sharedColor, '#93c5fd']
+                : ['#2563eb', sharedColor, '#1e40af'];
+            
+            const button = document.querySelector('.theme-toggle');
+            const rect = button.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            for (let i = 0; i < 12; i++) {{
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 6px;
+                    height: 6px;
+                    background: ${{colors[i % colors.length]}};
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    left: ${{centerX}}px;
+                    top: ${{centerY}}px;
+                `;
+                document.body.appendChild(particle);
+
+                const angle = (i / 12) * Math.PI * 2;
+                const velocity = 100 + Math.random() * 50;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+
+                particle.animate([
+                    {{ transform: 'translate(0, 0) scale(1)', opacity: 1 }},
+                    {{ transform: `translate(${{tx}}px, ${{ty}}px) scale(0)`, opacity: 0 }}
+                ], {{
+                    duration: 800,
+                    easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+                }}).onfinish = () => particle.remove();
+            }}
+        }}
+
+        // Load saved theme with smooth initialization
         (function() {{
             const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            // Set theme immediately to prevent flash
+            html.setAttribute('data-theme', savedTheme);
 
             // Set initial icon
-            const themeIcon = document.getElementById('theme-icon');
             if (themeIcon) {{
                 themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
             }}
+
+            // Add loaded class for fade-in instead of inline style
+            setTimeout(() => {{
+                html.classList.add('page-loaded');
+            }}, 50);
         }})();
 
         // Scroll to top function
