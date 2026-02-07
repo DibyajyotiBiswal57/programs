@@ -1290,28 +1290,20 @@ def generate_html(questions, status_badges):
             addBootMessage('Starting Programming Questions Bootloader...', 'OK');
             addBootMessage('Initializing system modules...', null, 'info');
 
-            // Track resources to load
-            const scriptsToTrack = [
-                'theme-toggle.js',
-                'collapsible-table.js', 
-                'question-enhancements.js',
-                'questions-collapsible.js'
-            ];
-
-            let loadedResources = {{
-                stylesheet: 0,
-                script: 0,
-                image: 0
-            }};
-
-            let failedResources = {{
-                stylesheet: 0,
-                script: 0,
-                image: 0
-            }};
-
             // Monitor resource loading
             function trackResourceLoading() {{
+                let loadedResources = {{
+                    stylesheet: 0,
+                    script: 0,
+                    image: 0
+                }};
+
+                let failedResources = {{
+                    stylesheet: 0,
+                    script: 0,
+                    image: 0
+                }};
+
                 // Track stylesheets (already loaded)
                 const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
                 const totalStylesheets = stylesheets.length;
