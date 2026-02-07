@@ -211,6 +211,11 @@ def generate_html(questions, status_badges):
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
@@ -253,6 +258,8 @@ def generate_html(questions, status_badges):
             transition: color 0.3s ease;
             position: relative;
             min-height: 100vh;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         [data-theme="dark"] body {
@@ -286,6 +293,8 @@ def generate_html(questions, status_badges):
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 8px;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         header {
@@ -851,7 +860,8 @@ def generate_html(questions, status_badges):
             justify-content: flex-start;
             padding: 40px;
             z-index: 9999;
-            overflow: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
             font-family: 'Courier New', Consolas, Monaco, monospace;
         }
 
@@ -876,6 +886,7 @@ def generate_html(questions, status_badges):
             margin: 2px 0;
             opacity: 0;
             animation: bootLineAppear 0.1s ease-out forwards;
+            word-wrap: break-word;
         }
 
         @keyframes bootLineAppear {
@@ -897,9 +908,28 @@ def generate_html(questions, status_badges):
             color: #ffaa00;
         }
 
+        .boot-line.error {
+            color: #ff4444;
+        }
+
         .boot-line.highlight {
             color: #ffffff;
             font-weight: bold;
+        }
+
+        .boot-status {
+            display: inline-block;
+            min-width: 60px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .boot-status.ok {
+            color: #00ff00;
+        }
+
+        .boot-status.failed {
+            color: #ff4444;
         }
 
         .boot-cursor {
@@ -919,25 +949,75 @@ def generate_html(questions, status_badges):
                 opacity: 0;
             }
         }
+
+        #skip-splash-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(0, 255, 0, 0.2);
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            padding: 12px 24px;
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 4px;
+            z-index: 10000;
+            transition: all 0.3s ease;
+        }
+
+        #skip-splash-btn:hover {
+            background: rgba(0, 255, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        #skip-splash-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Mobile responsiveness for splash screen */
+        @media (max-width: 768px) {
+            #splash-screen {
+                padding: 20px;
+            }
+
+            .boot-line {
+                font-size: 0.75rem;
+                line-height: 1.4;
+            }
+
+            #skip-splash-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 18px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #splash-screen {
+                padding: 15px;
+            }
+
+            .boot-line {
+                font-size: 0.7rem;
+                line-height: 1.3;
+            }
+
+            #skip-splash-btn {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 14px;
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Splash Screen - Linux Boot Style -->
     <div id="splash-screen">
-        <div class="boot-line" style="animation-delay: 0.05s;">[  OK  ] Starting Programming Questions Bootloader...</div>
-        <div class="boot-line info" style="animation-delay: 0.15s;">Initializing system modules...</div>
-        <div class="boot-line" style="animation-delay: 0.30s;">[  OK  ] Mounted /dev/sda1 on /questions</div>
-        <div class="boot-line" style="animation-delay: 0.45s;">[  OK  ] Started Language Runtime Services</div>
-        <div class="boot-line info" style="animation-delay: 0.60s;">Loading Python modules... Done.</div>
-        <div class="boot-line info" style="animation-delay: 0.75s;">Loading Java modules... Done.</div>
-        <div class="boot-line info" style="animation-delay: 0.90s;">Loading C/C++ modules... Done.</div>
-        <div class="boot-line" style="animation-delay: 1.05s;">[  OK  ] Started Progress Tracking Service</div>
-        <div class="boot-line" style="animation-delay: 1.20s;">[  OK  ] Reached target Multi-Language Support</div>
-        <div class="boot-line warning" style="animation-delay: 1.35s;">Checking status badges... 90 questions found.</div>
-        <div class="boot-line" style="animation-delay: 1.50s;">[  OK  ] Started Dark Mode Theme Service</div>
-        <div class="boot-line" style="animation-delay: 1.65s;">[  OK  ] Started Web Interface</div>
-        <div class="boot-line highlight" style="animation-delay: 1.80s;"><br>Programming Questions v1.0 - Ready</div>
-        <div class="boot-line info" style="animation-delay: 1.95s;">System boot complete. Starting interface...<span class="boot-cursor"></span></div>
+        <div id="boot-messages"></div>
+        <button id="skip-splash-btn" onclick="skipSplash()">Skip [ESC]</button>
     </div>
 
     <!-- Theme Toggle Button -->
@@ -1183,18 +1263,184 @@ def generate_html(questions, status_badges):
             }}
         }});
 
-        // Splash screen initialization
-        window.addEventListener('load', function() {{
-            // Wait for boot sequence to complete (3 seconds)
-            setTimeout(function() {{
-                const splashScreen = document.getElementById('splash-screen');
-                splashScreen.classList.add('hidden');
+        // Splash screen initialization with real file loading tracking
+        (function() {{
+            const bootMessages = document.getElementById('boot-messages');
 
-                // Remove the splash screen from DOM after animation completes
+            // Function to add a boot message
+            function addBootMessage(text, status = null, className = '') {{
+                const line = document.createElement('div');
+                line.className = 'boot-line ' + className;
+                
+                if (status) {{
+                    const statusSpan = document.createElement('span');
+                    statusSpan.className = 'boot-status ' + (status === 'OK' ? 'ok' : 'failed');
+                    statusSpan.textContent = status === 'OK' ? '[  OK  ]' : '[FAILED]';
+                    line.appendChild(statusSpan);
+                    line.appendChild(document.createTextNode(' ' + text));
+                }} else {{
+                    line.textContent = text;
+                }}
+                
+                bootMessages.appendChild(line);
+                return line;
+            }}
+
+            // Initialize boot sequence
+            addBootMessage('Starting Programming Questions Bootloader...', 'OK');
+            addBootMessage('Initializing system modules...', null, 'info');
+
+            // Monitor resource loading
+            function trackResourceLoading() {{
+                let loadedResources = {{
+                    stylesheet: 0,
+                    script: 0,
+                    image: 0
+                }};
+
+                let failedResources = {{
+                    stylesheet: 0,
+                    script: 0,
+                    image: 0
+                }};
+
+                // Track stylesheets (already loaded)
+                const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+                const totalStylesheets = stylesheets.length;
+                
+                if (totalStylesheets > 0) {{
+                    // Stylesheets are inline, consider them loaded
+                    loadedResources.stylesheet = totalStylesheets;
+                    addBootMessage('Loaded ' + totalStylesheets + ' stylesheet(s)', 'OK', 'info');
+                }}
+
+                // Track inline and external scripts by checking if they execute
+                // Since we can't easily track inline scripts, we'll just indicate JavaScript is ready
+                const allScripts = document.querySelectorAll('script');
+                const externalScripts = Array.from(allScripts).filter(s => s.src);
+                
+                if (externalScripts.length > 0) {{
+                    externalScripts.forEach(function(script) {{
+                        const scriptName = script.src.split('/').pop();
+                        addBootMessage('Loaded script: ' + scriptName, 'OK', 'info');
+                        loadedResources.script++;
+                    }});
+                }} else {{
+                    addBootMessage('All JavaScript modules loaded', 'OK', 'info');
+                }}
+
+                // Helper function to report image loading results
+                function reportImageResults(loaded, failed) {{
+                    if (loaded > 0) {{
+                        addBootMessage('Loaded ' + loaded + ' image(s)', 'OK', 'info');
+                    }}
+                    if (failed > 0) {{
+                        addBootMessage('Failed to load ' + failed + ' image(s)', 'FAILED', 'error');
+                    }}
+                }}
+
+                // Track images
+                const images = document.querySelectorAll('img');
+                if (images.length > 0) {{
+                    let imagesLoaded = 0;
+                    let imagesFailed = 0;
+                    
+                    function checkAllImagesProcessed() {{
+                        if (imagesLoaded + imagesFailed === images.length) {{
+                            reportImageResults(imagesLoaded, imagesFailed);
+                        }}
+                    }}
+                    
+                    images.forEach(function(img) {{
+                        if (img.complete) {{
+                            if (img.naturalHeight > 0) {{
+                                imagesLoaded++;
+                                loadedResources.image++;
+                            }} else {{
+                                imagesFailed++;
+                                failedResources.image++;
+                            }}
+                        }} else {{
+                            img.addEventListener('load', function() {{
+                                imagesLoaded++;
+                                loadedResources.image++;
+                                checkAllImagesProcessed();
+                            }});
+                            img.addEventListener('error', function() {{
+                                imagesFailed++;
+                                failedResources.image++;
+                                checkAllImagesProcessed();
+                            }});
+                        }}
+                    }});
+                    
+                    checkAllImagesProcessed();
+                }} else {{
+                    addBootMessage('No images to load', 'OK', 'info');
+                }}
+            }}
+
+            // Start tracking
+            setTimeout(function() {{
+                addBootMessage('Mounted /dev/sda1 on /questions', 'OK');
+                addBootMessage('Started Language Runtime Services', 'OK');
+            }}, 100);
+
+            setTimeout(function() {{
+                trackResourceLoading();
+            }}, 200);
+
+            setTimeout(function() {{
+                addBootMessage('Started Progress Tracking Service', 'OK');
+                addBootMessage('Reached target Multi-Language Support', 'OK');
+            }}, 400);
+
+            setTimeout(function() {{
+                const questionCards = document.querySelectorAll('.question-card');
+                addBootMessage('Checking status badges... ' + questionCards.length + ' questions found.', null, 'warning');
+            }}, 600);
+
+            setTimeout(function() {{
+                addBootMessage('Started Dark Mode Theme Service', 'OK');
+                addBootMessage('Started Web Interface', 'OK');
+            }}, 800);
+
+            setTimeout(function() {{
+                const line = document.createElement('div');
+                line.className = 'boot-line highlight';
+                line.innerHTML = '<br>Programming Questions v1.0 - Ready';
+                bootMessages.appendChild(line);
+                
+                const finalLine = document.createElement('div');
+                finalLine.className = 'boot-line info';
+                finalLine.innerHTML = 'System boot complete. Starting interface...<span class="boot-cursor"></span>';
+                bootMessages.appendChild(finalLine);
+            }}, 1000);
+        }})();
+
+        // Skip splash screen function
+        function skipSplash() {{
+            const splashScreen = document.getElementById('splash-screen');
+            if (splashScreen) {{
+                splashScreen.classList.add('hidden');
                 setTimeout(function() {{
                     splashScreen.remove();
-                }}, 600); // Match the fade-out animation duration
-            }}, 3000);
+                }}, 600);
+            }}
+        }}
+
+        // ESC key to skip splash
+        document.addEventListener('keydown', function(e) {{
+            if (e.key === 'Escape') {{
+                skipSplash();
+            }}
+        }});
+
+        // Auto-hide splash screen after delay
+        window.addEventListener('load', function() {{
+            setTimeout(function() {{
+                skipSplash();
+            }}, 4000); // 4 seconds to see all the loading messages
         }});
     </script>
 </body>
