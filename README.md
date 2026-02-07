@@ -1,44 +1,55 @@
 <div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=190&section=header&text=Programming%20Solutions%20Universe&fontSize=36&fontAlignY=35&desc=89%2B%20Challenges%20%E2%80%A2%2017%2B%20Languages&descAlignY=55" alt="Programming Solutions Universe banner" />
 
-## ⭐ Show Your Support
+  ## ⭐ Show Your Support
 
-If you find this project helpful, please consider:
+  If you find this project helpful, please consider:
 
-### 🌟 [Star this Repository](https://github.com/DibyajyotiBiswal57/programs)
-**Help others discover this collection of programming solutions!**
+  **🌟 [Star this Repository](https://github.com/DibyajyotiBiswal57/programs)** · **👤 [Follow @DibyajyotiBiswal57](https://github.com/DibyajyotiBiswal57)**
 
-### 👤 [Follow @DibyajyotiBiswal57](https://github.com/DibyajyotiBiswal57)
-**Stay updated with new problems, languages, and projects!**
+  [![GitHub stars](https://img.shields.io/github/stars/DibyajyotiBiswal57/programs?style=social)](https://github.com/DibyajyotiBiswal57/programs)
+  [![GitHub followers](https://img.shields.io/github/followers/DibyajyotiBiswal57?style=social)](https://github.com/DibyajyotiBiswal57)
 
-[![GitHub stars](https://img.shields.io/github/stars/DibyajyotiBiswal57/programs?style=social)](https://github.com/DibyajyotiBiswal57/programs)
-[![GitHub followers](https://img.shields.io/github/followers/DibyajyotiBiswal57?style=social)](https://github.com/DibyajyotiBiswal57)
+  ---
 
----
+  # 🚀 Programming Solutions Universe
 
-# 🚀 Programming Solutions Universe
+  ### _A polyglot collection of 89+ programming challenges solved in 17+ languages_
 
-### _A polyglot collection of 89+ programming challenges solved in 17+ languages_
+  [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success?style=for-the-badge&logo=github)](https://dibyajyotibiswal57.github.io/programs/)
+  [![Languages](https://img.shields.io/badge/Languages-17+-blue?style=for-the-badge&logo=polywork)](#-languages-supported)
+  [![Problems](https://img.shields.io/badge/Problems-89+-orange?style=for-the-badge&logo=leetcode)](#-problems-list)
+  [![License](https://img.shields.io/github/license/DibyajyotiBiswal57/programs?style=for-the-badge)](LICENSE)
+  [![Contributors](https://img.shields.io/github/contributors/DibyajyotiBiswal57/programs?style=for-the-badge)](https://github.com/DibyajyotiBiswal57/programs/graphs/contributors)
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success?style=for-the-badge&logo=github)](https://dibyajyotibiswal57.github.io/programs/)
-[![Languages](https://img.shields.io/badge/Languages-17+-blue?style=for-the-badge&logo=polywork)](#-languages-supported)
-[![Problems](https://img.shields.io/badge/Problems-89+-orange?style=for-the-badge&logo=leetcode)](#-problems-list)
-[![License](https://img.shields.io/github/license/DibyajyotiBiswal57/programs?style=for-the-badge)](LICENSE)
-[![Contributors](https://img.shields.io/github/contributors/DibyajyotiBiswal57/programs?style=for-the-badge)](https://github.com/DibyajyotiBiswal57/programs/graphs/contributors)
+  ```ascii
+  ╔═══════════════════════════════════════════════════════════════╗
+  ║  🎯 From "Hello World" to Advanced Algorithms                 ║
+  ║  🌐 17+ Programming Languages | 📚 89+ Unique Problems       ║
+  ║  ⚡ Interactive Status Page | 🎨 Multiple Solutions          ║
+  ╚═══════════════════════════════════════════════════════════════╝
+  ```
 
-```ascii
-╔═══════════════════════════════════════════════════════════════╗
-║  🎯 From "Hello World" to Advanced Algorithms                 ║
-║  🌐 17+ Programming Languages | 📚 89+ Unique Problems       ║
-║  ⚡ Interactive Status Page | 🎨 Multiple Solutions          ║
-╚═══════════════════════════════════════════════════════════════╝
-```
+  **[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/DibyajyotiBiswal57/programs)**  
+  **[🌟 Live Demo](https://dibyajyotibiswal57.github.io/programs/)** • **[📖 Documentation](#-getting-started)** • **[🤝 Contributing](CONTRIBUTING.md)** • **[📋 Full Problem List](#-problems-list)**
 
-**[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/DibyajyotiBiswal57/programs)**  
-**[🌟 Live Demo](https://dibyajyotibiswal57.github.io/programs/)** • **[📖 Documentation](#-getting-started)** • **[🤝 Contributing](CONTRIBUTING.md)** • **[📋 Full Problem List](#-problems-list)**
-
----
-
+  ---
 </div>
+
+## 📌 Table of Contents
+
+- [✨ Highlights](#-highlights)
+- [🌟 Languages Supported](#-languages-supported)
+- [📚 Problems List](#-problems-list)
+- [📊 Progress Dashboard](#-progress-dashboard)
+- [🚀 Getting Started](#-getting-started)
+- [🤝 Contributing](#-contributing)
+- [🌟 Project Statistics](#-project-statistics)
+- [📜 License](#-license)
+- [🙏 Acknowledgments](#-acknowledgments)
+- [📞 Contact & Support](#-contact--support)
+
+---
 
 ## ✨ Highlights
 
@@ -67,17 +78,6 @@ If you find this project helpful, please consider:
 
 ---
 
-## 🎯 Quick Navigation
-
-- [🌟 Languages Supported](#-languages-supported)
-- [📚 Problems List](#-problems-list)
-- [🚀 Getting Started](#-getting-started)
-- [📊 Progress Dashboard](#-progress-dashboard)
-- [🤝 Contributing](#-contributing)
-- [📜 License](#-license)
-
----
-
 ## 🌟 Languages Supported
 
 <div align="center">
@@ -94,17 +94,16 @@ If you find this project helpful, please consider:
 
 ---
 
-
 ## 📚 Problems List
 
-Looking for the complete list of 89+ programming challenges? 
+Looking for the complete list of 89+ programming challenges?
 
 ### 📖 [View All Problems in questions.md](questions.md)
 
 The problems are organized by difficulty level:
-- **🏁 Beginner ()**: Basic I/O, arithmetic, simple conditionals
-- **🔧 Intermediate ()**: Loops, strings, patterns, calculations
-- **🎓 Advanced ()**: Algorithms, special numbers, complex logic
+- **🏁 Beginner**: Basic I/O, arithmetic, simple conditionals
+- **🔧 Intermediate**: Loops, strings, patterns, calculations
+- **🎓 Advanced**: Algorithms, special numbers, complex logic
 
 Each problem includes detailed descriptions, examples, and filename conventions.
 
