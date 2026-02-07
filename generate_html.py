@@ -290,6 +290,19 @@ def generate_html(questions, status_badges):
             scroll-behavior: smooth; /* Smooth scrolling */
         }
 
+        /* Theme transition animations */
+        html.theme-transitioning,
+        html.theme-transitioning *,
+        html.theme-transitioning *::before,
+        html.theme-transitioning *::after {
+            transition: background-color 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        color 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        border-color 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        box-shadow 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        fill 0.6s cubic-bezier(0.4, 0.0, 0.2, 1),
+                        stroke 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+        }
+
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
@@ -305,20 +318,20 @@ def generate_html(questions, status_badges):
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Dark mode variables */
+        /* Dark mode variables with enhanced colors */
         [data-theme="dark"] {
             --primary-color: #60a5fa;
             --secondary-color: #3b82f6;
             --accent-color: #93c5fd;
-            --background: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --text-primary: #e5e7eb;
-            --text-secondary: #9ca3af;
-            --border-color: #404040;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+            --background: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.8);
         }
 
         body {
@@ -329,17 +342,15 @@ def generate_html(questions, status_badges):
             color: var(--text-primary);
             line-height: 1.6;
             padding: 20px;
-            transition: color 0.3s ease;
             position: relative;
             min-height: 100vh;
             overflow-x: hidden;
             width: 100%;
         }
 
-        /* Removed glitch effect layers for a more subtle appearance */
-
+        /* Enhanced dark mode body with smooth gradient transition */
         [data-theme="dark"] body {
-            background: linear-gradient(-45deg, #1a1f2e, #1e2433, #1c2330, #1f2637);
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569);
             background-size: 400% 400%;
             animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
         }
@@ -415,15 +426,15 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="dark"] .bg-shape:nth-child(1) {
-            background: radial-gradient(circle, rgba(15, 58, 74, 0.3), transparent);
+            background: radial-gradient(circle, rgba(15, 58, 74, 0.4), transparent);
         }
 
         [data-theme="dark"] .bg-shape:nth-child(2) {
-            background: radial-gradient(circle, rgba(13, 43, 62, 0.25), transparent);
+            background: radial-gradient(circle, rgba(13, 43, 62, 0.35), transparent);
         }
 
         [data-theme="dark"] .bg-shape:nth-child(3) {
-            background: radial-gradient(circle, rgba(26, 77, 92, 0.28), transparent);
+            background: radial-gradient(circle, rgba(26, 77, 92, 0.38), transparent);
         }
 
         @keyframes float {
@@ -488,8 +499,16 @@ def generate_html(questions, status_badges):
             background: rgba(126, 200, 227, 0.2);
         }
 
-        /* Accessibility: Disable all background animations for users who prefer reduced motion */
+        /* Accessibility: Disable animations for users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
+            html.theme-transitioning,
+            html.theme-transitioning *,
+            html.theme-transitioning *::before,
+            html.theme-transitioning *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+            
             body {
                 animation: none !important;
             }
@@ -497,6 +516,14 @@ def generate_html(questions, status_badges):
             .particle {
                 animation: none !important;
                 opacity: 0.03 !important;
+            }
+
+            .theme-toggle:hover {
+                transform: scale(1.05);
+            }
+
+            .theme-toggle #theme-icon {
+                transition: none !important;
             }
         }
 
@@ -799,7 +826,7 @@ def generate_html(questions, status_badges):
             text-decoration: underline;
         }
 
-        /* Theme Toggle Button - Now in navbar */
+        /* Theme Toggle Button - Enhanced with animations */
         .theme-toggle {
             background: var(--card-bg);
             border: 2px solid var(--border-color);
@@ -812,17 +839,46 @@ def generate_html(questions, status_badges):
             cursor: pointer;
             font-size: 1.3rem;
             box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .theme-toggle.ripple::before {
+            width: 200%;
+            height: 200%;
         }
 
         .theme-toggle:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(15deg);
             box-shadow: var(--shadow-md);
             background: var(--background);
         }
 
         .theme-toggle:active {
-            transform: scale(0.95);
+            transform: scale(0.95) rotate(-15deg);
+        }
+
+        .theme-toggle #theme-icon {
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: inline-block;
+        }
+
+        .theme-toggle.switching #theme-icon {
+            transform: rotate(360deg) scale(0);
         }
 
         /* Search Box - Navbar version */
@@ -1694,29 +1750,104 @@ def generate_html(questions, status_badges):
     </div>
 
     <script>
-        // Theme Toggle Functionality
+        // Enhanced Theme Toggle with Smooth Animations
         function toggleTheme() {{
-            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-
-            // Update icon
+            const themeButton = document.querySelector('.theme-toggle');
             const themeIcon = document.getElementById('theme-icon');
-            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+            // Add ripple effect
+            themeButton.classList.add('ripple');
+            setTimeout(() => themeButton.classList.remove('ripple'), 600);
+
+            // Add switching animation to icon
+            themeButton.classList.add('switching');
+
+            // Add transitioning class for smooth color changes
+            html.classList.add('theme-transitioning');
+
+            // Change theme after brief delay for smoother transition
+            setTimeout(() => {{
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                // Update icon with rotation animation
+                setTimeout(() => {{
+                    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                    themeButton.classList.remove('switching');
+                }}, 300);
+
+                // Create particles effect during transition
+                createThemeParticles(newTheme);
+
+                // Remove transitioning class after animation completes
+                setTimeout(() => {{
+                    html.classList.remove('theme-transitioning');
+                }}, 600);
+            }}, 50);
         }}
 
-        // Load saved theme on page load
+        // Create particle effect during theme transition
+        function createThemeParticles(theme) {{
+            const colors = theme === 'dark' 
+                ? ['#60a5fa', '#3b82f6', '#93c5fd']
+                : ['#2563eb', '#3b82f6', '#1e40af'];
+            
+            const button = document.querySelector('.theme-toggle');
+            const rect = button.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            for (let i = 0; i < 12; i++) {{
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 6px;
+                    height: 6px;
+                    background: ${{colors[i % colors.length]}};
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    left: ${{centerX}}px;
+                    top: ${{centerY}}px;
+                `;
+                document.body.appendChild(particle);
+
+                const angle = (i / 12) * Math.PI * 2;
+                const velocity = 100 + Math.random() * 50;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+
+                particle.animate([
+                    {{ transform: 'translate(0, 0) scale(1)', opacity: 1 }},
+                    {{ transform: `translate(${{tx}}px, ${{ty}}px) scale(0)`, opacity: 0 }}
+                ], {{
+                    duration: 800,
+                    easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)'
+                }}).onfinish = () => particle.remove();
+            }}
+        }}
+
+        // Load saved theme with smooth initialization
         (function() {{
             const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            // Set theme immediately to prevent flash
+            html.setAttribute('data-theme', savedTheme);
 
             // Set initial icon
-            const themeIcon = document.getElementById('theme-icon');
             if (themeIcon) {{
                 themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
             }}
+
+            // Add fade-in animation for initial load
+            setTimeout(() => {{
+                document.body.style.opacity = '1';
+            }}, 50);
         }})();
 
         // Scroll to top function
