@@ -4,6 +4,10 @@
   // Configuration
   const COLLAPSE_STATE_PREFIX = "question-collapsed-";
   const REPO_BASE_URL = "https://github.com/DibyajyotiBiswal57/programs/blob/main";
+  const STATUS_DATA_URL = "/programs/assets/js/status-data.json"; // GitHub Pages path
+
+  // Global status data cache
+  let statusDataCache = null;
 
   // Language configuration matching update_status.py
   const LANGUAGES = [
@@ -25,6 +29,29 @@
     { folder: "pwsh", name: "PowerShell", ext: "ps1" },
     { folder: "batch", name: "Batch", ext: "bat" },
   ];
+
+  /**
+   * Fetch status data from JSON file
+   * @returns {Promise<Object>} - Status data object
+   */
+  async function fetchStatusData() {
+    if (statusDataCache) {
+      return statusDataCache;
+    }
+
+    try {
+      const response = await fetch(STATUS_DATA_URL);
+      if (!response.ok) {
+        console.warn("Failed to fetch status data, using fallback");
+        return {};
+      }
+      statusDataCache = await response.json();
+      return statusDataCache;
+    } catch (error) {
+      console.warn("Error fetching status data:", error);
+      return {};
+    }
+  }
 
   /**
    * Extract question number and filename from a list item
@@ -50,31 +77,28 @@
   }
 
   /**
-   * Check if a file exists by making a HEAD request
-   * We'll assume files exist based on common patterns
+   * Get file status from status data
+   * @param {Object} statusData - Status data object
+   * @param {number} questionNum - Question number
    * @param {string} folder - Language folder
-   * @param {string} filename - Base filename
-   * @param {string} ext - File extension
-   * @returns {string} - "done", "beta", or "missing"
+   * @returns {Object} - Object with status and filename
    */
-  function getFileStatus(folder, filename, ext) {
-    // This is a simplified version - in reality, we'd need to check
-    // In this implementation, we'll assume files exist and check for beta/wip patterns
-    // The actual status would be determined by the server
-    // For now, we'll just return "done" as a placeholder
-    // The real implementation would require server-side data or API
-    return "done"; // Placeholder
+  function getFileStatus(statusData, questionNum, folder) {
+    const questionData = statusData[questionNum.toString()];
+    if (questionData && questionData[folder]) {
+      return questionData[folder];
+    }
+    return { status: "missing", filename: null };
   }
 
   /**
    * Generate Shields.io badge URL
    * @param {string} status - Status type ("done", "beta", "missing")
    * @param {string} folder - Language folder
-   * @param {string} filename - Base filename
-   * @param {string} ext - File extension
+   * @param {string} filename - Actual filename
    * @returns {string} - HTML for badge
    */
-  function generateBadge(status, folder, filename, ext) {
+  function generateBadge(status, folder, filename) {
     const badgeConfig = {
       done: { label: "done", color: "brightgreen" },
       beta: { label: "beta", color: "yellow" },
@@ -84,20 +108,21 @@
     const config = badgeConfig[status] || badgeConfig.missing;
     const badgeUrl = `https://img.shields.io/badge/${config.label}-${config.label}-${config.color}`;
 
-    if (status === "missing") {
+    if (status === "missing" || !filename) {
       return `<img src="${badgeUrl}" alt="${status}" style="display: inline-block; margin: 2px;">`;
     }
 
-    const fileUrl = `${REPO_BASE_URL}/${folder}/${filename}.${ext}`;
+    const fileUrl = `${REPO_BASE_URL}/${folder}/${filename}`;
     return `<a href="${fileUrl}" target="_blank" rel="noopener noreferrer"><img src="${badgeUrl}" alt="${status}" style="display: inline-block; margin: 2px;"></a>`;
   }
 
   /**
    * Generate HTML table for a specific question showing all language implementations
-   * @param {string} filename - Base filename (e.g., "0001_hello_world")
+   * @param {Object} statusData - Status data object
+   * @param {number} questionNum - Question number
    * @returns {string} - HTML string for the table
    */
-  function generateLanguageTable(filename) {
+  function generateLanguageTable(statusData, questionNum) {
     let html = `
       <!DOCTYPE html>
       <html>
@@ -182,8 +207,12 @@
 
     // Add data row with badges
     LANGUAGES.forEach((lang) => {
-      const status = getFileStatus(lang.folder, filename, lang.ext);
-      const badge = generateBadge(status, lang.folder, filename, lang.ext);
+      const fileInfo = getFileStatus(statusData, questionNum, lang.folder);
+      const badge = generateBadge(
+        fileInfo.status,
+        lang.folder,
+        fileInfo.filename
+      );
       html += `<td>${badge}</td>`;
     });
 
@@ -201,9 +230,10 @@
    * Create collapsible wrapper for a question
    * @param {HTMLElement} listItem - The list item to wrap
    * @param {Object} info - Question info (questionNum, filename)
+   * @param {Object} statusData - Status data object
    * @returns {HTMLElement} - The created wrapper
    */
-  function createCollapsibleQuestion(listItem, info) {
+  function createCollapsibleQuestion(listItem, info, statusData) {
     const { questionNum, filename } = info;
 
     // Create wrapper
@@ -264,7 +294,7 @@
     iframe.style.display = "block";
 
     // Generate and set iframe content
-    const tableHtml = generateLanguageTable(filename);
+    const tableHtml = generateLanguageTable(statusData, info.questionNum);
     iframe.srcdoc = tableHtml;
 
     // Set iframe height after content loads
@@ -346,7 +376,7 @@
   /**
    * Initialize collapsible questions
    */
-  function initCollapsibleQuestions() {
+  async function initCollapsibleQuestions() {
     // Only run on questions.md page
     if (!document.location.pathname.includes("questions")) {
       return;
@@ -354,6 +384,9 @@
 
     const mainContent = document.querySelector(".main-content");
     if (!mainContent) return;
+
+    // Fetch status data first
+    const statusData = await fetchStatusData();
 
     const orderedLists = mainContent.querySelectorAll("ol");
 
@@ -370,7 +403,7 @@
           if (!info) return;
 
           const { wrapper, headerButton, contentWrapper, headerIcon } =
-            createCollapsibleQuestion(item, info);
+            createCollapsibleQuestion(item, info, statusData);
 
           // Add click event
           headerButton.addEventListener("click", function () {
