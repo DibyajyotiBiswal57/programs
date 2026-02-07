@@ -209,11 +209,173 @@
             }
         }
 
-        /* Accessibility: Disable glitch effect for users who prefer reduced motion */
+        /* Cool Animated Background Elements */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(94, 201, 216, 0.4), transparent);
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+            animation-delay: 0s;
+        }
+
+        .bg-shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(126, 200, 227, 0.3), transparent);
+            top: 60%;
+            left: 70%;
+            animation-duration: 30s;
+            animation-delay: 2s;
+        }
+
+        .bg-shape:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(168, 230, 207, 0.35), transparent);
+            top: 80%;
+            left: 20%;
+            animation-duration: 35s;
+            animation-delay: 4s;
+        }
+
+        .bg-shape:nth-child(4) {
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(137, 229, 208, 0.3), transparent);
+            top: 30%;
+            left: 80%;
+            animation-duration: 28s;
+            animation-delay: 1s;
+        }
+
+        .bg-shape:nth-child(5) {
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(86, 201, 216, 0.35), transparent);
+            top: 50%;
+            left: 40%;
+            animation-duration: 32s;
+            animation-delay: 3s;
+        }
+
+        [data-theme="dark"] .bg-shape:nth-child(1) {
+            background: radial-gradient(circle, rgba(15, 58, 74, 0.5), transparent);
+        }
+
+        [data-theme="dark"] .bg-shape:nth-child(2) {
+            background: radial-gradient(circle, rgba(13, 43, 62, 0.4), transparent);
+        }
+
+        [data-theme="dark"] .bg-shape:nth-child(3) {
+            background: radial-gradient(circle, rgba(26, 77, 92, 0.45), transparent);
+        }
+
+        [data-theme="dark"] .bg-shape:nth-child(4) {
+            background: radial-gradient(circle, rgba(10, 31, 31, 0.4), transparent);
+        }
+
+        [data-theme="dark"] .bg-shape:nth-child(5) {
+            background: radial-gradient(circle, rgba(15, 58, 74, 0.45), transparent);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(30px, -50px) rotate(90deg) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, -30px) rotate(180deg) scale(0.9);
+            }
+            75% {
+                transform: translate(-50px, 20px) rotate(270deg) scale(1.05);
+            }
+        }
+
+        /* Animated Particles */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-duration: 18s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-duration: 22s; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 30%; animation-duration: 16s; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 40%; animation-duration: 20s; animation-delay: 1s; }
+        .particle:nth-child(5) { left: 50%; animation-duration: 19s; animation-delay: 3s; }
+        .particle:nth-child(6) { left: 60%; animation-duration: 17s; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 70%; animation-duration: 21s; animation-delay: 2.5s; }
+        .particle:nth-child(8) { left: 80%; animation-duration: 18s; animation-delay: 4.5s; }
+        .particle:nth-child(9) { left: 90%; animation-duration: 23s; animation-delay: 1.5s; }
+        .particle:nth-child(10) { left: 15%; animation-duration: 20s; animation-delay: 3.5s; }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        [data-theme="dark"] .particle {
+            background: rgba(126, 200, 227, 0.4);
+        }
+
+        /* Accessibility: Disable animations for users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
             body::before,
             body::after {
                 animation: gradientShift 15s ease infinite !important;
+            }
+            .bg-shape,
+            .particle {
+                animation: none !important;
+                opacity: 0.05 !important;
             }
         }
 
@@ -1023,6 +1185,27 @@
     </style>
 </head>
 <body>
+    <!-- Cool Animated Background Elements -->
+    <div class="bg-shapes">
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+    </div>
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <!-- Splash Screen - Linux Boot Style -->
     <div id="splash-screen">
         <div id="boot-messages"></div>
@@ -6569,7 +6752,7 @@
         </div>
 
         <footer>
-            <p>Generated on February 07, 2026 at 12:47 UTC</p>
+            <p>Generated on February 07, 2026 at 12:48 UTC</p>
             <p>
                 <a href="https://github.com/DibyajyotiBiswal57/programs" target="_blank">View on GitHub</a>
             </p>
