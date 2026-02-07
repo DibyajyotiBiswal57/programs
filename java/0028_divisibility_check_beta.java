@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class divisible_by_7_or_3 {
   public static void main(String args[]) {
-    System.out.println("This program checks whether a number is divisible by 7 or 3 or both.");
+    System.out.println("This program checks whether a number is divisible by another number.");
     Scanner scanner = new Scanner(System.in);
     System.out.println("Enter a number:");
     double a = scanner.nextDouble();
