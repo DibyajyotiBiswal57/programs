@@ -250,9 +250,9 @@ def generate_html(questions, status_badges):
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(-45deg, #a8e6cf, #7ec8e3, #56c9d8, #89e5d0);
+            background: linear-gradient(-45deg, #e8f4f8, #f0f7fa, #eaf3f7, #f5f9fb);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite, fadeIn 0.5s ease-in;
+            animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
             color: var(--text-primary);
             line-height: 1.6;
             padding: 20px;
@@ -263,42 +263,12 @@ def generate_html(questions, status_badges):
             width: 100%;
         }
 
-        /* Glitch effect layers - only affect background */
-        body::before,
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(-45deg, #a8e6cf, #7ec8e3, #56c9d8, #89e5d0);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        body::before {
-            animation: gradientShift 15s ease infinite, glitch1 3s infinite;
-            opacity: 0.8;
-        }
-
-        body::after {
-            animation: gradientShift 15s ease infinite, glitch2 4s infinite;
-            opacity: 0.6;
-        }
+        /* Removed glitch effect layers for a more subtle appearance */
 
         [data-theme="dark"] body {
-            background: linear-gradient(-45deg, #0a1f1f, #0d2b3e, #0f3a4a, #1a4d5c);
+            background: linear-gradient(-45deg, #1a1f2e, #1e2433, #1c2330, #1f2637);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite, fadeIn 0.5s ease-in;
-        }
-
-        [data-theme="dark"] body::before,
-        [data-theme="dark"] body::after {
-            background: linear-gradient(-45deg, #0a1f1f, #0d2b3e, #0f3a4a, #1a4d5c);
-            background-size: 400% 400%;
+            animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
         }
 
         @keyframes gradientShift {
@@ -310,94 +280,6 @@ def generate_html(questions, status_badges):
             }
             100% {
                 background-position: 0% 50%;
-            }
-        }
-
-        /* Glitch animation for background layer 1 */
-        @keyframes glitch1 {
-            0%, 100% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            10% {
-                transform: translate(-5px, 2px);
-                clip-path: inset(10% 0 70% 0);
-            }
-            20% {
-                transform: translate(3px, -1px);
-                clip-path: inset(60% 0 20% 0);
-            }
-            30% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            40% {
-                transform: translate(2px, -3px);
-                clip-path: inset(30% 0 50% 0);
-            }
-            50% {
-                transform: translate(-3px, 1px);
-                clip-path: inset(80% 0 10% 0);
-            }
-            60% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            70% {
-                transform: translate(4px, 2px);
-                clip-path: inset(15% 0 75% 0);
-            }
-            80% {
-                transform: translate(-2px, -2px);
-                clip-path: inset(40% 0 40% 0);
-            }
-            90% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-        }
-
-        /* Glitch animation for background layer 2 */
-        @keyframes glitch2 {
-            0%, 100% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            15% {
-                transform: translate(4px, -2px);
-                clip-path: inset(20% 0 60% 0);
-            }
-            25% {
-                transform: translate(-2px, 3px);
-                clip-path: inset(70% 0 15% 0);
-            }
-            35% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            45% {
-                transform: translate(-3px, -1px);
-                clip-path: inset(45% 0 35% 0);
-            }
-            55% {
-                transform: translate(2px, 2px);
-                clip-path: inset(5% 0 85% 0);
-            }
-            65% {
-                transform: translate(0);
-                clip-path: inset(0);
-            }
-            75% {
-                transform: translate(3px, -3px);
-                clip-path: inset(25% 0 65% 0);
-            }
-            85% {
-                transform: translate(-4px, 1px);
-                clip-path: inset(55% 0 25% 0);
-            }
-            95% {
-                transform: translate(0);
-                clip-path: inset(0);
             }
         }
 
@@ -425,92 +307,64 @@ def generate_html(questions, status_badges):
         .bg-shape {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.15;
-            animation: float 20s infinite ease-in-out;
+            opacity: 0.08;
+            animation: float 40s infinite ease-in-out;
         }
 
         .bg-shape:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(94, 201, 216, 0.4), transparent);
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(94, 201, 216, 0.25), transparent);
             top: 10%;
             left: 10%;
-            animation-duration: 25s;
+            animation-duration: 50s;
             animation-delay: 0s;
         }
 
         .bg-shape:nth-child(2) {
             width: 200px;
             height: 200px;
-            background: radial-gradient(circle, rgba(126, 200, 227, 0.3), transparent);
+            background: radial-gradient(circle, rgba(126, 200, 227, 0.2), transparent);
             top: 60%;
             left: 70%;
-            animation-duration: 30s;
-            animation-delay: 2s;
+            animation-duration: 60s;
+            animation-delay: 5s;
         }
 
         .bg-shape:nth-child(3) {
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(168, 230, 207, 0.35), transparent);
-            top: 80%;
-            left: 20%;
-            animation-duration: 35s;
-            animation-delay: 4s;
-        }
-
-        .bg-shape:nth-child(4) {
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(137, 229, 208, 0.3), transparent);
-            top: 30%;
-            left: 80%;
-            animation-duration: 28s;
-            animation-delay: 1s;
-        }
-
-        .bg-shape:nth-child(5) {
             width: 220px;
             height: 220px;
-            background: radial-gradient(circle, rgba(86, 201, 216, 0.35), transparent);
-            top: 50%;
-            left: 40%;
-            animation-duration: 32s;
-            animation-delay: 3s;
+            background: radial-gradient(circle, rgba(168, 230, 207, 0.22), transparent);
+            top: 80%;
+            left: 20%;
+            animation-duration: 55s;
+            animation-delay: 10s;
         }
 
         [data-theme="dark"] .bg-shape:nth-child(1) {
-            background: radial-gradient(circle, rgba(15, 58, 74, 0.5), transparent);
+            background: radial-gradient(circle, rgba(15, 58, 74, 0.3), transparent);
         }
 
         [data-theme="dark"] .bg-shape:nth-child(2) {
-            background: radial-gradient(circle, rgba(13, 43, 62, 0.4), transparent);
+            background: radial-gradient(circle, rgba(13, 43, 62, 0.25), transparent);
         }
 
         [data-theme="dark"] .bg-shape:nth-child(3) {
-            background: radial-gradient(circle, rgba(26, 77, 92, 0.45), transparent);
-        }
-
-        [data-theme="dark"] .bg-shape:nth-child(4) {
-            background: radial-gradient(circle, rgba(10, 31, 31, 0.4), transparent);
-        }
-
-        [data-theme="dark"] .bg-shape:nth-child(5) {
-            background: radial-gradient(circle, rgba(15, 58, 74, 0.45), transparent);
+            background: radial-gradient(circle, rgba(26, 77, 92, 0.28), transparent);
         }
 
         @keyframes float {
             0%, 100% {
-                transform: translate(0, 0) rotate(0deg) scale(1);
+                transform: translate(0, 0) scale(1);
             }
             25% {
-                transform: translate(30px, -50px) rotate(90deg) scale(1.1);
+                transform: translate(15px, -20px) scale(1.05);
             }
             50% {
-                transform: translate(-20px, -30px) rotate(180deg) scale(0.9);
+                transform: translate(-10px, -15px) scale(0.95);
             }
             75% {
-                transform: translate(-50px, 20px) rotate(270deg) scale(1.05);
+                transform: translate(-20px, 10px) scale(1.02);
             }
         }
 
@@ -528,23 +382,17 @@ def generate_html(questions, status_badges):
 
         .particle {
             position: absolute;
-            width: 6px;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.3);
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 50%;
-            animation: particleFloat 15s infinite ease-in-out;
+            animation: particleFloat 25s infinite ease-in-out;
         }
 
-        .particle:nth-child(1) { left: 10%; animation-duration: 18s; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-duration: 22s; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 30%; animation-duration: 16s; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 40%; animation-duration: 20s; animation-delay: 1s; }
-        .particle:nth-child(5) { left: 50%; animation-duration: 19s; animation-delay: 3s; }
-        .particle:nth-child(6) { left: 60%; animation-duration: 17s; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 70%; animation-duration: 21s; animation-delay: 2.5s; }
-        .particle:nth-child(8) { left: 80%; animation-duration: 18s; animation-delay: 4.5s; }
-        .particle:nth-child(9) { left: 90%; animation-duration: 23s; animation-delay: 1.5s; }
-        .particle:nth-child(10) { left: 15%; animation-duration: 20s; animation-delay: 3.5s; }
+        .particle:nth-child(1) { left: 15%; animation-duration: 30s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 40%; animation-duration: 35s; animation-delay: 5s; }
+        .particle:nth-child(3) { left: 65%; animation-duration: 32s; animation-delay: 10s; }
+        .particle:nth-child(4) { left: 85%; animation-duration: 38s; animation-delay: 3s; }
 
         @keyframes particleFloat {
             0% {
@@ -552,10 +400,10 @@ def generate_html(questions, status_badges):
                 opacity: 0;
             }
             10% {
-                opacity: 0.4;
+                opacity: 0.2;
             }
             90% {
-                opacity: 0.4;
+                opacity: 0.2;
             }
             100% {
                 transform: translateY(-100px) scale(1);
@@ -564,19 +412,18 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="dark"] .particle {
-            background: rgba(126, 200, 227, 0.4);
+            background: rgba(126, 200, 227, 0.2);
         }
 
         /* Accessibility: Disable all background animations for users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
-            body::before,
-            body::after {
-                animation: gradientShift 15s ease infinite !important;
+            body {
+                animation: fadeIn 0.5s ease-in !important;
             }
             .bg-shape,
             .particle {
                 animation: none !important;
-                opacity: 0.05 !important;
+                opacity: 0.03 !important;
             }
         }
 
@@ -1548,16 +1395,8 @@ def generate_html(questions, status_badges):
         <div class="bg-shape"></div>
         <div class="bg-shape"></div>
         <div class="bg-shape"></div>
-        <div class="bg-shape"></div>
-        <div class="bg-shape"></div>
     </div>
     <div class="bg-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
