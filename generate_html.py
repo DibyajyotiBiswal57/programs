@@ -329,11 +329,11 @@ def generate_html(questions, status_badges):
             --primary-color: #60a5fa;
             --secondary-color: #3b82f6;
             --accent-color: #93c5fd;
-            --background: #0f172a;
-            --card-bg: #1e293b;
+            --background: #0a0a0a;
+            --card-bg: #1a1a1a;
             --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
-            --border-color: #334155;
+            --border-color: #2a2a2a;
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
@@ -357,7 +357,7 @@ def generate_html(questions, status_badges):
 
         /* Enhanced dark mode body with smooth gradient transition */
         [data-theme="dark"] body {
-            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569);
+            background: linear-gradient(-45deg, #0a0a0a, #121212, #1a1a1a, #0f0f0f);
             background-size: 400% 400%;
             background-position: 0% 50%;
             animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
@@ -434,15 +434,15 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="dark"] .bg-shape:nth-child(1) {
-            background: radial-gradient(circle, rgba(15, 58, 74, 0.4), transparent);
+            background: radial-gradient(circle, rgba(30, 30, 30, 0.4), transparent);
         }
 
         [data-theme="dark"] .bg-shape:nth-child(2) {
-            background: radial-gradient(circle, rgba(13, 43, 62, 0.35), transparent);
+            background: radial-gradient(circle, rgba(25, 25, 25, 0.35), transparent);
         }
 
         [data-theme="dark"] .bg-shape:nth-child(3) {
-            background: radial-gradient(circle, rgba(26, 77, 92, 0.38), transparent);
+            background: radial-gradient(circle, rgba(35, 35, 35, 0.38), transparent);
         }
 
         @keyframes float {
@@ -504,7 +504,7 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="dark"] .particle {
-            background: rgba(126, 200, 227, 0.2);
+            background: rgba(80, 80, 80, 0.25);
         }
 
         /* Accessibility: Disable animations for users who prefer reduced motion */
@@ -669,7 +669,7 @@ def generate_html(questions, status_badges):
         }
 
         .question-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
             box-shadow: var(--shadow-xl);
             border-color: var(--accent-color);
         }
@@ -683,6 +683,12 @@ def generate_html(questions, status_badges):
             font-weight: 600;
             font-size: 0.875rem;
             margin-bottom: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .question-card:hover .question-number {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
         }
 
         .question-text {
@@ -723,12 +729,20 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="dark"] .question-card {
-            background: #2d2d2d !important;
+            background: #1a1a1a !important;
+        }
+
+        [data-theme="dark"] .question-card:hover {
+            box-shadow: 0 0 30px rgba(96, 165, 250, 0.3), var(--shadow-xl);
         }
 
         [data-theme="dark"] .question-filename,
         [data-theme="dark"] .question-example {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        [data-theme="dark"] .status-toggle:hover {
+            background: rgba(96, 165, 250, 0.1);
         }
 
         .status-toggle {
@@ -751,6 +765,7 @@ def generate_html(questions, status_badges):
 
         .status-toggle:hover {
             background: #e0e7ff;
+            transform: translateX(5px);
         }
 
         .status-toggle:focus {
