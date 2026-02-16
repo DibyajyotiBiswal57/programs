@@ -683,6 +683,7 @@ def generate_html(questions, status_badges):
             font-weight: 600;
             font-size: 0.875rem;
             margin-bottom: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -760,7 +761,7 @@ def generate_html(questions, status_badges):
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .status-toggle:hover {
