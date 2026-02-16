@@ -1784,6 +1784,13 @@ def generate_html(questions, status_badges):
             }
         }
     </style>
+    <script>
+        // Set theme immediately before page renders to prevent flash
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 <body>
     <!-- Cool Animated Background Elements -->
@@ -2060,23 +2067,19 @@ def generate_html(questions, status_badges):
             }}
         }}
 
-        // Load saved theme with smooth initialization
+        // Initialize theme-dependent UI elements after DOM is ready
         (function() {{
             const savedTheme = localStorage.getItem('theme') || 'light';
-            const html = document.documentElement;
             const themeIcon = document.getElementById('theme-icon');
-            
-            // Set theme immediately to prevent flash
-            html.setAttribute('data-theme', savedTheme);
 
-            // Set initial icon
+            // Set initial icon based on current theme
             if (themeIcon) {{
                 themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
             }}
 
-            // Add loaded class for fade-in instead of inline style
+            // Add loaded class for fade-in animation
             setTimeout(() => {{
-                html.classList.add('page-loaded');
+                document.documentElement.classList.add('page-loaded');
             }}, 50);
         }})();
 
