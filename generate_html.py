@@ -355,6 +355,29 @@ def generate_html(questions, status_badges):
             width: 100%;
         }
 
+        /* Subtle grid pattern overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        [data-theme="light"] body::after {
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+
         /* Enhanced dark mode body with smooth gradient transition */
         [data-theme="dark"] body {
             background: linear-gradient(-45deg, #000000, #0a0a0a, #050510, #0d0d1a);
@@ -579,23 +602,26 @@ def generate_html(questions, status_badges):
             padding-top: 80px; /* Space for sticky header */
         }
 
-        /* Sticky Navigation Bar */
+        /* Sticky Navigation Bar - Enhanced glassmorphism */
         .sticky-navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(248, 250, 252, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--shadow-md);
+            background: rgba(248, 250, 252, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
             z-index: 1000;
             animation: slideDown 0.6s ease-out;
+            transition: all 0.3s ease;
         }
 
         [data-theme="dark"] .sticky-navbar {
-            background: rgba(26, 26, 26, 0.85);
+            background: rgba(10, 10, 10, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-content {
@@ -1270,39 +1296,50 @@ def generate_html(questions, status_badges):
             color: #fde68a;
         }
 
-        /* Scroll Progress Indicator */
+        /* Scroll Progress Indicator - Enhanced */
         .scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--primary-color) 0%, 
+                var(--accent-color) 50%,
+                #a78bfa 100%
+            );
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.5);
             z-index: 1001;
-            transition: width 0.2s ease;
+            transition: width 0.15s ease-out;
             width: 0%;
         }
 
-        /* Back to Top Button */
+        [data-theme="dark"] .scroll-progress {
+            box-shadow: 0 2px 15px rgba(96, 165, 250, 0.6);
+        }
+
+        /* Back to Top Button - Enhanced */
         .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             border: none;
             border-radius: 50%;
             font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             z-index: 999;
             display: flex;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .back-to-top.visible {
@@ -1311,12 +1348,12 @@ def generate_html(questions, status_badges):
         }
 
         .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5);
         }
 
         .back-to-top:active {
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.05);
         }
 
         /* Enhanced card animations and hover effects */
