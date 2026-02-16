@@ -69,7 +69,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(-45deg, #e8f4f8, #f0f7fa, #eaf3f7, #f5f9fb);
+            background: linear-gradient(-45deg, #0a0e27, #1a1f3a, #0d1127, #181d35);
             background-size: 400% 400%;
             background-position: 0% 50%;
             animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
@@ -84,10 +84,17 @@
 
         /* Enhanced dark mode body with smooth gradient transition */
         [data-theme="dark"] body {
-            background: linear-gradient(-45deg, #0a0a0a, #121212, #1a1a1a, #0f0f0f);
+            background: linear-gradient(-45deg, #000000, #0a0a0a, #050510, #0d0d1a);
             background-size: 400% 400%;
             background-position: 0% 50%;
             animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
+        }
+        
+        /* Light mode override for space theme */
+        [data-theme="light"] body {
+            background: linear-gradient(-45deg, #e8f4f8, #f0f7fa, #eaf3f7, #f5f9fb);
+            background-size: 400% 400%;
+            background-position: 0% 50%;
         }
 
         @keyframes gradientShift {
@@ -231,7 +238,40 @@
         }
 
         [data-theme="dark"] .particle {
-            background: rgba(80, 80, 80, 0.25);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Starfield Animation - Virgin Galactic inspired */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        [data-theme="light"] .star {
+            opacity: 0.1;
+            background: #94a3b8;
+        }
+
+        /* Parallax scroll effects */
+        .parallax-layer {
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         /* Accessibility: Disable animations for users who prefer reduced motion */
@@ -345,25 +385,93 @@
 
         header {
             text-align: center;
-            padding: 20px 20px;
-            margin-bottom: 30px;
+            padding: 60px 20px 40px;
+            margin-bottom: 50px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(59, 130, 246, 0.05));
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] header {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(59, 130, 246, 0.08));
+            border: 1px solid rgba(96, 165, 250, 0.15);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle,
+                rgba(59, 130, 246, 0.1) 0%,
+                transparent 70%
+            );
+            animation: heroGlow 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(10%, 10%) scale(1.1);
+                opacity: 0.8;
+            }
         }
 
         h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
+            position: relative;
+            z-index: 1;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .subtitle {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
             margin-top: 10px;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .questions-grid {
@@ -375,13 +483,55 @@
 
         .question-card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 24px;
             box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             animation: fadeInUp 0.5s ease-out;
             animation-fill-mode: both;
             border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Glassmorphism effect */
+        [data-theme="dark"] .question-card {
+            background: rgba(26, 26, 26, 0.7) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="light"] .question-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Shine effect on hover */
+        .question-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.05) 50%,
+                transparent 70%
+            );
+            transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            transition: transform 0.6s ease;
+            pointer-events: none;
+        }
+
+        .question-card:hover::before {
+            transform: translateX(100%) translateY(100%) rotate(45deg);
         }
 
         @keyframes fadeInUp {
@@ -396,8 +546,10 @@
         }
 
         .question-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-12px) scale(1.03) rotateX(2deg);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 40px rgba(59, 130, 246, 0.3);
             border-color: var(--accent-color);
         }
 
@@ -461,7 +613,10 @@
         }
 
         [data-theme="dark"] .question-card:hover {
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.3), var(--shadow-xl);
+            box-shadow: 
+                0 0 50px rgba(96, 165, 250, 0.4),
+                0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border-color: rgba(96, 165, 250, 0.6);
         }
 
         [data-theme="dark"] .question-filename,
@@ -557,6 +712,18 @@
             height: 20px;
             display: inline-block;
             vertical-align: middle;
+        }
+
+        /* Scroll reveal animation states */
+        .parallax-layer {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .parallax-layer.revealed {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         footer {
@@ -7111,7 +7278,7 @@ LANGUAGE</div>
         </div>
 
         <footer>
-            <p>Generated on February 16, 2026 at 11:54 UTC</p>
+            <p>Generated on February 16, 2026 at 12:01 UTC</p>
             <p>
                 <a href="https://github.com/DibyajyotiBiswal57/programs" target="_blank">View on GitHub</a>
             </p>
@@ -7536,6 +7703,115 @@ LANGUAGE</div>
             setTimeout(function() {
                 skipSplash();
             }, 4000); // 4 seconds to see all the loading messages
+        });
+
+        // Virgin Galactic-inspired scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    // Add stagger effect
+                    const cards = document.querySelectorAll('.question-card');
+                    cards.forEach(function(card, index) {
+                        if (card === entry.target) {
+                            card.style.transitionDelay = (index % 3) * 0.1 + 's';
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all question cards for reveal animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.question-card');
+            cards.forEach(function(card) {
+                card.classList.add('parallax-layer');
+                revealObserver.observe(card);
+            });
+        });
+
+        // Parallax scrolling effect
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    const scrolled = window.pageYOffset;
+                    const parallaxLayers = document.querySelectorAll('.parallax-layer');
+                    
+                    parallaxLayers.forEach(function(layer, index) {
+                        const speed = (index % 3 + 1) * 0.05;
+                        const yPos = -(scrolled * speed);
+                        layer.style.transform = 'translateY(' + yPos + 'px)';
+                    });
+                    
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Create starfield
+        function createStarfield() {
+            const starfield = document.createElement('div');
+            starfield.className = 'starfield';
+            
+            // Create stars
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                
+                // Random size (1-3px)
+                const size = Math.random() * 2 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                
+                // Random animation delay
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                
+                starfield.appendChild(star);
+            }
+            
+            document.body.insertBefore(starfield, document.body.firstChild);
+        }
+
+        // Initialize starfield
+        createStarfield();
+
+        // 3D tilt effect on cards (magnetic cursor)
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.question-card');
+            
+            cards.forEach(function(card) {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    card.style.transform = 
+                        'translateY(-12px) scale(1.03) ' +
+                        'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    card.style.transform = '';
+                });
+            });
         });
     </script>
 </body>
