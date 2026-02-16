@@ -342,7 +342,7 @@ def generate_html(questions, status_badges):
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(-45deg, #e8f4f8, #f0f7fa, #eaf3f7, #f5f9fb);
+            background: linear-gradient(-45deg, #0a0e27, #1a1f3a, #0d1127, #181d35);
             background-size: 400% 400%;
             background-position: 0% 50%;
             animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
@@ -355,12 +355,42 @@ def generate_html(questions, status_badges):
             width: 100%;
         }
 
+        /* Subtle grid pattern overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        [data-theme="light"] body::after {
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+
         /* Enhanced dark mode body with smooth gradient transition */
         [data-theme="dark"] body {
-            background: linear-gradient(-45deg, #0a0a0a, #121212, #1a1a1a, #0f0f0f);
+            background: linear-gradient(-45deg, #000000, #0a0a0a, #050510, #0d0d1a);
             background-size: 400% 400%;
             background-position: 0% 50%;
             animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
+        }
+        
+        /* Light mode override for space theme */
+        [data-theme="light"] body {
+            background: linear-gradient(-45deg, #e8f4f8, #f0f7fa, #eaf3f7, #f5f9fb);
+            background-size: 400% 400%;
+            background-position: 0% 50%;
         }
 
         @keyframes gradientShift {
@@ -504,7 +534,40 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="dark"] .particle {
-            background: rgba(80, 80, 80, 0.25);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Starfield Animation - Virgin Galactic inspired */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        [data-theme="light"] .star {
+            opacity: 0.1;
+            background: #94a3b8;
+        }
+
+        /* Parallax scroll effects */
+        .parallax-layer {
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         /* Accessibility: Disable animations for users who prefer reduced motion */
@@ -539,23 +602,26 @@ def generate_html(questions, status_badges):
             padding-top: 80px; /* Space for sticky header */
         }
 
-        /* Sticky Navigation Bar */
+        /* Sticky Navigation Bar - Enhanced glassmorphism */
         .sticky-navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(248, 250, 252, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--shadow-md);
+            background: rgba(248, 250, 252, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
             z-index: 1000;
             animation: slideDown 0.6s ease-out;
+            transition: all 0.3s ease;
         }
 
         [data-theme="dark"] .sticky-navbar {
-            background: rgba(26, 26, 26, 0.85);
+            background: rgba(10, 10, 10, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-content {
@@ -618,25 +684,93 @@ def generate_html(questions, status_badges):
 
         header {
             text-align: center;
-            padding: 20px 20px;
-            margin-bottom: 30px;
+            padding: 60px 20px 40px;
+            margin-bottom: 50px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(59, 130, 246, 0.05));
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] header {
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(59, 130, 246, 0.08));
+            border: 1px solid rgba(96, 165, 250, 0.15);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle,
+                rgba(59, 130, 246, 0.1) 0%,
+                transparent 70%
+            );
+            animation: heroGlow 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(10%, 10%) scale(1.1);
+                opacity: 0.8;
+            }
         }
 
         h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
+            position: relative;
+            z-index: 1;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .subtitle {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
             margin-top: 10px;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .questions-grid {
@@ -648,13 +782,55 @@ def generate_html(questions, status_badges):
 
         .question-card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 24px;
             box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             animation: fadeInUp 0.5s ease-out;
             animation-fill-mode: both;
             border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Glassmorphism effect */
+        [data-theme="dark"] .question-card {
+            background: rgba(26, 26, 26, 0.7) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="light"] .question-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Shine effect on hover */
+        .question-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.05) 50%,
+                transparent 70%
+            );
+            transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            transition: transform 0.6s ease;
+            pointer-events: none;
+        }
+
+        .question-card:hover::before {
+            transform: translateX(100%) translateY(100%) rotate(45deg);
         }
 
         @keyframes fadeInUp {
@@ -669,8 +845,10 @@ def generate_html(questions, status_badges):
         }
 
         .question-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-12px) scale(1.03) rotateX(2deg);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 40px rgba(59, 130, 246, 0.3);
             border-color: var(--accent-color);
         }
 
@@ -734,7 +912,10 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="dark"] .question-card:hover {
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.3), var(--shadow-xl);
+            box-shadow: 
+                0 0 50px rgba(96, 165, 250, 0.4),
+                0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border-color: rgba(96, 165, 250, 0.6);
         }
 
         [data-theme="dark"] .question-filename,
@@ -830,6 +1011,18 @@ def generate_html(questions, status_badges):
             height: 20px;
             display: inline-block;
             vertical-align: middle;
+        }
+
+        /* Scroll reveal animation states */
+        .parallax-layer {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .parallax-layer.revealed {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         footer {
@@ -1103,39 +1296,50 @@ def generate_html(questions, status_badges):
             color: #fde68a;
         }
 
-        /* Scroll Progress Indicator */
+        /* Scroll Progress Indicator - Enhanced */
         .scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--primary-color) 0%, 
+                var(--accent-color) 50%,
+                #a78bfa 100%
+            );
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.5);
             z-index: 1001;
-            transition: width 0.2s ease;
+            transition: width 0.15s ease-out;
             width: 0%;
         }
 
-        /* Back to Top Button */
+        [data-theme="dark"] .scroll-progress {
+            box-shadow: 0 2px 15px rgba(96, 165, 250, 0.6);
+        }
+
+        /* Back to Top Button - Enhanced */
         .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             border: none;
             border-radius: 50%;
             font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             z-index: 999;
             display: flex;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .back-to-top.visible {
@@ -1144,12 +1348,12 @@ def generate_html(questions, status_badges):
         }
 
         .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5);
         }
 
         .back-to-top:active {
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.05);
         }
 
         /* Enhanced card animations and hover effects */
@@ -2190,6 +2394,115 @@ def generate_html(questions, status_badges):
             setTimeout(function() {{
                 skipSplash();
             }}, 4000); // 4 seconds to see all the loading messages
+        }});
+
+        // Virgin Galactic-inspired scroll reveal animations
+        const observerOptions = {{
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        }};
+
+        const revealObserver = new IntersectionObserver(function(entries) {{
+            entries.forEach(function(entry) {{
+                if (entry.isIntersecting) {{
+                    entry.target.classList.add('revealed');
+                    // Add stagger effect
+                    const cards = document.querySelectorAll('.question-card');
+                    cards.forEach(function(card, index) {{
+                        if (card === entry.target) {{
+                            card.style.transitionDelay = (index % 3) * 0.1 + 's';
+                        }}
+                    }});
+                }}
+            }});
+        }}, observerOptions);
+
+        // Observe all question cards for reveal animation
+        document.addEventListener('DOMContentLoaded', function() {{
+            const cards = document.querySelectorAll('.question-card');
+            cards.forEach(function(card) {{
+                card.classList.add('parallax-layer');
+                revealObserver.observe(card);
+            }});
+        }});
+
+        // Parallax scrolling effect
+        let ticking = false;
+        window.addEventListener('scroll', function() {{
+            if (!ticking) {{
+                window.requestAnimationFrame(function() {{
+                    const scrolled = window.pageYOffset;
+                    const parallaxLayers = document.querySelectorAll('.parallax-layer');
+                    
+                    parallaxLayers.forEach(function(layer, index) {{
+                        const speed = (index % 3 + 1) * 0.05;
+                        const yPos = -(scrolled * speed);
+                        layer.style.transform = 'translateY(' + yPos + 'px)';
+                    }});
+                    
+                    ticking = false;
+                }});
+                ticking = true;
+            }}
+        }});
+
+        // Create starfield
+        function createStarfield() {{
+            const starfield = document.createElement('div');
+            starfield.className = 'starfield';
+            
+            // Create stars
+            for (let i = 0; i < 100; i++) {{
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                
+                // Random size (1-3px)
+                const size = Math.random() * 2 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                
+                // Random animation delay
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                
+                starfield.appendChild(star);
+            }}
+            
+            document.body.insertBefore(starfield, document.body.firstChild);
+        }}
+
+        // Initialize starfield
+        createStarfield();
+
+        // 3D tilt effect on cards (magnetic cursor)
+        document.addEventListener('DOMContentLoaded', function() {{
+            const cards = document.querySelectorAll('.question-card');
+            
+            cards.forEach(function(card) {{
+                card.addEventListener('mousemove', function(e) {{
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    card.style.transform = 
+                        'translateY(-12px) scale(1.03) ' +
+                        'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+                }});
+                
+                card.addEventListener('mouseleave', function() {{
+                    card.style.transform = '';
+                }});
+            }});
         }});
     </script>
 </body>
