@@ -71,44 +71,49 @@ def parse_questions(questions_file="questions.md"):
         while i < len(lines):
             line = lines[i]
             # Pattern to match numbered questions
-            # Example: "1. Print "Hello World". <br> [Filename - 0001_hello_world]"
+            # Example: "1. Print "Hello World". <br> [Filename -
+            # 0001_hello_world]"
             match = re.match(r"^(\d+)\.\s+(.+)$", line)
 
             if match:
                 question_num = int(match.group(1))
                 full_line = match.group(2).strip()
-                
+
                 # Extract filename if present
                 filename = ""
-                filename_match = re.search(r'\[Filename\s*-\s*([^\]]+)\]', full_line)
+                filename_match = re.search(
+                    r"\[Filename\s*-\s*([^\]]+)\]", full_line)
                 if filename_match:
                     filename = filename_match.group(1).strip()
-                
+
                 # Extract question text (everything before <br>)
                 question_text = full_line
-                if '<br>' in full_line:
+                if "<br>" in full_line:
                     # Get text before <br>
-                    parts = full_line.split('<br>')
+                    parts = full_line.split("<br>")
                     question_text = parts[0].strip()
                 else:
                     # Remove filename from question text if no <br>
-                    question_text = re.sub(r'\s*\[Filename[^\]]+\]\s*$', '', question_text).strip()
-                
-                # Look for example code blocks in following lines (multi-line examples only)
+                    question_text = re.sub(
+                        r"\s*\[Filename[^\]]+\]\s*$", "", question_text
+                    ).strip()
+
+                # Look for example code blocks in following lines (multi-line
+                # examples only)
                 example = ""
                 i += 1
                 # Check if next lines contain code blocks (```)
                 in_code_block = False
                 example_lines = []
-                
+
                 while i < len(lines):
                     next_line = lines[i]
                     # Stop if we hit another numbered question
                     if re.match(r"^\d+\.\s+", next_line):
                         break
-                    
+
                     # Check for code block markers
-                    if next_line.strip().startswith('```'):
+                    if next_line.strip().startswith("```"):
                         if in_code_block:
                             # End of code block - don't include the closing ```
                             in_code_block = False
@@ -116,44 +121,51 @@ def parse_questions(questions_file="questions.md"):
                             # Continue reading to catch any additional content
                             continue
                         else:
-                            # Start of code block - don't include the opening ```
+                            # Start of code block - don't include the opening
+                            # ```
                             in_code_block = True
                             i += 1
                             continue
-                    
+
                     # If we're in a code block, include the line
                     if in_code_block:
                         example_lines.append(next_line)
                         i += 1
-                    # If line has content and looks like it's part of the question description
+                    # If line has content and looks like it's part of the
+                    # question description
                     else:
                         stripped_line = next_line.strip()
-                        if stripped_line and not stripped_line.startswith('#'):
-                            # Check if this is a list item or continuation of question
-                            if stripped_line.startswith('-') or next_line.startswith('    '):
+                        if stripped_line and not stripped_line.startswith("#"):
+                            # Check if this is a list item or continuation of
+                            # question
+                            if stripped_line.startswith(
+                                    "-") or next_line.startswith("    "):
                                 example_lines.append(next_line)
                                 i += 1
                             else:
                                 break
-                        elif stripped_line == '':
-                            # Empty line - continue if we're building an example
+                        elif stripped_line == "":
+                            # Empty line - continue if we're building an
+                            # example
                             if example_lines:
                                 example_lines.append(next_line)
                             i += 1
                         else:
                             break
-                
+
                 if example_lines:
-                    example = ''.join(example_lines).strip()
-                
-                questions.append({
-                    "number": question_num,
-                    "text": question_text,
-                    "filename": filename,
-                    "example": example
-                })
+                    example = "".join(example_lines).strip()
+
+                questions.append(
+                    {
+                        "number": question_num,
+                        "text": question_text,
+                        "filename": filename,
+                        "example": example,
+                    }
+                )
                 continue
-            
+
             i += 1
 
         print(f"📊 Parsed {len(questions)} questions from {questions_file}")
@@ -369,7 +381,7 @@ def generate_html(questions, status_badges):
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -379,7 +391,7 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="light"] body::after {
-            background-image: 
+            background-image:
                 linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
         }
@@ -391,7 +403,7 @@ def generate_html(questions, status_badges):
             background-position: 0% 50%;
             animation: gradientShift 30s ease infinite, fadeIn 0.5s ease-in;
         }
-        
+
         /* Light mode override for space theme */
         [data-theme="light"] body {
             background: linear-gradient(-45deg, #e8f4f8, #f0f7fa, #eaf3f7, #f5f9fb);
@@ -585,7 +597,7 @@ def generate_html(questions, status_badges):
                 transition: none !important;
                 animation: none !important;
             }
-            
+
             body {
                 animation: none !important;
             }
@@ -879,7 +891,7 @@ def generate_html(questions, status_badges):
 
         .question-card:hover {
             transform: translateY(-12px) scale(1.03) rotateX(2deg);
-            box-shadow: 
+            box-shadow:
                 0 25px 50px -12px rgba(0, 0, 0, 0.25),
                 0 0 40px rgba(59, 130, 246, 0.3);
             border-color: var(--accent-color);
@@ -945,7 +957,7 @@ def generate_html(questions, status_badges):
         }
 
         [data-theme="dark"] .question-card:hover {
-            box-shadow: 
+            box-shadow:
                 0 0 50px rgba(96, 165, 250, 0.4),
                 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             border-color: rgba(96, 165, 250, 0.6);
@@ -1351,8 +1363,8 @@ def generate_html(questions, status_badges):
             top: 0;
             left: 0;
             height: 4px;
-            background: linear-gradient(90deg, 
-                var(--primary-color) 0%, 
+            background: linear-gradient(90deg,
+                var(--primary-color) 0%,
                 var(--accent-color) 50%,
                 #a78bfa 100%
             );
@@ -1885,17 +1897,17 @@ def generate_html(questions, status_badges):
             <div class="navbar-search">
                 <div class="search-box">
                     <span class="search-icon">🔍</span>
-                    <input 
-                        type="text" 
-                        id="searchInput" 
-                        class="search-input" 
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="search-input"
                         placeholder="Search questions..."
                         aria-label="Search questions"
                         autocomplete="off"
                     >
-                    <button 
-                        id="clearSearch" 
-                        class="clear-search" 
+                    <button
+                        id="clearSearch"
+                        class="clear-search"
                         aria-label="Clear search"
                         onclick="clearSearch()"
                     >✕</button>
@@ -1926,17 +1938,17 @@ def generate_html(questions, status_badges):
         <div class="search-container">
             <div class="search-box">
                 <span class="search-icon">🔍</span>
-                <input 
-                    type="text" 
-                    id="searchInput" 
-                    class="search-input" 
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
                     placeholder="Search questions by number or description..."
                     aria-label="Search questions"
                     autocomplete="off"
                 >
-                <button 
-                    id="clearSearch" 
-                    class="clear-search" 
+                <button
+                    id="clearSearch"
+                    class="clear-search"
                     aria-label="Clear search"
                     onclick="clearSearch()"
                 >✕</button>
@@ -1969,19 +1981,26 @@ def generate_html(questions, status_badges):
         html_parts.append(f"""            <div class="question-card">
                 <div class="question-number">#{qnum:04d}</div>
                 <div class="question-text">{qtext}</div>""")
-        
+
         # Add filename if present
         if qfilename:
             html_parts.append(f"""
                 <div class="question-filename">📁 {qfilename}</div>""")
-        
+
         # Add example if present
         if qexample:
             # Escape HTML in example to prevent injection
-            qexample_escaped = qexample.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+            qexample_escaped = (
+                qexample.replace(
+                    "&",
+                    "&amp;").replace(
+                    "<",
+                    "&lt;").replace(
+                    ">",
+                    "&gt;"))
             html_parts.append(f"""
                 <div class="question-example">{qexample_escaped}</div>""")
-        
+
         html_parts.append(f"""
                 <button class="status-toggle"
                         aria-expanded="false"
@@ -2088,10 +2107,10 @@ def generate_html(questions, status_badges):
         function createThemeParticles(theme) {{
             // Use theme-appropriate colors from CSS variables
             const sharedColor = '#3b82f6';
-            const colors = theme === 'dark' 
+            const colors = theme === 'dark'
                 ? ['#60a5fa', sharedColor, '#93c5fd']
                 : ['#2563eb', sharedColor, '#1e40af'];
-            
+
             const button = document.querySelector('.theme-toggle');
             const rect = button.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
@@ -2154,7 +2173,7 @@ def generate_html(questions, status_badges):
         // Combined scroll handler for performance
         const backToTopBtn = document.getElementById('backToTop');
         const scrollProgress = document.getElementById('scrollProgress');
-        
+
         window.addEventListener('scroll', function() {{
             // Back to top button visibility
             if (window.pageYOffset > 300) {{
@@ -2162,7 +2181,7 @@ def generate_html(questions, status_badges):
             }} else {{
                 backToTopBtn.classList.remove('visible');
             }}
-            
+
             // Scroll progress indicator
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -2182,7 +2201,7 @@ def generate_html(questions, status_badges):
                 clearSearch();
                 searchInput.blur();
             }}
-            
+
             if (event.target.classList.contains('status-toggle')) {{
                 if (event.key === 'Enter' || event.key === ' ') {{
                     event.preventDefault();
@@ -2228,9 +2247,9 @@ def generate_html(questions, status_badges):
             questionCards.forEach(card => {{
                 const questionNumber = card.querySelector('.question-number').textContent.toLowerCase();
                 const questionText = card.querySelector('.question-text').textContent.toLowerCase();
-                
+
                 const matches = questionNumber.includes(searchTerm) || questionText.includes(searchTerm);
-                
+
                 if (matches) {{
                     card.classList.remove('hidden');
                     visibleCount++;
@@ -2287,7 +2306,7 @@ def generate_html(questions, status_badges):
             function addBootMessage(text, status = null, className = '') {{
                 const line = document.createElement('div');
                 line.className = 'boot-line ' + className;
-                
+
                 if (status) {{
                     const statusSpan = document.createElement('span');
                     statusSpan.className = 'boot-status ' + (status === 'OK' ? 'ok' : 'failed');
@@ -2297,7 +2316,7 @@ def generate_html(questions, status_badges):
                 }} else {{
                     line.textContent = text;
                 }}
-                
+
                 bootMessages.appendChild(line);
                 return line;
             }}
@@ -2323,7 +2342,7 @@ def generate_html(questions, status_badges):
                 // Track stylesheets (already loaded)
                 const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
                 const totalStylesheets = stylesheets.length;
-                
+
                 if (totalStylesheets > 0) {{
                     // Stylesheets are inline, consider them loaded
                     loadedResources.stylesheet = totalStylesheets;
@@ -2334,7 +2353,7 @@ def generate_html(questions, status_badges):
                 // Since we can't easily track inline scripts, we'll just indicate JavaScript is ready
                 const allScripts = document.querySelectorAll('script');
                 const externalScripts = Array.from(allScripts).filter(s => s.src);
-                
+
                 if (externalScripts.length > 0) {{
                     externalScripts.forEach(function(script) {{
                         const scriptName = script.src.split('/').pop();
@@ -2360,13 +2379,13 @@ def generate_html(questions, status_badges):
                 if (images.length > 0) {{
                     let imagesLoaded = 0;
                     let imagesFailed = 0;
-                    
+
                     function checkAllImagesProcessed() {{
                         if (imagesLoaded + imagesFailed === images.length) {{
                             reportImageResults(imagesLoaded, imagesFailed);
                         }}
                     }}
-                    
+
                     images.forEach(function(img) {{
                         if (img.complete) {{
                             if (img.naturalHeight > 0) {{
@@ -2389,7 +2408,7 @@ def generate_html(questions, status_badges):
                             }});
                         }}
                     }});
-                    
+
                     checkAllImagesProcessed();
                 }} else {{
                     addBootMessage('No images to load', 'OK', 'info');
@@ -2426,7 +2445,7 @@ def generate_html(questions, status_badges):
                 line.className = 'boot-line highlight';
                 line.innerHTML = '<br>Programming Questions v1.0 - Ready';
                 bootMessages.appendChild(line);
-                
+
                 const finalLine = document.createElement('div');
                 finalLine.className = 'boot-line info';
                 finalLine.innerHTML = 'System boot complete. Starting interface...<span class="boot-cursor"></span>';
@@ -2496,13 +2515,13 @@ def generate_html(questions, status_badges):
                 window.requestAnimationFrame(function() {{
                     const scrolled = window.pageYOffset;
                     const parallaxLayers = document.querySelectorAll('.parallax-layer');
-                    
+
                     parallaxLayers.forEach(function(layer, index) {{
                         const speed = (index % 3 + 1) * 0.05;
                         const yPos = -(scrolled * speed);
                         layer.style.transform = 'translateY(' + yPos + 'px)';
                     }});
-                    
+
                     ticking = false;
                 }});
                 ticking = true;
@@ -2513,28 +2532,28 @@ def generate_html(questions, status_badges):
         function createStarfield() {{
             const starfield = document.createElement('div');
             starfield.className = 'starfield';
-            
+
             // Create stars
             for (let i = 0; i < 100; i++) {{
                 const star = document.createElement('div');
                 star.className = 'star';
-                
+
                 // Random position
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
-                
+
                 // Random size (1-3px)
                 const size = Math.random() * 2 + 1;
                 star.style.width = size + 'px';
                 star.style.height = size + 'px';
-                
+
                 // Random animation delay
                 star.style.animationDelay = Math.random() * 3 + 's';
                 star.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                
+
                 starfield.appendChild(star);
             }}
-            
+
             document.body.insertBefore(starfield, document.body.firstChild);
         }}
 
@@ -2544,24 +2563,24 @@ def generate_html(questions, status_badges):
         // 3D tilt effect on cards (magnetic cursor)
         document.addEventListener('DOMContentLoaded', function() {{
             const cards = document.querySelectorAll('.question-card');
-            
+
             cards.forEach(function(card) {{
                 card.addEventListener('mousemove', function(e) {{
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
-                    
+
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    
+
                     const rotateX = (y - centerY) / 20;
                     const rotateY = (centerX - x) / 20;
-                    
-                    card.style.transform = 
+
+                    card.style.transform =
                         'translateY(-12px) scale(1.03) ' +
                         'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
                 }});
-                
+
                 card.addEventListener('mouseleave', function() {{
                     card.style.transform = '';
                 }});

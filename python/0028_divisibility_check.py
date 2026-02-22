@@ -5,4 +5,3 @@ if num % num2 == 0:
     print(f"{num} is divisible by {num2}.")
 else:
     print(f"{num} is not divisible by {num2}.")
-

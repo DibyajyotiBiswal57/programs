@@ -111,8 +111,7 @@ ol .question-collapsible::before {
   padding: 0;
 }
 
-.question-collapsible-header.expanded
-  + .question-collapsible-content {
+.question-collapsible-header.expanded + .question-collapsible-content {
   padding: 1rem;
   box-shadow: 0 4px 16px var(--shadow-light);
 }
