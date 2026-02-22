@@ -499,6 +499,24 @@
       "filename": "0049_bmi_calculator.py"
     }
   },
+  "68": {
+    "python": {
+      "status": "done",
+      "filename": "0068_pattern_descending.py"
+    }
+  },
+  "81": {
+    "python": {
+      "status": "done",
+      "filename": "0081_triangle_check.py"
+    }
+  },
+  "66": {
+    "python": {
+      "status": "done",
+      "filename": "0066_countdown.py"
+    }
+  },
   "71": {
     "python": {
       "status": "done",
@@ -611,6 +629,12 @@
     "python": {
       "status": "done",
       "filename": "0030_palindrome_number.py"
+    }
+  },
+  "82": {
+    "python": {
+      "status": "done",
+      "filename": "0082_divisibility.py"
     }
   },
   "52": {
