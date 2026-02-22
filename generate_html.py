@@ -276,6 +276,12 @@ def generate_html(questions, status_badges):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Interactive programming questions and status page with solutions in 17+ languages">
+    <meta name="theme-color" content="#2563eb" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Programming Questions & Status</title>
     <style>
         * {
@@ -700,6 +706,16 @@ def generate_html(questions, status_badges):
             border: 1px solid rgba(96, 165, 250, 0.15);
         }
 
+        /* Fallback for browsers without backdrop-filter support */
+        @supports not (backdrop-filter: blur(10px)) {
+            header {
+                background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.15));
+            }
+            [data-theme="dark"] header {
+                background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(59, 130, 246, 0.2));
+            }
+        }
+
         header::before {
             content: '';
             position: absolute;
@@ -774,10 +790,27 @@ def generate_html(questions, status_badges):
         }
 
         .questions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 25px;
             margin-bottom: 40px;
+        }
+
+        @supports (display: grid) {
+            .questions-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        /* Fallback for browsers without gap support */
+        @supports not (gap: 25px) {
+            .questions-grid {
+                margin: -12.5px;
+            }
+            .question-card {
+                margin: 12.5px;
+            }
         }
 
         .question-card {
@@ -1059,6 +1092,10 @@ def generate_html(questions, status_badges):
             transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .theme-toggle::before {
@@ -1203,6 +1240,18 @@ def generate_html(questions, status_badges):
             color: var(--text-secondary);
         }
 
+        .search-input::-webkit-input-placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-input::-moz-placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-input:-ms-input-placeholder {
+            color: var(--text-secondary);
+        }
+
         .search-icon {
             position: absolute;
             left: 18px;
@@ -1340,6 +1389,10 @@ def generate_html(questions, status_badges):
             justify-content: center;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .back-to-top.visible {
@@ -1793,6 +1846,13 @@ def generate_html(questions, status_badges):
     </script>
 </head>
 <body>
+    <!-- Noscript fallback for browsers with JavaScript disabled -->
+    <noscript>
+        <div style="position: fixed; top: 0; left: 0; right: 0; background: #fef3c7; color: #92400e; padding: 20px; text-align: center; z-index: 10000; border-bottom: 3px solid #f59e0b; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+            <strong>⚠️ JavaScript Required:</strong> This interactive page requires JavaScript to be enabled for full functionality. Please enable JavaScript in your browser settings.
+        </div>
+    </noscript>
+
     <!-- Cool Animated Background Elements -->
     <div class="bg-shapes">
         <div class="bg-shape"></div>
