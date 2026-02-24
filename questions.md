@@ -172,5 +172,5 @@ Sum: 40
 ```Eg: 220 → 1+2+4+5+10+11+20+22+44+55+110 = 284
 284 → 1+2+4+71+142 = 220 ``` <br> [Filename - 0090_amicable_number]
 91. Check if a number is a happy number. (A number that eventually reaches 1 when you repeatedly replace it with the sum of the squares of its digits)
-```Eg: 19 → 1² + 9² = 82 → 8² + 6² = 68 → 6² + 8 = 100 → 1² + 0² + 0² = 1 ``` <br> [0091_happy_number]
-92. 
+```Eg: 19 → 1² + 9² = 82 → 8² + 2² = 68 → 6² + 8² = 100 → 1² + 0² + 0² = 1 ``` <br> [0091_happy_number]
+92. Test [Filename - 0092_test]
