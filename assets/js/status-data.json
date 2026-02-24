@@ -163,6 +163,10 @@
     "qbasic": {
       "status": "done",
       "filename": "0025_voting_eligibility.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0025_factorial_series.py"
     }
   },
   "19": {
@@ -493,6 +497,12 @@
       "filename": "0032_neon_number.py"
     }
   },
+  "88": {
+    "python": {
+      "status": "done",
+      "filename": "0088_toggle_case.py"
+    }
+  },
   "49": {
     "python": {
       "status": "done",
@@ -505,16 +515,46 @@
       "filename": "0068_pattern_descending.py"
     }
   },
+  "75": {
+    "python": {
+      "status": "done",
+      "filename": "0075_sum_odd_even.py"
+    }
+  },
+  "90": {
+    "python": {
+      "status": "done",
+      "filename": "0090_amicable_number.py"
+    }
+  },
   "81": {
     "python": {
       "status": "done",
       "filename": "0081_triangle_check.py"
     }
   },
+  "92": {
+    "python": {
+      "status": "done",
+      "filename": "0092_test.py"
+    }
+  },
   "66": {
     "python": {
       "status": "done",
       "filename": "0066_countdown.py"
+    }
+  },
+  "33": {
+    "python": {
+      "status": "done",
+      "filename": "0033_guessing_game.py"
+    }
+  },
+  "80": {
+    "python": {
+      "status": "done",
+      "filename": "0080_quadratic_roots.py"
     }
   },
   "71": {
@@ -527,6 +567,12 @@
     "python": {
       "status": "done",
       "filename": "0048_sum_odd_numbers.py"
+    }
+  },
+  "91": {
+    "python": {
+      "status": "done",
+      "filename": "0091_happy_number.py"
     }
   },
   "83": {
@@ -589,16 +635,16 @@
       "filename": "0047_case_check.py"
     }
   },
+  "69": {
+    "python": {
+      "status": "done",
+      "filename": "0069_pattern_ones.py"
+    }
+  },
   "84": {
     "python": {
       "status": "done",
       "filename": "0084_zigzag_pattern.py"
-    }
-  },
-  "90": {
-    "python": {
-      "status": "done",
-      "filename": "0090_test.py"
     }
   },
   "64": {
@@ -643,10 +689,28 @@
       "filename": "0054_sum_n_natural.py"
     }
   },
+  "79": {
+    "python": {
+      "status": "done",
+      "filename": "0079_ml_metrics.py"
+    }
+  },
+  "89": {
+    "python": {
+      "status": "done",
+      "filename": "0089_first_character_check.py"
+    }
+  },
   "55": {
     "python": {
       "status": "done",
       "filename": "0055_1_to_10_no_5.py"
+    }
+  },
+  "78": {
+    "python": {
+      "status": "done",
+      "filename": "0078_magic_number.py"
     }
   },
   "30": {
@@ -661,6 +725,12 @@
       "filename": "0082_divisibility.py"
     }
   },
+  "72": {
+    "python": {
+      "status": "done",
+      "filename": "0072_armstrong_number.py"
+    }
+  },
   "52": {
     "python": {
       "status": "done",
@@ -673,16 +743,40 @@
       "filename": "0043_count_vowels.py"
     }
   },
+  "87": {
+    "python": {
+      "status": "done",
+      "filename": "0087_automorphic_number.py"
+    }
+  },
   "51": {
     "python": {
       "status": "done",
       "filename": "0051_circular_swap.py"
     }
   },
+  "67": {
+    "python": {
+      "status": "done",
+      "filename": "0067_exponentials.py"
+    }
+  },
   "65": {
     "python": {
       "status": "done",
       "filename": "0065_square_cube_menu.py"
+    }
+  },
+  "56": {
+    "python": {
+      "status": "done",
+      "filename": "0056_repeat_until_exit.py"
+    }
+  },
+  "73": {
+    "python": {
+      "status": "done",
+      "filename": "0073_pattern_sixes.py"
     }
   },
   "27": {
@@ -697,10 +791,22 @@
       "filename": "0059_count_digits.py"
     }
   },
+  "76": {
+    "python": {
+      "status": "done",
+      "filename": "0076_char_case.py"
+    }
+  },
   "45": {
     "python": {
       "status": "done",
       "filename": "0045_celsius_fahrenheit.py"
+    }
+  },
+  "77": {
+    "python": {
+      "status": "done",
+      "filename": "0077_disarium_number.py"
     }
   },
   "58": {
