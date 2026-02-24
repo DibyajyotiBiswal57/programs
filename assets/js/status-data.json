@@ -529,6 +529,12 @@
       "filename": "0048_sum_odd_numbers.py"
     }
   },
+  "83": {
+    "python": {
+      "status": "done",
+      "filename": "0083_hcf_lcm.py"
+    }
+  },
   "60": {
     "python": {
       "status": "done",
@@ -571,10 +577,22 @@
       "filename": "0021_name_triangle.py"
     }
   },
+  "85": {
+    "python": {
+      "status": "done",
+      "filename": "0085_arithmetic_series.py"
+    }
+  },
   "47": {
     "python": {
       "status": "done",
       "filename": "0047_case_check.py"
+    }
+  },
+  "84": {
+    "python": {
+      "status": "done",
+      "filename": "0084_zigzag_pattern.py"
     }
   },
   "90": {
@@ -587,6 +605,12 @@
     "python": {
       "status": "done",
       "filename": "0064_factorial.py"
+    }
+  },
+  "86": {
+    "python": {
+      "status": "done",
+      "filename": "0086_perfect_number.py"
     }
   },
   "63": {
