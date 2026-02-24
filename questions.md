@@ -168,4 +168,9 @@ Sum: 40
 ```Eg: 25 → 25² = 625 ends with 25``` <br> [Filename - 0087_automorphic_number]
 88. Write a program that takes a string input from the user and converts all lowercase letters to uppercase and all uppercase letters to lowercase, leaving digits and special characters unchanged. <br> [Filename - 0088_toggle_case] 
 89. Accept a string and a character and check how many words start with the character. <br> [Filename - 0089_first_character_check]
-90. Test <br> [Filename - 0090_test]
+90. Check if two numbers are amicable numbers. (Sum of factors of the first number except the number itself is equal to the second number and sum of factors of the second number except the number itself is equal to the first number)
+```Eg: 220 → 1+2+4+5+10+11+20+22+44+55+110 = 284
+284 → 1+2+4+71+142 = 220 ``` <br> [Filename - 0090_amicable_number]
+91. Check if a number is a happy number. (A number that eventually reaches 1 when you repeatedly replace it with the sum of the squares of its digits)
+```Eg: 19 → 1² + 9² = 82 → 8² + 6² = 68 → 6² + 8 = 100 → 1² + 0² + 0² = 1 ``` <br> [0091_happy_number]
+92. 
