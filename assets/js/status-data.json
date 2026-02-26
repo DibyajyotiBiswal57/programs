@@ -1,44 +1,194 @@
 {
-  "26": {
+  "17": {
     "qbasic": {
       "status": "done",
-      "filename": "0026_child_adult.bas"
+      "filename": "0017_reverse_number.bas"
     },
     "java": {
       "status": "done",
-      "filename": "0026_child_adult.java"
+      "filename": "0017_reverse_number.java"
     },
     "python": {
       "status": "done",
-      "filename": "0026_child_or_adult.py"
+      "filename": "0017_reverse_number.py"
     }
   },
-  "10": {
+  "5": {
     "qbasic": {
       "status": "done",
-      "filename": "0010_angle_check.bas"
-    },
-    "java": {
-      "status": "done",
-      "filename": "0010_angle_check.java"
+      "filename": "0005_area_volume.bas"
     },
     "python": {
       "status": "done",
-      "filename": "0010_angle_check.py"
+      "filename": "0005_area_volume.py"
     }
   },
-  "7": {
+  "53": {
     "qbasic": {
       "status": "done",
-      "filename": "0007_positive_negative.bas"
-    },
-    "java": {
-      "status": "done",
-      "filename": "0007_positive_negative.java"
+      "filename": "0053_1_to_10.bas"
     },
     "python": {
       "status": "done",
-      "filename": "0007_positive_negative.py"
+      "filename": "0053_1_to_10.py"
+    }
+  },
+  "42": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0042_palindrome_string.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0042_palindrome_string.py"
+    }
+  },
+  "20": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0020_prime_check.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0020_prime_check.py"
+    }
+  },
+  "24": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0024_perimeter.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0024_perimeter.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0024_perimeter.py"
+    }
+  },
+  "16": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0016_digit_operations.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0016_digit_operations.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0016_digit_operations.py"
+    }
+  },
+  "18": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0018_odd_in_range.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0018_odd_in_range.py"
+    }
+  },
+  "23": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0023_swap_without_temp.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0023_swap_without_temp.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0023_swap_without_temp.py"
+    }
+  },
+  "14": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0014_descending_order.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0014_descending_order.py"
+    }
+  },
+  "4": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0004_swap_with_temp.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0004_swap_with_temp.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0004_swap_with_temp.py"
+    }
+  },
+  "29": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0029_digit_count_check.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0029_digit_count_check.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0029_digit_count_check.py"
+    }
+  },
+  "21": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0021_name_triangle.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0021_name_triangle.py"
+    }
+  },
+  "8": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0008_greater_number.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0008_greater_number.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0008_greater_number.py"
+    }
+  },
+  "13": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0013_even_numbers.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0013_even_numbers.py"
+    }
+  },
+  "19": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0019_even_odd_check.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0019_even_odd_check.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0019_even_odd_check.py"
     }
   },
   "22": {
@@ -55,16 +205,6 @@
       "filename": "0022_basic_operations.py"
     }
   },
-  "20": {
-    "qbasic": {
-      "status": "done",
-      "filename": "0020_prime_check.bas"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0020_prime_check.py"
-    }
-  },
   "6": {
     "qbasic": {
       "status": "done",
@@ -79,24 +219,66 @@
       "filename": "0006_interest_calculator.py"
     }
   },
-  "13": {
+  "26": {
     "qbasic": {
       "status": "done",
-      "filename": "0013_even_numbers.bas"
+      "filename": "0026_child_adult.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0026_child_adult.java"
     },
     "python": {
       "status": "done",
-      "filename": "0013_even_numbers.py"
+      "filename": "0026_child_or_adult.py"
     }
   },
-  "5": {
+  "15": {
     "qbasic": {
       "status": "done",
-      "filename": "0005_area_volume.bas"
+      "filename": "0015_multiplication_table.bas"
     },
     "python": {
       "status": "done",
-      "filename": "0005_area_volume.py"
+      "filename": "0015_multiplication_table.py"
+    }
+  },
+  "3": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0003_average_marks.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0003_average_marks.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0003_average_marks.py"
+    }
+  },
+  "73": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0073_pattern_sixes.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0073_pattern_sixes.py"
+    }
+  },
+  "10": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0010_angle_check.bas"
+    },
+    "java": {
+      "status": "done",
+      "filename": "0010_angle_check.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0010_angle_check.py"
     }
   },
   "11": {
@@ -113,18 +295,24 @@
       "filename": "0011_profit_loss.py"
     }
   },
-  "24": {
+  "51": {
     "qbasic": {
       "status": "done",
-      "filename": "0024_perimeter.bas"
-    },
-    "java": {
-      "status": "done",
-      "filename": "0024_perimeter.java"
+      "filename": "0051_circular_swap.bas"
     },
     "python": {
       "status": "done",
-      "filename": "0024_perimeter.py"
+      "filename": "0051_circular_swap.py"
+    }
+  },
+  "12": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0012_natural_numbers.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0012_natural_numbers.py"
     }
   },
   "2": {
@@ -145,66 +333,24 @@
       "filename": "0002_sum_of_three.c"
     }
   },
-  "3": {
+  "92": {
     "qbasic": {
       "status": "done",
-      "filename": "0003_average_marks.bas"
-    },
-    "java": {
-      "status": "done",
-      "filename": "0003_average_marks.java"
+      "filename": "0092_test.bas"
     },
     "python": {
       "status": "done",
-      "filename": "0003_average_marks.py"
+      "filename": "0092_test.py"
     }
   },
-  "25": {
+  "61": {
     "qbasic": {
       "status": "done",
-      "filename": "0025_voting_eligibility.bas"
+      "filename": "0061_divisible_3_and_7.bas"
     },
     "python": {
       "status": "done",
-      "filename": "0025_factorial_series.py"
-    }
-  },
-  "19": {
-    "qbasic": {
-      "status": "done",
-      "filename": "0019_even_odd_check.bas"
-    },
-    "java": {
-      "status": "done",
-      "filename": "0019_even_odd_check.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0019_even_odd_check.py"
-    }
-  },
-  "4": {
-    "qbasic": {
-      "status": "done",
-      "filename": "0004_swap_with_temp.bas"
-    },
-    "java": {
-      "status": "done",
-      "filename": "0004_swap_with_temp.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0004_swap_with_temp.py"
-    }
-  },
-  "14": {
-    "qbasic": {
-      "status": "done",
-      "filename": "0014_descending_order.bas"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0014_descending_order.py"
+      "filename": "0061_divisible_3_and_7.py"
     }
   },
   "9": {
@@ -219,6 +365,16 @@
     "python": {
       "status": "done",
       "filename": "0009_sum_or_product.py"
+    }
+  },
+  "25": {
+    "qbasic": {
+      "status": "done",
+      "filename": "0025_voting_eligibility.bas"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0025_factorial_series.py"
     }
   },
   "1": {
@@ -291,130 +447,28 @@
       "filename": "0001_hello_world.bat"
     }
   },
-  "16": {
+  "43": {
     "qbasic": {
       "status": "done",
-      "filename": "0016_digit_operations.bas"
-    },
-    "java": {
-      "status": "done",
-      "filename": "0016_digit_operations.java"
+      "filename": "0043_count_vowels.bas"
     },
     "python": {
       "status": "done",
-      "filename": "0016_digit_operations.py"
+      "filename": "0043_count_vowels.py"
     }
   },
-  "12": {
+  "7": {
     "qbasic": {
       "status": "done",
-      "filename": "0012_natural_numbers.bas"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0012_natural_numbers.py"
-    }
-  },
-  "15": {
-    "qbasic": {
-      "status": "done",
-      "filename": "0015_multiplication_table.bas"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0015_multiplication_table.py"
-    }
-  },
-  "23": {
-    "qbasic": {
-      "status": "done",
-      "filename": "0023_swap_without_temp.bas"
+      "filename": "0007_positive_negative.bas"
     },
     "java": {
       "status": "done",
-      "filename": "0023_swap_without_temp.java"
+      "filename": "0007_positive_negative.java"
     },
     "python": {
       "status": "done",
-      "filename": "0023_swap_without_temp.py"
-    }
-  },
-  "18": {
-    "qbasic": {
-      "status": "done",
-      "filename": "0018_odd_in_range.bas"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0018_odd_in_range.py"
-    }
-  },
-  "17": {
-    "qbasic": {
-      "status": "done",
-      "filename": "0017_reverse_number.bas"
-    },
-    "java": {
-      "status": "done",
-      "filename": "0017_reverse_number.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0017_reverse_number.py"
-    }
-  },
-  "8": {
-    "qbasic": {
-      "status": "done",
-      "filename": "0008_greater_number.bas"
-    },
-    "java": {
-      "status": "done",
-      "filename": "0008_greater_number.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0008_greater_number.py"
-    }
-  },
-  "40": {
-    "java": {
-      "status": "done",
-      "filename": "0040_boolean_operations.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0040_boolean_operations.py"
-    }
-  },
-  "35": {
-    "java": {
-      "status": "done",
-      "filename": "0035_largest_of_three.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0035_largest_of_three.py"
-    }
-  },
-  "29": {
-    "java": {
-      "status": "done",
-      "filename": "0029_digit_count_check.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0029_digit_count_check.py"
-    }
-  },
-  "31": {
-    "java": {
-      "status": "beta",
-      "filename": "0031_leap_year_beta.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0031_leap_year.py"
+      "filename": "0007_positive_negative.py"
     }
   },
   "36": {
@@ -427,54 +481,14 @@
       "filename": "0036_smaller_of_two.py"
     }
   },
-  "39": {
+  "40": {
     "java": {
       "status": "done",
-      "filename": "0039_vowel_consonant.java"
+      "filename": "0040_boolean_operations.java"
     },
     "python": {
       "status": "done",
-      "filename": "0039_vowel_consonant.py"
-    }
-  },
-  "28": {
-    "java": {
-      "status": "beta",
-      "filename": "0028_divisibility_check_beta.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0028_divisibility_check.py"
-    }
-  },
-  "38": {
-    "java": {
-      "status": "done",
-      "filename": "0038_even_sum_diff.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0038_even_sum_diff.py"
-    }
-  },
-  "34": {
-    "java": {
-      "status": "done",
-      "filename": "0034_discount_calculator.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0034_discount_calculator.py"
-    }
-  },
-  "37": {
-    "java": {
-      "status": "done",
-      "filename": "0037_square_cube.java"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0037_square_cube.py"
+      "filename": "0040_boolean_operations.py"
     }
   },
   "41": {
@@ -487,6 +501,66 @@
       "filename": "0041_conditional_operations.py"
     }
   },
+  "39": {
+    "java": {
+      "status": "done",
+      "filename": "0039_vowel_consonant.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0039_vowel_consonant.py"
+    }
+  },
+  "38": {
+    "java": {
+      "status": "done",
+      "filename": "0038_even_sum_diff.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0038_even_sum_diff.py"
+    }
+  },
+  "35": {
+    "java": {
+      "status": "done",
+      "filename": "0035_largest_of_three.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0035_largest_of_three.py"
+    }
+  },
+  "37": {
+    "java": {
+      "status": "done",
+      "filename": "0037_square_cube.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0037_square_cube.py"
+    }
+  },
+  "31": {
+    "java": {
+      "status": "beta",
+      "filename": "0031_leap_year_beta.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0031_leap_year.py"
+    }
+  },
+  "28": {
+    "java": {
+      "status": "beta",
+      "filename": "0028_divisibility_check_beta.java"
+    },
+    "python": {
+      "status": "done",
+      "filename": "0028_divisibility_check.py"
+    }
+  },
   "32": {
     "java": {
       "status": "beta",
@@ -497,148 +571,14 @@
       "filename": "0032_neon_number.py"
     }
   },
-  "88": {
+  "34": {
+    "java": {
+      "status": "done",
+      "filename": "0034_discount_calculator.java"
+    },
     "python": {
       "status": "done",
-      "filename": "0088_toggle_case.py"
-    }
-  },
-  "49": {
-    "python": {
-      "status": "done",
-      "filename": "0049_bmi_calculator.py"
-    }
-  },
-  "68": {
-    "python": {
-      "status": "done",
-      "filename": "0068_pattern_descending.py"
-    }
-  },
-  "75": {
-    "python": {
-      "status": "done",
-      "filename": "0075_sum_odd_even.py"
-    }
-  },
-  "90": {
-    "python": {
-      "status": "done",
-      "filename": "0090_amicable_number.py"
-    }
-  },
-  "81": {
-    "python": {
-      "status": "done",
-      "filename": "0081_triangle_check.py"
-    }
-  },
-  "92": {
-    "python": {
-      "status": "done",
-      "filename": "0092_test.py"
-    }
-  },
-  "66": {
-    "python": {
-      "status": "done",
-      "filename": "0066_countdown.py"
-    }
-  },
-  "33": {
-    "python": {
-      "status": "done",
-      "filename": "0033_guessing_game.py"
-    }
-  },
-  "80": {
-    "python": {
-      "status": "done",
-      "filename": "0080_quadratic_roots.py"
-    }
-  },
-  "71": {
-    "python": {
-      "status": "done",
-      "filename": "0071_pattern_reverse_desc.py"
-    }
-  },
-  "48": {
-    "python": {
-      "status": "done",
-      "filename": "0048_sum_odd_numbers.py"
-    }
-  },
-  "91": {
-    "python": {
-      "status": "done",
-      "filename": "0091_happy_number.py"
-    }
-  },
-  "83": {
-    "python": {
-      "status": "done",
-      "filename": "0083_hcf_lcm.py"
-    }
-  },
-  "60": {
-    "python": {
-      "status": "done",
-      "filename": "0060_reverse_number.py"
-    }
-  },
-  "46": {
-    "python": {
-      "status": "done",
-      "filename": "0046_dollar_rupee.py"
-    }
-  },
-  "61": {
-    "python": {
-      "status": "done",
-      "filename": "0061_divisible_3_and_7.py"
-    }
-  },
-  "62": {
-    "python": {
-      "status": "done",
-      "filename": "0062_grade_calculator.py"
-    }
-  },
-  "57": {
-    "python": {
-      "status": "done",
-      "filename": "0057_1_to_10_no_7.py"
-    }
-  },
-  "44": {
-    "python": {
-      "status": "done",
-      "filename": "0044_word_count.py"
-    }
-  },
-  "21": {
-    "python": {
-      "status": "done",
-      "filename": "0021_name_triangle.py"
-    }
-  },
-  "85": {
-    "python": {
-      "status": "done",
-      "filename": "0085_arithmetic_series.py"
-    }
-  },
-  "47": {
-    "python": {
-      "status": "done",
-      "filename": "0047_case_check.py"
-    }
-  },
-  "69": {
-    "python": {
-      "status": "done",
-      "filename": "0069_pattern_ones.py"
+      "filename": "0034_discount_calculator.py"
     }
   },
   "84": {
@@ -647,136 +587,16 @@
       "filename": "0084_zigzag_pattern.py"
     }
   },
-  "64": {
+  "70": {
     "python": {
       "status": "done",
-      "filename": "0064_factorial.py"
+      "filename": "0070_spy_number.py"
     }
   },
-  "86": {
+  "83": {
     "python": {
       "status": "done",
-      "filename": "0086_perfect_number.py"
-    }
-  },
-  "63": {
-    "python": {
-      "status": "done",
-      "filename": "0063_odd_numbers.py"
-    }
-  },
-  "42": {
-    "python": {
-      "status": "done",
-      "filename": "0042_palindrome_string.py"
-    }
-  },
-  "50": {
-    "python": {
-      "status": "done",
-      "filename": "0050_km_to_miles.py"
-    }
-  },
-  "74": {
-    "python": {
-      "status": "done",
-      "filename": "0074_fibonacci.py"
-    }
-  },
-  "54": {
-    "python": {
-      "status": "done",
-      "filename": "0054_sum_n_natural.py"
-    }
-  },
-  "79": {
-    "python": {
-      "status": "done",
-      "filename": "0079_ml_metrics.py"
-    }
-  },
-  "89": {
-    "python": {
-      "status": "done",
-      "filename": "0089_first_character_check.py"
-    }
-  },
-  "55": {
-    "python": {
-      "status": "done",
-      "filename": "0055_1_to_10_no_5.py"
-    }
-  },
-  "78": {
-    "python": {
-      "status": "done",
-      "filename": "0078_magic_number.py"
-    }
-  },
-  "30": {
-    "python": {
-      "status": "done",
-      "filename": "0030_palindrome_number.py"
-    }
-  },
-  "82": {
-    "python": {
-      "status": "done",
-      "filename": "0082_divisibility.py"
-    }
-  },
-  "72": {
-    "python": {
-      "status": "done",
-      "filename": "0072_armstrong_number.py"
-    }
-  },
-  "52": {
-    "python": {
-      "status": "done",
-      "filename": "0052_de_ratio.py"
-    }
-  },
-  "43": {
-    "python": {
-      "status": "done",
-      "filename": "0043_count_vowels.py"
-    }
-  },
-  "87": {
-    "python": {
-      "status": "done",
-      "filename": "0087_automorphic_number.py"
-    }
-  },
-  "51": {
-    "python": {
-      "status": "done",
-      "filename": "0051_circular_swap.py"
-    }
-  },
-  "67": {
-    "python": {
-      "status": "done",
-      "filename": "0067_exponentials.py"
-    }
-  },
-  "65": {
-    "python": {
-      "status": "done",
-      "filename": "0065_square_cube_menu.py"
-    }
-  },
-  "56": {
-    "python": {
-      "status": "done",
-      "filename": "0056_repeat_until_exit.py"
-    }
-  },
-  "73": {
-    "python": {
-      "status": "done",
-      "filename": "0073_pattern_sixes.py"
+      "filename": "0083_hcf_lcm.py"
     }
   },
   "27": {
@@ -785,10 +605,82 @@
       "filename": "0027_calculator.py"
     }
   },
-  "59": {
+  "75": {
     "python": {
       "status": "done",
-      "filename": "0059_count_digits.py"
+      "filename": "0075_sum_odd_even.py"
+    }
+  },
+  "65": {
+    "python": {
+      "status": "done",
+      "filename": "0065_square_cube_menu.py"
+    }
+  },
+  "54": {
+    "python": {
+      "status": "done",
+      "filename": "0054_sum_n_natural.py"
+    }
+  },
+  "60": {
+    "python": {
+      "status": "done",
+      "filename": "0060_reverse_number.py"
+    }
+  },
+  "74": {
+    "python": {
+      "status": "done",
+      "filename": "0074_fibonacci.py"
+    }
+  },
+  "72": {
+    "python": {
+      "status": "done",
+      "filename": "0072_armstrong_number.py"
+    }
+  },
+  "90": {
+    "python": {
+      "status": "done",
+      "filename": "0090_amicable_number.py"
+    }
+  },
+  "85": {
+    "python": {
+      "status": "done",
+      "filename": "0085_arithmetic_series.py"
+    }
+  },
+  "50": {
+    "python": {
+      "status": "done",
+      "filename": "0050_km_to_miles.py"
+    }
+  },
+  "57": {
+    "python": {
+      "status": "done",
+      "filename": "0057_1_to_10_no_7.py"
+    }
+  },
+  "79": {
+    "python": {
+      "status": "done",
+      "filename": "0079_ml_metrics.py"
+    }
+  },
+  "62": {
+    "python": {
+      "status": "done",
+      "filename": "0062_grade_calculator.py"
+    }
+  },
+  "91": {
+    "python": {
+      "status": "done",
+      "filename": "0091_happy_number.py"
     }
   },
   "76": {
@@ -797,16 +689,58 @@
       "filename": "0076_char_case.py"
     }
   },
+  "56": {
+    "python": {
+      "status": "done",
+      "filename": "0056_repeat_until_exit.py"
+    }
+  },
+  "67": {
+    "python": {
+      "status": "done",
+      "filename": "0067_exponentials.py"
+    }
+  },
+  "82": {
+    "python": {
+      "status": "done",
+      "filename": "0082_divisibility.py"
+    }
+  },
+  "55": {
+    "python": {
+      "status": "done",
+      "filename": "0055_1_to_10_no_5.py"
+    }
+  },
+  "86": {
+    "python": {
+      "status": "done",
+      "filename": "0086_perfect_number.py"
+    }
+  },
+  "46": {
+    "python": {
+      "status": "done",
+      "filename": "0046_dollar_rupee.py"
+    }
+  },
   "45": {
     "python": {
       "status": "done",
       "filename": "0045_celsius_fahrenheit.py"
     }
   },
-  "77": {
+  "30": {
     "python": {
       "status": "done",
-      "filename": "0077_disarium_number.py"
+      "filename": "0030_palindrome_number.py"
+    }
+  },
+  "52": {
+    "python": {
+      "status": "done",
+      "filename": "0052_de_ratio.py"
     }
   },
   "58": {
@@ -815,10 +749,118 @@
       "filename": "0058_menu_loop.py"
     }
   },
-  "53": {
+  "69": {
     "python": {
       "status": "done",
-      "filename": "0053_1_to_10.py"
+      "filename": "0069_pattern_ones.py"
+    }
+  },
+  "88": {
+    "python": {
+      "status": "done",
+      "filename": "0088_toggle_case.py"
+    }
+  },
+  "77": {
+    "python": {
+      "status": "done",
+      "filename": "0077_disarium_number.py"
+    }
+  },
+  "59": {
+    "python": {
+      "status": "done",
+      "filename": "0059_count_digits.py"
+    }
+  },
+  "49": {
+    "python": {
+      "status": "done",
+      "filename": "0049_bmi_calculator.py"
+    }
+  },
+  "47": {
+    "python": {
+      "status": "done",
+      "filename": "0047_case_check.py"
+    }
+  },
+  "48": {
+    "python": {
+      "status": "done",
+      "filename": "0048_sum_odd_numbers.py"
+    }
+  },
+  "89": {
+    "python": {
+      "status": "done",
+      "filename": "0089_first_character_check.py"
+    }
+  },
+  "44": {
+    "python": {
+      "status": "done",
+      "filename": "0044_word_count.py"
+    }
+  },
+  "66": {
+    "python": {
+      "status": "done",
+      "filename": "0066_countdown.py"
+    }
+  },
+  "87": {
+    "python": {
+      "status": "done",
+      "filename": "0087_automorphic_number.py"
+    }
+  },
+  "33": {
+    "python": {
+      "status": "done",
+      "filename": "0033_guessing_game.py"
+    }
+  },
+  "71": {
+    "python": {
+      "status": "done",
+      "filename": "0071_pattern_reverse_desc.py"
+    }
+  },
+  "64": {
+    "python": {
+      "status": "done",
+      "filename": "0064_factorial.py"
+    }
+  },
+  "63": {
+    "python": {
+      "status": "done",
+      "filename": "0063_odd_numbers.py"
+    }
+  },
+  "78": {
+    "python": {
+      "status": "done",
+      "filename": "0078_magic_number.py"
+    }
+  },
+  "80": {
+    "python": {
+      "status": "done",
+      "filename": "0080_quadratic_roots.py"
+    }
+  },
+  "68": {
+    "python": {
+      "status": "done",
+      "filename": "0068_pattern_descending.py"
+    }
+  },
+  "81": {
+    "python": {
+      "status": "done",
+      "filename": "0081_triangle_check.py"
     }
   }
 }
