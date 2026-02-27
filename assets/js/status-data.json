@@ -333,16 +333,6 @@
       "filename": "0002_sum_of_three.c"
     }
   },
-  "92": {
-    "qbasic": {
-      "status": "done",
-      "filename": "0092_test.bas"
-    },
-    "python": {
-      "status": "done",
-      "filename": "0092_test.py"
-    }
-  },
   "61": {
     "qbasic": {
       "status": "done",
@@ -729,6 +719,12 @@
     "python": {
       "status": "done",
       "filename": "0045_celsius_fahrenheit.py"
+    }
+  },
+  "92": {
+    "python": {
+      "status": "done",
+      "filename": "0092_roman_to_integer.py"
     }
   },
   "30": {
