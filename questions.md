@@ -161,7 +161,7 @@ Sum: 40
 
 86. Write a program to check whether a number is a perfect number.  
 (A perfect number is equal to the sum of its proper divisors.)  
-```Eg: 28 → 1+2+4+7+14 = 28```  <br> [Filename - 0086_perfect_number]
+```Eg: 28 → 1+2+4+7+14 = 28 ```  <br> [Filename - 0086_perfect_number]
 
 87. Write a program to check whether a number is an automorphic number.  
 (An automorphic number's square ends with the number itself.)  
@@ -169,8 +169,65 @@ Sum: 40
 88. Write a program that takes a string input from the user and converts all lowercase letters to uppercase and all uppercase letters to lowercase, leaving digits and special characters unchanged. <br> [Filename - 0088_toggle_case] 
 89. Accept a string and a character and check how many words start with the character. <br> [Filename - 0089_first_character_check]
 90. Check if two numbers are amicable numbers. (Sum of factors of the first number except the number itself is equal to the second number and sum of factors of the second number except the number itself is equal to the first number)
-```Eg: 220 → 1+2+4+5+10+11+20+22+44+55+110 = 284
-284 → 1+2+4+71+142 = 220 ``` <br> [Filename - 0090_amicable_number]
+```Eg: 220 → 1+2+4+5+10+11+20+22+44+55+110 = 284 284 → 1+2+4+71+142 = 220 ``` <br> [Filename - 0090_amicable_number]
 91. Check if a number is a happy number. (A number that eventually reaches 1 when you repeatedly replace it with the sum of the squares of its digits)
-```Eg: 19 → 1² + 9² = 82 → 8² + 2² = 68 → 6² + 8² = 100 → 1² + 0² + 0² = 1 ``` <br> [0091_happy_number]
-92. Test [Filename - 0092_test]
+```Eg: 19 → 1² + 9² = 82 → 8² + 2² = 68 → 6² + 8² = 100 → 1² + 0² + 0² = 1 ``` <br> [Filename - 0091_happy_number]
+92. Convert a Roman numeral (I–MMMCMXCIX) into its integer representation. <br> [Filename - 0092_roman_to_integer]  
+```
+Example:  
+Input: LVIII  
+Output: 58
+```
+
+93. Convert an integer (1–3999) into its Roman numeral representation. <br> [Filename - 0093_integer_to_roman]  
+```
+Example:  
+Input: 58  
+Output: LVIII
+```
+
+94. Write a program to calculate the factorial of an inputted number and find the sum of the digits in the factorial. <br> [Filename - 0094_factorial_sum]
+```  
+Example:  
+Input: 5
+Output:
+    Factorial: 120  
+    Sum of digits: 3
+```
+
+95. Count the frequency of each word in a given text input. <br> [Filename - 0095_word_frequency]
+```  
+Example:  
+Input: hello world hello  
+Output: {hello: 2, world: 1}
+```
+
+96. Take a sentence as input and print the words in reverse order. <br> [Filename - 0096_reverse_word]
+```
+Example:  
+Input: I love Python  
+Output: Python love I
+```
+
+97. Given a list of words, group them into sets of anagrams. <br> [Filename - 0097_anagram_grouping]
+```
+Example:  
+Input: ["eat", "tea", "tan", "ate", "nat", "bat"]
+Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
+```
+
+98. Find all prime factors of a given number. <br> [Filename - 0098_prime_factorization]
+```
+Example:
+Input: 84  
+Output: 2 × 2 × 3 × 7
+```
+
+99. Take an integer as input and check if it is a "lucky number." A number is considered lucky if the sum of its digits is divisible by 7. <br> [Filename - 0099_lucky_number]
+```  
+Example:  
+Input: 2026  
+Output: Lucky Number  
+Input: 123  
+Output: Not Lucky
+```
