@@ -16,6 +16,21 @@ If you want to add a program which is not related to any of the questions mentio
 
 To keep our collection organized and sorted logically, please follow the filenames given in the `questions.md` file.  
 
+---
+
+## 💻 Code Standards
+- **Comments:** Include a brief comment at the top explaining what the program does.
+- **Naming:** Use meaningful variable names within your code.
+- **Formatting:** Ensure your code is properly indented (4 spaces for Java/Python/C#).
+
+---
+
+## 🚀 Pull Request Process
+1. Fork the repo and create your branch.
+2. Ensure your code compiles and runs without errors.
+3. Submit a PR with a clear title like `Add: [Language] [Program Name]`.
+4. Explain what your program does in brief.
+
 ### Legend -  
 
 | Symbol | Status | Description |
@@ -25,18 +40,6 @@ To keep our collection organized and sorted logically, please follow the filenam
 | ❌ | **Unfinished** | Program not yet implemented or incomplete |
 
 ---
-
-## 💻 Code Standards
-- **Comments:** Include a brief comment at the top explaining what the program does.
-- **Naming:** Use meaningful variable names within your code.
-- **Formatting:** Ensure your code is properly indented (4 spaces for Java/Python/C#).
-
-## 🚀 Pull Request Process
-1. Fork the repo and create your branch.
-2. Ensure your code compiles and runs without errors.
-3. Submit a PR with a clear title like `Add: [Language] [Program Name]`.
-4. Explain what your program does in brief.
-
 > [!Tip]
 > Use `class` instead of `public class` while writing Java programs, so that the class name and the filename do not have to match.
 
