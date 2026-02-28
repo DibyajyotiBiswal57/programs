@@ -1487,6 +1487,7 @@
         .question-card:nth-child(97) { animation-delay: 2.88s; }
         .question-card:nth-child(98) { animation-delay: 2.9099999999999997s; }
         .question-card:nth-child(99) { animation-delay: 2.94s; }
+        .question-card:nth-child(100) { animation-delay: 2.9699999999999998s; }
 
         /* Splash Screen Styles - Linux Boot Style */
         #splash-screen {
@@ -7329,6 +7330,7 @@ LANGUAGE</div>
             <div class="question-card">
                 <div class="question-number">#0090</div>
                 <div class="question-text">Check if two numbers are amicable numbers. (Sum of factors of the first number except the number itself is equal to the second number and sum of factors of the second number except the number itself is equal to the first number)</div>
+                <div class="question-example">Eg: 220 → 1+2+4+5+10+11+20+22+44+55+110 = 284 284 → 1+2+4+71+142 = 220</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-90"
@@ -7390,6 +7392,7 @@ LANGUAGE</div>
             <div class="question-card">
                 <div class="question-number">#0091</div>
                 <div class="question-text">Check if a number is a happy number. (A number that eventually reaches 1 when you repeatedly replace it with the sum of the squares of its digits)</div>
+                <div class="question-example">Eg: 19 → 1² + 9² = 82 → 8² + 2² = 68 → 6² + 8² = 100 → 1² + 0² + 0² = 1</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-91"
@@ -7452,9 +7455,6 @@ LANGUAGE</div>
                 <div class="question-number">#0092</div>
                 <div class="question-text">Convert a Roman numeral (I–MMMCMXCIX) into its integer representation.</div>
                 <div class="question-filename">📁 0092_roman_to_integer</div>
-                <div class="question-example">Example:  
-Input: LVIII  
-Output: 58</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-92"
@@ -7517,9 +7517,6 @@ Output: 58</div>
                 <div class="question-number">#0093</div>
                 <div class="question-text">Convert an integer (1–3999) into its Roman numeral representation.</div>
                 <div class="question-filename">📁 0093_integer_to_roman</div>
-                <div class="question-example">Example:  
-Input: 58  
-Output: LVIII</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-93"
@@ -7714,9 +7711,6 @@ Output: {hello: 2, world: 1}</div>
                 <div class="question-number">#0096</div>
                 <div class="question-text">Take a sentence as input and print the words in reverse order.</div>
                 <div class="question-filename">📁 0096_reverse_word</div>
-                <div class="question-example">Example:  
-Input: I love Python  
-Output: Python love I</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-96"
@@ -7844,9 +7838,6 @@ Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]</div>
                 <div class="question-number">#0098</div>
                 <div class="question-text">Find all prime factors of a given number.</div>
                 <div class="question-filename">📁 0098_prime_factorization</div>
-                <div class="question-example">Example:
-Input: 84  
-Output: 2 × 2 × 3 × 7</div>
                 <button class="status-toggle"
                         aria-expanded="false"
                         aria-controls="status-98"
@@ -7972,10 +7963,71 @@ Output: Not Lucky</div>
                     </div>
                 </div>
             </div>
+            <div class="question-card">
+                <div class="question-number">#0100</div>
+                <div class="question-text">Encode or decode a value into base32 or base64 and vice-versa.</div>
+                <button class="status-toggle"
+                        aria-expanded="false"
+                        aria-controls="status-100"
+                        onclick="toggleStatus(100)">
+                    <span>Status</span>
+                    <span class="arrow" id="arrow-100">▼</span>
+                </button>
+                <div class="status-content" id="status-100" role="region" aria-hidden="true">
+                    <div class="status-table-wrapper">
+                        <div class="status-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>QBasic</th>
+                                        <th>Java</th>
+                                        <th>Python</th>
+                                        <th>C</th>
+                                        <th>C++</th>
+                                        <th>C#</th>
+                                        <th>Haskell</th>
+                                        <th>Perl</th>
+                                        <th>Go</th>
+                                        <th>Elixir</th>
+                                        <th>Assembly</th>
+                                        <th>Fortran</th>
+                                        <th>Lua</th>
+                                        <th>Ruby</th>
+                                        <th>Visual Basic</th>
+                                        <th>PowerShell</th>
+                                        <th>Batch</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <footer>
-            <p>Generated on February 28, 2026 at 06:21 UTC</p>
+            <p>Generated on February 28, 2026 at 12:43 UTC</p>
             <p>
                 <a href="https://github.com/DibyajyotiBiswal57/programs" target="_blank">View on GitHub</a>
             </p>
