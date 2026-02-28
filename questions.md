@@ -75,8 +75,7 @@ LANGUAGE
     - 90-100: A  
     - 75-89: B    
     - 50-74: C  
-    - <50: Fail
-<br> [Filename - 0062_grade_calculator]
+    - <50: Fail  <br> [Filename - 0062_grade_calculator]
 63. Print all odd numbers from 1 to (user defined number) <br> [Filename - 0063_odd_numbers]
 64. Calculate the factorial of a number using a loop. <br> [Filename - 0064_factorial]
 65. Create a menu-driven program:  
