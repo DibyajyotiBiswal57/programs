@@ -40,52 +40,53 @@ LANGUAGE
 29. Check if the number has 1, 2 or more digits.  <br> [Filename - 0029_digit_count_check]
 30. Check if a number is a palindrome or not.  <br> [Filename - 0030_palindrome_number]
 31. Check if an entered year is a leap year or not.  <br> [Filename - 0031_leap_year]
-32. Check if a number is neon number or not. (The sum of the digits of its square equals the original number itself.)
-```Eg - 9```<sup>2</sup> ```-> 81 -> 8+1=9``` <br> [Filename - 0032_neon_number]
-33. Write a guessing game.  <br> [Filename - 0033_guessing_game]
-34. Calculate a 10% discount if the amount is above 10000 else a discount of 7.5%. Display the discount received and the final billing amount to be paid.  <br> [Filename - 0034_discount_calculator]
-35. Read three numbers and display the largest of the three numbers.  <br> [Filename - 0035_largest_of_three]
-36. Read two numbers and display the smaller of the two.  <br> [Filename - 0036_smaller_of_two]
-37. Read a number and a character. If the character is 'S' display the square of the number. If the character is 'C' then display the cube of the number.  <br> [Filename - 0037_square_cube]
-38. Read two numbers. If both numbers are even then display their sum else display their difference.  <br> [Filename - 0038_even_sum_diff]
-39. Read a character and check if the character is a vowel or a consonant.  <br> [Filename - 0039_vowel_consonant]
-40. Read two numbers and a Boolean value. For Boolean true display the area and perimeter of a rectangle assuming the two numbers are the length and width. For a Boolean false calculate and display the sum and product of the two numbers.  <br> [Filename - 0040_boolean_operations]
-41. Read two numbers and a character. If the character is 'a' check if the numbers are equal. If the character is 'M' check if the first number is divisible by 9. Otherwise find the product.  <br> [Filename - 0041_conditional_operations]
-42. Check if a string is a palindrome or not.  <br> [Filename - 0042_palindrome_string]
-43. Count the number of vowels in a string.  <br> [Filename - 0043_count_vowels]
-44. Read a line, then count words and display the total number of words in the given line.  <br> [Filename - 0044_word_count]
-45. Convert temperature from celsius to fahrenheit.  <br> [Filename - 0045_celsius_fahrenheit]
-46. Convert dollars to rupee with current conversion rate (take from internet).  <br> [Filename - 0046_dollar_rupee]
-47. Check if a character is uppercase or lowercase.  <br> [Filename - 0047_case_check]
-48. Add odd numbers upto a given value.  <br> [Filename - 0048_sum_odd_numbers]
-49. Calculate the BMI(Body Mass Index) of a person.  <br> [Filename - 0049_bmi_calculator]
-50. Input a value in kilometres and convert it into miles.  <br> [Filename - 0050_km_to_miles]
-51. Input 3 numbers and swap them as this : 1st number becomes 2nd number and 2nd number becomes the 3rd number and 3rd number becomes the 1st number.  <br> [Filename - 0051_circular_swap]
-52. Input the total liabilities and shareholders' equity of a company and print its D/E ratio.  <br> [Filename - 0052_de_ratio]
-53. Print numbers from 1 to 10 using a loop.  <br> [Filename - 0053_1_to_10]
-54. Use a while loop to find the sum of the first n(n input from user) natural numbers.  <br> [Filename - 0054_sum_n_natural]
-55. Print numbers from 1 to 10, but skip 5.  <br> [Filename - 0055_1_to_10_no_5]
-56. Take input from the user repeatedly until they type "exit".  <br> [Filename - 0056_repeat_until_exit]
-57. Print numbers from 1 to 10, but stop when number is 7.  <br> [Filename - 0057_1_to_10_no_7]
-58. Create a simple menu (looped) that exits when the user selects "Quit".  <br> [Filename - 0058_menu_loop]
-59. Count the number of digits in a number using while.  <br> [Filename - 0059_count_digits]
-60. Reverse a number.  <br> [Filename - 0060_reverse_number]
-61. Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.  <br> [Filename - 0061_divisible_3_and_7]
-62. Find the grade based on marks using if-elif-else:  <br> [Filename - 0062_grade_calculator]
+32. Check if a number is neon number or not. (The sum of the digits of its square equals the original number itself.)  <br> [Filename - 0032_neon_number]
+```
+Eg - 9²-> 81 -> 8+1=9
+``` 
+34. Write a guessing game.  <br> [Filename - 0033_guessing_game]
+35. Calculate a 10% discount if the amount is above 10000 else a discount of 7.5%. Display the discount received and the final billing amount to be paid.  <br> [Filename - 0034_discount_calculator]
+36. Read three numbers and display the largest of the three numbers.  <br> [Filename - 0035_largest_of_three]
+37. Read two numbers and display the smaller of the two.  <br> [Filename - 0036_smaller_of_two]
+38. Read a number and a character. If the character is 'S' display the square of the number. If the character is 'C' then display the cube of the number.  <br> [Filename - 0037_square_cube]
+39. Read two numbers. If both numbers are even then display their sum else display their difference.  <br> [Filename - 0038_even_sum_diff]
+40. Read a character and check if the character is a vowel or a consonant.  <br> [Filename - 0039_vowel_consonant]
+41. Read two numbers and a Boolean value. For Boolean true display the area and perimeter of a rectangle assuming the two numbers are the length and width. For a Boolean false calculate and display the sum and product of the two numbers.  <br> [Filename - 0040_boolean_operations]
+42. Read two numbers and a character. If the character is 'a' check if the numbers are equal. If the character is 'M' check if the first number is divisible by 9. Otherwise find the product.  <br> [Filename - 0041_conditional_operations]
+43. Check if a string is a palindrome or not.  <br> [Filename - 0042_palindrome_string]
+44. Count the number of vowels in a string.  <br> [Filename - 0043_count_vowels]
+45. Read a line, then count words and display the total number of words in the given line.  <br> [Filename - 0044_word_count]
+46. Convert temperature from celsius to fahrenheit.  <br> [Filename - 0045_celsius_fahrenheit]
+47. Convert dollars to rupee with current conversion rate (take from internet).  <br> [Filename - 0046_dollar_rupee]
+48. Check if a character is uppercase or lowercase.  <br> [Filename - 0047_case_check]
+49. Add odd numbers upto a given value.  <br> [Filename - 0048_sum_odd_numbers]
+50. Calculate the BMI(Body Mass Index) of a person.  <br> [Filename - 0049_bmi_calculator]
+51. Input a value in kilometres and convert it into miles.  <br> [Filename - 0050_km_to_miles]
+52. Input 3 numbers and swap them as this : 1st number becomes 2nd number and 2nd number becomes the 3rd number and 3rd number becomes the 1st number.  <br> [Filename - 0051_circular_swap]
+53. Input the total liabilities and shareholders' equity of a company and print its D/E ratio.  <br> [Filename - 0052_de_ratio]
+54. Print numbers from 1 to 10 using a loop.  <br> [Filename - 0053_1_to_10]
+55. Use a while loop to find the sum of the first n(n input from user) natural numbers.  <br> [Filename - 0054_sum_n_natural]
+56. Print numbers from 1 to 10, but skip 5.  <br> [Filename - 0055_1_to_10_no_5]
+57. Take input from the user repeatedly until they type "exit".  <br> [Filename - 0056_repeat_until_exit]
+58. Print numbers from 1 to 10, but stop when number is 7.  <br> [Filename - 0057_1_to_10_no_7]
+59. Create a simple menu (looped) that exits when the user selects "Quit".  <br> [Filename - 0058_menu_loop]
+60. Count the number of digits in a number using while.  <br> [Filename - 0059_count_digits]
+61. Reverse a number.  <br> [Filename - 0060_reverse_number]
+62. Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.  <br> [Filename - 0061_divisible_3_and_7]
+63. Find the grade based on marks using if-elif-else:  <br> [Filename - 0062_grade_calculator]
     - 90-100: A  
     - 75-89: B    
     - 50-74: C  
     - <50: Fail  
-63. Print all odd numbers from 1 to (user defined number) <br> [Filename - 0063_odd_numbers]
-64. Calculate the factorial of a number using a loop. <br> [Filename - 0064_factorial]
-65. <br> [Filename - 0065_square_cube_menu] Create a menu-driven program:  
+64. Print all odd numbers from 1 to (user defined number) <br> [Filename - 0063_odd_numbers]
+65. Calculate the factorial of a number using a loop. <br> [Filename - 0064_factorial]
+66. Create a menu-driven program:  <br> [Filename - 0065_square_cube_menu] 
     - Find Square
     - Find Cube
     - Exit
-
-66. Write a program to start a countdown from the number inputted by the user. <br> [Filename - 0066_countdown]
-67. Write a program calculating exponentials using a loop.  <br> [Filename - 0067_exponentials]
-68. Write a program to accept the number of rows and print the following:  <br> [Filename - 0068_pattern_descending]
+67. Write a program to start a countdown from the number inputted by the user. <br> [Filename - 0066_countdown]
+68. Write a program calculating exponentials using a loop.  <br> [Filename - 0067_exponentials]
+69. Write a program to accept the number of rows and print the following:  <br> [Filename - 0068_pattern_descending]
 ```
     Eg. (No of rows: 5)
     12345
@@ -116,10 +117,12 @@ LANGUAGE
     21  
     1
 ```
-72. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  
-```Eg - 153 -> ```1<sup>3</sup>``` + ```5<sup>3</sup>``` + ```3<sup>3</sup>``` = 153```  <br> [Filename - 0072_armstrong_number]
-73. Write a program to accept the number of rows and print the following pattern:  <br> [Filename - 0073_pattern_sixes]
-   `````
+72. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  <br> [Filename - 0072_armstrong_number]
+```
+Eg - 153 -> 1³ + 5³ + 3³ = 153
+```
+74. Write a program to accept the number of rows and print the following pattern:  <br> [Filename - 0073_pattern_sixes]
+`````
     Eg. (No of rows: 3)  
     6666  
     6666  
@@ -128,16 +131,20 @@ LANGUAGE
 74. Write a program to print the Fibonacci sequence until the term specified by the user.  <br> [Filename - 0074_fibonacci]
 75. Write a program to add odd and even numbers until a number inputted by the user.  <br> [Filename - 0075_sum_odd_even]
 76. Write a program to check whether a character is uppercase or lowercase.  <br> [Filename - 0076_char_case]
-77. Check whether a number is a disarium number.  (Sum of digits powered by position = number)
-```Eg. 135 -> 1¹ + 3² + 5³ -> 1 + 9 + 125 -> 135```   <br> [Filename - 0077_disarium_number]
-78. Write a program to check whether a number is a magic number.  (sum of digits repeatedly checked turns to 1).  
-```Eg. 73 -> 7+3=10 -> 1+0=1```  <br> [Filename - 0078_magic_number]
-79. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.  <br> [Filename - 0079_ml_metrics]
-80. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.  <br> [Filename - 0080_quadratic_roots]
-81. Write a script to input three numbers and find whether they form the three sides of a triangle.  <br> [Filename - 0081_triangle_check]
-82. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.  <br> [Filename - 0082_divisibility]
-83. Find HCF and LCM of Two Numbers.  <br> [Filename - 0083_hcf_lcm]
-84. Print the following zig-zag number pattern for n =(user inputted number): <br> [Filename - 0084_zigzag_pattern]
+77. Check whether a number is a disarium number.  (Sum of digits powered by position = number)   <br> [Filename - 0077_disarium_number]
+```
+Eg. 135 -> 1¹ + 3² + 5³ -> 1 + 9 + 125 -> 135
+```
+79. Write a program to check whether a number is a magic number.  (sum of digits repeatedly checked turns to 1).    <br> [Filename - 0078_magic_number]
+```
+Eg. 73 -> 7+3=10 -> 1+0=1
+```
+80. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.  <br> [Filename - 0079_ml_metrics]
+81. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.  <br> [Filename - 0080_quadratic_roots]
+82. Write a script to input three numbers and find whether they form the three sides of a triangle.  <br> [Filename - 0081_triangle_check]
+83. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.  <br> [Filename - 0082_divisibility]
+84. Find HCF and LCM of Two Numbers.  <br> [Filename - 0083_hcf_lcm]
+85. Print the following zig-zag number pattern for n =(user inputted number): <br> [Filename - 0084_zigzag_pattern]
 ```
 Eg - n = 4
 1
@@ -159,15 +166,17 @@ Sum: 40
 ```
 
 86. Write a program to check whether a number is a perfect number.  
-(A perfect number is equal to the sum of its proper divisors.)  
-```Eg: 28 → 1+2+4+7+14 = 28 ```  <br> [Filename - 0086_perfect_number]
+(A perfect number is equal to the sum of its proper divisors.)  <br> [Filename - 0086_perfect_number]
+```
+Eg: 28 → 1+2+4+7+14 = 28
+```  
 
-87. Write a program to check whether a number is an automorphic number.  
-(An automorphic number's square ends with the number itself.)  
-```Eg: 25 → 25² = 625 ends with 25``` <br> [Filename - 0087_automorphic_number]
-88. Write a program that takes a string input from the user and converts all lowercase letters to uppercase and all uppercase letters to lowercase, leaving digits and special characters unchanged. <br> [Filename - 0088_toggle_case] 
-89. Accept a string and a character and check how many words start with the character. <br> [Filename - 0089_first_character_check]
-90. Check if two numbers are amicable numbers. (Sum of factors of the first number except the number itself is equal to the second number and sum of factors of the second number except the number itself is equal to the first number)  
+88. Write a program to check whether a number is an automorphic number.  
+(An automorphic number's square ends with the number itself.)  <br> [Filename - 0087_automorphic_number]
+```Eg: 25 → 25² = 625 ends with 25``` 
+89. Write a program that takes a string input from the user and converts all lowercase letters to uppercase and all uppercase letters to lowercase, leaving digits and special characters unchanged. <br> [Filename - 0088_toggle_case] 
+90. Accept a string and a character and check how many words start with the character. <br> [Filename - 0089_first_character_check]
+91. Check if two numbers are amicable numbers. (Sum of factors of the first number except the number itself is equal to the second number and sum of factors of the second number except the number itself is equal to the first number)  
 ```
 Eg: 220 → 1+2+4+5+10+11+20+22+44+55+110 = 284 284 → 1+2+4+71+142 = 220
 ```
