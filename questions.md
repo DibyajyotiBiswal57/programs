@@ -1,23 +1,43 @@
 1. Print "Hello World". <br> [Filename - 0001_hello_world]
+ 
 2. Calculate the sum of 3 numbers.  <br> [Filename - 0002_sum_of_three]
+ 
 3. Find the average of 4 subject marks.  <br> [Filename - 0003_average_marks]
+ 
 4. Read 2 numbers and swap them using a third temporary variable.  <br> [Filename - 0004_swap_with_temp]
+ 
 5. Find the area of rectangle, square, triangle, parallelogram, rhombus, trapezium and circle and volume of sphere, cylinder, cone, cube and cuboid.  <br> [Filename - 0005_area_volume]
+ 
 6. Find simple interest or compound interest and amount.  <br> [Filename - 0006_interest_calculator]
+
 7. Display whether a number is positive or negative.  <br> [Filename - 0007_positive_negative]
+
 8. Accept two unequal numbers and display the greater of the two numbers.  <br> [Filename - 0008_greater_number]
+
 9. Accept two numbers and if two numbers are equal then find the sum otherwise, their product.  <br> [Filename - 0009_sum_or_product]
+
 10. Check whether two angles are complementary, supplementary or neither.  <br> [Filename - 0010_angle_check]
+
 11. Calculate the profit and profit percent or the loss and the loss percent on the given cost and selling prices.  <br> [Filename - 0011_profit_loss]
+
 12. Print the natural numbers from 1 to (user defined number).  <br> [Filename - 0012_natural_numbers]
+
 13. Print even numbers from 0 to (user defined number).  <br> [Filename - 0013_even_numbers]
+
 14. Print numbers from (user defined number) to 1 in descending order.  <br> [Filename - 0014_descending_order]
+
 15. Print multiplication table up to 12 of given number.  <br> [Filename - 0015_multiplication_table]
+
 16. Accept a 3-digit number and print the sum of the first and second number and the product of first and last number.  <br> [Filename - 0016_digit_operations]
+
 17. Print a 3 digit number in the reverse order.  <br> [Filename - 0017_reverse_number]
+
 18. Accept any range of m and n and print all the odd numbers between them.  <br> [Filename - 0018_odd_in_range]
+
 19. Accept any number and check if it is even or odd.  <br> [Filename - 0019_even_odd_check]
+
 20. Accept any number and print whether the number is a prime number or not.  <br> [Filename - 0020_prime_check]
+
 21. Read a name and display in a triangular pattern.  <br> [Filename - 0021_name_triangle]
 ```
 For example-  
@@ -31,16 +51,17 @@ LANGUAGE
 ```
 
 22. Find the sum, difference, product of any 2 numbers.  <br> [Filename - 0022_basic_operations]
+
 23. Swap 2 numbers without using a third variable.  <br> [Filename - 0023_swap_without_temp]
-24. Find the perimeter of a square, rectangle, triangle, circle, parallelogram, trapezium.  <br> [Filename - 0024_perimeter]
-25. Print series upto n (input from user). <br> S = (1/1!)+([1+2]/[1!+2!])+([1+2+3]/[1!+2!+3!])...+([1+2+3...+n]/[1!+2!+3!...+n!]).  <br> [Filename - 0025_factorial_series]
-26. Check if a person is a child or an adult.  <br> [Filename - 0026_child_adult]
-27. Write a calculator.  <br> [Filename - 0027_calculator]
-28. Check if a number is divisible by a particular number.  <br> [Filename - 0028_divisibility_check]
-29. Check if the number has 1, 2 or more digits.  <br> [Filename - 0029_digit_count_check]
-30. Check if a number is a palindrome or not.  <br> [Filename - 0030_palindrome_number]
-31. Check if an entered year is a leap year or not.  <br> [Filename - 0031_leap_year]
-32. Check if a number is neon number or not. (The sum of the digits of its square equals the original number itself.)  <br> [Filename - 0032_neon_number]
+25. Find the perimeter of a square, rectangle, triangle, circle, parallelogram, trapezium.  <br> [Filename - 0024_perimeter]
+26. Print series upto n (input from user). <br> S = (1/1!)+([1+2]/[1!+2!])+([1+2+3]/[1!+2!+3!])...+([1+2+3...+n]/[1!+2!+3!...+n!]).  <br> [Filename - 0025_factorial_series]
+27. Check if a person is a child or an adult.  <br> [Filename - 0026_child_adult]
+28. Write a calculator.  <br> [Filename - 0027_calculator]
+29. Check if a number is divisible by a particular number.  <br> [Filename - 0028_divisibility_check]
+30. Check if the number has 1, 2 or more digits.  <br> [Filename - 0029_digit_count_check]
+31. Check if a number is a palindrome or not.  <br> [Filename - 0030_palindrome_number]
+32. Check if an entered year is a leap year or not.  <br> [Filename - 0031_leap_year]
+33. Check if a number is neon number or not. (The sum of the digits of its square equals the original number itself.)  <br> [Filename - 0032_neon_number]
 ```
 Eg - 9²-> 81 -> 8+1=9
 ``` 
@@ -106,9 +127,11 @@ Eg - 9²-> 81 -> 8+1=9
     1
 ```
 
-70. Write a program to check whether a number is a spy number. (sum of digits = product of digits).
-```Eg- 22 -> 2*2 = 2+2 ```  <br> [Filename - 0070_spy_number]
-71. Write a program to accept the number of rows and print the following:  <br> [Filename - 0071_pattern_reverse_desc]
+70. Write a program to check whether a number is a spy number. (sum of digits = product of digits).  <br> [Filename - 0070_spy_number]
+```
+Eg- 22 -> 2*2 = 2+2
+```
+72. Write a program to accept the number of rows and print the following:  <br> [Filename - 0071_pattern_reverse_desc]
    ```
     Eg. (No of rows: 5)  
     54321  
@@ -153,11 +176,11 @@ Eg - n = 4
 7 8 9 10
 ```
 
-85. Write a program to:  
+85. Write a program to:  <br> [Filename - 0085_arithmetic_series]
 - Take input n (number of terms), a (first term), and d (common difference).
 - Print the first n terms of the arithmetic series.
--  Calculate and print the sum of the series.
-<br> [Filename - 0085_arithmetic_series]
+- Calculate and print the sum of the series.
+
 ```
 Example:
 Input: n=5, a=2, d=3
@@ -165,18 +188,17 @@ Output: 2 5 8 11 14
 Sum: 40
 ```
 
-86. Write a program to check whether a number is a perfect number.  
-(A perfect number is equal to the sum of its proper divisors.)  <br> [Filename - 0086_perfect_number]
+86. Write a program to check whether a number is a perfect number. (A perfect number is equal to the sum of its proper divisors.)  <br> [Filename - 0086_perfect_number]
 ```
 Eg: 28 → 1+2+4+7+14 = 28
 ```  
-
-88. Write a program to check whether a number is an automorphic number.  
-(An automorphic number's square ends with the number itself.)  <br> [Filename - 0087_automorphic_number]
-```Eg: 25 → 25² = 625 ends with 25``` 
-89. Write a program that takes a string input from the user and converts all lowercase letters to uppercase and all uppercase letters to lowercase, leaving digits and special characters unchanged. <br> [Filename - 0088_toggle_case] 
-90. Accept a string and a character and check how many words start with the character. <br> [Filename - 0089_first_character_check]
-91. Check if two numbers are amicable numbers. (Sum of factors of the first number except the number itself is equal to the second number and sum of factors of the second number except the number itself is equal to the first number)  
+87. Write a program to check whether a number is an automorphic number. (An automorphic number's square ends with the number itself.)  <br> [Filename - 0087_automorphic_number]
+```
+Eg: 25 → 25² = 625 ends with 25
+``` 
+88. Write a program that takes a string input from the user and converts all lowercase letters to uppercase and all uppercase letters to lowercase, leaving digits and special characters unchanged. <br> [Filename - 0088_toggle_case] 
+89. Accept a string and a character and check how many words start with the character. <br> [Filename - 0089_first_character_check]
+90. Check if two numbers are amicable numbers. (Sum of factors of the first number except the number itself is equal to the second number and sum of factors of the second number except the number itself is equal to the first number)  
 ```
 Eg: 220 → 1+2+4+5+10+11+20+22+44+55+110 = 284 284 → 1+2+4+71+142 = 220
 ```
