@@ -71,18 +71,18 @@ LANGUAGE
 59. Count the number of digits in a number using while.  <br> [Filename - 0059_count_digits]
 60. Reverse a number.  <br> [Filename - 0060_reverse_number]
 61. Print all numbers from 1 to (user defined number) that are divisible by both 3 and 7.  <br> [Filename - 0061_divisible_3_and_7]
-62. Find the grade based on marks using if-elif-else:  
+62. Find the grade based on marks using if-elif-else:  <br> [Filename - 0062_grade_calculator]
     - 90-100: A  
     - 75-89: B    
     - 50-74: C  
-    - <50: Fail  <br> [Filename - 0062_grade_calculator]
+    - <50: Fail  
 63. Print all odd numbers from 1 to (user defined number) <br> [Filename - 0063_odd_numbers]
 64. Calculate the factorial of a number using a loop. <br> [Filename - 0064_factorial]
-65. Create a menu-driven program:  
+65. <br> [Filename - 0065_square_cube_menu] Create a menu-driven program:  
     - Find Square
     - Find Cube
     - Exit
-<br> [Filename - 0065_square_cube_menu]
+
 66. Write a program to start a countdown from the number inputted by the user. <br> [Filename - 0066_countdown]
 67. Write a program calculating exponentials using a loop.  <br> [Filename - 0067_exponentials]
 68. Write a program to accept the number of rows and print the following:  <br> [Filename - 0068_pattern_descending]
