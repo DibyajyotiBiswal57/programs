@@ -19,11 +19,25 @@ class weird_operations4 {
       else System.out.println("The number is not divisible by 9");
     } else {
       if (Double.isFinite(no1) && Double.isFinite(no2)) {
-        double product = no1 * no2;
-        if (Double.isFinite(product)) {
-          System.out.println("The product is: " + product);
+        double absNo1 = Math.abs(no1);
+        double absNo2 = Math.abs(no2);
+        if (absNo1 == 0.0 || absNo2 == 0.0) {
+          // Safe: the exact product is 0.0
+          System.out.println("The product is: 0.0");
         } else {
-          System.out.println("The product is too large in magnitude to be represented safely.");
+          double maxAllowed = Double.MAX_VALUE / absNo2;
+          if (absNo1 <= maxAllowed) {
+            double product = no1 * no2;
+            if (Double.isFinite(product)) {
+              System.out.println("The product is: " + product);
+            } else {
+              System.out.println(
+                  "The product is too large in magnitude to be represented safely.");
+            }
+          } else {
+            System.out.println(
+                "The product is too large in magnitude to be represented safely.");
+          }
         }
       } else {
         System.out.println(
