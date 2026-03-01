@@ -53,18 +53,25 @@ LANGUAGE
 22. Find the sum, difference, product of any 2 numbers.  <br> [Filename - 0022_basic_operations]
 
 23. Swap 2 numbers without using a third variable.  <br> [Filename - 0023_swap_without_temp]
-25. Find the perimeter of a square, rectangle, triangle, circle, parallelogram, trapezium.  <br> [Filename - 0024_perimeter]
-26. Print series upto n (input from user). <br> S = (1/1!)+([1+2]/[1!+2!])+([1+2+3]/[1!+2!+3!])...+([1+2+3...+n]/[1!+2!+3!...+n!]).  <br> [Filename - 0025_factorial_series]
-27. Check if a person is a child or an adult.  <br> [Filename - 0026_child_adult]
-28. Write a calculator.  <br> [Filename - 0027_calculator]
-29. Check if a number is divisible by a particular number.  <br> [Filename - 0028_divisibility_check]
-30. Check if the number has 1, 2 or more digits.  <br> [Filename - 0029_digit_count_check]
-31. Check if a number is a palindrome or not.  <br> [Filename - 0030_palindrome_number]
-32. Check if an entered year is a leap year or not.  <br> [Filename - 0031_leap_year]
-33. Check if a number is neon number or not. (The sum of the digits of its square equals the original number itself.)  <br> [Filename - 0032_neon_number]
+
+24. Find the perimeter of a square, rectangle, triangle, circle, parallelogram, trapezium.  <br> [Filename - 0024_perimeter]
+25. Print series upto n (input from user). <br> [Filename - 0025_factorial_series]
+```
+S = (1/1!)+([1+2]/[1!+2!])+([1+2+3]/[1!+2!+3!])...+([1+2+3...+n]/[1!+2!+3!...+n!])
+```
+
+26. Check if a person is a child or an adult.  <br> [Filename - 0026_child_adult]
+
+27. Write a calculator.  <br> [Filename - 0027_calculator]
+30. Check if a number is divisible by a particular number.  <br> [Filename - 0028_divisibility_check]
+31. Check if the number has 1, 2 or more digits.  <br> [Filename - 0029_digit_count_check]
+32. Check if a number is a palindrome or not.  <br> [Filename - 0030_palindrome_number]
+33. Check if an entered year is a leap year or not.  <br> [Filename - 0031_leap_year]
+34. Check if a number is neon number or not. (The sum of the digits of its square equals the original number itself.)  <br> [Filename - 0032_neon_number]
 ```
 Eg - 9²-> 81 -> 8+1=9
-``` 
+```
+
 34. Write a guessing game.  <br> [Filename - 0033_guessing_game]
 35. Calculate a 10% discount if the amount is above 10000 else a discount of 7.5%. Display the discount received and the final billing amount to be paid.  <br> [Filename - 0034_discount_calculator]
 36. Read three numbers and display the largest of the three numbers.  <br> [Filename - 0035_largest_of_three]
@@ -191,25 +198,30 @@ Sum: 40
 86. Write a program to check whether a number is a perfect number. (A perfect number is equal to the sum of its proper divisors.)  <br> [Filename - 0086_perfect_number]
 ```
 Eg: 28 → 1+2+4+7+14 = 28
-```  
+```
+
 87. Write a program to check whether a number is an automorphic number. (An automorphic number's square ends with the number itself.)  <br> [Filename - 0087_automorphic_number]
 ```
 Eg: 25 → 25² = 625 ends with 25
-``` 
+```
+
 88. Write a program that takes a string input from the user and converts all lowercase letters to uppercase and all uppercase letters to lowercase, leaving digits and special characters unchanged. <br> [Filename - 0088_toggle_case] 
 89. Accept a string and a character and check how many words start with the character. <br> [Filename - 0089_first_character_check]
-90. Check if two numbers are amicable numbers. (Sum of factors of the first number except the number itself is equal to the second number and sum of factors of the second number except the number itself is equal to the first number)  
+
+90. Check if two numbers are amicable numbers. (Sum of factors of the first number except the number itself is equal to the second number and sum of factors of the second number except the number itself is equal to the first number)  <br> [Filename - 0090_amicable_number]
 ```
 Eg: 220 → 1+2+4+5+10+11+20+22+44+55+110 = 284 284 → 1+2+4+71+142 = 220
 ```
-<br> [Filename - 0090_amicable_number]
-91. Check if a number is a happy number. (A number that eventually reaches 1 when you repeatedly replace it with the sum of the squares of its digits)
+
+91. Check if a number is a happy number. (A number that eventually reaches 1 when you repeatedly replace it with the sum of the squares of its digits)  <br> [Filename - 0091_happy_number]
 ```
 Eg: 19 → 1² + 9² = 82 → 8² + 2² = 68 → 6² + 8² = 100 → 1² + 0² + 0² = 1
 ```
-<br> [Filename - 0091_happy_number]
-92. Convert a Roman numeral (I–MMMCMXCIX) into its integer representation. <br> [Filename - 0092_roman_to_integer]  
-93. Convert an integer (1–3999) into its Roman numeral representation. <br> [Filename - 0093_integer_to_roman]  
+
+92. Convert a Roman numeral (I–MMMCMXCIX) into its integer representation. <br> [Filename - 0092_roman_to_integer]
+
+93. Convert an integer (1–3999) into its Roman numeral representation. <br> [Filename - 0093_integer_to_roman]
+
 94. Write a program to calculate the factorial of an inputted number and find the sum of the digits in the factorial. <br> [Filename - 0094_factorial_sum]
 ```  
 Example:  
@@ -227,6 +239,7 @@ Output: {hello: 2, world: 1}
 ```
 
 96. Take a sentence as input and print the words in reverse order. <br> [Filename - 0096_reverse_word]
+
 97. Given a list of words, group them into sets of anagrams. <br> [Filename - 0097_anagram_grouping]
 ```
 Example:  
@@ -235,6 +248,7 @@ Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
 ```
 
 98. Find all prime factors of a given number. <br> [Filename - 0098_prime_factorization]
+
 99. Take an integer as input and check if it is a "lucky number." A number is considered lucky if the sum of its digits is divisible by 7. <br> [Filename - 0099_lucky_number]
 ```  
 Example:  
@@ -243,4 +257,5 @@ Output: Lucky Number
 Input: 123  
 Output: Not Lucky
 ```
-100. Encode or decode a value into base32 or base64 and vice-versa. 
+
+100. Encode or decode a value into base32 or base64 and vice-versa. <br> [Filename - 0100_text_encoder]
