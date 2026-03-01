@@ -1,0 +1,85 @@
+name: Update Markdown Timestamps
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+  pull_request:
+    paths:
+      - '**/*.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-markdown-timestamps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Determine changed Markdown files
+        id: changed_md
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            git fetch origin "${{ github.base_ref }}" --depth=1
+            CHANGED=$(git diff --name-only "origin/${{ github.base_ref }}"...HEAD -- '*.md')
+          else
+            ZERO=0000000000000000000000000000000000000000
+            if [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "$ZERO" ]; then
+              CHANGED=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- '*.md')
+            else
+              CHANGED=$(git show --pretty="" --name-only "${{ github.sha }}" -- '*.md')
+            fi
+          fi
+
+          echo "files<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$CHANGED" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Run timestamp updater
+        if: steps.changed_md.outputs.files != ''
+        shell: bash
+        run: |
+          mapfile -t files <<< "${{ steps.changed_md.outputs.files }}"
+          if [ "${#files[@]}" -eq 0 ]; then
+            exit 0
+          fi
+          python update_markdown_timestamps.py "${files[@]}"
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push timestamp updates
+        if: github.event_name == 'push' && steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Auto-update markdown timestamps"
+          git pull --rebase origin "${{ github.ref_name }}" || git rebase --abort
+          git push
+        continue-on-error: true
+
+      - name: Fail if pull request needs timestamp updates
+        if: github.event_name == 'pull_request' && steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          echo "Markdown timestamps were updated. Please commit these changes." >&2
+          exit 1
