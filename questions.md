@@ -1,3 +1,5 @@
+# Topics - 
+
 1. Print "Hello World". <br> [Filename - 0001_hello_world]
  
 2. Calculate the sum of 3 numbers.  <br> [Filename - 0002_sum_of_three]
@@ -258,4 +260,4 @@ Input: 123
 Output: Not Lucky
 ```
 
-100. Encode or decode a value into base32 or base64 and vice-versa. <br> [Filename - 0100_text_encoder]
+100. Encode or decode a value into base32 or base64 and vice-versa. <br> [Filename - 0100_text_encoder_decoder]
