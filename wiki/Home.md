@@ -8,33 +8,33 @@ This wiki provides comprehensive documentation for the repository containing 89+
 
 ### Getting Started
 - [Home](Home) - This page
-- [Getting Started Guide](Getting-Started) - How to use this repository
-- [Installation & Setup](Installation-Setup) - Setting up development environment
-- [Quick Start Tutorial](Quick-Start) - Your first program
+- [Getting Started Guide](Getting-Started.md) - How to use this repository
+- [Installation & Setup](Installation-Setup.md) - Setting up development environment
+- [Quick Start Tutorial](Quick-Start.md) - Your first program
 
 ### Language Guides
-- [Python Guide](Language-Guide-Python)
-- [Java Guide](Language-Guide-Java)
-- [C Guide](Language-Guide-C)
-- [C++ Guide](Language-Guide-Cpp)
-- [Other Languages](Language-Guides) - Complete list of all supported languages
+- [Python Guide](Language-Guide-Python.md)
+- [Java Guide](Language-Guide-Java.md)
+- [C Guide](Language-Guide-C.md)
+- [C++ Guide](Language-Guide-Cpp.md)
+- [Other Languages](Language-Guides.md) - Complete list of all supported languages
 
 ### Contributing
-- [Contributing Guide](Contributing) - How to contribute
-- [Code Style Guidelines](Code-Style) - Coding standards
-- [Adding a New Language](Adding-New-Language) - Process for adding language support
-- [Adding a New Problem](Adding-New-Problem) - Proposing new challenges
+- [Contributing Guide](./CONTRIBUTING.md) - How to contribute
+- [Code Style Guidelines](Code-Style.md) - Coding standards
+- [Adding a New Language](Adding-New-Language.md) - Process for adding language support
+- [Adding a New Problem](Adding-New-Problem.md) - Proposing new challenges
 
 ### Reference
-- [Problem Index](https://raw.githubusercontent.com/DibyajyotiBiswal57/programs/refs/heads/main/questions.md) - Complete list of all problems
-- [FAQ](FAQ) - Frequently asked questions
-- [Troubleshooting](Troubleshooting) - Common issues and solutions
-- [Project Structure](Project-Structure) - Repository organization
+- [Problem Index](./questions.md) - Complete list of all problems
+- [FAQ](FAQ.md) - Frequently asked questions
+- [Troubleshooting](Troubleshooting.md) - Common issues and solutions
+- [Project Structure](Project-Structure.md) - Repository organization
 
 ### Advanced Topics
-- [Automation Scripts](Automation) - Understanding generate_html.py and update_status.py
-- [GitHub Actions](GitHub-Actions) - CI/CD workflows
-- [Interactive Status Page](Status-Page) - About the HTML status tracker
+- [Automation Scripts](Automation.md) - Understanding generate_html.py and update_status.py
+- [GitHub Actions](GitHub-Actions.md) - CI/CD workflows
+- [Interactive Status Page](Status-Page.md) - About the HTML status tracker
 
 ## 🎯 About This Repository
 
@@ -77,11 +77,11 @@ Solutions available in:
 
 ## 🚀 Quick Start
 
-1. **Browse Problems**: Check out the [Problem Index](Problem-Index)
-2. **Choose a Language**: See [Language Guides](Language-Guides)
+1. **Browse Problems**: Check out the [Problem Index](./questions.md)
+2. **Choose a Language**: See [Language Guides](Language-Guides.md)
 3. **View Solutions**: Navigate to language-specific folders
-4. **Run Code**: Follow [Getting Started Guide](Getting-Started)
-5. **Contribute**: Read [Contributing Guide](Contributing)
+4. **Run Code**: Follow [Getting Started Guide](Getting-Started.md)
+5. **Contribute**: Read [Contributing Guide](./CONTRIBUTING.md)
 
 ## 📖 Documentation Structure
 
