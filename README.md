@@ -14,7 +14,7 @@
 
   # 🚀 Programming Solutions Universe
 
-  ### _A polyglot collection of 89+ programming challenges solved in 17+ languages_
+  ### _A polyglot collection of programming challenges solved in 17+ languages_
   [![CodeQL](https://github.com/DibyajyotiBiswal57/programs/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/DibyajyotiBiswal57/programs/actions/workflows/github-code-scanning/codeql)  
   [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success?style=for-the-badge&logo=github)](https://dibyajyotibiswal57.github.io/programs/)
   [![Languages](https://img.shields.io/badge/Languages-17+-blue?style=for-the-badge&logo=polywork)](#-languages-supported)
@@ -25,8 +25,8 @@
   ```ascii
   ╔═══════════════════════════════════════════════════════════════╗
   ║  🎯 From "Hello World" to Advanced Algorithms                 ║
-  ║  🌐 17+ Programming Languages | 📚 89+ Unique Problems       ║
-  ║  ⚡ Interactive Status Page | 🎨 Multiple Solutions          ║
+  ║  🌐 17+ Programming Languages | 📚 Unique Problems            ║
+  ║  ⚡ Interactive Status Page | 🎨 Multiple Solutions            ║
   ╚═══════════════════════════════════════════════════════════════╝
   ```
 
@@ -96,7 +96,7 @@
 
 ## 📚 Problems List
 
-Looking for the complete list of 89+ programming challenges?
+Looking for the complete list of the programming challenges?
 
 ### 📖 [View All Problems in questions.md](questions.md)
 
