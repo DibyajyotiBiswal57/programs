@@ -69,6 +69,8 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add status.md assets/js/status-data.json
           git commit -m "Auto-update status.md and status-data.json with Shields.io badges"
+          git pull --rebase origin ${{ github.ref_name }} || git rebase --abort
           git push
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

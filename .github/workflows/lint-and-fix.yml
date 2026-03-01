@@ -442,6 +442,7 @@ jobs:
       - name: Push changes (non-fork PRs and direct pushes)
         if: steps.check-changes.outputs.has_changes == 'true' && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository))
         run: |
+          git pull --rebase origin ${{ github.head_ref || github.ref_name }} || git rebase --abort
           git push
         continue-on-error: true
           
