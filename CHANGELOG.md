@@ -72,6 +72,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Create super-linter.yml
 - Create python-app.yml
 - Add bluish tint to website color scheme
+- Add automated CHANGELOG.md update script and GitHub Actions workflow ([#39])
+- Add .github/copilot-instructions.md for Copilot coding agent onboarding ([#41])
+- Add .github/copilot-instructions.md with repository-wide Copilot instructions
 
 ### Changed
 - Refactored README: extracted embedded content to dedicated files, added engagement
@@ -162,6 +165,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Potential fix for code scanning alert no. 30: User-controlled data in arithmetic expression
 - Fix job condition to handle pull_request events correctly
 - Fix syntax error in even number check
+- Potential fix for code scanning alert no. 45: Partial server-side request forgery
 
 ### Automated
 - GitHub Actions now auto-applies linter fixes across all supported languages
@@ -251,3 +255,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#31]: https://github.com/DibyajyotiBiswal57/programs/pull/31
 [#32]: https://github.com/DibyajyotiBiswal57/programs/pull/32
 [#38]: https://github.com/DibyajyotiBiswal57/programs/pull/38
+[#39]: https://github.com/DibyajyotiBiswal57/programs/pull/39
+[#41]: https://github.com/DibyajyotiBiswal57/programs/pull/41
