@@ -15,7 +15,7 @@ docs/
 
 ### Getting Started
 - [Main README](../README.md) - Repository overview
-- [SETUP.md](SETUP.md) - Development environment setup guide
+- [SETUP](Installation-Setup.md) - Development environment setup guide
 - [CONTRIBUTING](../CONTRIBUTING.md) - How to contribute
 
 ### Reference
@@ -28,7 +28,7 @@ docs/
 - [Security Policy](../SECURITY.md) - Security guidelines
 
 ### Wiki (External)
-Access the [GitHub Wiki](https://github.com/DibyajyotiBiswal57/programs/wiki) for:
+Access the [GitHub Wiki](https://github.com/DibyajyotiBiswal57/programs/tree/main/wiki) for:
 - Comprehensive guides
 - Language-specific tutorials
 - FAQ and troubleshooting
@@ -44,7 +44,7 @@ Access the [GitHub Wiki](https://github.com/DibyajyotiBiswal57/programs/wiki) fo
 
 ### For Contributors
 1. Read [CONTRIBUTING](../CONTRIBUTING.md)
-2. Check [SETUP.md](SETUP.md) for environment setup
+2. Check [SETUP.md](Installation-Setup.md) for environment setup
 3. Submit your first PR!
 
 ### For Maintainers
@@ -78,7 +78,5 @@ Access the [GitHub Wiki](https://github.com/DibyajyotiBiswal57/programs/wiki) fo
 - Email: coder99957@dibyajyoti.is-a.dev
 
 ---
-
-**Last Updated**: 2026-02-06
 
 Last updated: 2026-03-01 13:11:12 UTC
