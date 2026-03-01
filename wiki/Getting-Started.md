@@ -162,26 +162,23 @@ print("Hello World")
 ## 📚 Learning Path
 
 ### For Beginners
-1. Start with problems 1-20
-2. Choose a language you're learning
-3. Read the problem in `questions.md`
-4. Try to solve it yourself first
-5. Compare with the repository solution
-6. Try the same problem in another language
+1. Choose a language you're learning
+2. Read the problem in `questions.md`
+3. Try to solve it yourself first
+4. Compare with the repository solution
+5. Try the same problem in another language
 
 ### For Intermediate Users
-1. Focus on problems 21-50
-2. Implement missing solutions
-3. Optimize existing solutions
-4. Add solutions in new languages
-5. Contribute back to the repository
+1. Implement missing solutions
+2. Optimize existing solutions
+3. Add solutions in new languages
+4. Contribute back to the repository
 
 ### For Advanced Users
-1. Tackle problems 51-89
-2. Implement in multiple languages
-3. Add new problem suggestions
-4. Improve automation scripts
-5. Help review pull requests
+1. Implement in multiple languages
+2. Add new problem suggestions
+3. Improve automation scripts
+4. Help review pull requests
 
 ## 🛠️ Development Environment Setup
 
