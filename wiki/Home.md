@@ -7,7 +7,7 @@ This wiki provides comprehensive documentation for the repository containing 89+
 ## 📚 Quick Navigation
 
 ### Getting Started
-- [Home](Home) - This page
+- [Home](Home.md) - This page
 - [Getting Started Guide](Getting-Started.md) - How to use this repository
 - [Installation & Setup](Installation-Setup.md) - Setting up development environment
 - [Quick Start Tutorial](Quick-Start.md) - Your first program
@@ -20,13 +20,13 @@ This wiki provides comprehensive documentation for the repository containing 89+
 - [Other Languages](Language-Guides.md) - Complete list of all supported languages
 
 ### Contributing
-- [Contributing Guide](CONTRIBUTING.md) - How to contribute
+- [Contributing Guide](/CONTRIBUTING.md) - How to contribute
 - [Code Style Guidelines](Code-Style.md) - Coding standards
 - [Adding a New Language](Adding-New-Language.md) - Process for adding language support
 - [Adding a New Problem](Adding-New-Problem.md) - Proposing new challenges
 
 ### Reference
-- [Problem Index](questions.md) - Complete list of all problems
+- [Problem Index](/questions.md) - Complete list of all problems
 - [FAQ](FAQ.md) - Frequently asked questions
 - [Troubleshooting](Troubleshooting.md) - Common issues and solutions
 - [Project Structure](Project-Structure.md) - Repository organization
@@ -77,11 +77,11 @@ Solutions available in:
 
 ## 🚀 Quick Start
 
-1. **Browse Problems**: Check out the [Problem Index](questions.md)
+1. **Browse Problems**: Check out the [Problem Index](/questions.md)
 2. **Choose a Language**: See [Language Guides](Language-Guides.md)
 3. **View Solutions**: Navigate to language-specific folders
 4. **Run Code**: Follow [Getting Started Guide](Getting-Started.md)
-5. **Contribute**: Read [Contributing Guide](CONTRIBUTING.md)
+5. **Contribute**: Read [Contributing Guide](/CONTRIBUTING.md)
 
 ## 📖 Documentation Structure
 
@@ -116,7 +116,7 @@ wiki/
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/DibyajyotiBiswal57/programs/blob/main/LICENSE) file for details.
+This project is licensed under the GPL2 License - see the [LICENSE](/LICENSE) file for details.
 
 ---
 
