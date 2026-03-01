@@ -120,9 +120,6 @@ This project is licensed under the GPL2 License - see the [LICENSE](/LICENSE) fi
 
 ---
 
-**Last Updated**: 2026-02-06  
-**Wiki Version**: 1.0.0
-
 💡 **Tip**: Use the search function (top right) to quickly find specific topics!
 
 Last updated: 2026-03-01 11:42:20 UTC
