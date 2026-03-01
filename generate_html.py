@@ -225,9 +225,8 @@ def parse_status_badges(status_file="status.md"):
                         badges = cells[1:]
                         status_badges[question_num] = badges
 
-        print(
-            f"📊 Parsed status badges for {
-                len(status_badges)} questions from {status_file}")
+        print(f"📊 Parsed status badges for {
+            len(status_badges)} questions from {status_file}")
         return status_badges
 
     except Exception as e:

@@ -143,11 +143,9 @@ def _run(*args, check=False):
         cwd=os.path.dirname(os.path.abspath(__file__)) or ".",
     )
     if check and result.returncode != 0:
-        print(
-            f"Command failed: {
-                ' '.join(args)}\n{
-                result.stderr}",
-            file=sys.stderr)
+        print(f"Command failed: {
+            ' '.join(args)}\n{
+            result.stderr}", file=sys.stderr)
     return result.stdout.strip()
 
 

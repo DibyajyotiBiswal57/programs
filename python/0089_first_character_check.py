@@ -11,7 +11,6 @@ while True:
     else:
         print("Please enter a single alphabetic character.")
 
-print(
-    f'The letter "{
-        char.upper()}" appears {
-            charList.count(char)} times as the first letter of a word.')
+print(f'The letter "{
+    char.upper()}" appears {
+    charList.count(char)} times as the first letter of a word.')

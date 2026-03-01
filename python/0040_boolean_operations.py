@@ -11,13 +11,12 @@ if boolean:
 else:
     h = a
     r = b
-    print(
-        f"Surface area of the cylinder is {
-            2 *
-            math.pi *
-            r *
-            h +
-            2 *
-            math.pi *
-            r ** 2}")
+    print(f"Surface area of the cylinder is {
+        2 *
+        math.pi *
+        r *
+        h +
+        2 *
+        math.pi *
+        r ** 2}")
     print(f"Volume of clyinder is {math.pi * r ** 2 * h}")
