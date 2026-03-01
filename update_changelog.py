@@ -36,7 +36,26 @@ import sys
 import urllib.error
 import urllib.request
 
-REPO = os.environ.get("GITHUB_REPOSITORY", "DibyajyotiBiswal57/programs")
+DEFAULT_REPO = "DibyajyotiBiswal57/programs"
+
+def validate_repo(repo: str) -> str:
+    """
+    Validate a GitHub repository identifier from the environment.
+
+    Expected format: "owner/repo", where both segments are non-empty and consist only
+    of allowed characters. If validation fails, fall back to DEFAULT_REPO.
+    """
+    # GitHub allows a fairly broad character set, but we keep this strict to avoid
+    # path manipulation. Adjust if you legitimately need other characters.
+    if not isinstance(repo, str):
+        return DEFAULT_REPO
+    pattern = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
+    if pattern.match(repo):
+        return repo
+    return DEFAULT_REPO
+
+
+REPO = validate_repo(os.environ.get("GITHUB_REPOSITORY", DEFAULT_REPO))
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 CHANGELOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md")
 
