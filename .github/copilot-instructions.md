@@ -2,7 +2,7 @@
 
 ## Repository Purpose
 
-A polyglot collection of 89+ programming challenges (from `questions.md`) solved in 17+ languages. Each problem has a canonical filename used across all languages.
+A polyglot collection of programming challenges (from `questions.md`) solved in 17+ languages. Each problem has a canonical filename used across all languages.
 
 ## Repository Structure
 
