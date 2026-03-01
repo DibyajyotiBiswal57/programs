@@ -63,7 +63,7 @@ S = (1/1!)+([1+2]/[1!+2!])+([1+2+3]/[1!+2!+3!])...+([1+2+3...+n]/[1!+2!+3!...+n!
 26. Check if a person is a child or an adult.  <br> [Filename - 0026_child_adult]
 
 27. Write a calculator.  <br> [Filename - 0027_calculator]
-30. Check if a number is divisible by a particular number.  <br> [Filename - 0028_divisibility_check]
+28. Check if a number is divisible by a particular number.  <br> [Filename - 0028_divisibility_check]
 31. Check if the number has 1, 2 or more digits.  <br> [Filename - 0029_digit_count_check]
 32. Check if a number is a palindrome or not.  <br> [Filename - 0030_palindrome_number]
 33. Check if an entered year is a leap year or not.  <br> [Filename - 0031_leap_year]
@@ -72,8 +72,9 @@ S = (1/1!)+([1+2]/[1!+2!])+([1+2+3]/[1!+2!+3!])...+([1+2+3...+n]/[1!+2!+3!...+n!
 Eg - 9²-> 81 -> 8+1=9
 ```
 
-34. Write a guessing game.  <br> [Filename - 0033_guessing_game]
-35. Calculate a 10% discount if the amount is above 10000 else a discount of 7.5%. Display the discount received and the final billing amount to be paid.  <br> [Filename - 0034_discount_calculator]
+33. Write a guessing game.  <br> [Filename - 0033_guessing_game]
+
+34. Calculate a 10% discount if the amount is above 10000 else a discount of 7.5%. Display the discount received and the final billing amount to be paid.  <br> [Filename - 0034_discount_calculator]
 36. Read three numbers and display the largest of the three numbers.  <br> [Filename - 0035_largest_of_three]
 37. Read two numbers and display the smaller of the two.  <br> [Filename - 0036_smaller_of_two]
 38. Read a number and a character. If the character is 'S' display the square of the number. If the character is 'C' then display the cube of the number.  <br> [Filename - 0037_square_cube]
