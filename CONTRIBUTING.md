@@ -28,8 +28,9 @@ To keep our collection organized and sorted logically, please follow the filenam
 ## 🚀 Pull Request Process
 1. Fork the repo and create your branch.
 2. Ensure your code compiles and runs without errors.
-3. Submit a PR with a clear title like `Add: [Language] [Program Name]`.
-4. Explain what your program does in brief.
+3. If you edit any `.md` files, run `python update_markdown_timestamps.py` to refresh the timestamp at the bottom.
+4. Submit a PR with a clear title like `Add: [Language] [Program Name]`.
+5. Explain what your program does in brief.
 
 ### Legend -  
 
