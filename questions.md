@@ -117,36 +117,36 @@ Eg - 9²-> 81 -> 8+1=9
 68. Write a program calculating exponentials using a loop.  <br> [Filename - 0067_exponentials]
 69. Write a program to accept the number of rows and print the following:  <br> [Filename - 0068_pattern_descending]
 ```
-    Eg. (No of rows: 5)
-    12345
-    1234
-    123
-    12
-    1
+Eg. (No of rows: 5)
+12345
+1234
+123
+12
+1
 ```
 
 69. Write a program to accept the number of rows and print the following:  <br> [Filename - 0069_pattern_ones]
-   ```
-    Eg. (No of rows: 5)  
-    11111  
-    1111  
-    111  
-    11  
-    1
+```
+Eg. (No of rows: 5)  
+11111  
+1111  
+111  
+11  
+1
 ```
 
 70. Write a program to check whether a number is a spy number. (sum of digits = product of digits).  <br> [Filename - 0070_spy_number]
 ```
-Eg- 22 -> 2*2 = 2+2
+Eg - 22 -> 2*2 = 2+2
 ```
-72. Write a program to accept the number of rows and print the following:  <br> [Filename - 0071_pattern_reverse_desc]
-   ```
-    Eg. (No of rows: 5)  
-    54321  
-    4321  
-    321  
-    21  
-    1
+71. Write a program to accept the number of rows and print the following:  <br> [Filename - 0071_pattern_reverse_desc]
+```
+Eg. (No of rows: 5)  
+54321  
+4321  
+321  
+21  
+1
 ```
 72. Write a program to check whether a number is an Armstrong number. (sum of cube of digits is equal to the number).  <br> [Filename - 0072_armstrong_number]
 ```
@@ -154,10 +154,10 @@ Eg - 153 -> 1³ + 5³ + 3³ = 153
 ```
 74. Write a program to accept the number of rows and print the following pattern:  <br> [Filename - 0073_pattern_sixes]
 `````
-    Eg. (No of rows: 3)  
-    6666  
-    6666  
-    6666
+Eg. (No of rows: 3)  
+6666  
+6666  
+6666
 `````
 74. Write a program to print the Fibonacci sequence until the term specified by the user.  <br> [Filename - 0074_fibonacci]
 75. Write a program to add odd and even numbers until a number inputted by the user.  <br> [Filename - 0075_sum_odd_even]
@@ -187,8 +187,7 @@ Eg - n = 4
 85. Write a program to:  <br> [Filename - 0085_arithmetic_series]
 - Take input n (number of terms), a (first term), and d (common difference).
 - Print the first n terms of the arithmetic series.
-- Calculate and print the sum of the series.
-
+- Calculate and print the sum of the series.  
 ```
 Example:
 Input: n=5, a=2, d=3
