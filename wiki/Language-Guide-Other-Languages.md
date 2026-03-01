@@ -30,3 +30,5 @@ This page covers every language in the repository except C and C++. All solution
 - A brief top-of-file comment states the problem being solved.
 - Output formatting (including newlines) matches examples in `questions.md`.
 - Code runs with the standard toolchain for that language without extra dependencies.
+
+[← Back to Language Guides](Language-Guides.md) 

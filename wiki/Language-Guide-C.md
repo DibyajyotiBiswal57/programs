@@ -30,3 +30,5 @@ gcc -std=c11 -Wall -Wextra -pedantic 0001_hello_world.c -o 0001_hello_world
 - Code compiles with `gcc -std=c11 -Wall -Wextra -pedantic`.
 - Formatting aligns with repository style (`clang-format` friendly, 2-space indents).
 - Include a brief top-of-file comment stating the problem the program solves.
+
+[← Back to Language Guides](Language-Guides.md) | [C++ Guide →](Language-Guide-Cpp.md)

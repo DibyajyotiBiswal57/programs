@@ -29,3 +29,5 @@ g++ -std=c++17 -Wall -Wextra -pedantic 0001_hello_world.cpp -o 0001_hello_world
 - Builds cleanly with `g++ -std=c++17 -Wall -Wextra -pedantic`.
 - Formatting aligns with `clang-format` (2-space indents).
 - Includes a brief top-of-file comment summarizing the solved problem.
+
+[← Back to Language Guides](Language-Guides.md) | [Other Languages Guide →](Language-Guide-Other-Languages.md)
