@@ -22,13 +22,6 @@
   [![License](https://img.shields.io/github/license/DibyajyotiBiswal57/programs?style=for-the-badge)](LICENSE)
   [![Contributors](https://img.shields.io/github/contributors/DibyajyotiBiswal57/programs?style=for-the-badge)](https://github.com/DibyajyotiBiswal57/programs/graphs/contributors)
 
-  ```ascii
-  ╔═══════════════════════════════════════════════════════════════╗
-  ║  🎯 From "Hello World" to Advanced Algorithms                 ║
-  ║  🌐 17+ Programming Languages | 📚 Unique Problems            ║
-  ║  ⚡ Interactive Status Page | 🎨 Multiple Solutions            ║
-  ╚═══════════════════════════════════════════════════════════════╝
-  ```
 
   **[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/DibyajyotiBiswal57/programs)**  
   **[🌟 Live Demo](https://dibyajyotibiswal57.github.io/programs/)** • **[📖 Documentation](#-getting-started)** • **[🤝 Contributing](CONTRIBUTING.md)** • **[📋 Full Problem List](#-problems-list)**
