@@ -31,12 +31,10 @@ class weird_operations4 {
             if (Double.isFinite(product)) {
               System.out.println("The product is: " + product);
             } else {
-              System.out.println(
-                  "The product is too large in magnitude to be represented safely.");
+              System.out.println("The product is too large in magnitude to be represented safely.");
             }
           } else {
-            System.out.println(
-                "The product is too large in magnitude to be represented safely.");
+            System.out.println("The product is too large in magnitude to be represented safely.");
           }
         }
       } else {

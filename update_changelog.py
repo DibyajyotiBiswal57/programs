@@ -38,6 +38,7 @@ import urllib.request
 
 DEFAULT_REPO = "DibyajyotiBiswal57/programs"
 
+
 def validate_repo(repo: str) -> str:
     """
     Validate a GitHub repository identifier from the environment.
@@ -57,9 +58,12 @@ def validate_repo(repo: str) -> str:
 
 REPO = validate_repo(os.environ.get("GITHUB_REPOSITORY", DEFAULT_REPO))
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
-CHANGELOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md")
+CHANGELOG_FILE = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "CHANGELOG.md"
+)
 
-# Ordered list of Keep-a-Changelog categories (includes repo-custom "Automated")
+# Ordered list of Keep-a-Changelog categories (includes repo-custom
+# "Automated")
 CATEGORIES = [
     "Added",
     "Changed",
@@ -72,12 +76,43 @@ CATEGORIES = [
 
 # Keyword → category mapping (checked against lower-cased title)
 CATEGORY_KEYWORDS = {
-    "Security": ["secur", "vulnerab", "cve", "xss", "injection", "overflow", "sanitiz"],
-    "Fixed": ["fix", "bug", "patch", "correct", "repair", "resolv"],
-    "Removed": ["remov", "delet", "drop"],
+    "Security": [
+        "secur",
+        "vulnerab",
+        "cve",
+        "xss",
+        "injection",
+        "overflow",
+        "sanitiz"],
+    "Fixed": [
+        "fix",
+        "bug",
+        "patch",
+        "correct",
+        "repair",
+        "resolv"],
+    "Removed": [
+        "remov",
+        "delet",
+        "drop"],
     "Deprecated": ["deprecat"],
-    "Added": ["add", "new", "creat", "introduc", "implement", "feat"],
-    "Automated": ["auto", " ci", "workflow", "action", "bot", "linter", "generat", "schedul"],
+    "Added": [
+        "add",
+        "new",
+        "creat",
+        "introduc",
+        "implement",
+        "feat"],
+    "Automated": [
+        "auto",
+        " ci",
+        "workflow",
+        "action",
+        "bot",
+        "linter",
+        "generat",
+        "schedul",
+    ],
     "Changed": [
         "change",
         "update",
@@ -108,7 +143,11 @@ def _run(*args, check=False):
         cwd=os.path.dirname(os.path.abspath(__file__)) or ".",
     )
     if check and result.returncode != 0:
-        print(f"Command failed: {' '.join(args)}\n{result.stderr}", file=sys.stderr)
+        print(
+            f"Command failed: {
+                ' '.join(args)}\n{
+                result.stderr}",
+            file=sys.stderr)
     return result.stdout.strip()
 
 
@@ -252,8 +291,9 @@ def get_existing_unreleased_entries(content):
     for duplicate detection.
     """
     m = re.search(
-        r"## \[Unreleased\](.*?)(?=^## \[|\Z)", content, re.DOTALL | re.MULTILINE
-    )
+        r"## \[Unreleased\](.*?)(?=^## \[|\Z)",
+        content,
+        re.DOTALL | re.MULTILINE)
     if not m:
         return set()
     entries = set()
@@ -313,15 +353,23 @@ def build_new_entries(commits, merge_commits):
         else:
             # Strip "Merge pull request #NN from owner/branch" and use what follows;
             # if nothing follows, derive a readable title from the branch slug.
-            m = re.match(r"Merge pull request #\d+ from [^/]+/(\S+)\s*(.*)", subject)
+            m = re.match(
+                r"Merge pull request #\d+ from [^/]+/(\S+)\s*(.*)",
+                subject)
             if m:
                 after = m.group(2).strip()
                 if after:
                     title = after
                 else:
                     # Convert branch slug → title, removing common prefixes
-                    slug = re.sub(r"^(copilot|claude|feature|fix|chore)/", "", m.group(1))
-                    title = slug.replace("-", " ").replace("_", " ").capitalize()
+                    slug = re.sub(
+                        r"^(copilot|claude|feature|fix|chore)/", "", m.group(1)
+                    )
+                    title = slug.replace(
+                        "-",
+                        " ").replace(
+                        "_",
+                        " ").capitalize()
             else:
                 title = subject
 
@@ -354,7 +402,11 @@ def _entry_core(text):
     return re.sub(r"\s*\(\[#\d+\]\)\s*$", "", text).lower().strip()
 
 
-def update_unreleased_section(content, new_entries, existing_entries, existing_prs):
+def update_unreleased_section(
+        content,
+        new_entries,
+        existing_entries,
+        existing_prs):
     """Insert new entries into the [Unreleased] section of *content*.
 
     Uses line-level insertion so existing multi-line bullets are preserved
@@ -417,10 +469,14 @@ def update_unreleased_section(content, new_entries, existing_entries, existing_p
         n = len(new_bullets)
 
         if cat in subsection_start:
-            # Find the insertion point: just before trailing blank lines of subsection
+            # Find the insertion point: just before trailing blank lines of
+            # subsection
             end_idx = subsection_end[cat]
             insert_idx = end_idx
-            while insert_idx > subsection_start[cat] + 1 and not lines[insert_idx - 1].strip():
+            while (
+                insert_idx > subsection_start[cat] + 1
+                and not lines[insert_idx - 1].strip()
+            ):
                 insert_idx -= 1
 
             lines[insert_idx:insert_idx] = new_bullets
@@ -433,7 +489,8 @@ def update_unreleased_section(content, new_entries, existing_entries, existing_p
                     subsection_end[other] += n
         else:
             # Add a brand-new subsection at the end of the [Unreleased] body
-            # Insert before any trailing blank lines that precede the next "## " header
+            # Insert before any trailing blank lines that precede the next "##
+            # " header
             insert_idx = len(lines)
             while insert_idx > 0 and not lines[insert_idx - 1].strip():
                 insert_idx -= 1
@@ -447,7 +504,8 @@ def update_unreleased_section(content, new_entries, existing_entries, existing_p
         return content
 
     new_section_body = "\n".join(lines)
-    return content[: match.start(2)] + new_section_body + content[match.end(2) :]
+    return content[: match.start(2)] + \
+        new_section_body + content[match.end(2):]
 
 
 def update_reference_links(content, pr_numbers):
@@ -508,13 +566,12 @@ def main():
 
     # Collect new PR numbers across all categories
     all_new_prs = {
-        item["pr"]
-        for items in new_entries.values()
-        for item in items
-        if item["pr"]
+        item["pr"] for items in new_entries.values() for item in items if item["pr"]
     }
 
-    content = update_unreleased_section(content, new_entries, existing_entries, existing_prs)
+    content = update_unreleased_section(
+        content, new_entries, existing_entries, existing_prs
+    )
     content = update_reference_links(content, all_new_prs)
 
     write_changelog(content)

@@ -6,10 +6,9 @@ This script scans language folders and generates a JSON file containing the stat
 program implementation across all languages.
 """
 
+import json
 import os
 import re
-import json
-
 
 # Language configuration matching update_status.py
 LANGUAGE_CONFIG = {
@@ -68,7 +67,7 @@ def extract_question_number(filename):
 def scan_language_folders():
     """
     Scan all language folders and detect program status.
-    
+
     Returns:
         Dictionary mapping question_number -> language -> {"status": status, "filename": filename}
     """
@@ -121,20 +120,20 @@ def generate_status_json():
     Generate status-data.json file.
     """
     print("🚀 Starting status-data.json generation...")
-    
+
     status_data = scan_language_folders()
-    
+
     print(f"\n✅ Found status for {len(status_data)} questions")
-    
+
     # Write to JSON file
     output_file = "assets/js/status-data.json"
-    
+
     # Ensure directory exists
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
-    
+
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(status_data, f, indent=2)
-    
+
     print(f"✅ {output_file} successfully generated!")
     print(f"📊 Generated data for {len(status_data)} questions")
 

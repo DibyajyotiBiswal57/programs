@@ -28,7 +28,8 @@ def test_replaces_existing_timestamp(tmp_path: Path) -> None:
     assert changed is True
     content = markdown_file.read_text(encoding="utf-8").strip().splitlines()
     assert content[-1] == f"Last updated: {timestamp}"
-    assert len([line for line in content if line.startswith("Last updated: ")]) == 1
+    assert len(
+        [line for line in content if line.startswith("Last updated: ")]) == 1
 
 
 def test_apply_timestamp_to_content_is_idempotent() -> None:

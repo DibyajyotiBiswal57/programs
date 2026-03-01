@@ -3,8 +3,9 @@
 
   // Configuration
   const COLLAPSE_STATE_PREFIX = "question-collapsed-";
-  const REPO_BASE_URL = "https://github.com/DibyajyotiBiswal57/programs/blob/main";
-  
+  const REPO_BASE_URL =
+    "https://github.com/DibyajyotiBiswal57/programs/blob/main";
+
   // Try multiple possible paths for status data
   const STATUS_DATA_PATHS = [
     "/programs/assets/js/status-data.json", // GitHub Pages with baseurl
@@ -60,7 +61,9 @@
       }
     }
 
-    console.warn("Failed to fetch status data from any path, using empty fallback");
+    console.warn(
+      "Failed to fetch status data from any path, using empty fallback",
+    );
     return {};
   }
 
@@ -224,7 +227,7 @@
       const badge = generateBadge(
         fileInfo.status,
         lang.folder,
-        fileInfo.filename
+        fileInfo.filename,
       );
       html += `<td>${badge}</td>`;
     });
@@ -260,7 +263,7 @@
     headerButton.setAttribute("aria-expanded", "false");
     headerButton.setAttribute(
       "aria-label",
-      `Toggle details for question ${questionNum}`
+      `Toggle details for question ${questionNum}`,
     );
 
     // Create header content
@@ -346,7 +349,7 @@
     contentWrapper,
     headerIcon,
     questionNum,
-    save = true
+    save = true,
   ) {
     const isExpanded = headerButton.getAttribute("aria-expanded") === "true";
 
@@ -426,7 +429,7 @@
               contentWrapper,
               headerIcon,
               info.questionNum,
-              true
+              true,
             );
           });
 
@@ -439,7 +442,7 @@
                 contentWrapper,
                 headerIcon,
                 info.questionNum,
-                true
+                true,
               );
             }
           });
@@ -458,7 +461,7 @@
                 contentWrapper,
                 headerIcon,
                 info.questionNum,
-                false
+                false,
               );
             }, 200);
           }

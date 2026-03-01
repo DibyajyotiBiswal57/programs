@@ -45,7 +45,9 @@ def update_file(path: Path, timestamp: str) -> bool:
     return True
 
 
-def gather_markdown_files(repo_root: Path, provided_files: Iterable[str]) -> List[Path]:
+def gather_markdown_files(
+        repo_root: Path,
+        provided_files: Iterable[str]) -> List[Path]:
     """Get Markdown files to update based on CLI input or git status."""
     if provided_files:
         paths: List[Path] = []
@@ -80,7 +82,9 @@ def gather_markdown_files(repo_root: Path, provided_files: Iterable[str]) -> Lis
             cwd=repo_root,
         )
     except (subprocess.CalledProcessError, FileNotFoundError) as exc:
-        print(f"Unable to determine changed Markdown files: {exc}", file=sys.stderr)
+        print(
+            f"Unable to determine changed Markdown files: {exc}",
+            file=sys.stderr)
         return []
 
     paths = []

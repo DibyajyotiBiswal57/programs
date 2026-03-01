@@ -12,7 +12,8 @@ def calculate_metrics(tp, tn, fp, fn):
     dict: Dictionary containing the calculated metrics
     """
     # Accuracy: (TP + TN) / (TP + TN + FP + FN)
-    accuracy = (tp + tn) / (tp + tn + fp + fn) if (tp + tn + fp + fn) != 0 else 0
+    accuracy = (tp + tn) / (tp + tn + fp +
+                            fn) if (tp + tn + fp + fn) != 0 else 0
 
     # Precision: TP / (TP + FP)
     precision = tp / (tp + fp) if (tp + fp) != 0 else 0
@@ -21,14 +22,19 @@ def calculate_metrics(tp, tn, fp, fn):
     recall = tp / (tp + fn) if (tp + fn) != 0 else 0
 
     # F1 Score: 2 * (Precision * Recall) / (Precision + Recall)
-    f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) != 0 else 0
+    f1_score = (
+        2 * (precision * recall) / (precision + recall)
+        if (precision + recall) != 0
+        else 0
+    )
 
     return {
-        'Accuracy': accuracy,
-        'Precision': precision,
-        'Recall': recall,
-        'F1 Score': f1_score
+        "Accuracy": accuracy,
+        "Precision": precision,
+        "Recall": recall,
+        "F1 Score": f1_score,
     }
+
 
 # Example usage
 if __name__ == "__main__":
