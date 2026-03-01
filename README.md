@@ -60,7 +60,7 @@
 <td width="50%">
 
 ### 📊 Comprehensive Coverage
-- **89+ Programming Problems**
+- **Many Programming Problems**
 - **17+ Programming Languages**
 - **Multiple Difficulty Levels**
 - **Well-documented Solutions**
@@ -93,12 +93,10 @@ Looking for the complete list of the programming challenges?
 
 ### 📖 [View All Problems in questions.md](questions.md)
 
-The problems are organized by difficulty level:
+All levels of problems can be found:
 - **🏁 Beginner**: Basic I/O, arithmetic, simple conditionals
 - **🔧 Intermediate**: Loops, strings, patterns, calculations
 - **🎓 Advanced**: Algorithms, special numbers, complex logic
-
-Each problem includes detailed descriptions, examples, and filename conventions.
 
 ---
 
