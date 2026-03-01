@@ -500,7 +500,7 @@ The interactive HTML page includes:
 
 Once you're comfortable navigating the repository:
 
-1. Read the [Contributing Guide](./CONTRIBUTING.md)
+1. Read the [Contributing Guide](/CONTRIBUTING.md)
 2. Check the [Code Style Guidelines](Code-Style)
 3. Look for issues labeled "good first issue"
 4. Fork the repository and start coding!
