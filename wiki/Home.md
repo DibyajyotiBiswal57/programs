@@ -20,13 +20,13 @@ This wiki provides comprehensive documentation for the repository containing 89+
 - [Other Languages](Language-Guides.md) - Complete list of all supported languages
 
 ### Contributing
-- [Contributing Guide](./CONTRIBUTING.md) - How to contribute
+- [Contributing Guide](CONTRIBUTING.md) - How to contribute
 - [Code Style Guidelines](Code-Style.md) - Coding standards
 - [Adding a New Language](Adding-New-Language.md) - Process for adding language support
 - [Adding a New Problem](Adding-New-Problem.md) - Proposing new challenges
 
 ### Reference
-- [Problem Index](./questions.md) - Complete list of all problems
+- [Problem Index](questions.md) - Complete list of all problems
 - [FAQ](FAQ.md) - Frequently asked questions
 - [Troubleshooting](Troubleshooting.md) - Common issues and solutions
 - [Project Structure](Project-Structure.md) - Repository organization
@@ -47,7 +47,7 @@ This repository is a comprehensive collection of programming solutions designed 
 
 ## 📊 Repository Stats
 
-- **89+ Problems** across 3 difficulty levels
+- **Multiple Problems** across 3 difficulty levels
 - **17+ Programming Languages** supported
 - **Active Community** of contributors
 - **Automated Testing** and status tracking
@@ -77,11 +77,11 @@ Solutions available in:
 
 ## 🚀 Quick Start
 
-1. **Browse Problems**: Check out the [Problem Index](./questions.md)
+1. **Browse Problems**: Check out the [Problem Index](questions.md)
 2. **Choose a Language**: See [Language Guides](Language-Guides.md)
 3. **View Solutions**: Navigate to language-specific folders
 4. **Run Code**: Follow [Getting Started Guide](Getting-Started.md)
-5. **Contribute**: Read [Contributing Guide](./CONTRIBUTING.md)
+5. **Contribute**: Read [Contributing Guide](CONTRIBUTING.md)
 
 ## 📖 Documentation Structure
 
