@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=blur&height=300&color=gradient&text=Programming%20Solutions&reversal=false&textBg=false&animation=fadeIn&fontSize=60&desc=70%2B%20Languages%20•%20%2015%2B%20Languages&descAlignY=76&fontColor=036ffc&rotate=-5&descAlign=68" alt="Programming Solutions Universe banner" />
+  <img src="https://capsule-render.vercel.app/api?type=blur&height=300&color=gradient&text=Programming%20Solutions&reversal=false&textBg=false&animation=fadeIn&fontSize=60&desc=70%2B%20Programs%20•%20%2015%2B%20Languages&descAlignY=76&fontColor=036ffc&rotate=-5&descAlign=68" alt="Programming Solutions Universe banner" />
 
   ## ⭐ Show Your Support
 
