@@ -32,3 +32,5 @@ gcc -std=c11 -Wall -Wextra -pedantic 0001_hello_world.c -o 0001_hello_world
 - Include a brief top-of-file comment stating the problem the program solves.
 
 [← Back to Language Guides](Language-Guides.md) | [C++ Guide →](Language-Guide-Cpp.md)
+
+Last updated: 2026-03-01 13:49:23 UTC
