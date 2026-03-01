@@ -75,6 +75,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add automated CHANGELOG.md update script and GitHub Actions workflow ([#39])
 - Add .github/copilot-instructions.md for Copilot coding agent onboarding ([#41])
 - Add .github/copilot-instructions.md with repository-wide Copilot instructions
+- Add stale.yml workflow for managing inactive issues and PRs
+- Create label.yml
+- Add GitHub Actions workflow for greetings
 
 ### Changed
 - Refactored README: extracted embedded content to dedicated files, added engagement
@@ -166,6 +169,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix job condition to handle pull_request events correctly
 - Fix syntax error in even number check
 - Potential fix for code scanning alert no. 45: Partial server-side request forgery
+- Potential fix for code scanning alert no. 31: User-controlled data in arithmetic expression ([#43])
+- Fix concurrent workflow push race condition causing non-fast-forward errors ([#37])
+- Fix non-fast-forward push errors in GitHub Actions workflows
 
 ### Automated
 - GitHub Actions now auto-applies linter fixes across all supported languages
@@ -181,6 +187,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Delete .github/workflows/codeql.yml
 - Delete .github/workflows/python-app.yml
 - Delete .github/workflows/super-linter.yml
+
+### Deprecated
+- Fix deprecated action versions and python command inconsistency in workflows
+
 
 
 ## [0.1] - 2026-01-29
@@ -257,3 +267,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#38]: https://github.com/DibyajyotiBiswal57/programs/pull/38
 [#39]: https://github.com/DibyajyotiBiswal57/programs/pull/39
 [#41]: https://github.com/DibyajyotiBiswal57/programs/pull/41
+[#37]: https://github.com/DibyajyotiBiswal57/programs/pull/37
+[#43]: https://github.com/DibyajyotiBiswal57/programs/pull/43
