@@ -122,4 +122,4 @@ This project is licensed under the GPL2 License - see the [LICENSE](/LICENSE) fi
 
 💡 **Tip**: Use the search function (top right) to quickly find specific topics!
 
-Last updated: 2026-03-01 11:42:20 UTC
+Last updated: 2026-03-01 11:52:11 UTC
