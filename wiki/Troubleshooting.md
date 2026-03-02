@@ -590,6 +590,6 @@ When reporting issues, include:
 
 ---
 
-[← Back to Home](Home) | [FAQ →](FAQ.md)
+[← Back to Home](Home.md) | [FAQ →](FAQ.md)
 
 Last updated: 2026-03-01 13:39:14 UTC
