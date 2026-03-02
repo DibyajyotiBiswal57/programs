@@ -592,4 +592,4 @@ When reporting issues, include:
 
 [← Back to Home](Home.md) | [FAQ →](FAQ.md)
 
-Last updated: 2026-03-01 13:39:14 UTC
+Last updated: 2026-03-02 11:22:53 UTC
