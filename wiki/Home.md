@@ -12,7 +12,7 @@ This wiki provides comprehensive documentation for the repository containing 89+
 - [Installation & Setup](Installation-Setup.md) - Setting up development environment
 - [Quick Start Tutorial](Quick-Start.md) - Your first program
 
-### Language Guides
+### [Language Guides](Language-Guides.md)
 - [Python Guide](Language-Guide-Python.md)
 - [Java Guide](Language-Guide-Java.md)
 - [C Guide](Language-Guide-C.md)
