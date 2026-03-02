@@ -32,15 +32,8 @@ To keep our collection organized and sorted logically, please follow the filenam
 4. Submit a PR with a clear title like `Add: [Language] [Program Name]`.
 5. Explain what your program does in brief.
 
-### Legend -  
-
-| Symbol | Status | Description |
-|:------:|:-------|:------------|
-| ✅ | **Finished** | Program is complete and working |
-| ❗️ | **Beta** | Program is functional but may have issues or is work-in-progress |
-| ❌ | **Unfinished** | Program not yet implemented or incomplete |
-
 ---
+
 > [!Tip]
 > Use `class` instead of `public class` while writing Java programs, so that the class name and the filename do not have to match.
 
