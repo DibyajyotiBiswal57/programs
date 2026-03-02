@@ -72,7 +72,7 @@ Under `.github/workflows/`, you’ll find one or more workflow files that:
 - Regenerate and publish the status page
 - Perform other checks on pull requests
 
-These are described in more detail in [GitHub Actions](GitHub-Actions.md).
+These are described in more detail in [Automation](Automation.md).
 
 ---
 
@@ -90,11 +90,4 @@ The `wiki/` directory (this one) contains:
 
 ---
 
-## 7. Related Pages
-
-- [Home](Home.md)
-- [Getting Started](Getting-Started.md)
-- [Language Guides](Language-Guides.md)
-- [Automation Scripts](Automation.md)
-- [GitHub Actions](GitHub-Actions.md)
-- [Status Page](Status-Page.md)
+[Home](Home.md) | [Automation](Automation.md)
