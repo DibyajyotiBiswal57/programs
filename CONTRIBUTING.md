@@ -41,7 +41,7 @@ To keep our collection organized and sorted logically, please follow the filenam
 > Always sync your fork before opening a pull request.
 
 >[!CAUTION]
-> Do not change any critical files in the repository, or else your pull request will be cancelled.
+> Do not edit or remove any critical files in the repository, or else your pull request will be rejected.
 
 **Happy coding!**
 
