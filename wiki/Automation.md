@@ -90,3 +90,5 @@ Always test locally before relying on CI.
 - [GitHub Actions](GitHub-Actions.md)
 - [Project Structure](Project-Structure.md)
 - [Getting Started](Getting-Started.md)
+
+Last updated: 2026-03-02 11:30:18 UTC
