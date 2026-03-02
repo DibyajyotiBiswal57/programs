@@ -68,7 +68,6 @@ These scripts are often called from workflows defined under `.github/workflows/`
 - On push or pull request, to keep the status page current
 - On a schedule, to refresh artifacts
 
-Details are covered in [GitHub Actions](GitHub-Actions.md).
 
 ---
 
@@ -84,11 +83,6 @@ Always test locally before relying on CI.
 
 ---
 
-## 6. Related Pages
-
-- [Status Page](Status-Page.md)
-- [GitHub Actions](GitHub-Actions.md)
-- [Project Structure](Project-Structure.md)
-- [Getting Started](Getting-Started.md)
+[Back to Home](Home.md)
 
 Last updated: 2026-03-02 11:30:18 UTC
