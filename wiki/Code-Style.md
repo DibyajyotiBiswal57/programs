@@ -65,6 +65,6 @@ Make sure your code passes these checks before requesting a review.
 
 ---
 
-[← Back to Home](Home.md) | [Adding a new problem →](Adding-New-Problem.md)
+[← Back to Home](Home.md) | [Adding a new language →](Adding-New-Language.md)
 
 Last updated: 2026-03-02 11:10:33 UTC
