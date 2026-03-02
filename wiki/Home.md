@@ -33,8 +33,6 @@ This wiki provides comprehensive documentation for the repository containing 89+
 
 ### Advanced Topics
 - [Automation Scripts](Automation.md) - Understanding generate_html.py and update_status.py
-- [GitHub Actions](GitHub-Actions.md) - CI/CD workflows
-- [Interactive Status Page](Status-Page.md) - About the HTML status tracker
 
 ## 🎯 About This Repository
 
