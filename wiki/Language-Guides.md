@@ -22,7 +22,7 @@ The repository also supports additional languages, including (but not limited to
 - **Scripting:** Ruby, Perl, PowerShell  
 - **Systems:** Assembly
 
-[Other Languages](Language-Guides-Other-Languages.md) - Complete list of all supported languages
+[Other Languages](Language-Guide-Other-Languages.md) - Complete list of all supported languages
 
 [← Back to Home](Home.md) 
 
