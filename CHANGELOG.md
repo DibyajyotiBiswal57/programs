@@ -8,6 +8,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- _No changes yet._
+
+### Changed
+- _No changes yet._
+
+### Fixed
+- _No changes yet._
+
+### Automated
+- _No changes yet._
+
+### Removed
+- _No changes yet._
+
+### Deprecated
+- _No changes yet._
+
+## [1.0.0] - 2026-03-14
+
+### Added
 - CHANGELOG.md for tracking project changes
 - Comprehensive browser compatibility support: IE edge mode meta tag, mobile theming,
   noscript warning, and `@supports` CSS fallbacks for Grid and backdrop-filter ([#34])
@@ -179,7 +199,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   every push, on a schedule, and via `workflow_dispatch`
 
 ### Removed
-- Delete wiki directory
 - Delete python/0025_voting_eligibility.py
 - Delete java/0025_voting_eligibility.java
 - Delete COLLAPSIBLE_QUESTIONS_README.md
@@ -230,7 +249,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-[Unreleased]: https://github.com/DibyajyotiBiswal57/programs/compare/0.1...HEAD
+[Unreleased]: https://github.com/DibyajyotiBiswal57/programs/compare/v1...HEAD
+[1.0.0]: https://github.com/DibyajyotiBiswal57/programs/releases/tag/v1
 [0.1]: https://github.com/DibyajyotiBiswal57/programs/releases/tag/0.1
 
 [#1]: https://github.com/DibyajyotiBiswal57/programs/pull/1
