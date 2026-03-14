@@ -183,15 +183,14 @@ def create_shields_badge(status, label=None):
     badge_config = {
         "done": {"label": "done", "color": "brightgreen"},
         "beta": {"label": "beta", "color": "yellow"},
-        "missing": {"label": "missing", "color": "lightgrey"},
+        "missing": {"label": "missing", "color": "red"},
     }
 
     config = badge_config.get(status, badge_config["missing"])
-    badge_label = quote(label or config["label"])
-    badge_status = quote(config["label"])
+    badge_message = quote(label or config["label"])
     badge_color = config["color"]
 
-    return f"https://img.shields.io/badge/{badge_label}-{badge_status}-{badge_color}"
+    return f"https://img.shields.io/badge/-{badge_message}-{badge_color}"
 
 
 def generate_status_table(status, num_questions):
