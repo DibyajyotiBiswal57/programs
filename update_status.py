@@ -6,7 +6,7 @@ This script reads questions from questions.md, scans all language folders for pr
 detects their status, and generates a status.md file with Shields.io badges:
 - Finished files: Green "done" badge with link to file
 - Beta files (beta/wip): Yellow "beta" badge with link to file
-- Missing/unfinished files: Grey "missing" badge without link
+- Missing/unfinished files: Red "unreleased" badge without link
 
 USAGE:
     python3 update_status.py
@@ -16,7 +16,7 @@ HOW IT WORKS:
     2. Scans all language folders (qbasic, java, python, c, cpp, etc.)
     3. Detects program status based on filename:
        - Files with "beta" or "wip" → Beta (yellow badge)
-       - Files with "unfinished" or "todo" → Missing (grey badge)
+       - Files with "unfinished" or "todo" → Unreleased (red badge)
        - All other files → Finished (green badge)
     4. Generates status.md with Shields.io badge table
 
@@ -132,7 +132,7 @@ def scan_language_folders():
 
     Returns:
         Dictionary mapping language -> question_number -> {"status": status, "filename": filename}
-        where status is "done", "beta", or "missing"
+        where status is "done", "beta", or "unreleased"
     """
     status = {lang: {} for lang in LANGUAGE_CONFIG.keys()}
 
@@ -161,7 +161,7 @@ def scan_language_folders():
                 if "beta" in fname_lower or "wip" in fname_lower:
                     status[lang][num] = {"status": "beta", "filename": file}
                 elif "unfinished" in fname_lower or "todo" in fname_lower:
-                    status[lang][num] = {"status": "missing", "filename": file}
+                    status[lang][num] = {"status": "unreleased", "filename": file}
                 else:
                     status[lang][num] = {"status": "done", "filename": file}
 
@@ -173,7 +173,7 @@ def create_shields_badge(status, label=None):
     Create a Shields.io badge URL.
 
     Args:
-        status: Status type ("done", "beta", or "missing")
+        status: Status type ("done", "beta", or "unreleased")
         label: Optional custom label (defaults to status)
 
     Returns:
@@ -183,10 +183,10 @@ def create_shields_badge(status, label=None):
     badge_config = {
         "done": {"label": "done", "color": "brightgreen"},
         "beta": {"label": "beta", "color": "yellow"},
-        "missing": {"label": "missing", "color": "red"},
+        "unreleased": {"label": "unreleased", "color": "red"},
     }
 
-    config = badge_config.get(status, badge_config["missing"])
+    config = badge_config.get(status, badge_config["unreleased"])
     badge_message = quote(label or config["label"])
     badge_color = config["color"]
 
@@ -229,18 +229,18 @@ def generate_status_table(status, num_questions):
                 badge_url = create_shields_badge(file_status)
 
                 # Create clickable link for done and beta, plain badge for
-                # missing
+                # unreleased
                 if file_status in ["done", "beta"]:
                     file_path = f"{lang}/{filename}"
                     cells.append(
                         f"[![{file_status}]({badge_url})]({file_path})")
                 else:
-                    # Missing/unfinished - plain badge without link
-                    cells.append(f"![{file_status}]({badge_url})")
+                    # Unreleased/unfinished - plain badge without link
+                    cells.append(f"![unreleased]({badge_url})")
             else:
-                # No file found - show plain missing badge
-                badge_url = create_shields_badge("missing")
-                cells.append(f"![missing]({badge_url})")
+                # No file found - show plain unreleased badge
+                badge_url = create_shields_badge("unreleased")
+                cells.append(f"![unreleased]({badge_url})")
 
         row = f"| {i:04d} | " + " | ".join(cells) + " |"
         table_lines.append(row)
@@ -279,7 +279,7 @@ def generate_status_md(status_table):
     # Create example badges for the legend
     done_badge = create_shields_badge("done")
     beta_badge = create_shields_badge("beta")
-    missing_badge = create_shields_badge("missing")
+    missing_badge = create_shields_badge("unreleased")
 
     status_parts.append(
         f"| ![done]({done_badge}) | **Finished** | Program is complete and working |")
@@ -287,7 +287,7 @@ def generate_status_md(status_table):
         f"| ![beta]({beta_badge}) | **Beta** | Program is functional but may have issues or is work-in-progress |"
     )
     status_parts.append(
-        f"| ![missing]({missing_badge}) | **Missing** | Program not yet implemented or incomplete |")
+        f"| ![unreleased]({missing_badge}) | **Unreleased** | Program not yet implemented or incomplete |")
     status_parts.append("")
 
     return "\n".join(status_parts)
