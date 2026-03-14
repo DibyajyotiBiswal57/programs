@@ -239,7 +239,7 @@ def convert_badge_to_html(badge_md):
     Convert markdown badge to HTML.
 
     Args:
-        badge_md: Markdown badge string (e.g., "[![done](...)](link)" or "![missing](...)")
+        badge_md: Markdown badge string (e.g., "[![done](...)](link)" or "![unreleased](...)")
 
     Returns:
         HTML string for the badge
