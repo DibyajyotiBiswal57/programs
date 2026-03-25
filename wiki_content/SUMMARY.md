@@ -23,3 +23,5 @@ This file lists all wiki pages available in the `wiki/` folder.
 - [Automation](../wiki/Automation.md)
 - [FAQ](../wiki/FAQ.md)
 - [Troubleshooting](../wiki/Troubleshooting.md)
+
+Last updated: 2026-03-25 15:13:10 UTC

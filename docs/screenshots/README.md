@@ -19,3 +19,5 @@ Shows the **Wiki** tab selected — the full wiki table of contents appears in t
 Shows the **Home.md** wiki page rendered inside mdBook. Content is served **unmodified** directly from the `wiki/` folder (copied at build time by the workflow).
 
 ![Wiki Home page](tab-wiki-home.png)
+
+Last updated: 2026-03-25 15:13:10 UTC
