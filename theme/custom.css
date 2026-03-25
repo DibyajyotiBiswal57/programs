@@ -1,0 +1,48 @@
+/* Tab bar for Programs / Wiki switching */
+.tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 10px 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 7px 10px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--sidebar-fg, #c8c9db);
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    margin-bottom: -2px;
+    border-radius: 4px 4px 0 0;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--sidebar-active, #fff);
+}
+
+.tab-btn.active {
+    border-bottom-color: var(--links, #2196f3);
+    color: var(--sidebar-active, #fff);
+}
+
+/* Make the sidebar scrollbox a flex column so the tab bar sticks to top */
+.sidebar-scrollbox {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0 !important;
+}
+
+.sidebar-scrollbox .chapter {
+    flex: 1;
+    min-height: 0;
+}

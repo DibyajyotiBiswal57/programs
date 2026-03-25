@@ -477,3 +477,9 @@ test.py
 # Test files
 test-questions.html
 test-gradient.html
+
+# mdBook build output
+book/
+
+# mdBook wiki copy (populated at build time from wiki/)
+src/wiki/

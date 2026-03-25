@@ -1,0 +1,19 @@
+[book]
+title = "Programming Solutions Universe"
+authors = ["DibyajyotiBiswal57"]
+description = "89+ programming challenges solved in 17+ languages"
+src = "src"
+language = "en"
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
+additional-css = ["theme/custom.css"]
+additional-js = ["theme/tabs.js"]
+git-repository-url = "https://github.com/DibyajyotiBiswal57/programs"
+edit-url-template = "https://github.com/DibyajyotiBiswal57/programs/edit/main/{path}"
+site-url = "/programs/book/"
