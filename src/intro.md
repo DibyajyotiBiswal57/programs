@@ -31,3 +31,5 @@ Each problem follows a consistent naming convention â€” `0001_hello_world.ext` â
 ## Getting Started
 
 Head to the **Wiki** tab (above) to find detailed guides for each language, or browse the [Overview](programs/overview.md) for a project summary.
+
+Last updated: 2026-03-25 14:36:57 UTC
