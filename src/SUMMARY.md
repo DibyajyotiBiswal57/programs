@@ -12,8 +12,9 @@
 
 # 📖 Wiki
 
-[Home](wiki/Home.md)
+[Wiki Introduction](wiki/intro.md)
 
+- [Home](wiki/Home.md)
 - [Getting Started](wiki/Getting-Started.md)
 - [Quick Start](wiki/Quick-Start.md)
 - [Installation & Setup](wiki/Installation-Setup.md)
@@ -31,5 +32,3 @@
   - [Automation](wiki/Automation.md)
 - [FAQ](wiki/FAQ.md)
 - [Troubleshooting](wiki/Troubleshooting.md)
-
-Last updated: 2026-03-25 14:36:57 UTC

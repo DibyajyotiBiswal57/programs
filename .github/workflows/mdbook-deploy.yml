@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "wiki/**"
+      - "wiki_content/**"
       - "src/**"
       - "theme/**"
       - "book.toml"
@@ -32,6 +33,7 @@ jobs:
         run: |
           mkdir -p src/wiki
           cp wiki/*.md src/wiki/
+          cp wiki_content/intro.md src/wiki/intro.md
 
       - name: Install mdBook
         run: |
