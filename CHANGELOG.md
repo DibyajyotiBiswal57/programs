@@ -9,12 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - _No changes yet._
+- Add script to generate random even number
+- Add question for generating random even number
+- feat: rename missing status to unreleased in update_status.py
 
 ### Changed
 - _No changes yet._
+- Regenerate index.html with unreleased badges after status.md update ([#48])
+- Rename "missing" badge to "unreleased"; fix beta colour to yellow ([#47])
+- Update README.md
+- Initial plan
 
 ### Fixed
 - _No changes yet._
+- Fix generate_html.py badge docstring and regenerate index.html with unreleased badges
+- Initial plan: fix generate_html.py badge handling and regenerate index.html
+- fix: correct shields badge URL format and missing badge color
 
 ### Automated
 - _No changes yet._
@@ -289,5 +299,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#41]: https://github.com/DibyajyotiBiswal57/programs/pull/41
 [#37]: https://github.com/DibyajyotiBiswal57/programs/pull/37
 [#43]: https://github.com/DibyajyotiBiswal57/programs/pull/43
+[#47]: https://github.com/DibyajyotiBiswal57/programs/pull/47
+[#48]: https://github.com/DibyajyotiBiswal57/programs/pull/48
 
 Last updated: 2026-03-14 07:34:00 UTC
