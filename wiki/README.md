@@ -28,7 +28,7 @@ docs/
 - [Security Policy](../SECURITY.md) - Security guidelines
 
 ### Wiki (External)
-Access the [GitHub Wiki](https://github.com/DibyajyotiBiswal57/programs/tree/main/wiki/Home.md) for:
+Access the [GitHub Wiki](/wiki/Home.md) for:
 - Comprehensive guides
 - Language-specific tutorials
 - FAQ and troubleshooting
