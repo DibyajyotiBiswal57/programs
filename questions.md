@@ -168,16 +168,16 @@ Eg. (No of rows: 3)
 ```
 Eg. 135 -> 1¹ + 3² + 5³ -> 1 + 9 + 125 -> 135
 ```
-79. Write a program to check whether a number is a magic number.  (sum of digits repeatedly checked turns to 1).    <br> [Filename - 0078_magic_number]
+78. Write a program to check whether a number is a magic number.  (sum of digits repeatedly checked turns to 1).    <br> [Filename - 0078_magic_number]
 ```
 Eg. 73 -> 7+3=10 -> 1+0=1
 ```
-80. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.  <br> [Filename - 0079_ml_metrics]
-81. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.  <br> [Filename - 0080_quadratic_roots]
-82. Write a script to input three numbers and find whether they form the three sides of a triangle.  <br> [Filename - 0081_triangle_check]
-83. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.  <br> [Filename - 0082_divisibility]
-84. Find HCF and LCM of Two Numbers.  <br> [Filename - 0083_hcf_lcm]
-85. Print the following zig-zag number pattern for n =(user inputted number): <br> [Filename - 0084_zigzag_pattern]
+79. Write a program to calculate Accuracy, Precision, Recall, F1 score of an AI model.  <br> [Filename - 0079_ml_metrics]
+80. Write a script to find and display the nature of roots (Real or Complex) along with the roots of a quadratic equation.  <br> [Filename - 0080_quadratic_roots]
+81. Write a script to input three numbers and find whether they form the three sides of a triangle.  <br> [Filename - 0081_triangle_check]
+82. Write a script which inputs two numbers from the user and checks if the first number is divisible by the second or not. The script should then display an appropriate message.  <br> [Filename - 0082_divisibility]
+83. Find HCF and LCM of Two Numbers.  <br> [Filename - 0083_hcf_lcm]
+84. Print the following zig-zag number pattern for n =(user inputted number): <br> [Filename - 0084_zigzag_pattern]
 ```
 Eg - n = 4
 1
