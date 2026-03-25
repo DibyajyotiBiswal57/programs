@@ -262,4 +262,6 @@ Output: Not Lucky
 
 100. Encode or decode a value into base32 or base64 and vice-versa. <br> [Filename - 0100_text_encoder_decoder]
 
+101. Generate a random even number between 10 & 50. <br> [Filenanme - 0101_random_even]
+
 Last updated: 2026-03-01 06:59:50 UTC
