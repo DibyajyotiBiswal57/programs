@@ -715,6 +715,12 @@
       "filename": "0046_dollar_rupee.py"
     }
   },
+  "101": {
+    "python": {
+      "status": "done",
+      "filename": "0101_random_even.py"
+    }
+  },
   "45": {
     "python": {
       "status": "done",
