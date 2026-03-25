@@ -16,4 +16,4 @@ additional-css = ["theme/custom.css"]
 additional-js = ["theme/tabs.js"]
 git-repository-url = "https://github.com/DibyajyotiBiswal57/programs"
 edit-url-template = "https://github.com/DibyajyotiBiswal57/programs/edit/main/{path}"
-site-url = "/programs/book/"
+site-url = "/programs/"

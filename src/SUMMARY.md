@@ -12,8 +12,9 @@
 
 # 📖 Wiki
 
-[Home](wiki/Home.md)
+[Wiki Introduction](wiki/intro.md)
 
+- [Home](wiki/Home.md)
 - [Getting Started](wiki/Getting-Started.md)
 - [Quick Start](wiki/Quick-Start.md)
 - [Installation & Setup](wiki/Installation-Setup.md)
