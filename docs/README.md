@@ -7,8 +7,7 @@ This directory contains comprehensive documentation for the Programming Solution
 ```
 docs/
 ├── README.md (this file)
-├── SETUP.md (Development environment setup)
-└── TESTING.md (Testing guidelines)
+└── SETUP.md (Development environment setup)
 ```
 
 ## 📚 Available Documentation
@@ -28,7 +27,7 @@ docs/
 - [Security Policy](../SECURITY.md) - Security guidelines
 
 ### Wiki (External)
-Access the [GitHub Wiki](https://github.com/DibyajyotiBiswal57/programs/wiki) for:
+Access the [GitHub Wiki](/wiki) for:
 - Comprehensive guides
 - Language-specific tutorials
 - FAQ and troubleshooting
