@@ -57,7 +57,7 @@ LANGUAGE
 23. Swap 2 numbers without using a third variable.  <br> [Filename - 0023_swap_without_temp]
 
 24. Find the perimeter of a square, rectangle, triangle, circle, parallelogram, trapezium.  <br> [Filename - 0024_perimeter]
-25. Print series upto n (input from user). <br> [Filename - 0025_factorial_series]
+25. Print series till n (input from user). <br> [Filename - 0025_factorial_series]
 ```
 S = (1/1!)+([1+2]/[1!+2!])+([1+2+3]/[1!+2!+3!])...+([1+2+3...+n]/[1!+2!+3!...+n!])
 ```
@@ -263,5 +263,17 @@ Output: Not Lucky
 100. Encode or decode a value into base32 or base64 and vice-versa. <br> [Filename - 0100_text_encoder_decoder]
 
 101. Generate a random even number between 10 & 50. <br> [Filenanme - 0101_random_even]
+
+102. Check if any of the elements of a given array is non-zero. <br> [Filename - 0102_nonzero_check]
+
+103. Check element-wise, for complex numbers, real numbers in a given array. Also test if a given number is of a scalar type or not. <br> [Filename - 0103_array_number_type]
+
+104. Create an element-wise comparision (>, >=, <, <=) of 2 given arrays. <br> [Filename - 0104_array_comparision]
+
+105. Create array of integers from numbers inputted from the user. [Filename - 0105_array_create]
+
+106. Create 3x4 array. [0106_arrays_3x4]
+
+107. Draw a line with suitable label in the x-axis, y-axis and a title. [0107_line_graphing]
 
 Last updated: 2026-03-25 18:56:53 UTC
