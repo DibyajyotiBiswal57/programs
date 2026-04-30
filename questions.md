@@ -87,11 +87,11 @@ Eg - 9²-> 81 -> 8+1=9
 43. Check if a string is a palindrome or not.  <br> [Filename - 0042_palindrome_string]
 44. Count the number of vowels in a string.  <br> [Filename - 0043_count_vowels]
 45. Read a line, then count words and display the total number of words in the given line.  <br> [Filename - 0044_word_count]
-46. Convert temperature from celsius to fahrenheit.  <br> [Filename - 0045_celsius_fahrenheit]
+46. Convert temperature from Celsius to Fahrenheit.  <br> [Filename - 0045_celsius_fahrenheit]
 47. Convert dollars to rupee with current conversion rate (take from internet).  <br> [Filename - 0046_dollar_rupee]
 48. Check if a character is uppercase or lowercase.  <br> [Filename - 0047_case_check]
-49. Add odd numbers upto a given value.  <br> [Filename - 0048_sum_odd_numbers]
-50. Calculate the BMI(Body Mass Index) of a person.  <br> [Filename - 0049_bmi_calculator]
+49. Add odd numbers till a given value.  <br> [Filename - 0048_sum_odd_numbers]
+50. Calculate the BMI (Body Mass Index) of a person.  <br> [Filename - 0049_bmi_calculator]
 51. Input a value in kilometres and convert it into miles.  <br> [Filename - 0050_km_to_miles]
 52. Input 3 numbers and swap them as this : 1st number becomes 2nd number and 2nd number becomes the 3rd number and 3rd number becomes the 1st number.  <br> [Filename - 0051_circular_swap]
 53. Input the total liabilities and shareholders' equity of a company and print its D/E ratio.  <br> [Filename - 0052_de_ratio]
@@ -116,7 +116,7 @@ Eg - 9²-> 81 -> 8+1=9
     - Find Cube
     - Exit
 67. Write a program to start a countdown from the number inputted by the user. <br> [Filename - 0066_countdown]
-68. Write a program calculating exponentials using a loop.  <br> [Filename - 0067_exponentials]
+68. Write a program calculating exponential using a loop.  <br> [Filename - 0067_exponential]
 69. Write a program to accept the number of rows and print the following:  <br> [Filename - 0068_pattern_descending]
 ```
 Eg. (No of rows: 5)
@@ -262,18 +262,46 @@ Output: Not Lucky
 
 100. Encode or decode a value into base32 or base64 and vice-versa. <br> [Filename - 0100_text_encoder_decoder]
 
-101. Generate a random even number between 10 & 50. <br> [Filenanme - 0101_random_even]
+101. Generate a random even number between 10 & 50. <br> [Filename - 0101_random_even]
 
 102. Check if any of the elements of a given array is non-zero. <br> [Filename - 0102_nonzero_check]
 
 103. Check element-wise, for complex numbers, real numbers in a given array. Also test if a given number is of a scalar type or not. <br> [Filename - 0103_array_number_type]
 
-104. Create an element-wise comparision (>, >=, <, <=) of 2 given arrays. <br> [Filename - 0104_array_comparision]
+104. Create an element-wise comparison (>, >=, <, <=) of 2 given arrays. <br> [Filename - 0104_array_comparison]
 
 105. Create array of integers from numbers inputted from the user. [Filename - 0105_array_create]
 
-106. Create 3x4 array. [0106_arrays_3x4]
+106. Create 3x4 array. [Filename - 0106_arrays_3x4]
 
-107. Draw a line with suitable label in the x-axis, y-axis and a title. [0107_line_graphing]
+107. Draw a line with suitable label in the x-axis, y-axis and a title. [Filename - 0107_line_graphing]
+
+108.  Find the sum of all elements in a list. [Filename - 0108_sum_list]
+
+109. Find the largest and smallest number is a list. [Filename - 0109_extremes_list]
+
+110. Print common numbers between 2 lists. [Filename - 0110_common_elements]
+
+111. Print all even numbers in a list. [Filename - 0111_even_numbers]
+
+112. Create a list of even and odd numbers from a list. [Filename - 0112_even_and_odd] 
+
+113. Remove repeated elements from a list. [Filename - 0113_remove_duplicates]
+
+114. Find longest word in a sentence. [Filename - 0114_longest_word]
+
+115. Find number of occurrences of a given element in a list. [Filename - 0115_count_elements]
+
+116. Sort a list in descending order. [Filename - 0116_desc_order_list]
+
+117. Rotate a list to the right by a given number of positions. [Filename - 0117_list_rotate]
+```
+Eg -
+list = [1,2,3,4,5] ; number = 2; newlist = [4,5,1,2,3]
+```
+
+118. Read the 2nd largest number in a list. [Filename - 0118_second_largest_list]
+
+119. Merge 2 sorted list into a single sorted list in ascending order. [Filename - 0119_sorted_merge]
 
 Last updated: 2026-03-25 18:56:53 UTC
