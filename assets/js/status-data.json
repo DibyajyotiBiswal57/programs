@@ -631,12 +631,6 @@
       "filename": "0086_perfect_number.py"
     }
   },
-  "67": {
-    "python": {
-      "status": "done",
-      "filename": "0067_exponentials.py"
-    }
-  },
   "76": {
     "python": {
       "status": "done",
@@ -785,6 +779,12 @@
     "python": {
       "status": "done",
       "filename": "0078_magic_number.py"
+    }
+  },
+  "67": {
+    "python": {
+      "status": "done",
+      "filename": "0067_exponential.py"
     }
   },
   "57": {
